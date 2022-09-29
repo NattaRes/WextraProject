@@ -1,0 +1,68 @@
+.content{
+  text-align: center;
+}
+.Ex{
+  font-weight: medium;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid #ddd;
+  width: 5%;
+}
+.IDtable{
+  font-weight: medium;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid #ddd;
+  width: 0.3%;
+}
+.Nametable{
+  font-weight: medium;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid #ddd;
+  width: 3%;
+}
+.catetable{
+  font-weight: medium;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid #ddd;
+  width: 1%;
+}
+.numtable{
+  font-weight: medium;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid #ddd;
+  width: 1%;
+}
+.actable{
+  font-weight: medium;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid #ddd;
+  width: 1%;
+}
+.px-6.py-4{
+  border: 1px solid #ddd;
+}
+* {
+  box-sizing: border-box;
+}
+.button{
+  margin-left: -15px;
+  margin-top: 5%;
+}
+.box {
+  padding: 12px 10px;
+  font-size: 14px;
+  background: #eee;
+  text-align: center;
+}
+.non{
+  margin-left: 2%;
+
+}
+.tableA{
+  border: 1px solid black; 
+}
