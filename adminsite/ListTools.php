@@ -39,7 +39,7 @@
     <input style="height: 40px; margin-left: 0.5%;" type="text" class="input" placeholder="Search">
     <button class="px-4 py-2 rounded-lg bg-sky-500 text-sky-100 " style="margin-left: 0.5%;">Search</button>
     <div style="align-self: flex-end; margin-left: auto; margin-right: 5.5%;">
-      <a href="CreateTools.html">
+      <a href="CreateTools.php">
         <button class="px-4 py-2 rounded-lg bg-sky-500 text-sky-100 ">เพิ่มเครื่องมือ</button>
       </a>
     </div>

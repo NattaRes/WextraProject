@@ -32,8 +32,8 @@
 //     }
 // }
 
-$host = "localhost:3307";
-$user = "root@";
+$host = "localhost:3306";
+$user = "root";
 $pass = "";
 $dbnm = "wextra";
 $conn = mysqli_connect($host, $user, $pass, $dbnm);
