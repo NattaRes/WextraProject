@@ -36,7 +36,7 @@ if ((!empty($lid)) && (!empty($pwd))) {
             if ($row["role"] == "admin") {
                 setcookie("userck", $lid, time() + 86400, '/');
                 // echo "\nADMIN : " . $lid;
-                echo "<script type='text/javascript'>location.href='adminsite/ListTools.php';</script>";
+                echo "<script type='text/javascript'>location.href='adminsite/menubar.html';</script>";
                 exit();
             } elseif ($row[5] == "stuser") {
                 setcookie("userck", $lid, time() + 86400, '/');

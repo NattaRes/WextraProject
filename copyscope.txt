@@ -1,0 +1,42 @@
+<?php
+          include("../connectdb.php");
+
+          $tablequery = "SELECT * FROM tools_all";
+
+          $res = $conn->query($tablequery);
+
+          echo "<table class='min-w-full' style='width: 50%;'>
+                <thead>
+                  <tr>
+                    <th class='IDtable'>
+                      ลำดับ</th>
+                    <th class='Nametable'>
+                      อุปกรณ์
+                    </th>
+                    <th class='catetable'>
+                      ประเภทอุปกรณ์</th>
+                    <th class='numtable'>
+                      จำนวน</th>
+                    <th class='actable' colspan='4'>
+                      Action</th>
+
+                  </tr>
+                </thead>";
+          echo "<tbody class='bg-white'>";
+          while ($row = mysqli_fetch_array($res)) {
+            echo "<tr>";
+            echo "<td class='px-6 py-4 whitespace-no-wrap border-b border-gray-200'>" . "<div class='content'>" . $row['ID_all'] . "</div>" . "</td>";
+            echo "<td class='px-6 py-4 whitespace-no-wrap border-b border-gray-200'>" . "<div class='content'>" . $row['brand'] . " " . $row['name'] . " " . $row['model'] . "</div>" . "</td>";
+            echo "<td>" . $row['type'] . "</td>";
+            echo "<td>" . $row['usable_quantity'] . "</td>";
+            echo "<td>" . $row['defect_quantity'] . "</td>";
+            echo "<td>" . $row['lost_quantity'] . "</td>";
+            echo "</tr>";
+          }
+          echo "</tbody>";
+          echo "</table>";
+
+          // while ($row = mysqli_fetch_array($res)) {
+          //   echo print_r($row);
+          // }
+          ?>
