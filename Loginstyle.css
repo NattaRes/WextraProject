@@ -1,8 +1,9 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     height: 100vh;
     display: flex;
     overflow: hidden;
@@ -11,30 +12,31 @@ body{
     background: linear-gradient(180deg, rgba(27, 101, 114, 0.73) 0%, rgba(163, 216, 232, 0.99) 100%);
 }
 
-.LoginForm form{
-   top: 50%;
-   left: 50%;
-   width: 818px;
-   height: 406px;
-   max-width: 500px;
-   position: absolute;
-   padding: 50px 35px;
-   backdrop-filter: blur(5px);
-   transform: translate(-50%, -50%);
-   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-   border: 2px solid rgba(225, 255, 255, 0.1);
-   background: #F5F5F5;
-   border-radius: 50px;
+.LoginForm form {
+    top: 50%;
+    left: 50%;
+    width: 818px;
+    height: 406px;
+    max-width: 500px;
+    position: absolute;
+    padding: 50px 35px;
+    backdrop-filter: blur(5px);
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    border: 2px solid rgba(225, 255, 255, 0.1);
+    background: #F5F5F5;
+    border-radius: 50px;
 }
 
-form *{
+form * {
     border: none;
     outline: none;
     color: #000000;
     letter-spacing: 0.5px;
     font-family: "Poppins", sans-serif;
 }
-.title{
+
+.title {
     text-transform: uppercase;
     font-size: 32px;
     font-weight: 500;
@@ -43,7 +45,8 @@ form *{
     margin-top: 25px;
     padding-bottom: 10px;
 }
-.inputGroup{
+
+.inputGroup {
     display: block;
     margin-top: 25px;
     margin-left: 10%;
@@ -55,7 +58,7 @@ form *{
 
 }
 
-.inputGroup input{
+.inputGroup input {
     width: 84%;
     height: 50px;
     display: block;
@@ -67,11 +70,11 @@ form *{
     background-color: rgba(255, 255, 255, 0.07);
 }
 
-::placeholder{
+::placeholder {
     color: #A69C9C;
 }
 
-.submitForm{
+.submitForm {
     text-transform: uppercase;
     width: 300px;
     z-index: 1;
@@ -88,7 +91,7 @@ form *{
     border-radius: 50px;
 }
 
-.submitForm::before{
+.submitForm::before {
     content: "";
     top: 0%;
     left: -100%;
@@ -103,6 +106,6 @@ form *{
 }
 
 
-.submitForm:hover::before{
+.submitForm:hover::before {
     left: 0%;
 }

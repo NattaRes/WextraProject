@@ -1,106 +1,123 @@
-.content{
-    text-align: center;
-  }
-  .Ex{
-    font-weight: medium;
-    text-align: center;
-    text-transform: uppercase;
-    border: 1px solid #ddd;
-    width: 5%;
-  }
-  .IDtable{
-    font-weight: medium;
-    text-align: center;
-    text-transform: uppercase;
-    border: 1px solid #ddd;
-    width: 3%;
-  }
-  .Nametable{
-    font-weight: medium;
-    text-align: center;
-    text-transform: uppercase;
-    border: 1px solid #ddd;
-    width: 3%;
-  }
-  .catetable{
-    font-weight: medium;
-    text-align: center;
-    text-transform: uppercase;
-    border: 1px solid #ddd;
-    width: 1%;
-  }
-  .numtable{
-    font-weight: medium;
-    text-align: center;
-    text-transform: uppercase;
-    border: 1px solid #ddd;
-    width: 1%;
-  }
-  .actable{
-    font-weight: medium;
-    text-align: center;
-    text-transform: uppercase;
-    border: 1px solid #ddd;
-    width: 1%;
-  }
-  .px-6.py-4{
-    border: 1px solid #ddd;
-  }
-  * {
-    box-sizing: border-box;
-  }
-  .button{
-    margin-left: -15px;
-    margin-top: 5%;
-  }
-  .box {
-    padding: 12px 10px;
-    font-size: 14px;
-    background: #eee;
-    text-align: center;
-  }
-  .non{
-    margin-left: 2%;
-  
-  }
-  body {
-    font-family: 'Roboto', sans-serif;
+.content {
+  text-align: center;
 }
+
+.Ex {
+  font-weight: medium;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid #ddd;
+  width: 5%;
+}
+
+.IDtable {
+  font-weight: medium;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid #ddd;
+  width: 3%;
+}
+
+.Nametable {
+  font-weight: medium;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid #ddd;
+  width: 3%;
+}
+
+.catetable {
+  font-weight: medium;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid #ddd;
+  width: 1%;
+}
+
+.numtable {
+  font-weight: medium;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid #ddd;
+  width: 1%;
+}
+
+.actable {
+  font-weight: medium;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid #ddd;
+  width: 1%;
+}
+
+.px-6.py-4 {
+  border: 1px solid #ddd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.button {
+  margin-left: -15px;
+  margin-top: 5%;
+}
+
+.box {
+  padding: 12px 10px;
+  font-size: 14px;
+  background: #eee;
+  text-align: center;
+}
+
+.non {
+  margin-left: 2%;
+
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 .mytabs {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 80%;
-    margin: 50px auto;
-    padding: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 80%;
+  margin: 50px auto;
+  padding: 25px;
 }
+
 .mytabs input[type="radio"] {
-    display: none;
+  display: none;
 }
+
 .mytabs label {
-    padding: 25px;
-    background: #e2e2e2;
-    font-weight: bold;
+  padding: 25px;
+  background: #e2e2e2;
+  font-weight: bold;
 }
 
 .mytabs .tab {
-    width: 100%;
-    padding: 20px;
-    background: #fff;
-    order: 1;
-    display: none;
+  width: 100%;
+  padding: 20px;
+  background: #fff;
+  order: 1;
+  display: none;
 }
+
 .mytabs .tab h2 {
-    font-size: 3em;
+  font-size: 3em;
 }
 
-.mytabs input[type='radio']:checked + label + .tab {
-    display: block;
+.mytabs input[type='radio']:checked+label+.tab {
+  display: block;
 }
 
-.mytabs input[type="radio"]:checked + label {
-    background: #fff;
+.mytabs input[type="radio"]:checked+label {
+  background: #fff;
 }
-ิ.boxtext{
+
+ิ.boxtext {
   background-color: #4f5165;
   border-radius: 10px;
 }
