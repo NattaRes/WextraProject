@@ -13,11 +13,11 @@
 
 <body>
   <!-- create Post -->
-  <div style="margin-top: -3%;">
-    <div class="flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0">
-      <div class="w-full px-16 py-20 mt-6 overflow-hidden bg-white rounded-lg lg:max-w-4xl" style="margin-top: -5%;">
+  <div style="margin-top: 3%;">
+    <div class="flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0" style="margin-top: -5%;">
+      <div class=" px-16 py-20 mt-2 overflow-hidden rounded-lg bg-white lg:max-w-3xl" >
         <div class="mb-4">
-          <h1 class="font-serif text-3xl font-bold underline decoration-gray-400" style="margin-top: -5%;">
+          <h1 class="font-serif text-2xl font-bold underline decoration-gray-400" style="margin-top: -10%;">
             Create Tool Data
           </h1>
         </div>
@@ -25,33 +25,39 @@
         <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10">
           <form method="POST" action="../adminbackend/addtools.php">
             <!-- Text Input -->
-            <div>
+            <div style="float: left ; width:50%;">
               <label class="block text-sm font-bold text-gray-700" for="title">
                 ID เครื่องมือ
               </label>
-              <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="toolidinput" id="toolidinput" placeholder="Insert Tool ID"/>
-              <label class="block text-sm font-bold text-gray-700" for="title">
+              <input class="block mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"style="width:90%;" type="text" name="toolidinput" id="toolidinput" placeholder="Insert Tool ID"/>
+              </div>
+              <div style="float: left; width:50%;" >
+              <label class="block text-sm font-bold text-gray-700" for="title" >
                 ชื่อ
               </label>
               <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="toolnameinput" id="toolnameinput" placeholder="Insert Name"/>
+              </div>
+              <div style="float: left; width:50%; margin-top:2%;">
               <label class="block text-sm font-bold text-gray-700" for="title">
                 ยี่ห้อ
               </label>
-              <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="branddef" id="branddef" placeholder="Insert Brand"/>
+              <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"style="width:90%;" type="text"  name="branddef" id="branddef" placeholder="Insert Brand"/>
+              </div>
+              <div style="float: left; width:50%; margin-top:2%;">
               <label class="block text-sm font-bold text-gray-700" for="title">
                 รุ่น
               </label>
               <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="defmodel" id="defmodel" placeholder="Insert Model"/>
-            </div>
+              </div>
             <!-- Image -->
-            <div class='file-input' style="margin-top: 2%;">
-              <label class='label'>เลือกรูปภาพ: </label>
-              <input type='file'>
+            <div class='file-input'>
+              <label class='label' style="margin-top:2%;">เลือกรูปภาพ: </label>
+              <input type='file' style="margin-top:2%;">
             </div>
             <!-- category -->
             <div>
-              <label class='label'>หมวดหมู่: </label>
-              <select style="height: 20px;" name="categoryinput" id="categoryinput">
+              <label class='label' style="height: 20px; margin-bottom:2%;">หมวดหมู่: </label>
+              <select style="height: 20px; margin-top:5%;" name="categoryinput" id="categoryinput">
                 <option>Unspecified</option>
                 <option>Camera</option>
                 <option>Lighting</option>
