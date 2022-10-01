@@ -38,9 +38,10 @@ if ((!empty($lid)) && (!empty($pwd))) {
                 // echo "\nADMIN : " . $lid;
                 echo "<script type='text/javascript'>location.href='adminsite/menubar.html';</script>";
                 exit();
-            } elseif ($row[5] == "stuser") {
+            } elseif ($row["role"] == "stuser") {
                 setcookie("userck", $lid, time() + 86400, '/');
-                echo "\nUSER : " . $lid;
+                // echo "\nUSER : " . $lid;
+                echo "<script type='text/javascript'>location.href='user/menubarUser.html';</script>";
                 exit();
             }
         }
