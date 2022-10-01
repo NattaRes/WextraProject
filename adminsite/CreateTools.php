@@ -57,7 +57,7 @@
             <!-- category -->
             <div>
               <label class='label' style="height: 20px; margin-bottom:2%;">หมวดหมู่: </label>
-              <select style="height: 20px; margin-top:5%;" name="categoryinput" id="categoryinput">
+              <select style="height: 100%; margin-top:5%;" name="categoryinput" id="categoryinput">
                 <option>Unspecified</option>
                 <option>Camera</option>
                 <option>Lighting</option>
