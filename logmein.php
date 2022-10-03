@@ -10,6 +10,8 @@ if ((!empty($lid)) && (!empty($pwd))) {
 
     $result = $conn->query($sqlquery);
 
+    $cnt = 0;
+
     // $cnt = 0;
 
     // while ($rs = mysqli_fetch_array($result)) {
@@ -28,22 +30,49 @@ if ((!empty($lid)) && (!empty($pwd))) {
     //     echo print_r($row);    // Print the entire row data
     // }
 
-    if ($result) {
-        // echo "\n1111";
-        // $rolefet = "SELECT role FROM user WHERE ID = '$lid'";
-        while ($row = mysqli_fetch_array($result)) {
-            // echo "\n1122";
-            if ($row["role"] == "admin") {
-                setcookie("userck", $lid, time() + 86400, '/');
-                // echo "\nADMIN : " . $lid;
-                echo "<script type='text/javascript'>location.href='adminsite/menubar.html';</script>";
-                exit();
-            } elseif ($row["role"] == "stuser") {
-                setcookie("userck", $lid, time() + 86400, '/');
-                // echo "\nUSER : " . $lid;
-                echo "<script type='text/javascript'>location.href='user/menubarUser.html';</script>";
-                exit();
-            }
+    // if ($result) {
+    //     // echo "\n1111";
+    //     // $rolefet = "SELECT role FROM user WHERE ID = '$lid'";
+    //     while ($row = mysqli_fetch_array($result)) {
+    //         // echo "\n1122";
+    //         if ($row["role"] == "admin") {
+    //             setcookie("userck", $lid, time() + 86400, '/');
+    //             // echo "\nADMIN : " . $lid;
+    //             echo "<script type='text/javascript'>location.href='adminsite/menubar.html';</script>";
+    //             exit();
+    //         } elseif ($row["role"] == "stuser") {
+    //             setcookie("userck", $lid, time() + 86400, '/');
+    //             // echo "\nUSER : " . $lid;
+    //             echo "<script type='text/javascript'>location.href='user/menubarUser.html';</script>";
+    //             exit();
+    //         }
+    //     }
+    // }
+
+    while ($row = mysqli_fetch_array($result)) {
+        // echo "\n1122";
+        if ($row["role"] == "admin") {
+            $roller = "admin";
+        } elseif ($row["role"] == "stuser") {
+            $roller = "user";
         }
+        $cnt++;
+    }
+
+    if ($cnt == 1) {
+        if ($roller == "admin") {
+            setcookie("userck", $lid, time() + 86400, '/');
+            // echo "\nADMIN : " . $lid;
+            echo "<script type='text/javascript'>location.href='adminsite/menubar.html';</script>";
+            exit();
+        } else {
+            setcookie("userck", $lid, time() + 86400, '/');
+            // echo "\nUSER : " . $lid;
+            echo "<script type='text/javascript'>location.href='user/menubarUser.html';</script>";
+            exit();
+        }
+    } else {
+        echo "<script type='text/javascript'>alert('Invalid ID / Password.')</script>";
+        exit();
     }
 }
