@@ -82,13 +82,13 @@
           while ($row = mysqli_fetch_array($res)) {
             echo "<tr>";
             echo "<td class='px-6 py-4 whitespace-no-wrap border-b border-gray-200'>" . "<div class='content'>" . $row['ID_all'] . "</div>" . "</td>";
-            echo "<td class='px-6 py-4 whitespace-no-wrap border-b border-gray-200'>" . "<div class='content'>" . $row['brand'] . " " . $row['name'] . " " . $row['model'] . "</div>" . "</td>";
+            echo "<td class='px-6 py-4 whitespace-no-wrap border-b border-gray-200'>" . "<div class='content'>" . $row['name'] . " " . $row['brand'] . " " . $row['model'] . "</div>" . "</td>";
             echo "<td class='px-6 py-4 whitespace-no-wrap border-b border-gray-200'>" . "<div class='content'>" . $row['type'] . "</div>" . "</td>";
             echo "<td class='px-6 py-4 whitespace-no-wrap border-b border-gray-200'>" . "<div class='content'>" . $row['usable_quantity'] . "</div>" . "</td>";
             echo "<td class='px-6 py-4 whitespace-no-wrap border-b border-gray-200'>" . "<div class='content'>" . $row['defect_quantity'] . "</div>" . "</td>";
             echo "<td class='px-6 py-4 whitespace-no-wrap border-b border-gray-200'>" . "<div class='content'>" . $row['lost_quantity'] . "</div>" . "</td>";
             echo '<td class="text-sm font-medium leading-5 text-center whitespace-no-wrap border-b border-gray-200 ">
-            <a href="EditPost.html" class="text-indigo-600 hover:text-indigo-900">
+            <a href="EditTools.php?toolidall=' . $row['ID_all'] . '" class="text-indigo-600 hover:text-indigo-900">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" style="margin-left: 30%;" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
               </svg>
@@ -105,10 +105,10 @@
 
           </td>
           <td class="text-sm font-medium leading-5 whitespace-no-wrap border-b border-gray-200 ">
-            <a href="../adminbackend/deltool.php?' . $row['ID_all'] . '"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-600 hover:text-red-800" fill="none" style="margin-left: 30%;" stroke="currentColor">
+            <a href="../adminbackend/deltools.php?toolidall=' . $row['ID_all'] . '"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-600 hover:text-red-800" fill="none" style="margin-left: 30%;" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-              </svg></a>
-
+              </svg>
+            </a>
           </td>';
             echo "</tr>";
           }
