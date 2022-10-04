@@ -15,22 +15,23 @@ html,body{
   place-items: center;
 }
 .container{
-  max-width: 1100px;
+  max-width: 70%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  padding: 20px;
+
 }
 .container .box{
-  width: calc(33% - 10px);
+  width:30%;
   background: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px 30px;
-  border-radius: 5px;
+  border-radius: 22px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-left: 5%;
 }
 .box .quote i{
 margin-top: 10px;
@@ -38,12 +39,12 @@ font-size: 45px;
 color: #17c0eb
 }
 .container .box .image{
-  margin: 10px 0;
-  height: 150px;
-  width: 150px;
+  margin-top: -5%;
+  height: 120px;
+  width: 180px;
   background: #8e44ad;
   padding: 3px;
-  border-radius: 50%;
+  border-radius: 22px;
 }
 .box .image img{
   height: 100%;
@@ -60,7 +61,7 @@ color: #17c0eb
 }
 .box .name_job{
   margin: 10px 0 3px 0;
-  color: #8e44ad;
+  color: black;
   font-size: 18px;
   font-weight: 600;
 }
@@ -115,3 +116,20 @@ color: #17c0eb
     width: 100%;
   }
 }
+.bt{
+  background-color: white; 
+  width: 100px; 
+  border-radius: 15px; 
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 100px;
+  margin-left: 5%;
+}
+.cd{
+  background-color: white; 
+  width: 50%; 
+  border-radius: 15px; 
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 50px;
+  margin-left: 22%;
+}
+
