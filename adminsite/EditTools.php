@@ -13,12 +13,12 @@
 
 <body>
   <!-- create Post -->
-  <div style="margin-top: 3%;">
+  <div style="margin-top: 5%;">
     <div class="flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0" style="margin-top: -5%;">
-      <div class=" px-16 py-20 mt-2 overflow-hidden rounded-lg bg-white lg:max-w-3xl">
+      <div class=" px-16 py-20 mt-2 overflow-hidden rounded-lg bg-white lg:max-w-3xl" >
         <div class="mb-4">
           <h1 class="font-serif text-2xl font-bold underline decoration-gray-400" style="margin-top: -10%;">
-            Create Tool Data
+            Edit Tool Data
           </h1>
         </div>
 
@@ -53,56 +53,56 @@
         ?>
 
         <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10">
-          <form method="POST" action="../adminbackend/edittools.php?toolidall=<?php echo $idall ?>">
+          <form method="POST" action="../adminbackend/addtools.php">
             <!-- Text Input -->
             <div style="float: left ; width:50%;">
               <label class="block text-sm font-bold text-gray-700" for="title">
                 ID เครื่องมือ
               </label>
               <?php echo $idall; ?>
-              <!-- <input class="block mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" style="width:90%;" type="text" name="toolidinput" id="toolidinput" placeholder="Insert Tool ID" /> -->
-            </div>
-            <div style="float: left; width:50%;">
-              <label class="block text-sm font-bold text-gray-700" for="title">
-                ชื่อ
-              </label>
-              <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="toolnameinput" id="toolnameinput" placeholder="Insert Name" value="<?php echo $name; ?>" />
-            </div>
-            <div style="float: left; width:50%; margin-top:2%;">
-              <label class="block text-sm font-bold text-gray-700" for="title">
-                ยี่ห้อ
-              </label>
-              <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" style="width:90%;" type="text" name="branddef" id="branddef" placeholder="Insert Brand" value="<?php echo $brand; ?>" />
-            </div>
-            <div style="float: left; width:50%; margin-top:2%;">
-              <label class="block text-sm font-bold text-gray-700" for="title">
-                รุ่น
-              </label>
-              <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="defmodel" id="defmodel" placeholder="Insert Model" value="<?php echo $model; ?>" />
-            </div>
-            <!-- Image -->
-            <div class='file-input'>
-              <label class='label' style="margin-top:2%;">เลือกรูปภาพ: </label>
-              <input type='file' style="margin-top:2%;">
-            </div>
-            <!-- category -->
-            <div>
-              <label class='label' style="height: 20px; margin-bottom:2%;">หมวดหมู่: </label>
-              <select style="height: 100%; margin-top:5%;" name="categoryinput" id="categoryinput">
-                <option <?php if ($type == "Unspecified") {
-                          echo "selected='selected'";
-                        } ?>>Unspecified</option>
-                <option <?php if ($type == "Camera") {
-                          echo "selected='selected'";
-                        } ?>>Camera</option>
-                <option <?php if ($type == "Lighting") {
-                          echo "selected='selected'";
-                        } ?>>Lighting</option>
-                <option <?php if ($type == "Microphone") {
-                          echo "selected='selected'";
-                        } ?>>Microphone</option>
-              </select>
-            </div>
+              <!-- <input class="block mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"style="width:90%;" type="text" name="toolidinput" id="toolidinput" placeholder="Insert Tool ID"/> -->
+              </div>
+              <div style="float: left; width:50%;">
+                <label class="block text-sm font-bold text-gray-700" for="title">
+                  ชื่อ
+                </label>
+                <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="toolnameinput" id="toolnameinput" placeholder="Insert Name" value="<?php echo $name; ?>" />
+              </div>
+              <div style="float: left; width:50%; margin-top:2%;">
+                <label class="block text-sm font-bold text-gray-700" for="title">
+                  ยี่ห้อ
+                </label>
+                <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" style="width:90%;" type="text" name="branddef" id="branddef" placeholder="Insert Brand" value="<?php echo $brand; ?>" />
+              </div>
+              <div style="float: left; width:50%; margin-top:2%;">
+                <label class="block text-sm font-bold text-gray-700" for="title">
+                  รุ่น
+                </label>
+                <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="defmodel" id="defmodel" placeholder="Insert Model" value="<?php echo $model; ?>" />
+              </div>
+              <!-- Image -->
+              <div class='file-input'>
+                <label class='label' style="margin-top:2%;">เลือกรูปภาพ: </label>
+                <input type='file' style="margin-top:2%;">
+              </div>
+              <!-- category -->
+              <div>
+                <label class='label' style="height: 20px; margin-bottom:2%;">หมวดหมู่: </label>
+                <select style="height: 100%; margin-top:5%;" name="categoryinput" id="categoryinput">
+                  <option <?php if ($type == "Unspecified") {
+                            echo "selected='selected'";
+                          } ?>>Unspecified</option>
+                  <option <?php if ($type == "Camera") {
+                            echo "selected='selected'";
+                          } ?>>Camera</option>
+                  <option <?php if ($type == "Lighting") {
+                            echo "selected='selected'";
+                          } ?>>Lighting</option>
+                  <option <?php if ($type == "Microphone") {
+                            echo "selected='selected'";
+                          } ?>>Microphone</option>
+                </select>
+              </div>
             <!-- Description -->
             <div class="mt-4">
               <label class="block text-sm font-bold text-gray-700" for="password">
