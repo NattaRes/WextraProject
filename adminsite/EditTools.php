@@ -53,7 +53,7 @@
         ?>
 
         <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10">
-          <form method="POST" action="../adminbackend/addtools.php">
+          <form method="POST" action="../adminbackend/edittools.php?toolidall=<?php echo $idall ?>">
             <!-- Text Input -->
             <div style="float: left ; width:50%;">
               <label class="block text-sm font-bold text-gray-700" for="title">
