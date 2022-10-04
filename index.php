@@ -16,7 +16,7 @@
 <body>
 
     <div class="LoginForm">
-        <form action="logmein.php" method="post">
+        <form action="index.php" method="post">
             <!--Return ค่า-->
             <div class="title">
                 <h3>Login</h3>
@@ -32,7 +32,18 @@
             <button class="submitForm" type="submit">Login</button>
         </form>
     </div>
-    </div>
+
+    <?php
+    ini_set('display_errors', 0);
+    $lid = $_POST['lid'];
+    $pwd = $_POST['pwd'];
+    if ((isset($lid)) && (isset($pwd))) {
+        include("logmein.php");
+    }
+    if (isset($falsetist)) {
+        echo $falsetist;
+    }
+    ?>
 
 </body>
 

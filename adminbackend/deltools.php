@@ -1,7 +1,15 @@
 <?php
 include("../connectdb.php");
 
-$toolID = $_POST['selectedtoolID'];
+// $toolID = $_POST['selectedtoolID'];
+
+$url = $_SERVER['REQUEST_URI'];
+
+// echo $url;
+
+$partscrap = parse_url($url);
+
+parse_str($partscrap['query'], $parts);
 
 $deletetoolsql = "DELETE FROM tools_all WHERE ID_all = $toolID";
 
