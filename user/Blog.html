@@ -1,92 +1,154 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="blog.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="blog.css">
 </head>
 
 <body>
-  <div style="margin-top: 10%; margin-left: 50%;">
-    <label>ข่าวสาร</label>
-   </div>
-  <div class="container d-flex justify-content-center mt-50 mb-50" >
-           
-    <div class="row">
-       <div class="col-md-12">
-        
-            <div class="card blog-horizontal">
-                                <div class="card-body">
-                                    <div class="card-img-actions mr-sm-3 mb-3">
-                                        <a href="#course_preview" data-toggle="modal" data-abc="true">
-                                            <img src="https://i.imgur.com/OJHNsX9.jpg" class="img-fluid card-img" alt="">
-                                           
-                                        </a>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <h5 class="d-flex font-weight-semibold flex-nowrap my-1">
-                                            <a href="#" class="text-default mr-2" data-abc="true">Advanced Java Course</a>
-
-                                        </h5>
-
-                                        <ul class="list-inline list-inline-dotted text-muted mb-0">
-                                            <li class="list-inline-item">By <a href="#" class="text-muted" data-abc="true">Timona Shai</a></li>
-                                            <li class="list-inline-item"> Nov 3rd, 2019</li>
-                                        </ul>
-                                    </div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                                    <div class="mt-2 mt-sm-0" style="margin-left: 80%;">
-                                      <a href="#" data-abc="true" class="course-button"><i class="fa fa-check font-size-base mr-1"></i> Take course</a>
-                                  </div>
-                                </div>
-
-                              
-                            </div>
-
-
-                            <div class="card blog-horizontal mt-4">
-                                <div class="card-body">
-                                    <div class="card-img-actions mr-sm-3 mb-3">
-                                        <a href="#course_preview" data-toggle="modal" data-abc="true">
-                                            <img src="https://i.imgur.com/OJHNsX9.jpg" class="img-fluid card-img" alt="">
-                                           
-                                        </a>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <h5 class="d-flex font-weight-semibold flex-nowrap my-1">
-                                            <a href="#" class="text-default mr-2" data-abc="true">Advanced Java Course</a>
-
-                                        </h5>
-
-                                        <ul class="list-inline list-inline-dotted text-muted mb-0">
-                                            <li class="list-inline-item">By <a href="#" class="text-muted" data-abc="true">Timona Shai</a></li>
-                                            <li class="list-inline-item"> Nov 3rd, 2019</li>
-                                        </ul>
-                                    </div>
-
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
-
-                                    <div class="mt-2 mt-sm-0" style="margin-left: 80%;">
-                                      <a href="#" data-abc="true" class="course-button"><i class="fa fa-check font-size-base mr-1"></i> Take course</a>
-                                  </div>
-                                </div>
-                              
-          
-                                  
-                                </div>
-                            </div>
-                         
-       </div>                     
+    <div style="margin-top: 10%; margin-left: 50%;">
+        <label>ข่าวสาร</label>
     </div>
-</div>
+    <!--image slider start-->
+    <div class="slider" style="margin-left: 18%; ">
+        <div class="slides">
+            <!--radio buttons start-->
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+            <input type="radio" name="radio-btn" id="radio4">
+            <!--radio buttons end-->
+            <!--slide images start-->
+            <div class="slide first">
+                <img src="https://www.learningstudio.info/wp-content/uploads/2013/08/Untitled8.png" alt="">
+            </div>
+            <div class="slide">
+                <img src="https://www.learningstudio.info/wp-content/uploads/2013/08/Untitled8.png" alt="">
+            </div>
+            <div class="slide">
+                <img src="https://www.learningstudio.info/wp-content/uploads/2013/08/Untitled8.png" alt="">
+            </div>
+            <div class="slide">
+                <img src="https://www.learningstudio.info/wp-content/uploads/2013/08/Untitled8.png" alt="">
+            </div>
+            <!--slide images end-->
+            <!--automatic navigation start-->
+            <div class="navigation-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+                <div class="auto-btn4"></div>
+            </div>
+            <!--automatic navigation end-->
+        </div>
+        <!--manual navigation start-->
+        <div class="navigation-manual">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+            <label for="radio4" class="manual-btn"></label>
+        </div>
+        <!--manual navigation end-->
+    </div>
+    <!--image slider end-->
+
+    <script type="text/javascript">
+        var counter = 1;
+        setInterval(function () {
+            document.getElementById('radio' + counter).checked = true;
+            counter++;
+            if (counter > 4) {
+                counter = 1;
+            }
+        }, 5000);
+    </script>
+
+    <div class="container d-flex justify-content-center mt-50 mb-50">
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card blog-horizontal">
+                    <div class="card-body">
+                        <div class="card-img-actions mr-sm-3 mb-3">
+                            <a href="#course_preview" data-toggle="modal" data-abc="true">
+                                <img src="https://www.learningstudio.info/wp-content/uploads/2013/08/Untitled8.png"
+                                    class="img-fluid card-img" alt="">
+
+                            </a>
+                        </div>
+
+                        <div class="mb-3">
+                            <h5 class="d-flex font-weight-semibold flex-nowrap my-1">
+                                <a href="#" class="text-default mr-2" data-abc="true">Advanced Java Course</a>
+
+                            </h5>
+
+                            <ul class="list-inline list-inline-dotted text-muted mb-0">
+                                <li class="list-inline-item">By <a href="#" class="text-muted" data-abc="true">Timona
+                                        Shai</a></li>
+                                <li class="list-inline-item"> Nov 3rd, 2019</li>
+                            </ul>
+                        </div>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore</p>
+
+                        <div class="mt-2 mt-sm-0" style="margin-left: 80%;">
+                            <a href="#" data-abc="true" class="course-button"><i
+                                    class="fa fa-check font-size-base mr-1"></i> Take course</a>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="card blog-horizontal mt-4">
+                    <div class="card-body">
+                        <div class="card-img-actions mr-sm-3 mb-3">
+                            <a href="#course_preview" data-toggle="modal" data-abc="true">
+                                <img src="https://www.learningstudio.info/wp-content/uploads/2013/08/Untitled8.png"
+                                    class="img-fluid card-img" alt="">
+
+                            </a>
+                        </div>
+
+                        <div class="mb-3">
+                            <h5 class="d-flex font-weight-semibold flex-nowrap my-1">
+                                <a href="#" class="text-default mr-2" data-abc="true">Advanced Java Course</a>
+
+                            </h5>
+
+                            <ul class="list-inline list-inline-dotted text-muted mb-0">
+                                <li class="list-inline-item">By <a href="#" class="text-muted" data-abc="true">Timona
+                                        Shai</a></li>
+                                <li class="list-inline-item"> Nov 3rd, 2019</li>
+                            </ul>
+                        </div>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore</p>
+
+                        <div class="mt-2 mt-sm-0" style="margin-left: 80%;">
+                            <a href="#" data-abc="true" class="course-button"><i
+                                    class="fa fa-check font-size-base mr-1"></i> Take course</a>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
 </body>
+
 </html>
