@@ -23,16 +23,45 @@
 
   <div class="flex justify-start" style="margin-left:5%; margin-top: 5%;">
 
+    <?php
+      $url = $_SERVER['REQUEST_URI'];
+
+      // echo $url;
+
+      $partscrap = parse_url($url);
+
+      parse_str($partscrap['query'], $parts);
+
+      $catefilter = $parts['cateinput'];
+
+      $schfilter = $parts['sfi'];
+
+      // echo $catefilter . " " . $schfilter;
+      
+    ?>
     <h2 style="margin-right: 1%; margin-top: 1%;">ค้นหาเครื่องมือ :</h2>
-    <select style="height: 40px;">
-      <option>All</option>
-      <option>Recent</option>
-      <option>Popular</option>
+    <select style="height: 40px;" name="categoryinput" id="categoryinput">
+      <option <?php if ($catefilter == "All") {
+                echo "selected='selected'";
+              } ?>>All</option>
+      <option <?php if ($catefilter == "Unspecified") {
+                echo "selected='selected'";
+              } ?>>Unspecified</option>
+      <option <?php if ($catefilter == "Camera") {
+                echo "selected='selected'";
+              } ?>>Camera</option>
+      <option <?php if ($catefilter == "Lighting") {
+                echo "selected='selected'";
+              } ?>>Lighting</option>
+      <option <?php if ($catefilter == "Microphone") {
+                echo "selected='selected'";
+              } ?>>Microphone</option>
     </select>
-    <select style="height: 40px;">
+    <select style="height: 40px;" name="schfilinput" id="schfilinput">
       <option>All</option>
-      <option>Recent</option>
-      <option>Popular</option>
+      <option>ID</option>
+      <option>Name</option>
+      <option>Brand</option>
     </select>
 
 
