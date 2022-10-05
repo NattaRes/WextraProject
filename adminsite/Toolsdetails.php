@@ -32,7 +32,7 @@
 
     $idall = $parts['toolidall'];
 
-    // echo "</br>" . $idall . gettype($idall);
+    echo "</br>" . $idall . gettype($idall);
 
     $datafetch = "SELECT * FROM tools_all WHERE ID_all = '$idall'";
 
