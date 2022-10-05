@@ -4,8 +4,10 @@ body {
   font-size: .8125rem;
   font-weight: 400;
   line-height: 1.5385;
-  color: #333;
+  color: white;
   text-align: left;
+  background: linear-gradient(180deg, #015C92 0%, rgba(163, 216, 232, 0.99) 100%);
+
 }
 
 .mt-50{

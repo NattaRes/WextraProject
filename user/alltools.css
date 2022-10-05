@@ -1,4 +1,5 @@
 body {
+	background: linear-gradient(180deg, #015C92 0%, rgba(163, 216, 232, 0.99) 100%);
 }
 #testimonial_area {
 	padding: 10% 0;
