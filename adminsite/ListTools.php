@@ -140,13 +140,13 @@
                   // B con have input
                   if (($Cschinput !== "") && ($Cschinput !== " ") && (!empty($Cschinput))) {
                     // C con have input
-                    echo "A1B1C1";
+                    //echo "A1B1C1";
 
                     // A : specific , B : specific , C : fill
                     $tablequery = "SELECT * FROM tools_all WHERE (type = '$Acatefilter') AND ($Bschfilter LIKE '%$Cschinput%')";
                   } else {
                     // C con no input
-                    echo "A1B1C2";
+                    //echo "A1B1C2";
 
                     // A : specific , B : specific , C : empty
                     $tablequery = "SELECT * FROM tools_all WHERE type = '$Acatefilter'";
@@ -155,13 +155,13 @@
                   // B con no input
                   if (($Cschinput !== "") && ($Cschinput !== " ") && (!empty($Cschinput))) {
                     // C con have input
-                    echo "A1B2C1";
+                    //echo "A1B2C1";
 
                     // A : specific , B : All , C : fill
                     $tablequery = "SELECT * FROM tools_all WHERE (type = '$Acatefilter') AND ((name LIKE '%$Cschinput%') OR (brand LIKE '%$Cschinput%') OR (model LIKE '%$Cschinput%'))";
                   } else {
                     // C con no input
-                    echo "A1B2C2";
+                   // echo "A1B2C2";
 
                     // A : specific , B : All , C : empty
                     $tablequery = "SELECT * FROM tools_all WHERE type = '$Acatefilter'";
@@ -173,13 +173,13 @@
                   // B con have input
                   if (($Cschinput !== "") && ($Cschinput !== " ") && (!empty($Cschinput))) {
                     // C con have input
-                    echo "A2B1C1";
+                    //echo "A2B1C1";
 
                     // A : All , B : specific , C : fill
                     $tablequery = "SELECT * FROM tools_all WHERE $Bschfilter LIKE '%$Cschinput%'";
                   } else {
                     // C con no input
-                    echo "A2B1C2";
+                    //echo "A2B1C2";
 
                     // A : All , B : specific , C : empty
                     $tablequery = "SELECT * FROM tools_all";
@@ -188,13 +188,13 @@
                   // B con no input
                   if (($Cschinput !== "") && ($Cschinput !== " ") && (!empty($Cschinput))) {
                     // C con have input
-                    echo "A2B2C1";
+                   // echo "A2B2C1";
 
                     // A : All , B : All , C : fill
                     $tablequery = "SELECT * FROM tools_all WHERE (name LIKE '%$Cschinput%') OR (brand LIKE '%$Cschinput%') OR (model LIKE '%$Cschinput%')";
                   } else {
                     // C con no input
-                    echo "A2B2C2";
+                   // echo "A2B2C2";
 
                     // A : All , B : All , C : empty
                     $tablequery = "SELECT * FROM tools_all";
