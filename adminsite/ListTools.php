@@ -38,13 +38,13 @@
 
     $Cschinput = $parts['sinput'];
 
-    echo "Category: " . $Acatefilter . " " . gettype($Acatefilter) . "</br>"
+   /* echo "Category: " . $Acatefilter . " " . gettype($Acatefilter) . "</br>"
       . "Filter: " . $Bschfilter . " " . gettype($Bschfilter) . "</br>"
-      . "Input: " . $Cschinput . " " . gettype($Cschinput);
+      . "Input: " . $Cschinput . " " . gettype($Cschinput);*/
 
     ?>
-    <form method="get" name="searchform" action="ListTools.php">
-      <h2 style="margin-right: 1%; margin-top: 1%;">ค้นหาเครื่องมือ :</h2>
+    <h2 style="margin-right: 1%; margin-top: 1%;">ค้นหาเครื่องมือ :</h2>
+    <form method="get" name="searchform" action="ListTools.php" style="width:50%">
       <select style="height: 40px;" name="cateinput" id="cateinput">
         <option <?php if ($Acatefilter == "All") {
                   echo "selected='selected'";
@@ -78,12 +78,12 @@
       </select>
 
 
-      <input style="height: 40px; margin-left: 0.5%;" type="text" class="input" placeholder="Search" name="sinput" id="sinput">
+      <input style="height: 40px; margin-left: 0%;" type="text" class="input" placeholder="Search" name="sinput" id="sinput">
       <button type="submit" class="px-4 py-2 rounded-lg bg-sky-500 text-sky-100 " style="margin-left: 0.5%;">Search</button>
     </form>
     <div style="align-self: flex-end; margin-left: auto; margin-right: 5.5%;">
       <a href="CreateTools.php">
-        <button class="px-4 py-2 rounded-lg bg-sky-500 text-sky-100 ">เพิ่มเครื่องมือ</button>
+        <button class="px-4 py-2 rounded-lg bg-sky-500 text-sky-100">เพิ่มเครื่องมือ</button>
       </a>
     </div>
 
