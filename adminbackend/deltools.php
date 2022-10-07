@@ -24,7 +24,7 @@ if ($res) {
     // $comdelconalert = "<script type='text/javascript'> alert('Detele Tool Successfully') </script>";
     // $comdelcon =  "<script type='text/javascript'>location.href='adminsite/menubar.html';</script>";
 
-    echo "<script type='text/javascript'>location.href='../adminsite/ListTools.php';</script>";
+    echo "<script type='text/javascript'>location.href='../adminsite/ListTools.php?cateinput=All&sfi=All&sinput=';</script>";
     exit();
 } else {
 

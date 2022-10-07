@@ -22,7 +22,7 @@ $picpath = "";
     if ($res) {
 
         echo "<script type='text/javascript'> alert('Add Tool Successfully') </script>";
-        echo "<script type='text/javascript'>location.href='../adminsite/ListTools.php';</script>";
+        echo "<script type='text/javascript'>location.href='../adminsite/ListTools.php?cateinput=All&sfi=All&sinput=';</script>";
     } else {
 
         echo $conn->error;
