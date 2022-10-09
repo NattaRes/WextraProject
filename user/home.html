@@ -9,70 +9,100 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 </head>
 
-<body>
-  <div style="margin-top: -10%; ">
-    <label style="margin-left: 25%; color: white;">วันที่ยืม</label>
-    <label style="margin-left: 17%; color: white;">วันที่คืน</label>
-
-    <div>
-      <div class="cd">
-        <form>
-          <div style="float:left; margin-left: 5%; margin-top: 2.5%;">
-            <input type="date" style="width: 180%;">
-          </div>
-          <div style="float:left; margin-left: 20%; margin-top: 2.5%;">
-            <input type="date" style="width: 180%; ">
-          </div>
-        </form>
-      </div>
-       <div style="margin-left: 75%; ">
-        <a href="Cart.html">
-          <button style="  background-color: white;  width: 50%; border-radius: 15px; 
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); margin-top: -15%;"
-          type="submit">ตะกร้า</button>
-        </a>
+<body  style=" margin-bottom: 10%;">
+  <div style="margin-top: 15%;">
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="search">
+          <input class="search_input" type="text" name="" placeholder="ค้นหาเครื่องมือ...">
+          <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
         </div>
+      </div>
     </div>
-    <div style="margin-top: 3%;">
-      <label style="color: white;">หมวดหมู่</label>
+    <div>
+    <a href="Cart.html">
+      <img src="../image/icon/shopping-cart (2).png" alt="" style=" height: 6%; width: 6%; margin-left: 84%; margin-top: -6%;">
+    </a>
+  </div>
+    <div>
+      <h3 class="titlec">หมวดหมู่</h3>
     </div>
-    <div style="margin-top: 1%; margin-left: 15%;">
-      <a href="PageCategory.html"><button type="submit" name="btn" class="bt">กล้อง</button></a>
-      <button class="bt">ไฟ</button>
-      <button class="bt">ไมค์</button>
-      <button class="bt">อุปกรณ์เสริม</button>
+    <div style="max-width: 90%; display: flex; justify-content: space-between; align-items: center;">
+    <div>
+      <a href="PageCategory.html"  class="bt">
+        <img src="../image/icon/photo-camera.png" alt="" class="iconimg">
+        <h4 class="titlect">กล้องภาพนิ่ง</h4>
+      </a>
     </div>
-    <div style="margin-top: 3%; margin-bottom: 3%;">
-      <label style="color: white;">อุปกรณ์แนะนำ </label>
+    
+    <div>
+      <a href="PageCategory.html"  class="bt">
+        <img src="../image/icon/video-camera.png" alt="" class="iconimg" style="margin-left: 30%;">
+        <h4 class="titlect">กล้องวิดิทัศน์</h4>
+      </a>
+    </div>
+
+    <div >
+      <a href="PageCategory.html"  class="bt">
+        <img src="../image/icon/eclipse.png" alt="" class="iconimg">
+        <h4 class="titlect" style="margin-left: 45%;">ไฟ</h4>
+      </a>
+    </div>
+  
+  <div>
+    <a href="PageCategory.html"  class="bt">
+      <img src="../image/icon/microphone.png" alt="" class="iconimg">
+      <h4 class="titlect" style="margin-left: 42%;">ไมค์</h4>
+    </a>
+  </div>
+  <div>
+    <a href="PageCategory.html"  class="bt">
+      <img src="../image/icon/support.png" alt="" class="iconimg">
+      <h4 class="titlect">อุปกรณ์เสริม</h4>
+    </a>
+  </div>
+  
+</div>
+    <div style="margin-top: 20%;">
+      <h3 class="titlec">อุปกรณ์แนะนำ</h3>
     </div>
     <div class="container">
       <div class="box">
         <div class="image">
           <!-----<img src="img1.jpeg">------->
         </div>
-        <div class="name_job">กล้อง</div>
+        <div class="name">กล้อง</div>
+        <div style="color: #6e6e6e;">รายละเอียด</div>
+        <button class="onbutton" type="button">ดูเพิ่มเติม</button>
       </div>
       <div class="box">
         <div class="image">
           <!------  <img src="img2.jpeg" alt="">--->
         </div>
-        <div class="name_job">ไมค์</div>
+        <div class="name">ไมค์</div>
+        <div style="color: #6e6e6e;">รายละเอียด</div>
+        <button class="onbutton" type="button">ดูเพิ่มเติม</button>
       </div>
       <div class="box">
         <div class="image">
           <!---- <img src="img3.jpeg" alt="">---->
         </div>
-        <div class="name_job">ไฟ</div>
+        <div class="name">ไฟ</div>
+        <div style="color: #6e6e6e;">รายละเอียด</div>
+        <button class="onbutton" type="button">ดูเพิ่มเติม</button>
       </div>
       <div class="box">
         <div class="image">
           <!---- <img src="img3.jpeg" alt="">---->
         </div>
-        <div class="name_job">ขากล้อง</div>
+        <div class="name">ขากล้อง</div>
+        <div style="color: #6e6e6e;">รายละเอียด</div>
+        <button class="onbutton" type="button">ดูเพิ่มเติม</button>
       </div>
     </div>
+  
   </div>
-  </div>
+  
 </body>
 
 </html>

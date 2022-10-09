@@ -16,7 +16,7 @@ body {
     width: calc(100% - 18px);    
     max-width: 100%;
     box-shadow: none;
-    background: rgba(1, 93, 146, 0.816);
+    background: #015d92d0;
     position: fixed;
     height: 80px!important;
     overflow: hidden;
@@ -49,12 +49,12 @@ body {
     left: 0.5%;
     top: 4.5%;
     border-radius: 18px;
-    width: 240px;
+    width: 220px;
     margin-top: 60px;
     transform: translateX(-260px);
     transition: transform 250ms ease-in-out;
     background: #ffffff;
-    box-shadow: 0px 0px 4px 4px rgba(43, 43, 43, 0.533);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .iconimg{
     height: 60%; 
@@ -84,8 +84,9 @@ body {
 
 .sidebarMenuInner li span{
     color: #3b3b3b;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
+ 
     white-space: nowrap;
     
 }
@@ -177,5 +178,5 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     transition: all 0.3s;
     box-sizing: border-box;
     transform: rotate(-135deg);
-    margin-top: -13px;
+    margin-top: -14px;
 }
