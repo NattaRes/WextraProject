@@ -191,7 +191,7 @@
                    // echo "A2B2C1";
 
                     // A : All , B : All , C : fill
-                    $tablequery = "SELECT * FROM tools_all WHERE (name LIKE '%$Cschinput%') OR (brand LIKE '%$Cschinput%') OR (model LIKE '%$Cschinput%')";
+                    $tablequery = "SELECT * FROM tools_all WHERE (ID_all LIKE '%$Cschinput%') OR (name LIKE '%$Cschinput%') OR (brand LIKE '%$Cschinput%') OR (model LIKE '%$Cschinput%')";
                   } else {
                     // C con no input
                    // echo "A2B2C2";
