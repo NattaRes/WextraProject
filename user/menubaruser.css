@@ -13,7 +13,7 @@ body {
 .header {
     display: block;
     margin: 0 auto;
-    width: calc(100% - 18px);    
+    width: 100%;  
     max-width: 100%;
     box-shadow: none;
     background: rgba(1, 93, 146, 0.816);
