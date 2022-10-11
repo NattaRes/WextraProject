@@ -1,82 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <title>SideBar Menu</title>
-  <link rel="stylesheet" href="test.css">
-
-<body>
- 
-  <header class="header">
-    <img src="../image/Logo.png" class="logoimg"/>
-  </header>
-
-  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-  <label for="openSidebarMenu" class="sidebarIconToggle">
-    <div class="spinner diagonal part-1"></div>
-    <div class="spinner horizontal"></div>
-    <div class="spinner diagonal part-2"></div>
-  </label>
-  <div id="sidebarMenu">
-    <ul class="sidebarMenuInner">
-      <li style="border-radius: 20px 20px 0px 0px ;">
-        <a href="home.html" target="Changepage1"> 
-          <img src="../image/icon/home.png" class="iconimg"/>
-          <span>หน้าแรก</span>
-        </a>
-      </li>
-      <li>
-        <a href="Alltools.html" target="Changepage1">
-          <img src="../image/icon/photo-camera (1).png" class="iconimg"/>
-          <span>เครื่องมือ</span>
-        </a>
-      </li>
-      <li>
-        <a href="Alltools.html" target="Changepage1">
-          <img src="../image/icon/warning.png" class="iconimg"/>
-        <span>กฎการยืม</span>
-      </a>
-    </li>
-      <li>
-        <a href="Alltools.html" target="Changepage1">
-          <img src="../image/icon/shopping-cart (2).png" class="iconimg"/>
-          <span>ตะกร้า</span>
-        </a>
-      </li>
-      <li>
-        <a href="Blog.html" target="Changepage1">
-          <img src="../image/icon/notification.png" class="iconimg"/>
-          <span>ข่าวสาร</span>
-        </a>
-      </li>
-      <li>
-        <a href="Blog.html" target="Changepage1">
-          <img src="../image/icon/hourglass.png" class="iconimg"/>
-          <span>เช็คสถานะ</span>
-        </a>
-      </li>
-      <li>
-        <a href="Profile.html" target="Changepage1">
-          <img src="../image/icon/profile.png" class="iconimg"/>
-          <span >โปรไฟล์</span>
-        </a>
-      </li>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <!-- <title>Custom Modal Box | CodingNepal</title> -->
+      <link rel="stylesheet" href="test.css">
+      <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body>
+      <div class="show-btn">
+         <a href="#">Show Modal</a>
+      </div>
       
-      <li class="log_out">
-        <a href="#">
-          <img src="../image/icon/logout.png" class="iconimg"/>
-          <span style="margin-left: -5%;">ออกจากระบบ</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div id='center' class="frame">
-    <iframe src="home.html" name="Changepage1" 
-     height="100%" width="100%" style="border: none; margin-bottom: -1%; margin-top: 5%;">
-    </iframe>
-  </div>
+      <div class="modal" style="margin-right: 35%; margin-left:60%; margin-bottom:2%; width: 600px; height: 650px;">
+        <div style="margin-left: 80%; margin-top: 5%; width: 600px;">
+        <span class="close-icon"><i class="fas fa-times" ></i></span>
+      </div>
+            <div class="center-text" style="margin-bottom: 2%; margin-top: 1%;">
+               เงื่อนไขการยืม
+               
+         </div>
 
-</body>
-
+         <div class="bottom-content" >
+            <div  id="scroll_demo" style="margin-left: 5%;">
+              1.ผู้ที่จะยืมวัสดุ อุปกรณ์ กรุณาติดต่อสอบถามเจ้าหน้าที่ห้องปฏิบัติการที่ดูแล และกรอกแบบยืมวัสดุ อุปกรณ์ล่วงหน้าอย่างน้อย 2 วันทำการ<br>
+              2.การขอยืมวัสดุ อุปกรณ์ ผู้ใช้ต้องทำการยืม และส่งวันต่อวันเท่านั้น (ภายใน1วันของเวลาทำการ 08:30 ถึง 16:30)<br>
+              3.ในกรณีเป็นการยืมกล้อง DVCAM ผู้ขอใช้จะต้องทำหนังสือขอเจ้าหน้าที่ จากห้องปฏิบัติการเพื่อร่วมปฏิบัติงานด้วยอย่างน้อย 1 คน<br>
+              4.ในกรณีที่เกิดความเสียหายกับเครื่องมือหรืออุปกรณ์ อันเนื่องจากขอผู้รับบริการ(ผู้ยืม) จะต้องชดใช้และรับผิดชอบค่าใช้จ่ายที่เกิดขึ้นอันเนื่องจากความเสียหาย/ชำรุด ของเครื่องมือและอุปกรณ์ทุกกรณี<br>
+              5.ทางห้องปฏิบัติการเทคโนโลยีสารสนเทศขอสงวนสิทธิ์ ที่จะพิจารณาไม่ให้ยืมอุปกรณ์บางอย่าง ที่เจ้าหน้าที่ห้องปฏิบัติการ พิจารณาเห็นแล้วว่าไม่ควรให้ยืม<br>
+              6.การส่ง-คืนวัสดุอุปกรณ์จะต้องปฏิบัติตามวันเวลาที่กำหนดไว้ในแบบฟอร์มเท่านั้น หากไม่ปฏิบัติตามทางห้องปฏิบัติการจะพิจารณาในการให้ยืมอุปกรณ์ในครั้งถัดไป<br>
+              7.ควรใช้เครื่องมือและอุปกรณ์ด้วยความระมัดระวัง<br>
+              8.ควรตรวจเช็คสภาพของอุปกรณ์การยืมทุกครั้งก่อนนำไปใช้ในงาน<br>
+              9.การส่งคืนอุปกรณ์ทุกครั้ง จะต้องมีการตรวจสภาพของอุปกรณ์ที่นำไปใช้ทุกครั้งกับเจ้าหน้าที่ห้องปฏิบัติการก่อนทำส่ง<br>
+                  
+            </div>
+         </div>
+      </div>
+      <script>
+         $('.show-btn').click(function(){
+           $('.modal').toggleClass("show");
+           $('.show-btn').addClass("disabled");
+         });
+         $('.close-icon').click(function(){
+           $('.modal').toggleClass("show");
+           $('.show-btn').removeClass("disabled");
+         });
+         /*$('.close-btn').click(function(){
+           $('.modal').toggleClass("show");
+           $('.show-btn').removeClass("disabled");
+         });*/
+      </script>
+   </body>
 </html>

@@ -101,3 +101,25 @@ select:focus{
         line-height: 18px;
     }
 }
+.dot {
+    height: 20px;
+    width: 20px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: green;
+    margin-left: 5%;
+    margin-bottom: -1%;
+  }
+  .onbutton{
+	width:150px;
+	height:40px;
+	border:none;
+	font-size: 20px;
+	border-radius:5px;
+	background-color:rgba(1, 93, 146, 0.56);
+	color:#fff;
+	cursor:pointer;
+    margin-top: 10%;
+    margin-left: 30%;
+  }

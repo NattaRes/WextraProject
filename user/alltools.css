@@ -78,7 +78,6 @@ body {
 .onbutton{
 	width:150px;
 	height:40px;
-	margin-top: 5%;
 	border:none;
 	font-size: 20px;
 	border-radius:5px;
@@ -213,4 +212,13 @@ body {
 	-moz-appearance: none;
 	appearance: none;
 	margin: 0;
+  }
+  .dot {
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: green;
+   
   }

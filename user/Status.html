@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="cartui.css">
+    <link rel="stylesheet" href="status.css">
     <link rel="stylesheet" type="text/css"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css"
@@ -16,96 +16,167 @@
 </head>
 
 <body>
-    <div style="margin-top: 5%;">
-        <lebel style="font-size: 30px; margin-left: 5%; color: white;"> สถานะการยืม </lebel>
+    <div style="margin-top: 8%;">
+        <lebel style="font-size: 30px; margin-left: 15%; color: white; margin-top: 20%;"> สถานะการยืม </lebel>
     </div>
-    <div class="container mt-10 p-3 rounded cart" style="margin-top: 5%; background-color: #F7F7F7;">
-            <div>
-                <div class="row-md-4">
-                    <div class="product-details mr-2">
-                        <div class="justify-content-between">
-                            <label class="credit-card-label" style="font-size: 15px; color: black;"></label>
-                            <label class="credit-card-label" style="font-size: 15px; color: black; margin-left: 4%;">ลำดับ</label>
-                            <label class="credit-card-label" style="font-size: 15px; color: black; margin-left: 15%;" >วันที่</label>
-                            <label class="credit-card-label" style="font-size: 15px; color: black;  margin-left: 20%;">จำนวน</label>
-                            <label class="credit-card-label" style="font-size: 15px; color: black;  margin-left: 18%;">สถานะ</label>
-                        </div>
-                        <hr>
-                        <!--<div class="d-flex justify-content-between"><span>You have 4 items in your cart</span>
-                        <div class="d-flex flex-row align-items-center"><span class="text-black-50">Sort by:</span>
-                            <div class="price ml-2"><span class="mr-1">price</span><i class="fa fa-angle-down"></i></div>
-                        </div>
-                    </div>-->
-                        <div class="d-flex align-items-center mt-3 p-2 items rounded"
-                            style="background-color: white; width: 100%;">
-                          
-                            <div style="margin-left: 5%;">
-                                <label>
-                                    1
-                                </label>
-                            </div>
-                            <div class="d-flex flex-row" style="margin-left: 15%;">
-                                <div class="ml-2" ><span
-                                        class="font-weight-bold d-block">1/1/2565</span>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-row align-items-center" style="margin-left: 20%;"> 
-                                2
-                            </div>
-                    
-                                <div style="margin-left: 20%;"> 
-                                    กำลังรอ
-                                </div>
-                                <div>
-                                    <a href="Detailstatus.html">
-                                        <button type="submit" style="margin-left: 250%; width: 100%;">
+    <div class="container mt-10 p-3 cart" style="margin-top: 1%; background-color: #F6F6F6; border-radius: 30px; margin-bottom: 4%; ">
+    <div class="container bootstrap snippets bootdey" style="margin-top: 1%;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="main-box no-header clearfix" style="border-radius: 22px; background-color: #F7F7F7; box-shadow: 0px 0px 4px 4px rgba(109, 109, 109, 0.25);">
+                    <div class="main-box-body clearfix">
+                        <div class="table-responsive">
+                            <table class="table user-list">
+                                <thead>
+                                    <tr>
+                                        <th
+                                            style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;">
+                                            <span>ลำดับ</span></th>
+                                        <th
+                                            style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;">
+                                            <span>วันที่ยืม</span></th>
+                                            <th
+                                            style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;">
+                                            <span>วันที่คืน</span></th>
+                                        <th
+                                            style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;">
+                                            <span>จำนวน</span></th>
+                                            <th
+                                            style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;">
+                                            <span>สถานะ</span></th>
+                                        <th>&nbsp;</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td width="10%">
+                                      <!-- ลำดับ -->  <h5 style="text-align: center; color: #908F8F;">1</h5>
+                                        </td>
+                                        <td width="10%">
+                                            <h5 style="text-align: center; color: #908F8F;"> 1/11/65 </h5>
+                                        </td>
+                                        <td width="10%">
+                                            <h5 style="text-align: center; color: #908F8F;"> 3/11/65 </h5>
+                                        </td>
+                                        <td width="10%">
+                                            <h5 style="text-align: center; color: #908F8F;"> 4 รายการ </h5>
+                                        </td>
+                                        <td width="10%" align="center">
+                                            <div>
+                                            <span style="float: left; margin-left: 15%; margin-top: 5%;" class="dot"></span>
+                                            <h5 style="text-align: center; color:green; font-size: 20px; margin-right: 15%;">อนุมัติ</h5>
+                                           </div>
+                                        </td>
+                                        <td width="15%" align="center" colspan="3">
+                                            
+                                            <a href="Detailstatus.html">
+                                            <button style="background-color:rgba(1, 93, 146, 0.777); 
+                                            border-radius: 22px; width: 40%; margin-right: 4%;
+                                            color: #ffffff; font-size: 18px;
+                                            border: none;">
                                             เรียกดู
-                                        </button>
+                                            </button>
+                                            <button style="background-color:rgba(192, 0, 0, 0.777); 
+                                            border-radius: 22px; width: 40%; 
+                                            color: #ffffff; font-size: 18px;
+                                            border: none;">
+                                            ยกเลิก
+                                            </button>
                                         </a>
-                                    </div>
-                            <div>
-                                <button style="margin-left: 250%;">
-                                    ยกเลิก
-                                </button>
-                                </div>
-                        </div>
-                  <div class="d-flex align-items-center mt-3 p-2 items rounded"
-                            style="background-color: white; width: 100%;">
-                            <div style="margin-left: 5%;">
-                                <label>
-                                    2
-                                </label>
-                            </div>
-                            <div class="d-flex flex-row" style="margin-left: 15%;">
-                                <div class="ml-2" ><span
-                                        class="font-weight-bold d-block">1/1/2565</span>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-row align-items-center" style="margin-left: 20%;"> 
-                                2
-                            </div>
-                    
-                                <div style="margin-left: 20%;"> 
-                                    กำลังรอ
-                                </div>
-                                <div>
-                                    <a href="Detailstatus.html">
-                                    <button type="submit" style="margin-left: 250%; width: 100%;">
-                                        เรียกดู
-                                    </button>
-                                    </a>
-                                    </div>
-                            <div>
-                                <button style="margin-left: 250%;">
-                                    ยกเลิก
-                                </button>
-                                </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="10%">
+                                      <!-- ลำดับ -->  <h5 style="text-align: center; color: #908F8F;">2</h5>
+                                        </td>
+                                        <td width="10%">
+                                            <h5 style="text-align: center; color: #908F8F;"> 1/11/65 </h5>
+                                        </td>
+                                        <td width="10%">
+                                            <h5 style="text-align: center; color: #908F8F;"> 3/11/65 </h5>
+                                        </td>
+                                        <td width="10%">
+                                            <h5 style="text-align: center; color: #908F8F;"> 4 รายการ </h5>
+                                        </td>
+                                        <td width="10%" align="center">
+                                            <div>
+                                            <span style="float: left; margin-left: 15%; margin-top: 5%; background-color: rgb(225, 225, 0);" class="dot"></span>
+                                            <h5 style="text-align: center; color:rgb(225, 225, 0); font-size: 20px;  margin-right: 15%;">กำลังรอ</h5>
+                                           </div>
+                                        </td>
+                                        <td width="15%" align="center" colspan="3">
+                                            
+                                            <button style="background-color:rgba(1, 93, 146, 0.777); 
+                                            border-radius: 22px; width: 40%; margin-right: 4%;
+                                            color: #ffffff; font-size: 18px;
+                                            border: none;">
+                                            เรียกดู
+                                            </button>
+                                            <button style="background-color:rgba(192, 0, 0, 0.777); 
+                                            border-radius: 22px; width: 40%; 
+                                            color: #ffffff; font-size: 18px;
+                                            border: none;">
+                                            ยกเลิก
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="10%">
+                                      <!-- ลำดับ -->  <h5 style="text-align: center; color: #908F8F;">3</h5>
+                                        </td>
+                                        <td width="10%">
+                                            <h5 style="text-align: center; color: #908F8F;"> 1/11/65 </h5>
+                                        </td>
+                                        <td width="10%">
+                                            <h5 style="text-align: center; color: #908F8F;"> 3/11/65 </h5>
+                                        </td>
+                                        <td width="10%">
+                                            <h5 style="text-align: center; color: #908F8F;"> 4 รายการ </h5>
+                                        </td>
+                                        <td width="10%" align="center">
+                                            <div>
+                                            <span style="float: left; margin-left: 15%; margin-top: 5%; background-color: red" class="dot"></span>
+                                            <h5 style="text-align: center; color:red; font-size: 20px;  margin-right: 15%;">ไม่ผ่าน</h5>
+                                           </div>
+                                        </td>
+                                        <td width="15%" align="center" colspan="3">
+                                            
+                                            <button style="background-color:rgba(1, 93, 146, 0.777); 
+                                            border-radius: 22px; width: 40%; margin-right: 4%;
+                                            color: #ffffff; font-size: 18px;
+                                            border: none;">
+                                            เรียกดู
+                                            </button>
+                                            <button style="background-color:rgba(192, 0, 0, 0.777); 
+                                            border-radius: 22px; width: 40%; 
+                                            color: #ffffff; font-size: 18px;
+                                            border: none;">
+                                            ยกเลิก
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- เส้น -->
+                                        <th><span></span></th>
+                                        <th><span></span></th>
+                                        <th><span></span></th>
+                                        <th><span></span></th>
+                                        <th><span></span></th>
+                                        <th><span></span></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+
                         </div>
 
                     </div>
                 </div>
-
             </div>
+        </div>
+    </div>
+    </div>
+</div>
 
 </body>
 

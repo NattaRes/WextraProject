@@ -5,128 +5,123 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="cartui.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 
 </head>
 
 <body>
-    <div class="container mt-10 p-3 rounded cart" style="margin-top: 5%; background-color: white;">
+    <div style="margin-top: 8%;">
+        <lebel style="font-size: 30px; margin-left: 14%; color: white; margin-top: 20%;"> ทำการส่งอนุมัติ </lebel>
+    </div>
+    <div class="container mt-10 p-3 cart" style="margin-top: 1%; background-color: #F6F6F6; border-radius: 30px; margin-bottom: 4%; margin-left: 13%;">
         <div class="row-md-4">
             <div class="payment-info">
-                <div class="d-flex justify-content-between align-items-center" style="color: black;">
-                    <span>รายละเอียดผู้ขอยืม</span>
+                <div class="d-flex justify-content-between align-items-center" style="color: #7E7C7C; font-size: 20px;">
+                    <span style="margin-left: 5%;">รายละเอียดผู้ขอยืม</span>
                 </div><span class="type d-block mt-3 mb-1"></span>
-                <div><label class="credit-card-label" style="font-size: 15px; color: black;">ชื่อ....</label>
-                    <label class="credit-card-label" style="font-size: 15px; color: black;">นาย....</label>
-                </div>
-                <div><label class="credit-card-label" style="font-size: 15px; color: black;">คณะ.....</label>
-                    <label class="credit-card-label" style="font-size: 15px; color: black;">สาขา.....</label>
-                </div>
-                <div><label class="credit-card-label" style="font-size: 15px; color: black;">Email....</label>
-                    <label class="credit-card-label" style="font-size: 15px; color: black;">เบอร์ติดต่อ....</label>
-                </div>
-                <div><label class="credit-card-label" style="font-size: 15px; color: black;">วันที่ยืม....</label>
-                    <input type="date" />
-                </div>
-                <div><label class="credit-card-label" style="font-size: 15px; color: black;">วันที่คืน....</label>
-                    <input type="date" />
-                </div>
-                <div class="d-flex justify-content-between information">
-                    <label class="d-flex justify-content-between align-items-center "
-                        style="font-size: 15px; color: black;">ผู้อนุมัติ</label>
+                <div>
+                    <label class="credit-card-label"style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">ชื่อ :</label>
+                    <label class="credit-card-label" style="font-size: 18px; color: #7E7C7C;">นายสม ดีใจ</label>
                 </div>
                 <div>
-                    <select>เลือก
+                    <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">คณะ : กระทรวงเวทย์มนต์</label>
+                    <label class="credit-card-label" style="margin-left: 12.5%; font-size: 18px; color: #7E7C7C;">สาขา : เทคโนโลยีดิจิทัล</label>
+                </div>
+                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">Email : Somjai@gmail.com</label>
+                    <label class="credit-card-label" style="margin-left: 10%; font-size: 18px; color: #7E7C7C;">เบอร์ติดต่อ : 0999999999</label>
+                </div>
+                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">วันที่ยืม :</label>
+                    <input style=" color: #7E7C7C;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date"/>
+                    <label class="credit-card-label" style="margin-left: 8.5%; font-size: 18px; color: #7E7C7C;">วันที่คืน : </label>
+                    <input style=" color: #7E7C7C;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date"/>
+                   </div>
+                <div >
+                    <label class="credit-card-label"style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">ผู้อนุมัติ :</label>
+                    <select style=" color: #7E7C7C;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;">เลือก
                         <option>1.</option>
                         <option>2.</option>
                         <option>3.</option>
                     </select>
                 </div>
+                
+              
+                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">หมายเหตุ :</label>
+                    <input type="text" style=" color: #7E7C7C;  border-radius:10px; background:#D9D9D9; border:none; width: 25%; height: 5%;" placeholder="ใช้ทำในงานอะไร"/>
+               </div>
             </div>
             <div>
-                <div class="row-md-4">
-                    <div class="product-details mr-2">
-                        <div class="justify-content-between">
-                            <label class="credit-card-label" style="font-size: 15px; color: black;"></label>
-                            <label class="credit-card-label" style="font-size: 15px; color: black; margin-left: 10%;">ลำดับ</label>
-                            <label class="credit-card-label" style="font-size: 15px; color: black; margin-left: 20%;" >ชื่ออุปกรณ์</label>
-                            <label class="credit-card-label" style="font-size: 15px; color: black;  margin-left: 25%;">จำนวน</label>
+               <hr noshade="noshade" style="color: black;">
+<div class="container bootstrap snippets bootdey">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-box no-header clearfix" style="border-radius: 22px; box-shadow: 0px 0px 4px 4px rgba(109, 109, 109, 0.25);">
+                <div class="main-box-body clearfix">
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                                <tr>
+                                <th><span></span></th>
+                                <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>ลำดับ</span></th>
+                                <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>ชื่ออุปกรณ์</span></th>
+                                <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>จำนวน</span></th>
 
-                        </div>
-                        <hr>
-                        <!--<div class="d-flex justify-content-between"><span>You have 4 items in your cart</span>
-                        <div class="d-flex flex-row align-items-center"><span class="text-black-50">Sort by:</span>
-                            <div class="price ml-2"><span class="mr-1">price</span><i class="fa fa-angle-down"></i></div>
-                        </div>
-                    </div>-->
-                        <div class="d-flex align-items-center mt-3 p-2 items rounded"
-                            style="background-color: white; width: 100%;">
-                            <div>
-                                <input type="checkbox" checked="checked" style="width: 200%;"/>
-                                <span class="checkmark"></span>
-                            </div>
-                            <div style="margin-left: 10%;">
-                                <label>
-                                    1
-                                </label>
-                            </div>
-                            <div class="d-flex flex-row" style="margin-left: 20%;"><img class="rounded"
-                                    src="https://i.imgur.com/QRwjbm5.jpg" width="40">
-                                <div class="ml-2" style="margin-left: 20%;"><span
-                                        class="font-weight-bold d-block">Iphone 11 pro</span>
-                                    <span class="spec">256GB, Navy Blue</span>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-row align-items-center" style="margin-left: 20%;"> 
-                                <input type="number"/>
-                            </div>
-
-                            <div>
-                                <button style="margin-left: 350%;">
-                                    ลบ
-                                </button>
-                                </div>
-                        </div>
-                  <div class="d-flex align-items-center mt-3 p-2 items rounded"
-                            style="background-color: white; width: 100%;">
-                            <div>
-                                <input type="checkbox" checked="checked" style="width: 200%;">
-                                <span class="checkmark"></span>
-                            </div>
-                            <div style="margin-left: 10%;">
-                                <label>
-                                    2
-                                </label>
-                            </div>
-                            <div class="d-flex flex-row" style="margin-left: 20%;"><img class="rounded"
-                                    src="https://i.imgur.com/QRwjbm5.jpg" width="40">
-                                <div class="ml-2" style="margin-left: 20%;"><span
-                                        class="font-weight-bold d-block">Iphone 11 pro</span>
-                                    <span class="spec">256GB, Navy Blue</span>
-                                </div>
-                            </div>
-                            <div class="d-flex flex-row align-items-center" style="margin-left: 20%;">  
-                                <input type="number"/>
-                               
-                            </div>
-                            <div>
-                                <button style="margin-left: 350%;">
-                                    ลบ
-                                </button>
-                                </div>
-                        </div>
-
+                                <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>                        
+                                <tr>
+                                    <td width="10%">
+                                        <label class="container">
+                                            <input class="input1"type="checkbox">
+                                            <span class="checkmark"></span>
+                                          </label>
+                                    </td>
+                                    <td>
+                                        
+                                       <h5 style="text-align: center; color: #908F8F;">1</h5>
+                                    </td>
+                                    <td width="40%">
+                                        <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" style="max-width: 100%; border-radius: 22px;">
+                                        <span class="user-link">กล้อง</span>
+                                        <span class="user-subhead">รุ่น</span>
+                                    </td>
+                                    <td>  
+                                        <span class="user-link1">3</span>
+                                    </td>
+                                   
+                                    <td style="width: 10%;">
+                                        <a href="#" class="table-link danger">
+                                            <span>
+                                              <img src="../image/icon/trash.png" style="width: 40%; height:40%;"/>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><span></span></th>
+                                    <th><span></span></th>
+                                    <th style="text-align: right; color: #908F8F; font-weight: bold; font-size: 18px;"><span>รวมทั้งหมด</span></th>
+                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>1 รายการ</span></th>
+                                    <th>&nbsp;</th>
+                                    </tr>
+                            </tbody>
+                        </table>
+                       
                     </div>
+                    
                 </div>
-
             </div>
-
+            <div>
+            <button class="onbutton" type="button">ส่งคำอนุมัติ</button>
+        </div>
+        </div>
+    </div>
+</div>
+</div>
 </body>
 
 </html>
