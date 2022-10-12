@@ -23,7 +23,7 @@
 
   <div class="flex justify-start" style="margin-left:5%; margin-top: 5%;">
 
-    <?php
+    <!-- <?php
     $url = $_SERVER['REQUEST_URI'];
 
     // echo $url;
@@ -35,12 +35,12 @@
     $Aschfilter = $parts['sfi'];
 
     $Bschinput = $parts['sinput'];
-    ?>
+    ?> -->
 
     <h2 style="margin-right: 1%; margin-top: 1%;">ค้นหาผู้ใช้ :</h2>
     <form method="GET" name="searchform" action="ManageUser.php" style="width:50%">
       <select style="height: 40px;" name="sfi" id="sfi">
-        <option <?php if ($Aschfilter == "All") {
+        <!-- <option <?php if ($Aschfilter == "All") {
                   echo "selected='selected'";
                 } ?>>All</option>
         <option <?php if ($Aschfilter == "ID") {
@@ -54,7 +54,7 @@
                 } ?>>Email</option>
         <option <?php if ($Aschfilter == "Phone") {
                   echo "selected='selected'";
-                } ?>>Phone</option>
+                } ?>>Phone</option> -->
       </select>
 
       <input style="height: 40px; margin-left: 0.5%;" type="text" class="input" placeholder="Search" name="sinput" id="sinput">
@@ -68,7 +68,7 @@
 
   </div>
 
-  <?php
+  <!-- <?php
   include("../connectdb.php");
 
   // ID username email telnum
@@ -121,7 +121,7 @@
   }
 
   $res = $conn->query($tablequery);
-  ?>
+  ?> -->
 
   <div class="test" style=" margin-left: 5%; margin-right: 5%; margin-top: 1%;">
     <div class="flex flex-col">
@@ -148,7 +148,7 @@
               </tr>
             </thead>
             <tbody class="bg-white">
-              <?php
+              <!-- <?php
 
               $rownum = 1;
 
@@ -195,7 +195,7 @@
                 $rownum++;
               }
 
-              ?>
+              ?> -->
             </tbody>
           </table>
         </div>

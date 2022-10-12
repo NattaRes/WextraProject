@@ -23,7 +23,7 @@
 
   <div class="flex justify-start" style="margin-left:5%; margin-top: 5%;">
 
-    <?php
+    <!-- <?php
     $url = $_SERVER['REQUEST_URI'];
 
     // echo $url;
@@ -42,11 +42,11 @@
       . "Filter: " . $Bschfilter . " " . gettype($Bschfilter) . "</br>"
       . "Input: " . $Cschinput . " " . gettype($Cschinput);*/
 
-    ?>
+    ?> -->
     <h2 style="margin-right: 1%; margin-top: 1%;">ค้นหาเครื่องมือ :</h2>
     <form method="GET" name="searchform" action="ListTools.php" style="width:50%">
       <select style="height: 40px;" name="cateinput" id="cateinput">
-        <option <?php if ($Acatefilter == "All") {
+        <!-- <option <?php if ($Acatefilter == "All") {
                   echo "selected='selected'";
                 } ?>>All</option>
         <option <?php if ($Acatefilter == "Unspecified") {
@@ -60,10 +60,10 @@
                 } ?>>Lighting</option>
         <option <?php if ($Acatefilter == "Microphone") {
                   echo "selected='selected'";
-                } ?>>Microphone</option>
+                } ?>>Microphone</option> -->
       </select>
       <select style="height: 40px;" name="sfi" id="sfi">
-        <option <?php if ($Bschfilter == "All") {
+        <!-- <option <?php if ($Bschfilter == "All") {
                   echo "selected='selected'";
                 } ?>>All</option>
         <option <?php if ($Bschfilter == "ID") {
@@ -74,7 +74,7 @@
                 } ?>>Name</option>
         <option <?php if ($Bschfilter == "Brand") {
                   echo "selected='selected'";
-                } ?>>Brand</option>
+                } ?>>Brand</option> -->
       </select>
 
 
@@ -89,7 +89,7 @@
 
   </div>
 
-  <?php
+  <!-- <?php
   include("../connectdb.php");
 
   if ($Bschfilter == "ID") {
@@ -177,7 +177,7 @@
   }
 
   $res = $conn->query($tablequery);
-  ?>
+  ?> -->
 
   <div class="test" style=" margin-left: 5%; margin-right: 5%; margin-top: 1%;">
     <div class="flex flex-col">
@@ -207,7 +207,7 @@
               </tr>
             </thead>
             <tbody class='bg-white'>
-              <?php
+              <!-- <?php
 
               $rownum = 1;
 
@@ -249,7 +249,7 @@
               // while ($row = mysqli_fetch_array($res)) {
               //   echo print_r($row);
               // }
-              ?>
+              ?> -->
             </tbody>
           </table>
         </div>
