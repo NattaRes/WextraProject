@@ -10,13 +10,14 @@
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 
 <body>
   <div class="sidebar">
     <div class="logo-details">
-      <i class='bx bxl-c-plus-plus'></i>
-      <span class="logo_name">Admin</span>
+      <i class='bx bx-user'></i>      
+      <span class="logo_name">แอดมิน</span>
     </div>
     <ul class="nav-links">
       <!--  <li>
@@ -28,19 +29,19 @@
         -->
       <li>
         <a href="Listborrowgive.html" target="Changepage">
-          <i class='bx bx-box'></i>
+          <i class='bx bx-calendar'></i>
           <span class="links_name">รายการยืม-คืน</span>
         </a>
       </li>
       <li>
-        <a href="ListTools.php?cateinput=All&sfi=All&sinput=" target="Changepage">
+        <a href="ListTools.html" target="Changepage">
           <i class='bx bx-list-ul'></i>
           <span class="links_name">รายการอุปกรณ์</span>
         </a>
       </li>
       <li>
         <a href="Post.html" target="Changepage">
-          <i class='bx bx-pie-chart-alt-2'></i>
+          <i class='bx bx-detail'></i>
           <span class="links_name">โพสต์</span>
         </a>
       </li>
@@ -61,15 +62,15 @@
         </li>
         -->
       <li>
-        <a href="ManageUser.php?sfi=All&sinput=" target="Changepage">
-          <i class='bx bx-user'></i>
+        <a href="ManageUser.html" target="Changepage">
+          <i class='bx bx-group'></i>
           <span class="links_name">การจัดการผู้ใช้</span>
         </a>
       </li>
       <li class="log_out">
         <a href="../logmeout.php">
           <i class='bx bx-log-out'></i>
-          <span class="links_name">Log out</span>
+          <span class="links_name">ออกจากระบบ</span>
         </a>
       </li>
     </ul>
@@ -80,8 +81,9 @@
         <i class='bx bx-menu sidebarBtn'></i>
       </div>
     </nav>
-    <div class="frame">
-      <iframe src="Listborrowgive.html" name="Changepage" height="100%" width="100%" style="border: none;">
+    <div id='center' class="frame">
+      <iframe src="Listborrowgive.html" name="Changepage" height="200%" width="100%" id="iframeid"  frameborder="0" scrolling="auto" height="100%" width="100%"
+      style="border: none; margin-bottom: -5%; margin-top: 0%; overflow:hidden; ">
       </iframe>
 
     </div>

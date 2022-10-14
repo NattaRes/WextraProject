@@ -7,21 +7,24 @@
   <title>Wextra</title>
   <script src="https://cdn.tailwindcss.com/?plugins=forms"></script>
   <link rel="stylesheet" href="listTools.css">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body style="margin-left: 5%; margin-right: 5%;">
   <!-- Index Post -->
   <div class="container max-w-7xl mx-auto mt-8">
     <div class="mb-4">
-      <h1 class="font-serif text-3xl font-bold underline decoration-gray-400" style="margin-left: 5%; margin-top: 6%;">
+      <h1 style="margin-left: -2%; margin-top: 10%; font-size: 30px;">
         รายการเครื่องมือ</h1>
-
     </div>
 
   </div>
 
 
-  <div class="flex justify-start" style="margin-left:5%; margin-top: 5%;">
+  <div class="flex justify-start" style="margin-left:5%; margin-top: 5%; width: 100%;">
 
     <!-- <?php
     $url = $_SERVER['REQUEST_URI'];
@@ -43,9 +46,9 @@
       . "Input: " . $Cschinput . " " . gettype($Cschinput);*/
 
     ?> -->
-    <h2 style="margin-right: 1%; margin-top: 1%;">ค้นหาเครื่องมือ :</h2>
-    <form method="GET" name="searchform" action="ListTools.php" style="width:50%">
-      <select style="height: 40px;" name="cateinput" id="cateinput">
+    <h2 style="margin-right: 0%; margin-top: 1%; font-size:18px; margin-left:-5%; width: 13%;">ค้นหาเครื่องมือ :</h2>
+    <form method="GET" name="searchform" action="ListTools.php" style="width:100%">
+      <select style="height: 40px; border-radius:5px; width: 15%; font-size:20px;" name="cateinput" id="cateinput">
         <!-- <option <?php if ($Acatefilter == "All") {
                   echo "selected='selected'";
                 } ?>>All</option>
@@ -62,7 +65,7 @@
                   echo "selected='selected'";
                 } ?>>Microphone</option> -->
       </select>
-      <select style="height: 40px;" name="sfi" id="sfi">
+      <select style="height: 40px;  border-radius:5px; width: 15%; font-size:20px;" name="sfi" id="sfi">
         <!-- <option <?php if ($Bschfilter == "All") {
                   echo "selected='selected'";
                 } ?>>All</option>
@@ -78,12 +81,12 @@
       </select>
 
 
-      <input style="height: 40px; margin-left: 0%;" type="text" class="input" placeholder="Search" name="sinput" id="sinput">
-      <button type="submit" class="px-4 py-2 rounded-lg bg-sky-500 text-sky-100 " style="margin-left: 0.5%;">Search</button>
+      <input style="height: 50px; margin-left: 0%; border-radius:5px; width: 25%;" type="text" class="input" placeholder="ค้นหา ..." name="sinput" id="sinput">
+      <button type="submit" class="px-4 py-2 rounded-lg bg-sky-500 text-sky-100" style="margin-left: 0.5%;  background-color: #015C92;  color:white;">ค้นหา</button>
     </form>
-    <div style="align-self: flex-end; margin-left: auto; margin-right: 5.5%;">
-      <a href="CreateTools.php">
-        <button class="px-4 py-2 rounded-lg bg-sky-500 text-sky-100">เพิ่มเครื่องมือ</button>
+    <div style="align-self: flex-end;  margin-right:auto; width: 20%; margin-bottom:1%;">
+      <a href="CreateTools.html">
+        <button class="px-4 py-2 rounded-lg bg-sky-500 text-sky-100 " style="background-color: #015C92; color:white;">เพิ่มเครื่องมือ</button>
       </a>
     </div>
 
@@ -179,34 +182,167 @@
   $res = $conn->query($tablequery);
   ?> -->
 
-  <div class="test" style=" margin-left: 5%; margin-right: 5%; margin-top: 1%;">
-    <div class="flex flex-col">
-      <div class="overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-        <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
-          <table class='min-w-full' style='width: 50%;'>
-            <thead>
-              <tr>
-                <th style="width: 0.001%;">
-                  #</th>
-                <th class='IDtable'>
-                  ID</th>
-                <th class='Nametable'>
-                  อุปกรณ์
-                </th>
-                <th class='catetable'>
-                  ประเภทอุปกรณ์</th>
-                <th class='numtable'>
-                  ใช้งานได้</th>
-                <th class='numtable'>
-                  ชำรุด</th>
-                <th class='numtable'>
-                  สูญหาย</th>
-                <th class='actable' colspan='4'>
-                  Action</th>
+  <div class="row">
+    <div class="col-lg-12">
+        <div class="main-box no-header clearfix" style="background-color: #F7F7F7; box-shadow: 0px 0px 4px 4px rgba(109, 109, 109, 0.25);">
+            <div class="main-box-body clearfix">
+                <div class="table-responsive">
+                    <table class="table user-list" style="margin-bottom:0px; background-color:white; border:2px solid #686868;">
+                        <thead >
+                            <tr>
+                                <th
+                                    style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
+                                    <span>ลำดับ</span></th>
+                                <th
+                                    style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
+                                    <span>วันที่ยืม</span></th>
+                                    <th
+                                    style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
+                                    <span>วันที่คืน</span></th>
+                                <th
+                                    style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
+                                    <span>จำนวน</span></th>
+                                   
+                                <th style="border-top:2px solid #686868;border-bottom:2px solid #686868;">&nbsp;</th>
+                                <th style="border-top:2px solid #686868;border-bottom:2px solid #686868;border-right:2px solid #686868;">&nbsp;</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td width="10%" style="border:2px solid #686868;">
+                              <!-- ลำดับ -->  <h5 style="text-align: center; color: black;">1</h5>
+                                </td>
+                                <td width="10%" style="border:2px solid #686868;">
+                                    <h5 style="text-align: center; color: black;"> 1/11/65 </h5>
+                                </td>
+                                <td width="10%" style="border:2px solid #686868;">
+                                    <h5 style="text-align: center; color: black;"> 3/11/65 </h5>
+                                </td>
+                                <td width="10%" style="border:2px solid #686868;">
+                                    <h5 style="text-align: center; color: black;"> 4 รายการ </h5>
+                                </td>
+                               
+                                <td width="15%" align="center" colspan="3" >
+                                    
+                                    <a href="Viewtools.html">
+                                    <button style="background-color:rgba(1, 93, 146, 0.777); 
+                                    border-radius: 22px; width: 25%; margin-right: 4%;
+                                    color: #ffffff; font-size: 18px;
+                                    border: none;">
+                                    เรียกดู
+                                    </button>
+                                  </a>
+                                  <a href="EditTools.html">
+                                    <button style="background-color:rgba(255, 122, 0, 0.69);
+                                    border-radius: 22px; width: 25%; margin-right: 4%;
+                                    color: #ffffff; font-size: 18px;
+                                    border: none;">
+                                    แก้ไข
+                                    </button>
+                                  </a>
+                                    <button style="background-color:rgba(192, 0, 0, 0.777); 
+                                    border-radius: 22px; width: 25%; 
+                                    color: #ffffff; font-size: 18px;
+                                    border: none;">
+                                    ลบ
+                                    </button>
+                               
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%" style="border:2px solid #686868;">
+                              <!-- ลำดับ -->  <h5 style="text-align: center; color: black;">2</h5>
+                                </td>
+                                <td width="10%" 
+                                style="border:2px solid #686868;">
+                                    <h5 style="text-align: center; color: black;" > 1/11/65 </h5>
+                                </td>
+                                <td width="10%" style="border:2px solid #686868;">
+                                    <h5 style="text-align: center; color: black;"> 3/11/65 </h5>
+                                </td>
+                                <td width="10%" style="border:2px solid #686868;">
+                                    <h5 style="text-align: center; color: black;"> 4 รายการ </h5>
+                                </td>
+                                
+                                <td width="15%" align="center" colspan="3" style="border:2px solid #686868;">
+                                    
+                                  <a href="Viewtools.html">
+                                    <button style="background-color:rgba(1, 93, 146, 0.777); 
+                                    border-radius: 22px; width: 25%; margin-right: 4%;
+                                    color: #ffffff; font-size: 18px;
+                                    border: none;">
+                                    เรียกดู
+                                    </button>
+                                  </a>
+                                  <a href="EditTools.html">
+                                    <button style="background-color:rgba(255, 122, 0, 0.69);
+                                    border-radius: 22px; width: 25%; margin-right: 4%;
+                                    color: #ffffff; font-size: 18px;
+                                    border: none;">
+                                    แก้ไข
+                                    </button>
+                                  </a>
+                                    <button style="background-color:rgba(192, 0, 0, 0.777); 
+                                    border-radius: 22px; width: 25%; 
+                                    color: #ffffff; font-size: 18px;
+                                    border: none;">
+                                    ลบ
+                                    </button>
+                               
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%" style="border:2px solid #686868;">
+                              <!-- ลำดับ -->  <h5 style="text-align: center; color: black;">3</h5>
+                                </td>
+                                <td width="10%" style="border:2px solid #686868;">
+                                    <h5 style="text-align: center; color: black;"> 1/11/65 </h5>
+                                </td>
+                                <td width="10%" style="border:2px solid #686868;">
+                                    <h5 style="text-align: center; color: black;"> 3/11/65 </h5>
+                                </td>
+                                <td width="10%" style="border:2px solid #686868;">
+                                    <h5 style="text-align: center; color: black;"> 4 รายการ </h5>
+                                </td>
+                                
+                                <td width="15%" align="center" colspan="3" style="border:2px solid #686868;">
+                                    
+                                  <a href="Viewtools.html">
+                                    <button style="background-color:rgba(1, 93, 146, 0.777); 
+                                    border-radius: 22px; width: 25%; margin-right: 4%;
+                                    color: #ffffff; font-size: 18px;
+                                    border: none;">
+                                    เรียกดู
+                                    </button>
+                                  </a>
+                                  <a href="EditTools.html">
+                                    <button style="background-color:rgba(255, 122, 0, 0.69);
+                                    border-radius: 22px; width: 25%; margin-right: 4%;
+                                    color: #ffffff; font-size: 18px;
+                                    border: none;">
+                                    แก้ไข
+                                    </button>
+                                  </a>
+                                    <button style="background-color:rgba(192, 0, 0, 0.777); 
+                                    border-radius: 22px; width: 25%; 
+                                    color: #ffffff; font-size: 18px;
+                                    border: none;">
+                                    ลบ
+                                    </button>
+                               
+                                </td>
+                            </tr>
+                          
+                        </tbody>
+                    </table>
 
-              </tr>
-            </thead>
-            <tbody class='bg-white'>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
               <!-- <?php
 
               $rownum = 1;

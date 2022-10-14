@@ -13,9 +13,9 @@
 
 </head>
 
-<body style="overflow-y: hidden;" scrolling="auto">
+<body >
     <div style="margin-top: 6%;">
-        <lebel style="font-size: 30px; margin-left: 5%; color: black; margin-top: 20%;"> รายการยืม </lebel>
+        <lebel style="font-size: 30px; margin-left: 5%; color: black; margin-top: 20%;"> รายการคืน </lebel>
     </div>
     <div class="container mt-10 p-3 cart" style="margin-top: 1%; background-color: #F6F6F6; border-radius: 30px; margin-bottom: 4%; margin-left: 5%;">
             <div class="payment-info">
@@ -70,7 +70,9 @@
                                 <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194); "><span>ลำดับ</span></th>
                                 <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>ชื่ออุปกรณ์</span></th>
                                 <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>จำนวน</span></th>
-                                </tr>
+                                <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>สภาพเครื่องมือ</span></th>
+   
+                            </tr>
                             </thead>
                             <tbody>                        
                                 <tr>
@@ -86,14 +88,21 @@
                                     <td style="border: 2px solid rgb(194, 194, 194); ">  
                                         <span class="user-link1">3</span>
                                     </td>
-                                   
+                                    <td style="border: 2px solid rgb(194, 194, 194); ">  
+                                        <select id="mySelect" style="margin-left:25%; height:100%; width: 50%; font-size:20px; border-radius:5px;">
+                                            <option value="ann">Ann Frank</option>
+                                            <option value="paul" selected>Paul Allen</option>
+                                            <option value="steve">Steve Jobs</option>
+                                         </select>
+                                    </td>
                                 </tr>
                               
                             </tbody>
                             <thead>
                                 <tr>
-                                <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border-left: 0px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194); border-left: 2px solid rgb(194, 194, 194);"><span></span></th>
-                                <th style="text-align: right; color: #908F8F; font-weight: bold; font-size: 18px; border-bottom: 2px solid rgb(194, 194, 194);" ><span>รวมทั้งหมด</span></th>
+                                <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;  border-bottom: 2px solid rgb(194, 194, 194); border-left: 2px solid rgb(194, 194, 194);"> </th>
+                                <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;  border-bottom: 2px solid rgb(194, 194, 194); border-left: 0px solid rgb(194, 194, 194);"><span></span></th>
+                                <th style="text-align: right; color: #908F8F; font-weight: bold; font-size: 18px; border-bottom: 2px solid rgb(194, 194, 194);border-left: 0px solid rgb(194, 194, 194);" ><span>รวมทั้งหมด</span></th>
                                 <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>3</span></th>
                                 </tr>
                             </thead>
@@ -104,7 +113,7 @@
                 </div>
             </div>
             <div>
-            <button class="onbutton" type="button">ยืนยันรับอุปกรณ์</button>
+            <button class="onbutton" type="button" >ยืนยันคืนอุปกรณ์</button>
         </div>
         </div>
     </div>

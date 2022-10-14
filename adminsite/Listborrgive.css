@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;500&display=swap');
+
 .content {
   text-align: center;
 }
@@ -76,7 +78,8 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Kanit', sans-serif;
+  background-color: white;
 }
 
 .mytabs {
@@ -93,14 +96,14 @@ body {
 
 .mytabs label {
   padding: 25px;
-  background: #e2e2e2;
+  background: #C2C2C2;;
   font-weight: bold;
 }
 
 .mytabs .tab {
   width: 100%;
   padding: 20px;
-  background: #fff;
+  background: #E3E3E3;;
   order: 1;
   display: none;
 }
@@ -114,7 +117,7 @@ body {
 }
 
 .mytabs input[type="radio"]:checked+label {
-  background: #fff;
+  background: #E3E3E3;;
 }
 
 ิ.boxtext {

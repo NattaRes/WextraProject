@@ -1,18 +1,18 @@
 /* Googlefont Poppins CDN Link */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;500&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Kanit', sans-serif;
 }
 
 .sidebar {
   position: fixed;
   height: 100%;
   width: 240px;
-  background: #0A2558;
+  background-color: #015C92;
   transition: all 0.5s ease;
 }
 
@@ -38,16 +38,19 @@
   color: #fff;
   font-size: 24px;
   font-weight: 500;
+  margin-left: 15%;
 }
 
 .sidebar .nav-links {
   margin-top: 10px;
+  
 }
 
 .sidebar .nav-links li {
   position: relative;
   list-style: none;
   height: 50px;
+  
 }
 
 .sidebar .nav-links li a {
@@ -57,14 +60,15 @@
   align-items: center;
   text-decoration: none;
   transition: all 0.4s ease;
+  
 }
 
 .sidebar .nav-links li a.active {
-  background: #081D45;
+  background: #023c5d95;
 }
 
 .sidebar .nav-links li a:hover {
-  background: #081D45;
+  background: #023c5d95;
 }
 
 .sidebar .nav-links li i {
@@ -76,7 +80,7 @@
 
 .sidebar .nav-links li a .links_name {
   color: #fff;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 400;
   white-space: nowrap;
 }
@@ -113,8 +117,8 @@
   left: 240px;
   z-index: 100;
   padding: 0 20px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  transition: all 0.5s ease;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+   transition: all 0.5s ease;
 }
 
 .sidebar.active~.home-section nav {
@@ -236,7 +240,7 @@ nav .profile-details i {
   background: #cce5ff;
   line-height: 50px;
   text-align: center;
-  color: #66b0ff;
+  color: #015C92;
   border-radius: 12px;
   margin: -15px 0 0 6px;
 }
@@ -314,7 +318,7 @@ nav .profile-details i {
 
 .sales-boxes .box .button a {
   color: #fff;
-  background: #0A2558;
+  background: #015C92;
   padding: 4px 12px;
   font-size: 15px;
   font-weight: 400;
@@ -324,7 +328,7 @@ nav .profile-details i {
 }
 
 .sales-boxes .box .button a:hover {
-  background: #0d3073;
+  background: #015C92;
 }
 
 /* Right box */
