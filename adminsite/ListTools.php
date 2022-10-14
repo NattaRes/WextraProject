@@ -235,7 +235,7 @@
                   echo '<td width="10%" style="border:2px solid #686868;">' . '<h5 style="text-align: center; color: black;">' . $row["type_name"] . '</h5>' . '</td>';
                   echo '<td width="10%" style="border:2px solid #686868;">' . '<h5 style="text-align: center; color: black;">' . "NUMBER" . '</h5>' . '</td>';
                   echo '<td width="15%" align="center" colspan="3">
-                      <a href="Viewtools.html">
+                      <a href="Viewtools.php?toolidall=' . $row["tool_all_ID"] . '">
                         <button style="background-color:rgba(1, 93, 146, 0.777); 
                         border-radius: 22px; width: 25%; margin-right: 4%;
                         color: #ffffff; font-size: 18px;
@@ -243,7 +243,7 @@
                         เรียกดู
                         </button>
                       </a>
-                      <a href="EditTools.html">
+                      <a href="EditTools.php?toolidall=' . $row["tool_all_ID"] . '">
                         <button style="background-color:rgba(255, 122, 0, 0.69);
                         border-radius: 22px; width: 25%; margin-right: 4%;
                         color: #ffffff; font-size: 18px;
