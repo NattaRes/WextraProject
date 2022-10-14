@@ -35,7 +35,7 @@
 $host = "localhost:3306";
 $user = "root";
 $pass = "";
-$dbnm = "wextra";
+$dbnm = "wextraprototype";
 $conn = mysqli_connect($host, $user, $pass, $dbnm);
 if (mysqli_connect_error()) {
     echo "SQL condition 1 connect error : " . mysqli_connect_error();

@@ -4,8 +4,10 @@ include("connectdb.php");
 $lid = $_POST['lid'];
 $pwd = $_POST['pwd'];
 
+$hashpwd = hash('sha256', $pwd);
+
 if ((!empty($lid)) && (!empty($pwd))) {
-    $sqlquery = "SELECT * FROM user WHERE ID = '$lid' AND password = '$pwd'";
+    $sqlquery = "SELECT * FROM user WHERE UID = '$lid' AND password = '$hashpwd'";
     // $result = mysqli_query($conn, $sqlquery);
 
     $result = $conn->query($sqlquery);
@@ -51,9 +53,9 @@ if ((!empty($lid)) && (!empty($pwd))) {
 
     while ($row = mysqli_fetch_array($result)) {
         // echo "\n1122";
-        if ($row["role"] == "admin") {
+        if ($row["role"] == "1") {
             $roller = "admin";
-        } elseif ($row["role"] == "stuser") {
+        } elseif ($row["role"] == "2") {
             $roller = "user";
         }
         $cnt++;
