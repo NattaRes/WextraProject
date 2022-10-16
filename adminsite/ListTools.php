@@ -60,7 +60,11 @@
                 } ?> value="all">ทั้งหมด</option>
         <?php
         while ($typerow = mysqli_fetch_array($typeres)) {
-          echo '<option value="' . $typerow["tool_type"] . '">' . $typerow["type_name"] . '</option>';
+          echo '<option value="' . $typerow["tool_type"] . '"';
+          if ($Acatefilter == $typerow["tool_type"]) {
+            echo 'selected="selected"';
+          }
+          echo '>' . $typerow["type_name"] . '</option>';
         }
         ?>
       </select>
@@ -103,19 +107,19 @@
 
         // A : specific , B : specific , C : fill
         $tablequery = "SELECT * FROM tool_all_table 
-        INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand 
-        INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type 
-        WHERE (tool_type_table.tool_type = '$Acatefilter') 
-        AND ($Bschfilter LIKE '%$Cschinput%')";
+          INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand 
+          INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type 
+          WHERE (tool_type_table.tool_type = '$Acatefilter') 
+          AND ($Bschfilter LIKE '%$Cschinput%')";
       } else {
         // C con no input
         // echo "A1B1C2";
 
         // A : specific , B : specific , C : empty
         $tablequery = "SELECT * FROM tool_all_table 
-        INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand 
-        INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type 
-        WHERE tool_type_table.tool_type = '$Acatefilter'";
+          INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand 
+          INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type 
+          WHERE tool_type_table.tool_type = '$Acatefilter'";
       }
     } else {
       // B con no input
@@ -125,21 +129,21 @@
 
         // A : specific , B : All , C : fill
         $tablequery = "SELECT * FROM tool_all_table 
-        INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand 
-        INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type 
-        WHERE (tool_type_table.tool_type = '$Acatefilter') 
-        AND ((tool_name LIKE '%$Cschinput%') 
-        OR (tool_brand_table.tool_brand LIKE '%$Cschinput%') 
-        OR (tool_model LIKE '%$Cschinput%'))";
+          INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand 
+          INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type 
+          WHERE (tool_type_table.tool_type = '$Acatefilter') 
+          AND ((tool_name LIKE '%$Cschinput%') 
+          OR (tool_brand_table.tool_brand LIKE '%$Cschinput%') 
+          OR (tool_model LIKE '%$Cschinput%'))";
       } else {
         // C con no input
         // echo "A1B2C2";
 
         // A : specific , B : All , C : empty
         $tablequery = "SELECT * FROM tool_all_table 
-        INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand 
-        INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type 
-        WHERE tool_type_table.tool_type = '$Acatefilter'";
+          INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand 
+          INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type 
+          WHERE tool_type_table.tool_type = '$Acatefilter'";
       }
     }
   } else {
@@ -152,17 +156,17 @@
 
         // A : All , B : specific , C : fill
         $tablequery = "SELECT * FROM tool_all_table 
-        INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand 
-        INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type 
-        WHERE $Bschfilter LIKE '%$Cschinput%'";
+          INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand 
+          INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type 
+          WHERE $Bschfilter LIKE '%$Cschinput%'";
       } else {
         // C con no input
         // echo "A2B1C2";
 
         // A : All , B : specific , C : empty
         $tablequery = "SELECT * FROM tool_all_table 
-        INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand 
-        INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type";
+          INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand 
+          INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type";
       }
     } else {
       // B con no input
@@ -172,20 +176,20 @@
 
         // A : All , B : All , C : fill
         $tablequery = "SELECT * FROM tool_all_table 
-        INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand 
-        INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type 
-        WHERE (tool_all_ID LIKE '%$Cschinput%') 
-        OR (tool_name LIKE '%$Cschinput%') 
-        OR (tool_brand_table.brand_name LIKE '%$Cschinput%') 
-        OR (tool_model LIKE '%$Cschinput%')";
+          INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand 
+          INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type 
+          WHERE (tool_all_ID LIKE '%$Cschinput%') 
+          OR (tool_name LIKE '%$Cschinput%') 
+          OR (tool_brand_table.brand_name LIKE '%$Cschinput%') 
+          OR (tool_model LIKE '%$Cschinput%')";
       } else {
         // C con no input
         // echo "A2B2C2";
 
         // A : All , B : All , C : empty
         $tablequery = "SELECT * FROM tool_all_table 
-        INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand 
-        INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type";
+          INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand 
+          INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type";
       }
     }
   }
