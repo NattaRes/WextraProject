@@ -154,7 +154,7 @@ body {
 .onbutton{
 	width:150px;
 	height:40px;
-  margin-left: 86%;
+    margin-left: 86%;
 	border:none;
 	font-size: 20px;
 	border-radius:5px;
@@ -356,45 +356,327 @@ label.radio input:checked + span {
   color: #fff;
   cursor: pointer;
 }
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 10px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 30%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+.dropdown-toggle {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    border: 2px solid #dc3545;
+    font-weight: 600;
+}
+
+.dropdown-toggle:focus {
+
+    box-shadow: none !important;
 
 }
 
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
 
-  border: 1px solid #888;
-  width: 30%;
-  border-radius: 33px;
+.dropdown-toggle::after {
+
+    display: none;
+
 }
 
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 35px;
-  font-weight: bold;
-  margin-right: 5%;
+.dropdown-menu {
+
+    width: 200px;
+    border: 2px solid #F44336;
+    padding: 0rem 0;
+    transform: translate3d(0px, 50px, 0px) !important;
+
 }
 
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
+.dropdown-item:focus,
+.dropdown-item:hover {
+    color: #ffffff;
+    background-color: #dc3545;
+    padding: 12px;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 12px;
+
+}
+
+F
+
+/* Customize the label (the container) */
+.container {
+    display: block;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container .input1 {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    margin-left: 10%;
+    margin-top: -15%;
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    background-color: rgb(184, 184, 184);
+}
+
+/* On mouse-over, add a grey background color */
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked~.checkmark {
+    background-color: #00da5e;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 10px;
+    height: 15px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.onbutton {
+    width: 20%;
+    height: 40px;
+    margin-left:80%;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: #015C92;
+    color: #fff;
+    cursor: pointer;
+}
+
+.onbuttonprint {
+    width: 150px;
+    height: 40px;
+    margin-left: 1%;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: #015C92;
+    color: #fff;
+    cursor: pointer;
+}
+
+.main-box {
+    background: #FFFFFF;
+    -webkit-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -moz-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -o-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    -ms-box-shadow: 1px 1px 2px 0 #CCCCCC;
+    box-shadow: 1px 1px 2px 0 #CCCCCC;
+    margin-bottom: 16px;
+    -webikt-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.table a.table-link.danger {
+    color: #e74c3c;
+}
+
+.label {
+    border-radius: 3px;
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.user-list tbody td .user-subhead {
+    font-size: 16px;
+    font-style: italic;
+    color: #908F8F;
+
+}
+
+.user-list tbody td .user-link {
+    display: block;
+    color: #908F8F;
+    font-size: 20px;
+    padding-top: 3px;
+    margin-left: 60px;
+}
+
+.user-list tbody td .user-link1 {
+    display: block;
+    color: #908F8F;
+    font-size: 18px;
+    text-align: center;
+}
+
+a {
+    color: #3498db;
+    outline: none !important;
+}
+
+.user-list tbody td>img {
+    position: relative;
+    max-width: 50px;
+    float: left;
+    margin-right: 15px;
+}
+
+.table thead tr th {
+    text-transform: uppercase;
+    font-size: 0.875em;
+}
+
+.table thead tr th {
+    border-bottom: 2px solid #e7ebee;
+}
+
+.table tbody tr td:first-child {
+    font-size: 1.125em;
+    font-weight: 300;
+}
+
+.table tbody tr td {
+    font-size: 0.875em;
+    vertical-align: middle;
+    border-top: 1px solid #e7ebee;
+    padding: 12px 8px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.payment-info {
+    background: rgb(255, 255, 255);
+    padding: 15px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bold;
+    width: 97%;
+    box-shadow: 0px 0px 4px 4px rgba(109, 109, 109, 0.25);
+}
+
+.product-details {
+    padding: 10px;
+}
+
+body {
+    background: white;
+}
+
+.cart {
+    background: #fff;
+}
+
+.p-about {
+    font-size: 12px;
+}
+
+.table-shadow {
+    -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.42);
+    box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.42);
+}
+
+.type {
+    font-weight: 400;
+    font-size: 10px;
+}
+
+label.radio {
+    cursor: pointer;
+}
+
+label.radio input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+label.radio span {
+    padding: 1px 12px;
+    border: 2px solid #ada9a9;
+    display: inline-block;
+    color: #8f37aa;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 300;
+}
+
+label.radio input:checked+span {
+    border-color: #fff;
+    background-color: blue;
+    color: #fff;
+}
+
+.credit-inputs {
+    background: rgb(102, 102, 221);
+    color: #fff !important;
+    border-color: rgb(102, 102, 221);
+}
+
+.credit-inputs::placeholder {
+    color: #fff;
+    font-size: 13px;
+}
+
+.credit-card-label {
+    font-size: 9px;
+    font-weight: 300;
+}
+
+.form-control.credit-inputs:focus {
+    background: rgb(102, 102, 221);
+    border: rgb(102, 102, 221);
+}
+
+.line {
+    border-bottom: 1px solid rgb(102, 102, 221);
+}
+
+.information span {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.information {
+    margin-bottom: 5px;
+}
+
+.items {
+    -webkit-box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.25);
+    box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.08);
+}
+
+.spec {
+    font-size: 11px;
 }
