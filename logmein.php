@@ -1,11 +1,8 @@
 <?php
 include("connectdb.php");
 
-$lid = $_POST['lid'];
-$pwd = $_POST['pwd'];
-
 if ((!empty($lid)) && (!empty($pwd))) {
-    $sqlquery = "SELECT * FROM user WHERE ID = '$lid' AND password = '$pwd'";
+    $sqlquery = "SELECT * FROM user WHERE UID = '$lid' AND password = '$hashpwd'";
     // $result = mysqli_query($conn, $sqlquery);
 
     $result = $conn->query($sqlquery);
@@ -51,9 +48,9 @@ if ((!empty($lid)) && (!empty($pwd))) {
 
     while ($row = mysqli_fetch_array($result)) {
         // echo "\n1122";
-        if ($row["role"] == "admin") {
+        if ($row["role"] == "1") {
             $roller = "admin";
-        } elseif ($row["role"] == "stuser") {
+        } else {
             $roller = "user";
         }
         $cnt++;
@@ -72,7 +69,7 @@ if ((!empty($lid)) && (!empty($pwd))) {
             exit();
         }
     } else {
-        echo "<script type='text/javascript'>alert('Invalid ID / Password.')</script>";
+        echo "<script type='text/javascript'>alert('Invalid ID / Password. " . $hashpwd ."')</script>";
         exit();
     }
 }

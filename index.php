@@ -38,6 +38,7 @@
     $lid = $_POST['lid'];
     $pwd = $_POST['pwd'];
     if ((isset($lid)) && (isset($pwd))) {
+        $hashpwd = hash('sha256', $pwd);
         include("logmein.php");
     }
     if (isset($falsetist)) {
