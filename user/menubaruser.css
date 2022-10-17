@@ -66,6 +66,12 @@ body {
     margin-left: 8%; 
     margin-right: 10%;
 }
+.nameheader{
+     float: right;
+     margin-right: 3%; 
+     margin-top: 0.5%; 
+     color: white;
+}
 .sidebarMenuInner{
     margin:0;
     padding:0;
@@ -226,4 +232,73 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     height:550px;
     overflow:auto;
     margin-left: 8%;
+  }
+
+  @media only screen and (max-width:800px) {
+    /* For tablets: */
+    #sidebarMenu {
+      width: 30%;
+      padding: 0;
+      transform: translateX(-400px);
+    }
+    .frame {
+      width: 100%;
+    }
+    .logoimg{
+        height: 70%; 
+        margin-left: 10%; 
+        margin-right: 10%;
+    }
+    .nameheader{
+        float: right;
+        margin-right: 5%; 
+        margin-top: 0.5%; 
+        color: white;
+    }.spinner{
+        height: 4px;
+        width: 120%;
+    } .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 70%;
+        border-radius: 33px;
+        height: 88%;
+      }
+   
+  }
+  @media only screen and (max-width:500px) {
+    /* For mobile phones: */
+    #sidebarMenu{
+      width: 40%;
+    }
+    .logoimg{
+        height: 70%; 
+        margin-left: 15%; 
+        margin-right: 10%;
+        margin-top: -15%;
+    }.nameheader {
+        float: right;
+        margin-right: 8%; 
+        margin-top: 0.5%; 
+        color: white;
+        font-size: 15px;
+    } .frame{
+        height: 150%;
+    } .spinner{
+        height: 4px;
+        width: 120%;
+        margin-left: -35%;
+    } .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 77%;
+        border-radius: 33px;
+        height: 85%;
+        font-size: 13px;
+      }
+
   }
