@@ -15,6 +15,7 @@ $toolname = $_POST['toolnameinput'];
 $branddef = $_POST['branddef'];
 $defmodel = $_POST['defmodel'];
 $ttype = $_POST['categoryinput'];
+$desc = $_POST['description'];
 // $picpath = $_POST['picpather'];
 
 // if ((!empty($toolallID)) && (!empty($toolname)) && (!empty($branddef)) && (!empty($defmodel)) && (!empty($ttype))) {
@@ -39,8 +40,13 @@ $ttype = $_POST['categoryinput'];
 //     $misfrmcon = "<script type='text/javascript'> alert('Missing Form') </script>";
 // }
 
-$updatetoolsql = "UPDATE tools_all SET name = '$toolname', brand = '$branddef', model = '$defmodel', 
-        type = '$ttype' WHERE ID_all = '$idall'";
+$updatetoolsql = "UPDATE tool_all_table SET 
+    tool_brand = '$branddef', 
+    tool_name = '$toolname', 
+    tool_model = '$defmodel', 
+    tool_type = '$ttype', 
+    tool_desc = '$desc'
+    WHERE ID_all = '$idall'";
 
 $res = $conn->query($updatetoolsql);
 

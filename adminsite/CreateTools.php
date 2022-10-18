@@ -53,11 +53,13 @@
               ยี่ห้อ
             </label>
             <!-- <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" style="width:90%;" type="text" name="branddef" id="branddef" placeholder="เพิ่มยี่ห้อ" /> -->
-            <?php
-            while ($brandrow = mysqli_fetch_array($brandres)) {
-              echo '<option value="' . $brandrow["tool_brand"] . '">' . $brandrow["brand_name"] . '</option>';
-            }
-            ?>
+            <select style="height: 100%; margin-top:2%;" name="branddef" id="branddef">
+              <?php
+              while ($brandrow = mysqli_fetch_array($brandres)) {
+                echo '<option value="' . $brandrow["tool_brand"] . '">' . $brandrow["brand_name"] . '</option>';
+              }
+              ?>
+            </select>
           </div>
           <div style="float: left; width:50%; margin-top:2%;">
             <label class="block text-sm font-bold text-gray-700" for="title">
@@ -87,7 +89,7 @@
             <label class="block text-sm font-bold text-gray-700" for="password">
               รายละเอียด
             </label>
-            <textarea name="description" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4" placeholder="400">รายละเอียดต่าง ๆ ที่จะเขียนให้กับเครื่องมือ</textarea>
+            <textarea name="description" id="description" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4" placeholder="รายละเอียดต่าง ๆ ที่จะเขียนให้กับเครื่องมือ"></textarea>
           </div>
 
           <div class="flex items-center justify-start mt-4 gap-x-2">
