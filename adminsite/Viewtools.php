@@ -99,9 +99,15 @@
             <hr noshade="noshade" style="color: black; margin-top: 2%;">
 
             <div>
-                <div style="margin-top: 2%;">
-                    <lebel style="font-size: 25px; margin-left: 2%; color: black;"> ครุภัณฑ์</lebel>
+                <div style="margin-top: 0%; float:left; margin-left: 2%;">
+                    <lebel style="font-size: 25px;  color: black;"> ครุภัณฑ์</lebel>
                 </div>
+                <div style="margin-right:auto; width: 20%; margin-left:86%;">
+                 <a href="#" id="myBtn">
+                  <button class="px-4 py-2 rounded-lg bg-sky-500 text-sky-100 " style="background-color: #015C92; color:white; border:none;">เพิ่มครุภัณฑ์</button>
+                 </a>
+                </div>
+
                 <div class="container bootstrap snippets bootdey">
 
                     <div class="row">
@@ -148,6 +154,95 @@
                     </div>
                 </div>
             </div>
+
+            <div id="myModal" class="modal">
+     
+     <!-- Modal content -->
+     <div class="modal-content" style=" margin-top: 20%; width: 40%; margin-left:30%; 
+     border-radius: 33px; box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);">
+       <div>
+         <h2 style="text-align: center; margin-top: 5%; margin-left: 4%; font-size: 30px; color:black; ">เพิ่มครุภัณฑ์</h2> 
+       </div>
+       <div style="float: left ; width:50%; margin-bottom: 2%; margin-top: 5%; margin-left: 20%;">
+         <label  style="font-size: 20px; color:black; float: left ; margin-top:1%;">
+           ID : 
+         </label>
+         <div style="float: left ; width:50%; margin-bottom: 2%;  margin-left: 5%; ">
+             <input 
+             style="border-radius: 10px; width:200%; height:40px;" type="text" name="defmodel" id="defmodel"  placeholder="เพิ่ม ID"/>
+         </div>
+        
+         </div>
+         <div style="float: left ; width:50%; margin-bottom: 2%; margin-top: 0%; margin-left: 20%;">
+         <label  style="font-size: 20px; color:black; float: left ; margin-top:1%;">
+           สภาพ : 
+         </label>
+         <div style="float: left ; width:50%; margin-bottom: 2%;  margin-left: 5%;  ">
+         <select id="mySelect" style="margin-left:0%; height:100%; width: 175%; font-size:20px; border-radius:5px;">
+            <option value="ann">Ann Frank</option>
+            <option value="paul" selected>Paul Allen</option>
+            <option value="steve">Steve Jobs</option>
+         </select>
+         </div>
+         </div>
+     
+           <div class="flex items-center justify-start mt-4 gap-x-2 ">
+             <button type="submit" style="width:100px;
+             height:40px;
+             border:none;
+             font-size: 20px;
+             border-radius:5px;
+             margin-left:55%;
+             background: #015C92;              
+             color:#fff;
+             cursor:pointer;
+             margin-bottom:5%;">
+               ยืนยัน
+             </button>
+             <button type="reset" class="close1" style="width:100px;
+             height:40px;
+             border:none;
+             font-size: 20px;
+             border-radius:5px;
+             background:rgba(192, 0, 0, 0.777);	
+             color:#fff;
+             cursor:pointer;
+             margin-bottom:5%;">
+               ยกเลิก
+             </button>
+           </div>
+   </div>
+   </div>
+   </div>
+   
+     <!-- Popup -->
+  <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close1")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function () {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 
 </body>
 

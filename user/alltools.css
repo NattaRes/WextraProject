@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;500&display=swap');
+
 body {
 	background: linear-gradient(180deg, #015C92 0%, rgba(163, 216, 232, 0.99) 100%);
 	font-family: 'Kanit', sans-serif;
 
 }
+
 #testimonial_area {
 	padding: 10% 0;
-	
+
 }
+
 .box-area {
 	padding: 30px;
 	position: relative;
@@ -18,18 +21,20 @@ body {
 	margin-left: 5%;
 	width: 90%;
 	border-radius: 22px;
-    height: 100%;
+	height: 100%;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 .box-area h5 {
 	font-size: 18px;
 	font-weight: 700;
 	color: #3f3f3f;
-	
+
 	margin-bottom: 5px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 }
+
 .box-area span {
 	color: #262626;
 	display: block;
@@ -37,9 +42,11 @@ body {
 	margin: 0 0 20px;
 	font-weight: 400;
 }
+
 .box-area .content {
 	color: #262626;
 }
+
 .box-area .img-area {
 	width: 280px;
 	height: 180px;
@@ -54,6 +61,7 @@ body {
 	background-color: #fff;
 	box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 .box-area .img-area img {
 	width: 70%;
 	height: auto;
@@ -61,31 +69,37 @@ body {
 	margin-left: 15%;
 	margin-top: 5%;
 }
+
 .socials {
 	margin-top: 30px;
 }
+
 .socials i {
 	margin: 0 10px;
 	color: #0a69ed;
 	font-size: 18px;
 }
+
 #testimonial_area .owl-nav {
 	position: absolute;
 	top: 50%;
 	width: 100%;
-    
+
 }
-.onbutton{
-	width:150px;
-	height:40px;
-	border:none;
+
+.onbutton {
+	width: 150px;
+	height: 40px;
+	border: none;
 	font-size: 20px;
-	border-radius:5px;
-	background-color:rgba(1, 93, 146, 0.56);
-	color:#fff;
-	cursor:pointer;
-  }
-#testimonial_area .owl-prev, #testimonial_area .owl-next {
+	border-radius: 5px;
+	background-color: rgba(1, 93, 146, 0.56);
+	color: #fff;
+	cursor: pointer;
+}
+
+#testimonial_area .owl-prev,
+#testimonial_area .owl-next {
 	width: 60px;
 	height: 60px;
 	line-height: 40px;
@@ -96,83 +110,95 @@ body {
 	background: rgba(218, 213, 213, 0.69);
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 #testimonial_area .owl-prev {
 	left: -50px;
 	top: -30px;
 }
+
 #testimonial_area .owl-next {
 	right: -50px;
 	top: -30px;
 }
+
 @media only screen and (max-width: 991px) {
 	.owl-nav {
 		display: none;
 	}
 }
+
 @media only screen and (max-width: 767px) {
 	.box-area {
 		text-align: center;
 	}
+
 	.owl-nav {
 		display: none;
 	}
 }
-.titlec{
+
+.titlec {
 	color: #6e6e6e;
 	margin-top: 3%;
 	margin-left: -2%;
 	margin-bottom: 2%;
 	text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  }
-  .titlect{
+}
+
+.titlect {
 	color: #6e6e6e;
 	margin-left: 22%;
 	margin-right: 15%;
 	margin-top: 5%;
 	text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  }
-  .search{
+}
+
+.search {
 	margin-bottom: 5%;
 	margin-top: -8%;
 	height: 50px;
 	margin-left: 25%;
-	width: 50%;
+	width: 45%;
 	background-color: #ffffff;
 	border-radius: 15px;
 	padding: 10px;
-	}
-	.iconimg{
-	  height: 50%; 
-	  width: 50%;
-	  margin-left: 0%;
-	  margin-right: 0%;
-	  margin-top: 15%;
-  }
-	.search_input{
+}
+
+.iconimg {
+	height: 50%;
+	width: 50%;
+	margin-left: 0%;
+	margin-right: 0%;
+	margin-top: 15%;
+}
+
+.search_input {
 	color: black;
 	border: 0;
 	outline: 0;
 	background: none;
 	font-size: 18px;
-	margin-top:-5px;
-	caret-color:transparent;
+	margin-top: -5px;
+	caret-color: transparent;
 	line-height: 40px;
 	transition: width 0.4s linear;
-	}
-  
-	.search_input{
+}
+
+.search_input {
 	padding: 0 10px;
 	width: 450px;
-	caret-color:rgba(1, 93, 146, 0.816);;
+	caret-color: rgba(1, 93, 146, 0.816);
+	;
 	transition: width 0.4s linear;
-	}
-	
-	.search:hover > .search_icon{
-	background: rgba(1, 93, 146, 0.816);;
+}
+
+.search:hover>.search_icon {
+	background: rgba(1, 93, 146, 0.816);
+	;
 	color: #fff;
-	}
-  
-	.search_icon{
+}
+
+.search_icon {
 	height: 40px;
 	width: 40px;
 	float: right;
@@ -180,45 +206,124 @@ body {
 	justify-content: center;
 	align-items: center;
 	border-radius: 50%;
-	color:black;
+	color: black;
 	margin-top: -1%;
-	background-color:#ffffff;
-	}
-	
-  a:link{
-	text-decoration:none;
-  }    
-  input[type='number']::-webkit-inner-spin-button,
-  input[type='number']::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
+	background-color: #ffffff;
+}
 
-  .custom-number-input input:focus {
-    outline: none !important;
-  }
+a:link {
+	text-decoration: none;
+}
 
-  .custom-number-input button:focus {
-    outline: none !important;
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
 
-	
-  }
+.custom-number-input input:focus {
+	outline: none !important;
+}
+
+.custom-number-input button:focus {
+	outline: none !important;
 
 
-  
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
+}
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 	margin: 0;
-  }
-  .dot {
-    height: 15px;
-    width: 15px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    background-color: green;
-   
-  }
+}
+
+.dot {
+	height: 15px;
+	width: 15px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	background-color: green;
+
+}
+
+.carticon {
+	height: 5%;
+	width: 4%;
+	margin-top: -15%;
+	margin-left: 72%;
+}
+
+@media only screen and (max-width:800px) {
+
+	/* For tablets: */
+	.carticon {
+		height: 10%;
+		width: 7%;
+		margin-top: -20%;
+		margin-left: 72%;
+	}
+
+	.search_input {
+		padding: 0 10px;
+		width: 300px;
+		caret-color: rgba(1, 93, 146, 0.816);
+		transition: width 0.4s linear;
+	}
+
+	.search_icon {
+		height: 40px;
+		width: 40px;
+		float: right;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 50%;
+		color: black;
+		margin-top: -13%;
+		background-color: #ffffff;
+	}.box-area .img-area {
+		width: 250px;
+		
+	}
+
+}
+
+@media only screen and (max-width:500px) {
+
+	/* For mobile phones: */
+	.carticon {
+		height: 10%;
+		width: 9%;
+		margin-top: -25%;
+		margin-left: 72%;
+	}
+
+	.search_input {
+		padding: 0 10px;
+		width: 150px;
+		caret-color: rgba(1, 93, 146, 0.816);
+		transition: width 0.4s linear;
+	}
+
+	.search_icon {
+		height: 40px;
+		width: 40px;
+		float: right;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 50%;
+		color: black;
+		margin-top: -2%;
+		background-color: #ffffff;
+	}.box-area .img-area {
+		width: 350px;
+		
+	}
+
+}
