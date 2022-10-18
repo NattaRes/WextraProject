@@ -232,7 +232,7 @@
                 $rownum = 1;
 
                 while ($row = mysqli_fetch_array($res)) {
-                  echo '<tr>';
+                  echo '<tr id="' . $row["tool_all_ID"] . '">';
                   echo '<td width="10%" style="border:2px solid #686868;">' . '<h5 style="text-align: center; color: black;">' . $rownum . '</h5>' . '</td>';
                   echo '<td width="10%" style="border:2px solid #686868;">' . '<h5 style="text-align: center; color: black;">' . $row["tool_all_ID"] . '</h5>' . '</td>';
                   echo '<td width="10%" style="border:2px solid #686868;">' . '<h5 style="text-align: center; color: black;">' . $row["tool_name"] . ' ' . $row["brand_name"] . ' ' . $row["tool_model"] . '</h5>' . '</td>';
@@ -255,7 +255,7 @@
                         แก้ไข
                         </button>
                       </a>
-                      <a href="deltools.php?toolidall=' . $row["tool_all_ID"] . '">
+                      <a href="deltools.php?toolidall=' . $row["tool_all_ID"] . '" class="remove">
                         <button style="background-color:rgba(192, 0, 0, 0.777); 
                         border-radius: 22px; width: 25%; 
                         color: #ffffff; font-size: 18px;
