@@ -85,7 +85,7 @@
                 <label class="credit-card-label" style="margin-left: 14.5%; font-size: 20px; color: black;">สภาพ :</label>
                 <label class="credit-card-label" style="font-size: 20px; color: black;">ใช้งานได้</label>
             </div>
-           
+
             <div style="width: 100%;">
                 <label class="credit-card-label" style="margin-left: 10%; font-size: 20px; color: black;">รายละเอียด :</label>
                 <label class="credit-card-label" style="font-size: 20px; color: black; "><?php echo $desc; ?></lebel>
@@ -93,7 +93,7 @@
 
             <div>
                 <a herf="Historytools.html">
-                 <button class="onbutton" type="button" style="margin-left:10%; margin-top:2%;">ประวัติการใช้งาน</button>
+                    <button class="onbutton" type="button" style="margin-left:10%; margin-top:2%;">ประวัติการใช้งาน</button>
                 </a>
             </div>
             <hr noshade="noshade" style="color: black; margin-top: 2%;">
@@ -103,6 +103,15 @@
                     <lebel style="font-size: 25px; margin-left: 2%; color: black;"> ครุภัณฑ์</lebel>
                 </div>
                 <div class="container bootstrap snippets bootdey">
+                    <?php
+
+                    $toolspectable = "SELECT * FROM tool_specific_table 
+                        INNER JOIN tool_status_table ON tool_specific_table.tool_status = tool_status_table.tool_status
+                        WHERE tool_all_ID = '$toolidall'";
+
+                    $specifictable = $conn->query($toolspectable);
+
+                    ?>
 
                     <div class="row">
                         <div class="col-lg-12">
@@ -119,31 +128,42 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td style="border: 2px solid rgb(194, 194, 194); ">
+                                                <?php
 
-                                                        <h5 style="text-align: center; color: #908F8F; ">1</h5>
-                                                    </td>
-                                                   
-                                                    <td width="40%" style="border: 2px solid rgb(194, 194, 194); ">
-                                                    <span class="user-link1">ABC111111111</span>
-                                                    </td>
-                                                    <td style="border: 2px solid rgb(194, 194, 194); ">
-                                                        <span class="user-link1">ใช้งานได้</span>
-                                                    </td>
-                                
-                                                </tr>
+                                                $counter = 1;
 
+                                                while ($specrow = mysqli_fetch_array($specifictable)) {
+
+                                                    echo '<tr>';
+
+                                                    echo '<td style="border: 2px solid rgb(194, 194, 194); ">';
+                                                    echo '<h5 style="text-align: center; color: #908F8F; ">' . $counter . '</h5>';
+                                                    echo '</td>';
+
+                                                    echo '<td width="40%" style="border: 2px solid rgb(194, 194, 194); ">';
+                                                    echo '<span class="user-link1">' . $specrow["tool_spec_ID"] . '</span>';
+                                                    echo '</td>';
+
+                                                    echo '<td style="border: 2px solid rgb(194, 194, 194); ">';
+                                                    echo '<span class="user-link1">' . $specrow["status"] . '</span>';
+                                                    echo '</td>';
+
+                                                    echo '</tr>';
+
+                                                    $counter++;
+                                                }
+
+                                                ?>
                                             </tbody>
                                             <thead>
                                             </thead>
                                         </table>
 
                                     </div>
-                                   
+
                                 </div>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>
