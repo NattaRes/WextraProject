@@ -88,7 +88,7 @@
       <button type="submit" class="px-4 py-2 rounded-lg bg-sky-500 text-sky-100" style="margin-left: 0.5%;  background-color: #015C92;  color:white;">ค้นหา</button>
     </form>
     <div style="align-self: flex-end;  margin-right:auto; width: 20%; margin-bottom:1%;">
-      <a href="CreateTools.html">
+      <a href="CreateTools.php">
         <button class="px-4 py-2 rounded-lg bg-sky-500 text-sky-100 " style="background-color: #015C92; color:white;">เพิ่มเครื่องมือ</button>
       </a>
     </div>
