@@ -255,7 +255,7 @@
                         แก้ไข
                         </button>
                       </a>
-                      <a href="deltools.php?toolidall=' . $row["tool_all_ID"] . '" class="remove">
+                      <a href="../adminbackend/deltools.php?toolidall=' . $row["tool_all_ID"] . '">
                         <button style="background-color:rgba(192, 0, 0, 0.777); 
                         border-radius: 22px; width: 25%; 
                         color: #ffffff; font-size: 18px;
