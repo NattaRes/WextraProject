@@ -234,7 +234,7 @@
                 $rownum = 1;
 
                 while ($row = mysqli_fetch_array($res)) {
-                  echo '<tr>';
+                  echo '<tr id="' . $row["tool_all_ID"] . '">';
                   echo '<td width="10%" style="border:2px solid #686868;">' . '<h5 style="text-align: center; color: black;">' . $rownum . '</h5>' . '</td>';
                   echo '<td width="10%" style="border:2px solid #686868;">' . '<h5 style="text-align: center; color: black;">' . $row["tool_all_ID"] . '</h5>' . '</td>';
                   echo '<td width="10%" style="border:2px solid #686868;">' . '<h5 style="text-align: center; color: black;">' . $row["tool_name"] . ' ' . $row["brand_name"] . ' ' . $row["tool_model"] . '</h5>' . '</td>';
