@@ -82,21 +82,25 @@
             </div>
             <div><label class="credit-card-label" style="margin-left: 10%; font-size: 20px; color: black; ">สถานะ :</label>
                 <label class="credit-card-label" style="font-size: 20px; color: black;">ว่าง</label>
-                <label class="credit-card-label" style="margin-left: 22.8%; font-size: 20px; color: black;">สภาพ :</label>
+                <label class="credit-card-label" style="margin-left: 14.5%; font-size: 20px; color: black;">สภาพ :</label>
                 <label class="credit-card-label" style="font-size: 20px; color: black;">ใช้งานได้</label>
             </div>
-
+           
             <div style="width: 100%;">
                 <label class="credit-card-label" style="margin-left: 10%; font-size: 20px; color: black;">รายละเอียด :</label>
                 <label class="credit-card-label" style="font-size: 20px; color: black; "><?php echo $desc; ?></lebel>
             </div>
 
-
-            <hr noshade="noshade" style="color: black; margin-top: 5%;">
+            <div>
+                <a herf="Historytools.html">
+                 <button class="onbutton" type="button" style="margin-left:10%; margin-top:2%;">ประวัติการใช้งาน</button>
+                </a>
+            </div>
+            <hr noshade="noshade" style="color: black; margin-top: 2%;">
 
             <div>
                 <div style="margin-top: 2%;">
-                    <lebel style="font-size: 25px; margin-left: 2%; color: black;"> ประวัติการใช้งาน</lebel>
+                    <lebel style="font-size: 25px; margin-left: 2%; color: black;"> ครุภัณฑ์</lebel>
                 </div>
                 <div class="container bootstrap snippets bootdey">
 
@@ -109,10 +113,8 @@
                                             <thead>
                                                 <tr>
                                                     <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194); "><span>ลำดับ</span></th>
-                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>รหัสนักศึกษา</span></th>
-                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>ชื่อนักศึกษา</span></th>
-                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>วันที่ยืม/คืน</span></th>
-                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>เบอร์โทรศัพท์</span></th>
+                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>ID</span></th>
+                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>สภาพของครุภัณฑ์</span></th>
 
                                                 </tr>
                                             </thead>
@@ -122,38 +124,26 @@
 
                                                         <h5 style="text-align: center; color: #908F8F; ">1</h5>
                                                     </td>
-                                                    <td style="border: 2px solid rgb(194, 194, 194); ">
-
-                                                        <h5 style="text-align: center; color: #908F8F; ">ฺB63000</h5>
-                                                    </td>
+                                                   
                                                     <td width="40%" style="border: 2px solid rgb(194, 194, 194); ">
-                                                        ชื่อ
+                                                    <span class="user-link1">ABC111111111</span>
                                                     </td>
                                                     <td style="border: 2px solid rgb(194, 194, 194); ">
-                                                        <span class="user-link1">3</span>
+                                                        <span class="user-link1">ใช้งานได้</span>
                                                     </td>
-                                                    <td style="border: 2px solid rgb(194, 194, 194); ">
-                                                        <span class="user-link1">09000000</span>
-                                                    </td>
+                                
                                                 </tr>
 
                                             </tbody>
                                             <thead>
-                                                <tr>
-                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border-bottom: 2px solid rgb(194, 194, 194); border-left: 2px solid rgb(194, 194, 194);"></th>
-                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;border-bottom: 2px solid rgb(194, 194, 194); border-left: 0px solid rgb(194, 194, 194);"></th>
-                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border-bottom: 2px solid rgb(194, 194, 194); border-left: 0px solid rgb(194, 194, 194);"><span></span></th>
-                                                    <th style="text-align: right; color: #908F8F; font-weight: bold; font-size: 18px; border-bottom: 2px solid rgb(194, 194, 194); border-left: 0px solid rgb(194, 194, 194);"><span>รวมทั้งหมด</span></th>
-                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>3</span></th>
-                                                </tr>
                                             </thead>
                                         </table>
 
                                     </div>
-
+                                   
                                 </div>
                             </div>
-
+                           
                         </div>
                     </div>
                 </div>

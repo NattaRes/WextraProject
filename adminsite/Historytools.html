@@ -18,7 +18,7 @@
   <div class="container max-w-7xl mx-auto mt-8">
     <div class="mb-4">
       <h1 style="margin-left: -2%; margin-top: 10%; font-size: 30px;">
-        โพสต์/ประชาสัมพันธ์</h1>
+        ประวัติการใช้งาน</h1>
     </div>
 
   </div>
@@ -46,9 +46,9 @@
       . "Input: " . $Cschinput . " " . gettype($Cschinput);*/
 
     ?> -->
-    <h2 style="margin-right: 0%; margin-top: 1%; font-size:18px; margin-left:-5%; width: 10%;">ค้นหาโพสต์ :</h2>
+    <h2 style="margin-right: 0%; margin-top: 1%; font-size:18px; margin-left:-5%; width: 10%;">ค้นหา :</h2>
     <form method="GET" name="searchform" action="ListTools.php" style="width:100%">
-      <select style="height: 100%; border-radius:5px; width: 15%; font-size:20px;" name="cateinput" id="cateinput">
+      <select style="height: 100%; border-radius:5px; width: 15%; font-size:20px; margin-left: -5%;" name="cateinput" id="cateinput">
         <!-- <option <?php if ($Acatefilter == "All") {
                   echo "selected='selected'";
                 } ?>>All</option>
@@ -70,11 +70,7 @@
       <input style="height: 50px; margin-left: 0%; border-radius:5px; width: 25%;" type="text" class="input" placeholder="ค้นหา ..." name="sinput" id="sinput">
       <button type="submit" class="px-4 py-2 rounded-lg bg-sky-500 text-sky-100" style="margin-left: 0.5%;  background-color: #015C92;  color:white;">ค้นหา</button>
     </form>
-    <div style="align-self: flex-end;  margin-right:auto; width: 20%; margin-bottom:1%;">
-      <a href="CreatePost.html">
-        <button class="px-4 py-2 rounded-lg bg-sky-500 text-sky-100 " style="background-color: #015C92;  color:white;">เพิ่มโพสต์</button>
-      </a>
-    </div>
+    
 
   </div>
 
@@ -176,154 +172,84 @@
                     <table class="table user-list" style="margin-bottom:0px; background-color:white;">
                         <thead >
                             <tr>
-                                <th 
+                                <th
                                     style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
-                                    <span>ลำดับ</span>
-                                  </th>
-                                <th width="10%"
+                                    <span>ลำดับ</span></th>
+                                <th
                                     style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
-                                    <span>หัวข้อ</span>
-                                  </th>
-                                  <th width="15%"
+                                    <span>รหัสครุภัณฑ์</span>
+                                </th>
+                                    <th
                                     style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
-                                    <span>คำอธิบาย</span>
-                                  </th>
-                                <th width="5%"
+                                    <span>รหัสนักศึกษา</span>
+                                </th>
+                                <th
                                     style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
-                                    <span>วันที่โพสต์</span>
-                                  </th>
-                                   
-                                <th style="border-top:2px solid #686868;border-bottom:2px solid #686868;">&nbsp;</th>
-                                <th style="border-top:2px solid #686868;border-bottom:2px solid #686868;border-right:2px solid #686868;">&nbsp;</th>
+                                    <span>ชื่อ</span>
+                                </th>
+                                    <th
+                                    style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
+                                    <span>เบอร์โทรศัพท์</span>
+                                </th>
+                             
                                 
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td width="10%" style="border:2px solid #686868;">
-                              <!-- ลำดับ -->  <h5 style="text-align: center; color: black;">1</h5>
+                                <td width="5%" style="border:2px solid #686868;">
+                              <!-- ลำดับ -->  <h5 style="text-align: center; color: black; font-size: 18px;">1</h5>
+                                </td>
+                                <td width="15%" style="border:2px solid #686868;">
+                                    <h5 style="text-align: center; color: black;font-size: 18px;"> ABC111111 </h5>
                                 </td>
                                 <td width="10%" style="border:2px solid #686868;">
-                                    <h5 style="text-align: center; color: black;"> 1/11/65 </h5>
+                                    <h5 style="text-align: center; color: black; font-size: 18px;"> B600000 </h5>
                                 </td>
-                                <td width="10%" style="border:2px solid #686868;">
-                                    <h5 style="text-align: center; color: black;"> 3/11/65 </h5>
+                                <td width="15%" style="border:2px solid #686868;">
+                                    <h5 style="text-align: center; color: black; font-size: 18px;"> Somjai  mewang </h5>
                                 </td>
-                                <td width="10%" style="border:2px solid #686868;">
-                                    <h5 style="text-align: center; color: black;"> 4 รายการ </h5>
+                                <td width="10%" style="border:2px solid #686868; ">
+                                    <h5 style="text-align: center; color: black; font-size: 18px;"> 09999999 </h5>
                                 </td>
-                               
-                                <td width="15%" align="center" colspan="3" style="border:2px solid #686868;">
-                                    
-                                    <a href="Viewpost.html">
-                                    <button style="background-color:rgba(1, 93, 146, 0.777); 
-                                    border-radius: 22px; width: 25%; margin-right: 4%;
-                                    color: #ffffff; font-size: 18px;
-                                    border: none;">
-                                    เรียกดู
-                                    </button>
-                                  </a>
-                                  <a href="EditPost.html">
-                                    <button style="background-color:rgba(255, 122, 0, 0.69);
-                                    border-radius: 22px; width: 25%; margin-right: 4%;
-                                    color: #ffffff; font-size: 18px;
-                                    border: none;">
-                                    แก้ไข
-                                    </button>
-                                  </a>
-                                    <button style="background-color:rgba(192, 0, 0, 0.777); 
-                                    border-radius: 22px; width: 25%; 
-                                    color: #ffffff; font-size: 18px;
-                                    border: none;">
-                                    ลบ
-                                    </button>
-                               
-                                </td>
+                              
                             </tr>
                             <tr>
-                                <td width="10%" style="border:2px solid #686868;">
-                              <!-- ลำดับ -->  <h5 style="text-align: center; color: black;">2</h5>
+                                <td width="5%" style="border:2px solid #686868;">
+                              <!-- ลำดับ -->  <h5 style="text-align: center; color: black; font-size: 18px;">1</h5>
                                 </td>
-                                <td width="10%" 
-                                style="border:2px solid #686868;">
-                                    <h5 style="text-align: center; color: black;" > 1/11/65 </h5>
-                                </td>
-                                <td width="10%" style="border:2px solid #686868;">
-                                    <h5 style="text-align: center; color: black;"> 3/11/65 </h5>
+                                <td width="15%" style="border:2px solid #686868;">
+                                    <h5 style="text-align: center; color: black;font-size: 18px;"> ABC111111 </h5>
                                 </td>
                                 <td width="10%" style="border:2px solid #686868;">
-                                    <h5 style="text-align: center; color: black;"> 4 รายการ </h5>
+                                    <h5 style="text-align: center; color: black; font-size: 18px;"> B600000 </h5>
                                 </td>
-                                
-                                <td width="15%" align="center" colspan="3" style="border:2px solid #686868;">
-                                    
-                                  <a href="Viewtools.html">
-                                    <button style="background-color:rgba(1, 93, 146, 0.777); 
-                                    border-radius: 22px; width: 25%; margin-right: 4%;
-                                    color: #ffffff; font-size: 18px;
-                                    border: none;">
-                                    เรียกดู
-                                    </button>
-                                  </a>
-                                  <a href="EditTools.html">
-                                    <button style="background-color:rgba(255, 122, 0, 0.69);
-                                    border-radius: 22px; width: 25%; margin-right: 4%;
-                                    color: #ffffff; font-size: 18px;
-                                    border: none;">
-                                    แก้ไข
-                                    </button>
-                                  </a>
-                                    <button style="background-color:rgba(192, 0, 0, 0.777); 
-                                    border-radius: 22px; width: 25%; 
-                                    color: #ffffff; font-size: 18px;
-                                    border: none;">
-                                    ลบ
-                                    </button>
-                               
+                                <td width="15%" style="border:2px solid #686868;">
+                                    <h5 style="text-align: center; color: black; font-size: 18px;"> Somjai  mewang </h5>
                                 </td>
+                                <td width="10%" style="border:2px solid #686868; ">
+                                    <h5 style="text-align: center; color: black; font-size: 18px;"> 09999999 </h5>
+                                </td>
+                              
                             </tr>
                             <tr>
-                                <td width="10%" style="border:2px solid #686868;">
-                              <!-- ลำดับ -->  <h5 style="text-align: center; color: black;">3</h5>
+                                <td width="5%" style="border:2px solid #686868;">
+                              <!-- ลำดับ -->  <h5 style="text-align: center; color: black; font-size: 18px;">1</h5>
+                                </td>
+                                <td width="15%" style="border:2px solid #686868;">
+                                    <h5 style="text-align: center; color: black;font-size: 18px;"> ABC111111 </h5>
                                 </td>
                                 <td width="10%" style="border:2px solid #686868;">
-                                    <h5 style="text-align: center; color: black;"> 1/11/65 </h5>
+                                    <h5 style="text-align: center; color: black; font-size: 18px;"> B600000 </h5>
                                 </td>
-                                <td width="10%" style="border:2px solid #686868;">
-                                    <h5 style="text-align: center; color: black;"> 3/11/65 </h5>
+                                <td width="15%" style="border:2px solid #686868;">
+                                    <h5 style="text-align: center; color: black; font-size: 18px;"> Somjai  mewang </h5>
                                 </td>
-                                <td width="10%" style="border:2px solid #686868;">
-                                    <h5 style="text-align: center; color: black;"> 4 รายการ </h5>
+                                <td width="10%" style="border:2px solid #686868; ">
+                                    <h5 style="text-align: center; color: black; font-size: 18px;"> 09999999 </h5>
                                 </td>
-                                
-                                <td width="15%" align="center" colspan="3" style="border:2px solid #686868;">
-                                    
-                                  <a href="Viewtools.html">
-                                    <button style="background-color:rgba(1, 93, 146, 0.777); 
-                                    border-radius: 22px; width: 25%; margin-right: 4%;
-                                    color: #ffffff; font-size: 18px;
-                                    border: none;">
-                                    เรียกดู
-                                    </button>
-                                  </a>
-                                  <a href="EditTools.html">
-                                    <button style="background-color:rgba(255, 122, 0, 0.69);
-                                    border-radius: 22px; width: 25%; margin-right: 4%;
-                                    color: #ffffff; font-size: 18px;
-                                    border: none;">
-                                    แก้ไข
-                                    </button>
-                                  </a>
-                                    <button style="background-color:rgba(192, 0, 0, 0.777); 
-                                    border-radius: 22px; width: 25%; 
-                                    color: #ffffff; font-size: 18px;
-                                    border: none;">
-                                    ลบ
-                                    </button>
-                               
-                                </td>
+                              
                             </tr>
-                          
                         </tbody>
                     </table>
 
