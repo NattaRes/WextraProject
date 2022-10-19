@@ -10,13 +10,13 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-
+  
 </head>
 
 <body>
-    <div style="margin-top: 6%;">
+    <div style="margin-top: 6%; margin-left: 11%;">
     </div>
-    <div class="container mt-10 p-3 cart " style="margin-top: 1%; background-color: #F6F6F6; border-radius: 30px; margin-bottom: 4%; margin-left: 5%;">
+    <div class="container   mt-10 p-3 cart " style="margin-top: 1%; background-color: #F6F6F6; border-radius: 30px; margin-bottom: 4%; ">
 
         <?php
         include("../connectdb.php");

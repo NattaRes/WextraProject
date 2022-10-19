@@ -67,21 +67,27 @@
       <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10" style="width:80%; margin-left:10%; margin-right:20%; height:100%">
         <form method="POST" action="../adminbackend/edittools.php?toolidall=<?php echo $toolidall; ?>">
           <!-- Text Input -->
-          <div style="float: left ; width:50%;">
-            <label class="block text-sm font-bold text-gray-700" for="title">
-              ID เครื่องมือ
+          <div style="float: left ; width:80%; margin-bottom:2%;">
+            <label style="font-size:18px;" >
+              ID เครื่องมือ :
             </label>
-            <input class="block mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" style="width:90%;" type="text" name="toolidinput" id="toolidinput" placeholder="เพิ่ม ID" value="<?php echo $toolid; ?>" />
-          </div>
-          <div style="float: left; width:50%;">
-            <label class="block text-sm font-bold text-gray-700" for="title">
-              ชื่อ
+            <input style="width: 61.5%; border:1px solid black; border-radius:5px;" type="text" name="toolidinput" id="toolidinput" placeholder="เพิ่ม ID" value="<?php echo $toolid; ?>" />
+            </div>
+          <div style="clear: left;  width:80%; margin-top:2%;">
+            <label style="font-size:18px;" >
+              ชื่อ :
             </label>
-            <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="toolnameinput" id="toolnameinput" placeholder="เพิ่มชื่อ" value="<?php echo $tname; ?>" />
+            <input style="width: 70%; border:1px solid black; border-radius:5px;" type="text" name="toolnameinput" id="toolnameinput" placeholder="เพิ่มชื่อ" value="<?php echo $tname; ?>" />
           </div>
-          <div style="float: left; width:50%; margin-top:2%;">
-            <label class="block text-sm font-bold text-gray-700" for="title">
-              ยี่ห้อ
+          <div style="clear: left; width:80%; margin-top:2%;">
+            <label style="font-size:18px;" >
+              รุ่น :
+            </label>
+            <input style="width: 70%; border:1px solid black; border-radius:5px;" type="text" name="defmodel" id="defmodel" placeholder="เพิ่มรุ่น" value="<?php echo $tmodel; ?>" />
+          </div>
+          <div style="clear: left; width:100%; margin-top:0%;">
+            <label style="font-size:18px;" >
+              ยี่ห้อ :
             </label>
             <!-- <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" style="width:90%;" type="text" name="branddef" id="branddef" placeholder="เพิ่มยี่ห้อ" value="<?php echo $brandname; ?>" /> -->
             <select style="height: 100%; margin-top:2%;" name="branddef" id="branddef">
@@ -95,16 +101,8 @@
               }
               ?>
             </select>
-          </div>
-          <div style="float: left; width:50%; margin-top:2%;">
-            <label class="block text-sm font-bold text-gray-700" for="title">
-              รุ่น
-            </label>
-            <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="defmodel" id="defmodel" placeholder="เพิ่มรุ่น" value="<?php echo $tmodel; ?>" />
-          </div>
-          <!-- category -->
-          <div>
-            <label class='label' style="height: 20px; margin-bottom:2%;">หมวดหมู่: </label>
+            <!-- category -->
+            <label  style="font-size:18px; margin-left:2%;">หมวดหมู่: </label>
             <select style="height: 100%; margin-top:2%;" name="categoryinput" id="categoryinput">
               <?php
               while ($typerow = mysqli_fetch_array($typeres)) {
@@ -117,18 +115,23 @@
               ?>
             </select>
           </div>
+          
           <!-- Image -->
           <div class='file-input'>
-            <label class='label' style="margin-top:2%;">เลือกรูปภาพ: </label>
+            <label style="margin-top:2%; font-size:18px;">เลือกรูปภาพ: </label>
             <input type='file' style="margin-top:2%;">
           </div>
 
           <!-- Description -->
           <div class="mt-4">
-            <label class="block text-sm font-bold text-gray-700" for="password">
+            <label style="font-size:18px;" >
               รายละเอียด
             </label>
-            <textarea name="description" id="description" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4" placeholder="400"><?php echo $desc; ?></textarea>
+            <textarea name="description" id="description" class="block w-full mt-1 border-gray-300
+             rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 
+             focus:ring focus:ring-indigo-200 focus:ring-opacity-50" 
+             style="font-size:16px;"
+            rows="4" placeholder="400"><?php echo $desc; ?></textarea>
           </div>
 
           <div class="flex items-center justify-start mt-4 gap-x-2">
