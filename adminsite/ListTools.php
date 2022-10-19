@@ -257,11 +257,11 @@
                         แก้ไข
                         </button>
                       </a>
-                      <a href="#' . $row["tool_all_ID"] . ' " id="myBtn">
+                      <a href="Deleteform.html' . $row["tool_all_ID"] . ' " class="openModal">
                         <button style="background-color:rgba(192, 0, 0, 0.777); 
                         border-radius: 22px; width: 25%; 
                         color: #ffffff; font-size: 18px;
-                        border: none;">
+                        border: none; " >
                         ลบ
                         </button>
                       </a>
@@ -283,64 +283,8 @@
       </div>
     </div>
   </div>
-  <div id="myModal" class="modal">
-     
-		<!-- Modal content -->
-		<div class="modal-content" style="margin-top: 15%; width: 40%;   border-radius: 25px;">
-		  <div>
-			<h2 style="text-align: center; margin-top: 2%; margin-left: 2%; font-size: 30px;">ยืนยันการลบข้อมูล</h2> 
-		  </div>
-		  <div style="float: left ; width:50%; margin-bottom: 2%; margin-top: 5%; margin-left: 26%;">
-			<label  style="font-size: 20px; width: 150%;">
-			 ต้องการดำเนินการต่อหรือไ่ม่?
-			</label>
-       </div>
-			  <div class="flex items-center justify-start mt-4 gap-x-2">
-				<button type="submit" style="width:150px;
-				height:40px;
-				border:none;
-				font-size: 20px;
-				border-radius:5px;
-				margin-left:70%;
-				background: #015C92;              
-				color:#fff;
-				cursor:pointer;">
-				  ยืนยัน
-				</button>
-				<button type="reset" class="close1" style="background-color:rgba(192, 0, 0, 0.777);">
-				  ยกเลิก
-				</button>
-			  </div>
-	  </div>
-	  </div>
-     <!-- Popup -->
-  <script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
 
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close1")[0];
-
-    // When the user clicks on the button, open the modal
-    btn.onclick = function () {
-      modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-      modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-  </script>
 </body>
 
 </html>
