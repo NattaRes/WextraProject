@@ -169,7 +169,7 @@
                   echo '<h5 style="text-align: center; color: black;">' . $row["name_r"] . '</h5>';
                   echo '</td>';
                   echo '<td width="15%" align="center" colspan="3" style="border:2px solid #686868;">
-                      <a href="#" id="myBtn">
+                      <a href="#">
                         <button style="background-color:rgba(255, 122, 0, 0.69);
                                       border-radius: 22px; width: 25%; margin-right: 4%;
                                       color: #ffffff; font-size: 18px;
@@ -197,72 +197,7 @@
       </div>
     </div>
   </div>
-  <div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content" style="margin-top: 5%; width: 40%;">
-      <span class="close" style="margin-left: 95%; font-size: 50px;">&times;</span>
-      <div>
-        <h2 style="text-align: center; margin-top: 2%; margin-left: 5%; font-size: 30px;">แก้ไขผู้ใช้</h2>
-      </div>
-      <div style="float: left ; width:50%; margin-bottom: 2%; margin-top: 5%; margin-left: 5%;">
-        <label style="font-size: 20px;">
-          รหัสนักศึกษา :
-        </label>
-        <label style="font-size: 18px;">
-          B630000
-        </label>
-      </div>
-      <div style="float: left ; width:50%; margin-bottom: 2%; margin-top: 3%;  margin-left: 5%;">
-        <label style="font-size: 20px;">
-          ชื่อ :
-        </label>
-        <label style="font-size: 18px;">
-          นายสมหวัง แน่นอน
-        </label>
-      </div>
-      <div style="float: left ; width:50%; margin-bottom: 2%; margin-top: 3%;  margin-left: 5%;">
-        <label style="font-size: 20px;">
-          เบอร์โทรศัพท์ :
-        </label>
-        <label style="font-size: 18px;">
-          0900000000
-        </label>
-      </div>
-      <div style="float: left ; width:50%; margin-bottom: 2%; margin-top: 3%;  margin-left: 5%;">
-        <label style="font-size: 20px;">
-          เปลี่ยนรหัสผ่าน
-        </label>
-      </div>
-      <div style="float: left ; width:50%; margin-bottom: 2%;  margin-left: 5%;">
-        <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="defmodel" id="defmodel" placeholder="เปลี่ยนรหัสผ่าน" />
-      </div>
-      <div class="flex items-center justify-start mt-4 gap-x-2">
-        <button type="submit" style="width:150px;
-          height:40px;
-          border:none;
-          font-size: 20px;
-          border-radius:5px;
-          margin-left:70%;
-          background: #015C92;              
-          color:#fff;
-          cursor:pointer;">
-          ยืนยัน
-        </button>
-        <button type="reset" style="width:150px;
-          height:40px;
-          border:none;
-          font-size: 20px;
-          border-radius:5px;
-          background:rgba(192, 0, 0, 0.777);	
-          color:#fff;
-          cursor:pointer;">
-          ยกเลิก
-        </button>
-      </div>
-    </div>
-  </div>
-  </div>
+ 
   </tbody>
   </table>
   </div>
@@ -271,34 +206,7 @@
   </div>
   </div>
 
-  <!-- Popup -->
-  <script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on the button, open the modal
-    btn.onclick = function() {
-      modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-  </script>
+ 
 </body>
 
 </html>
