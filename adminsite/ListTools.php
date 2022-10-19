@@ -257,7 +257,7 @@
                         แก้ไข
                         </button>
                       </a>
-                      <a href="Deleteform.html' . $row["tool_all_ID"] . ' " class="openModal">
+                      <a href="Deleteform.html?toolidall=' . $row["tool_all_ID"] . ' " class="openModal">
                         <button style="background-color:rgba(192, 0, 0, 0.777); 
                         border-radius: 22px; width: 25%; 
                         color: #ffffff; font-size: 18px;
