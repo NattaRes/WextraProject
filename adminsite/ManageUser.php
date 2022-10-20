@@ -169,7 +169,7 @@
                   echo '<h5 style="text-align: center; color: black;">' . $row["name_r"] . '</h5>';
                   echo '</td>';
                   echo '<td width="15%" align="center" colspan="3" style="border:2px solid #686868;">
-                      <a href="#">
+                      <a href="Edituser.html">
                         <button style="background-color:rgba(255, 122, 0, 0.69);
                                       border-radius: 22px; width: 25%; margin-right: 4%;
                                       color: #ffffff; font-size: 18px;
@@ -177,12 +177,14 @@
                           แก้ไข
                         </button>
                       </a>
-                      <button style="background-color:rgba(192, 0, 0, 0.777); 
-                                      border-radius: 22px; width: 25%; 
-                                      color: #ffffff; font-size: 18px;
-                                      border: none;">
-                        ลบ
-                      </button>
+                      <a href="Deluser.html">
+                        <button style="background-color:rgba(192, 0, 0, 0.777); 
+                                        border-radius: 22px; width: 25%; 
+                                        color: #ffffff; font-size: 18px;
+                                        border: none;">
+                          ลบ
+                        </button>
+                      </a>
                     </td>';
                   echo '</tr>';
 
