@@ -11,24 +11,59 @@ $partscrap = parse_url($url);
 
 parse_str($partscrap['query'], $parts);
 
-$toolID = $parts['toolidall'];
+$toolID = $parts['checker'];
 
-$deletetoolsql = "DELETE FROM tool_all_table WHERE tool_all_ID = '$toolID'";
+// echo $toolID;
 
-$res = $conn->query($deletetoolsql);
+$confirmid = $parts['idconfirm'];
 
-// echo "</br>" . mysqli_error($conn);
+// echo $confirmid;
 
-if ($res) {
+if ($toolID == $confirmid) {
 
-    // $comdelconalert = "<script type='text/javascript'> alert('Detele Tool Successfully') </script>";
+    $deletetoolsql = "DELETE FROM tool_all_table WHERE tool_all_ID = '$toolID'";
 
-    echo "<script type='text/javascript'>location.href='../adminsite/ListTools.php?cateinput=all&sfi=all&sinput=';</script>";
-    exit();
+    $res = $conn->query($deletetoolsql);
+
+    echo "</br>" . mysqli_error($conn);
+
+    $comdelconalert = "<script type='text/javascript'> alert('Detele Tool Successfully') </script>";
+    $errdelcon = "<script type='text/javascript'> alert('Error : Detele Tool Cancelled') </script>";
+
+    if ($res) {
+
+        // echo $comdelconalert;
+        echo "<script type='text/javascript'>location.href='../adminsite/ListTools.php?cateinput=all&sfi=all&sinput=';</script>";
+        exit();
+    } else {
+
+        // echo $errdelcon;
+        echo "<script type='text/javascript'>location.href='../adminsite/ListTools.php?cateinput=all&sfi=all&sinput=';</script>";
+        exit();
+    }
 } else {
 
-    $errdelcon = "<script type='text/javascript'> alert('Error : Detele Tool Cancelled') </script>";
-    echo $errdelcon;
+    // echo $errdelcon;
     echo "<script type='text/javascript'>location.href='../adminsite/ListTools.php?cateinput=all&sfi=all&sinput=';</script>";
     exit();
 }
+
+// $deletetoolsql = "DELETE FROM tool_all_table WHERE tool_all_ID = '$toolID'";
+
+// $res = $conn->query($deletetoolsql);
+
+// echo "</br>" . mysqli_error($conn);
+
+// if ($res) {
+
+//     // $comdelconalert = "<script type='text/javascript'> alert('Detele Tool Successfully') </script>";
+//     // echo $comdelconalert;
+//     echo "<script type='text/javascript'>location.href='../adminsite/ListTools.php?cateinput=all&sfi=all&sinput=';</script>";
+//     exit();
+// } else {
+
+//     // $errdelcon = "<script type='text/javascript'> alert('Error : Detele Tool Cancelled') </script>";
+//     // echo $errdelcon;
+//     echo "<script type='text/javascript'>location.href='../adminsite/ListTools.php?cateinput=all&sfi=all&sinput=';</script>";
+//     exit();
+// }
