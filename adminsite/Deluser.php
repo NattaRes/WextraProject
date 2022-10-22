@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tailwind CSS Edit Post UI with form plugins</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <script src="https://cdn.tailwindcss.com/?plugins=forms"></script>
     <link rel="stylesheet" href="deleteform.css">
 
@@ -13,14 +14,15 @@
 
 <body>
     <!-- create Post -->
-    <div style="margin-top: 10%;">
+    <div style="margin-top: 10%; ">
         <div>
             <div class="mb-4">
                 <h1 style="font-size: 30px; margin-left:15%;">
                     ลบผู้ใช้
                 </h1>
+               
             </div>
-
+           
             <?php
 
             include("../connectdb.php");
@@ -49,9 +51,12 @@
             }
 
             ?>
-
             <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10" style="width:70%; margin-left:15%; margin-right:20%; height:100%">
-                <form method="GET" action="../adminbackend/deluser.php">
+            <a href="ManageUser.php?sfi=all&sinput=" >
+                 <i class='fa fa-times' style="float:right; font-size:30px; margin-top:0%;">
+                </i>
+                </a>
+            <form method="GET" action="../adminbackend/deluser.php" style="margin-top:4%;">
                     <!-- Text Input -->
                     <div style="float: left ;  margin-bottom: 1%;">
                         <label style="font-size: 18px;">
@@ -108,27 +113,15 @@
                                 border:none;
                                 font-size: 20px;
                                 border-radius:5px;
-                                margin-left:80%;
+                                margin-left:85%;
                                 background: #015C92;              
                                 color:#fff;
                                 cursor:pointer;">
                             ยืนยัน
                         </button>
-
                     </div>
                 </form>
-                <a href="ManageUser.php?sfi=all&sinput=">
-                    <button style="width:150px;
-                            height:40px;
-                            border:none;
-                            font-size: 20px;
-                            border-radius:5px;
-                            background:rgba(192, 0, 0, 0.777);	
-                            color:#fff;
-                            cursor:pointer;">
-                        ยกเลิก
-                    </button>
-                </a>
+               
             </div>
         </div>
     </div>
