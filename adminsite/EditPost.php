@@ -54,19 +54,19 @@
       </div>
 
       <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10" style="width:80%; margin-left:10%; margin-right:20%; height:100%">
-        <form method="POST" action="../adminbackend/addtools.php">
+        <form method="POST" action="../adminbackend/editpost.php?poid=<?php echo $postID; ?>">
           <!-- Text Input -->
           <div style="float: left ; width:50%;">
             <label class="block text-sm font-bold text-gray-700" for="title">
               หัวข้อ
             </label>
-            <input class="block mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" style="width:90%;" type="text" name="toolidinput" id="toolidinput" placeholder="เพิ่มหัวข้อ" value="<?php echo $title; ?>" />
+            <input class="block mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" style="width:90%;" type="text" name="pti" id="pti" placeholder="เพิ่มหัวข้อ" value="<?php echo $title; ?>" />
           </div>
           <div style="float: left; width:50%;">
             <label class="block text-sm font-bold text-gray-700" for="title">
               วันที่
             </label>
-            <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" style="width:40%;" type="date" name="toolnameinput" id="toolnameinput" placeholder="เพิ่มชื่อ" value="<?php echo $date; ?>" />
+            <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" style="width:40%;" type="date" name="pdt" id="pdt" placeholder="เพิ่มชื่อ" value="<?php echo $date; ?>" />
           </div>
           <!-- Image -->
           <div class='file-input'>
@@ -79,7 +79,7 @@
             <label class="block text-sm font-bold text-gray-700" for="password">
               รายละเอียด
             </label>
-            <textarea name="description" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4" placeholder="400"><?php echo $desc; ?></textarea>
+            <textarea name="description" id="description" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4" placeholder="400"><?php echo $desc; ?></textarea>
           </div>
 
           <div class="flex items-center justify-start mt-4 gap-x-2">

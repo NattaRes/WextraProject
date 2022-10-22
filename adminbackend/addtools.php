@@ -29,9 +29,5 @@ if ($res) {
 
     echo $conn->error;
     // echo "<script type='text/javascript'> alert('Error : " . $conn->error ."') </script>";
-    // echo "<script type='text/javascript'>location.href='../adminsite/ListTools.php';</script>";
+    echo "<script type='text/javascript'>location.href='../adminsite/ListTools.php?cateinput=all&sfi=all&sinput=';</script>";
 }
-// } else {
-
-//     $misfrmcon = "<script type='text/javascript'> alert('Missing Form') </script>";
-// }

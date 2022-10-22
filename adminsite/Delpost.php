@@ -15,6 +15,8 @@
 
     <?php
 
+    include("../connectdb.php");
+
     $url = $_SERVER['REQUEST_URI'];
 
     // echo $url;
@@ -25,8 +27,23 @@
 
     $postID = $parts['postid'];
 
+    $tablequery = "SELECT * FROM post_table 
+        INNER JOIN user ON post_table.UID = user.UID
+        WHERE post_ID = '$postID'";
+
+    $res = $conn->query($tablequery);
+
+    while ($row = mysqli_fetch_array($res)) {
+        $title = $row["post_title"];
+        $date = $row["post_time"];
+        $desc = $row["post_desc"];
+        $pic_path = $row["post_pic_path"];
+        $uid = $row["UID"];
+        $username = $row["username"];
+    }
+
     ?>
-    
+
     <!-- create Post -->
     <div style="margin-top: 10%;">
         <div>
@@ -37,14 +54,14 @@
             </div>
 
             <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10" style="width:80%; margin-left:10%; margin-right:20%; height:100%">
-                <form method="POST" action="../adminbackend/addtools.php">
+                <form method="POST" action="../adminbackend/delpost.php?poid=<?php echo $postID; ?>">
                     <!-- Text Input -->
                     <div style="float: left ;  margin-bottom: 1%;">
                         <label style="font-size: 18px;">
                             หัวข้อ :
                         </label>
                         <label style="font-size: 18px;">
-                            Husk LIGHT
+                            <?php echo $title; ?>
                         </label>
                     </div>
                     <div style="clear: left;  margin-bottom: 1%;">
@@ -52,7 +69,7 @@
                             วันที่ :
                         </label>
                         <label style="font-size: 18px;">
-                            11/11/2565
+                            <?php echo $date; ?>
                         </label>
                     </div>
                     <div style="clear: left;  margin-bottom:1%;">
@@ -68,34 +85,36 @@
                             คำอธิบาย :
                         </label>
                         <label style="font-size: 18px;">
-                            A camera made from duriano
+                            <?php echo $desc; ?>
                         </label>
                     </div>
 
                     <div class="flex items-center justify-start mt-4 gap-x-2">
                         <button type="submit" style="width:150px;
-              height:40px;
-              border:none;
-              font-size: 20px;
-              border-radius:5px;
-              margin-left:80%;
-              background: #015C92;              
-              color:#fff;
-              cursor:pointer;">
+                                height:40px;
+                                border:none;
+                                font-size: 20px;
+                                border-radius:5px;
+                                margin-left:80%;
+                                background: #015C92;              
+                                color:#fff;
+                                cursor:pointer;">
                             ยืนยัน
-                        </button>
-                        <button type="reset" style="width:150px;
-              height:40px;
-              border:none;
-              font-size: 20px;
-              border-radius:5px;
-              background:rgba(192, 0, 0, 0.777);	
-              color:#fff;
-              cursor:pointer;">
-                            ยกเลิก
                         </button>
                     </div>
                 </form>
+                <a href="Post.php?sfi=all&sinput=">
+                    <button style="width:150px;
+                            height:40px;
+                            border:none;
+                            font-size: 20px;
+                            border-radius:5px;
+                            background:rgba(192, 0, 0, 0.777);	
+                            color:#fff;
+                            cursor:pointer;">
+                        ยกเลิก
+                    </button>
+                </a>
             </div>
         </div>
     </div>
