@@ -57,26 +57,26 @@
         <form method="POST" action="../adminbackend/addtools.php">
           <!-- Text Input -->
           <div style="float: left ; width:50%;">
-            <label class="block text-sm font-bold text-gray-700" for="title">
+            <label style="font-size:18px;">
               หัวข้อ
             </label>
             <input class="block mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" style="width:90%;" type="text" name="toolidinput" id="toolidinput" placeholder="เพิ่มหัวข้อ" value="<?php echo $title; ?>" />
           </div>
           <div style="float: left; width:50%;">
-            <label class="block text-sm font-bold text-gray-700" for="title">
+            <label style="font-size:18px;">
               วันที่
             </label>
             <input class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-left focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" style="width:40%;" type="date" name="toolnameinput" id="toolnameinput" placeholder="เพิ่มชื่อ" value="<?php echo $date; ?>" />
           </div>
           <!-- Image -->
           <div class='file-input'>
-            <label class='label' style="margin-top:2%;">เลือกรูปภาพ: </label>
+            <label style="margin-top:2%; font-size:18px;">เลือกรูปภาพ: </label>
             <input type='file' style="margin-top:2%;">
           </div>
 
           <!-- Description -->
           <div class="mt-4">
-            <label class="block text-sm font-bold text-gray-700" for="password">
+            <label style="font-size:18px;">
               รายละเอียด
             </label>
             <textarea name="description" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" rows="4" placeholder="400"><?php echo $desc; ?></textarea>
@@ -92,7 +92,7 @@
               background: #015C92;              
               color:#fff;
               cursor:pointer;">
-              สร้าง
+              ยืนยัน
             </button>
           </div>
         </form>
