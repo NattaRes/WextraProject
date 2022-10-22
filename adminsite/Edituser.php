@@ -91,16 +91,14 @@
                                 border:none;
                                 font-size: 20px;
                                 border-radius:5px;
-                                margin-left:80%;
+                                margin-left:65%;
                                 background: #015C92;              
                                 color:#fff;
                                 cursor:pointer;">
                             ยืนยัน
                         </button>
-                    </div>
-                </form>
-                <a href="ManageUser.php?sfi=all&sinput=">
-                    <button type="reset" style="width:150px;
+                        <a href="ManageUser.php?sfi=all&sinput=">
+                        <button type="reset" style="width:150px;
                                 height:40px;
                                 border:none;
                                 font-size: 20px;
@@ -111,6 +109,10 @@
                         ยกเลิก
                     </button>
                 </a>
+                    </div>
+                  
+                </form>
+             
             </div>
         </div>
     </div>

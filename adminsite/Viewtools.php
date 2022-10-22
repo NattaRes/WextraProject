@@ -127,9 +127,9 @@
                                         <table class="table user-list" style="margin-bottom: 0%;">
                                             <thead>
                                                 <tr>
-                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194); "><span>ลำดับ</span></th>
-                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>ID</span></th>
-                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>สภาพของครุภัณฑ์</span></th>
+                                                    <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194); "><span>ลำดับ</span></th>
+                                                    <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>ID</span></th>
+                                                    <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>สภาพของครุภัณฑ์</span></th>
 
                                                 </tr>
                                             </thead>
@@ -143,7 +143,7 @@
                                                     echo '<tr>';
 
                                                     echo '<td style="border: 2px solid rgb(194, 194, 194); ">';
-                                                    echo '<h5 style="text-align: center; color: #908F8F; ">' . $counter . '</h5>';
+                                                    echo '<h5 style="text-align: center; color: black; ">' . $counter . '</h5>';
                                                     echo '</td>';
 
                                                     echo '<td width="40%" style="border: 2px solid rgb(194, 194, 194); ">';

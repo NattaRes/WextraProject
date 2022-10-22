@@ -124,3 +124,6 @@ body {
   background-color: #4f5165;
   border-radius: 10px;
 }
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
