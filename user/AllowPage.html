@@ -14,22 +14,13 @@
 </head>
 
 <body>
-    <div class="container mt-10 p-3 cart" style="margin-top: 9%; background-color: #F6F6F6; border-radius: 30px; margin-bottom: 4%;">
-        <div class="row-md-4">
-            <div class="d-flex justify-content-between align-items-center" style="color: #7E7C7C;  margin-top: 2%;">
-
-            <h2 style="margin-left: 7.5%; font-weight: bold;">ลำดับคิวที่ 1</h2>
-            <span class="credit-card-label" style="font-size: 18px; color: #7E7C7C; font-weight: bold; margin-left: 55%;">วันที่รับอุปกรณ์ :</span>
-            <span class="credit-card-label" style="font-size: 18px; color: #7E7C7C; font-weight: bold; margin-right: 5%;">1/11/65</span>
-    
-        </div>
-
+    <div style="margin-top: 8%;">
+        <lebel style="font-size: 30px; margin-left: 14%; color: white; margin-top: 20%;"> ทำการส่งอนุมัติ </lebel>
+    </div>
+    <div class="container mt-10 p-3 cart" style="margin-top: 1%; background-color: #F6F6F6; border-radius: 30px; margin-bottom: 4%; margin-left: 13%;">
             <div class="payment-info">
                 <div class="d-flex justify-content-between align-items-center" style="color: #7E7C7C; font-size: 20px;">
                     <span style="margin-left: 5%;">รายละเอียดผู้ขอยืม</span>
-                    <a href="">
-                    <span><img src="../image/icon/shredder.png" alt="" style="width: 10%; height:10%; margin-left: 80%;"/></span>
-                </a>
                 </div><span class="type d-block mt-3 mb-1"></span>
                 <div>
                     <label class="credit-card-label"style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">ชื่อ :</label>
@@ -43,18 +34,22 @@
                     <label class="credit-card-label" style="margin-left: 10%; font-size: 18px; color: #7E7C7C;">เบอร์ติดต่อ : 0999999999</label>
                 </div>
                 <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">วันที่ยืม :</label>
-                    <label class="credit-card-label" style="font-size: 18px; color: #7E7C7C;">1/11/65</label>
-                    <label class="credit-card-label" style="margin-left: 18.6%; font-size: 18px; color: #7E7C7C;">วันที่คืน : </label>
-                    <label class="credit-card-label" style="font-size: 18px; color: #7E7C7C;">3/11/65</label>
+                    <input style=" color: #7E7C7C;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date"/>
+                    <label class="credit-card-label" style="margin-left: 8.5%; font-size: 18px; color: #7E7C7C;">วันที่คืน : </label>
+                    <input style=" color: #7E7C7C;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date"/>
                    </div>
                 <div >
                     <label class="credit-card-label"style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">ผู้อนุมัติ :</label>
-                    <label class="credit-card-label"style="font-size: 18px; color: #7E7C7C;">อาจารย์ (อาจารย์ที่ปรึกษาประจำวิชา) </label>
+                    <select style=" color: #7E7C7C;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;">เลือก
+                        <option>1.</option>
+                        <option>2.</option>
+                        <option>3.</option>
+                    </select>
                 </div>
                 
               
-                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">หมายเหตุ : </label>
-                    <label class="credit-card-label" style="font-size: 18px; color: #7E7C7C;">(เช่น ใช้ทำในงานอะไร)</label>
+                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">หมายเหตุ :</label>
+                    <input type="text" style=" color: #7E7C7C;  border-radius:10px; background:#D9D9D9; border:none; width: 25%; height: 5%;" placeholder="ใช้ทำในงานอะไร"/>
                </div>
             </div>
             <div>
@@ -68,12 +63,13 @@
                         <table class="table user-list">
                             <thead>
                                 <tr>
-                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>ลำดับ</span></th>
-                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>ชื่ออุปกรณ์</span></th>
-                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>จำนวน</span></th>
-                                    <th>&nbsp;</th>
-    
-                                    <th>&nbsp;</th>
+                                    
+                                <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>ลำดับ</span></th>
+                                <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>ชื่ออุปกรณ์</span></th>
+                                <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>จำนวน</span></th>
+                                <th>&nbsp;</th>
+
+                                <th>&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>                        
@@ -90,6 +86,8 @@
                                     <td>  
                                         <span class="user-link1">3</span>
                                     </td>
+                                   
+                                  
                                 </tr>
                                 <tr>
                                     <th><span></span></th>
@@ -104,6 +102,11 @@
                     
                 </div>
             </div>
+            <div>
+                <a href="Detailstatus.html">
+            <button class="onbutton" type="button">ส่งคำอนุมัติ</button>
+        </a>
+        </div>
         </div>
     </div>
 </div>

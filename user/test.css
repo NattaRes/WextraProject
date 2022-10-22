@@ -1,110 +1,304 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins',sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;500&display=swap');
+
+html, body {
+    overflow-x: hidden;
+    height: 100%;
 }
-body{
-  background: #f2f2f2;
-  text-align: center;
-  overflow: hidden;
+body {
+    background: linear-gradient(180deg, #015C92 0%, rgba(163, 216, 232, 0.99) 100%);
+    padding: 0;
+    margin: 0;
+    font-family: 'Kanit', sans-serif;
 }
-.show-btn{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  user-select: none;
-  transform: translate(-50%, -50%);
+.header {
+    display: block;
+    margin: 0 auto;
+    width: 100%;  
+    max-width: 100%;
+    box-shadow: none;
+    background: rgba(1, 93, 146, 0.816);
+    position: fixed;
+    height: 80px!important;
+    overflow: hidden;
 }
-.show-btn.disabled{
-  pointer-events: none;
+
+.main {
+    margin: 0 auto;
+    display: block;
+    height: 100%;
+    margin-top: 60px;
 }
-.modal{
-  position: absolute;
-  right: 0;
-  opacity: 0;
-  bottom: -100%;
-  width: 360px;
-  transition: bottom 0.4s, opacity 0.4s;
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
-  background-color: white;
-  border-radius: 50px;
+.mainInner{
+    display: table;
+    height: 100%;
+    width: 100%;
+    text-align: center;
 }
-.modal.show{
-  bottom: 0;
-  opacity: 1;
+.mainInner div{
+    display:table-cell;
+    vertical-align: middle;
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 1.25px;
 }
-.modal .top-content{
-  background: #34495e;
-  width: 100%;
-  padding: 0 0 30px 0;
+
+#sidebarMenu {
+    height: 85%;
+    position: fixed;
+    user-select: none;
+    left: 0.5%;
+    top: 4.5%;
+    border-radius: 18px;
+    width: 240px;
+    margin-top: 60px;
+    transform: translateX(-260px);
+    transition: transform 250ms ease-in-out;
+    background: #ffffff;
+    box-shadow: 0px 0px 4px 4px rgba(43, 43, 43, 0.533);
 }
-.top-content .left-text{
-  text-align: left;
-  padding: 10px 15px;
-  font-size: 18px;
-  color: #f2f2f2;
-  font-weight: 500;
-  user-select: none;
+.iconimg{
+    height: 60%; 
+    margin-left: 20%; 
+    margin-right: 10%;
 }
-.top-content .close-icon{
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 23px;
-  color: silver;
+.logoimg{
+    height: 90%; 
+    margin-left: 8%; 
+    margin-right: 10%;
+}
+.nameheader{
+     float: right;
+     margin-right: 3%; 
+     margin-top: 0.5%; 
+     color: white;
+}
+.sidebarMenuInner{
+    margin:0;
+    padding:0;
+    border-top: 1px solid rgba(255, 255, 255, 0);
+}
+.sidebarMenuInner li{
+    list-style: none;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    height: 50px;
+    padding: 1%;
+    border-bottom: 1px solid rgba(102, 102, 102, 0.218);
+}
+
+.sidebarMenuInner li span{
+    color: #3b3b3b;
+    font-size: 18px;
+    font-weight: 400;
+    white-space: nowrap;
+    
+}
+.sidebarMenuInner li a{
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+}
+.frame {
+    height: 100%;
+  }
+.sidebarMenuInner .log_out{
+    position: absolute;
+    bottom: 0%;
+    width: 98%;
+    border-radius: 0px 0px 20px 20px ;
+}
+
+.sidebarMenuInner li:hover{
+    background: rgba(0, 0, 0, 0.10);
+}
+input[type="checkbox"]:checked ~ #sidebarMenu {
+    transform: translateX(0);
+}
+
+input[type=checkbox] {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    display: none;
+}
+.sidebarIconToggle {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    top: 26px;
+    left: 35px;
+    height: 22px;
+    width: 22px;
+}
+.spinner {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: absolute;
+    height: 4px;
+    width: 150%;
+    background-color: #fff;
+}
+.horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 5px;
+}
+.diagonal.part-1 {
+    position: relative;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    float: left;
+}
+.diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 5px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    opacity: 0;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(135deg);
+    margin-top: 10px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+    transition: all 0.3s;
+    box-sizing: border-box;
+    transform: rotate(-135deg);
+    margin-top: -13px;
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 10px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+
+  border: 1px solid #888;
+  width: 30%;
+  border-radius: 33px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 35px;
+  font-weight: bold;
+  margin-right: 5%;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
   cursor: pointer;
 }
-.close-icon:hover{
-  color: #b6b6b6;
-}
-.top-content .fa-camera-retro{
-  font-size: 80px;
-  color: #f2f2f2;
-}
-.modal .bottom-content{
-  background: white;
-  width: 100%;
-  padding: 15px 20px;
-}
-.bottom-content .text{
-  font-size: 28px;
-  font-weight: 600;
-  color: #34495e;
-  
-}
-.bottom-content p{
-  font-size: 18px;
-  line-height: 27px;
-  color: grey;
-}
-.bottom-content .close-btn{
-  padding: 15px 0;
-}
-.show-btn button,
-.close-btn button{
-  padding: 9px 13px;
-  background: #27ae60;
-  border: none;
-  outline: none;
-  font-size: 18px;
-  text-transform: uppercase;
-  border-radius: 3px;
-  color: #f2f2f2;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.show-btn button{
-  padding: 12px 15px;
-}
-.show-btn button:hover,
-.close-btn button:hover{
-  background: #26a65b;
-}
-#scroll_demo {
+  #scroll_demo {
     width:90%;
-    height:500px;
+    height:550px;
     overflow:auto;
+    margin-left: 8%;
+  }
+
+  @media only screen and (max-width:800px) {
+    /* For tablets: */
+    #sidebarMenu {
+      width: 30%;
+      padding: 0;
+      transform: translateX(-400px);
+    }
+    .frame {
+      width: 100%;
+    }
+    .logoimg{
+        height: 70%; 
+        margin-left: 10%; 
+        margin-right: 10%;
+    }
+    .nameheader{
+        float: right;
+        margin-right: 5%; 
+        margin-top: 0.5%; 
+        color: white;
+    }.spinner{
+        height: 4px;
+        width: 120%;
+    } .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 70%;
+        border-radius: 33px;
+        height: 88%;
+      }
+   
+  }
+  @media only screen and (max-width:500px) {
+    /* For mobile phones: */
+    #sidebarMenu{
+      width: 40%;
+    }
+    .logoimg{
+        height: 70%; 
+        margin-left: 15%; 
+        margin-right: 10%;
+        margin-top: -15%;
+    }.nameheader {
+        float: right;
+        margin-right: 8%; 
+        margin-top: 0.5%; 
+        color: white;
+        font-size: 15px;
+    } .frame{
+        height: 150%;
+    } .spinner{
+        height: 4px;
+        width: 120%;
+        margin-left: -35%;
+    } .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 77%;
+        border-radius: 33px;
+        height: 85%;
+        font-size: 13px;
+      }
+
   }
