@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wextra</title>
   <script src="https://cdn.tailwindcss.com/?plugins=forms"></script>
-  <link rel="stylesheet" href="ManageUser.css">
+  <link rel="stylesheet" href="post.css">
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
@@ -18,7 +18,7 @@
   <div class="container max-w-7xl mx-auto mt-8">
     <div class="mb-4">
       <h1 style="margin-left: -2%; margin-top: 10%; font-size: 30px;">
-        จัดการผู้ใช้งาน</h1>
+        โพสต์/ประชาสัมพันธ์</h1>
     </div>
 
   </div>
@@ -27,6 +27,7 @@
   <div class="flex justify-start" style="margin-left:5%; margin-top: 5%; width: 100%;">
 
     <?php
+
     include("../connectdb.php");
 
     $url = $_SERVER['REQUEST_URI'];
@@ -42,35 +43,29 @@
     $Bschinput = $parts['sinput'];
 
     ?>
-    <h2 style="margin-right: 0%; margin-top: 1%; font-size:18px; margin-left:-5%; width: 10%;">ค้นหาผู้ใช้ :</h2>
-    <form method="GET" name="searchform" action="ManageUser.php" style="width:100%">
-      <select style="height: 45px; border-radius:5px; width: 15%; font-size:20px; margin-left: -2%;" name="sfi" id="sfi">
+    <h2 style="margin-right: 0%; margin-top: 1%; font-size:18px; margin-left:-5%; width: 10%;">ค้นหาโพสต์ :</h2>
+    <form method="GET" name="searchform" action="ListTools.php" style="width:100%">
+      <select style="height: 100%; border-radius:5px; width: 15%; font-size:20px;" name="sfi" id="sfi">
         <option <?php if ($Aschfilter == "all") {
                   echo "selected='selected'";
                 } ?> value="all">All</option>
-        <option <?php if ($Aschfilter == "UID") {
+        <option <?php if ($Aschfilter == "post_title") {
                   echo "selected='selected'";
-                } ?> value="UID">User ID</option>
-        <option <?php if ($Aschfilter == "username") {
+                } ?> value="post_title">หัวข้อ</option>
+        <option <?php if ($Aschfilter == "post_desc") {
                   echo "selected='selected'";
-                } ?> value="username">ชื่อผู้ใช้งาน</option>
-        <option <?php if ($Aschfilter == "email") {
-                  echo "selected='selected'";
-                } ?> value="email">อีเมลล์</option>
-        <option <?php if ($Aschfilter == "phonenum") {
-                  echo "selected='selected'";
-                } ?> value="phonenum">หมายเลขโทรศัพท์</option>
+                } ?> value="post_desc">คำอธิบาย</option>
       </select>
 
 
-      <input style="height: 45px; margin-left: 0%; border-radius:5px; width: 25%;" type="text" class="input" placeholder="ค้นหา ..." name="sinput" id="sinput">
+      <input style="height: 50px; margin-left: 0%; border-radius:5px; width: 25%;" type="text" class="input" placeholder="ค้นหา ..." name="sinput" id="sinput">
       <button type="submit" class="px-4 py-2 rounded-lg bg-sky-500 text-sky-100" style="margin-left: 0.5%;  background-color: #015C92;  color:white;">ค้นหา</button>
     </form>
-    <!-- <div style="align-self: flex-end;  margin-right:auto; width: 20%; margin-left:15%; margin-bottom:1%;">
-      <a href="Adduser.html">
-        <button class="px-4 py-2 rounded-lg bg-sky-500 text-sky-100 " style="background-color: #015C92;  color:white;">เพิ่มผู้ใช้</button>
+    <div style="align-self: flex-end;  margin-right:auto; width: 20%; margin-bottom:1%;">
+      <a href="CreatePost.html">
+        <button class="px-4 py-2 rounded-lg bg-sky-500 text-sky-100 " style="background-color: #015C92;  color:white;">เพิ่มโพสต์</button>
       </a>
-    </div>-->
+    </div>
 
   </div>
 
@@ -81,31 +76,29 @@
     if (($Bschinput !== "") && ($Bschinput !== " ") && (!empty($Bschinput))) {
       // B con have input
 
-      $tablequery = "SELECT * FROM user
-        INNER JOIN role_table ON user.role = role_table.role
+      $tablequery = "SELECT * FROM post_table
+        INNER JOIN user ON post_table.UID = user.UID
         WHERE $Aschfilter LIKE '%$Bschinput%'";
     } else {
       // B con no input
 
-      $tablequery = "SELECT * FROM user
-        INNER JOIN role_table ON user.role = role_table.role";
+      $tablequery = "SELECT * FROM post_table
+        INNER JOIN user ON post_table.UID = user.UID";
     }
   } else {
     // A con no input
     if (($Bschinput !== "") && ($Bschinput !== " ") && (!empty($Bschinput))) {
       // B con have input
 
-      $tablequery = "SELECT * FROM user
-        INNER JOIN role_table ON user.role = role_table.role
-        WHERE (UID LIKE '%$Bschinput%')
-        OR (username LIKE '%$Bschinput%')
-        OR (email LIKE '%$Bschinput%')
-        OR (phonenum LIKE '%$Bschinput%')";
+      $tablequery = "SELECT * FROM post_table
+        INNER JOIN user ON post_table.UID = user.UID
+        WHERE (post_title LIKE '%$Bschinput%')
+        OR (post_desc LIKE '%$Bschinput%')";
     } else {
       // B con no input
 
-      $tablequery = "SELECT * FROM user
-        INNER JOIN role_table ON user.role = role_table.role";
+      $tablequery = "SELECT * FROM post_table
+        INNER JOIN user ON post_table.UID = user.UID";
     }
   }
 
@@ -124,23 +117,19 @@
                   <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
                     <span>ลำดับ</span>
                   </th>
-                  <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
-                    <span>User ID</span>
+                  <th width="10%" style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
+                    <span>หัวข้อ</span>
                   </th>
-                  <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
-                    <span>ชื่อผู้ใช้งาน</span>
+                  <th width="15%" style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
+                    <span>คำอธิบาย</span>
                   </th>
-                  <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
-                    <span>อีเมลล์</span>
+                  <th width="5%" style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
+                    <span>วันที่โพสต์</span>
                   </th>
-                  <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
-                    <span>เบอร์โทรศัพท์</span>
-                  </th>
-                  <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
-                    <span>Role</span>
-                  </th>
+
                   <th style="border-top:2px solid #686868;border-bottom:2px solid #686868;">&nbsp;</th>
                   <th style="border-top:2px solid #686868;border-bottom:2px solid #686868;border-right:2px solid #686868;">&nbsp;</th>
+
                 </tr>
               </thead>
               <tbody>
@@ -154,22 +143,24 @@
                   echo '<h5 style="text-align: center; color: black;">' . $rownum . '</h5>';
                   echo '</td>';
                   echo '<td width="10%" style="border:2px solid #686868;">';
-                  echo '<h5 style="text-align: center; color: black;">' . $row["UID"] . '</h5>';
+                  echo '<h5 style="text-align: center; color: black;">' . $row["post_title"] . '</h5>';
                   echo '</td>';
                   echo '<td width="10%" style="border:2px solid #686868;">';
-                  echo '<h5 style="text-align: center; color: black;">' . $row["username"] . '</h5>';
+                  echo '<h5 style="text-align: center; color: black;">' . $row["post_desc"] . '</h5>';
                   echo '</td>';
                   echo '<td width="10%" style="border:2px solid #686868;">';
-                  echo '<h5 style="text-align: center; color: black;">' . $row["email"] . '</h5>';
-                  echo '</td>';
-                  echo '<td width="10%" style="border:2px solid #686868;">';
-                  echo '<h5 style="text-align: center; color: black;">' . $row["phonenum"] . '</h5>';
-                  echo '</td>';
-                  echo '<td width="10%" style="border:2px solid #686868;">';
-                  echo '<h5 style="text-align: center; color: black;">' . $row["name_r"] . '</h5>';
+                  echo '<h5 style="text-align: center; color: black;">' . $row["post_time"] . '</h5>';
                   echo '</td>';
                   echo '<td width="15%" align="center" colspan="3" style="border:2px solid #686868;">
-                      <a href="Edituser.php?uid=' . $row["UID"] . '">
+                      <a href="Viewpost.php?postid=' . $row["post_ID"] . '">
+                        <button style="background-color:rgba(1, 93, 146, 0.777); 
+                                      border-radius: 22px; width: 25%; margin-right: 4%;
+                                      color: #ffffff; font-size: 18px;
+                                      border: none;">
+                          เรียกดู
+                        </button>
+                      </a>
+                      <a href="EditPost.php?postid=' . $row["post_ID"] . '">
                         <button style="background-color:rgba(255, 122, 0, 0.69);
                                       border-radius: 22px; width: 25%; margin-right: 4%;
                                       color: #ffffff; font-size: 18px;
@@ -177,18 +168,16 @@
                           แก้ไข
                         </button>
                       </a>
-                      <a href="Deluser.php?uid=' . $row["UID"] . '">
+                      <a href="Delpost.php?postid=' . $row["post_ID"] . '">
                         <button style="background-color:rgba(192, 0, 0, 0.777); 
-                                        border-radius: 22px; width: 25%; 
-                                        color: #ffffff; font-size: 18px;
-                                        border: none;">
+                                      border-radius: 22px; width: 25%; 
+                                      color: #ffffff; font-size: 18px;
+                                      border: none;">
                           ลบ
                         </button>
                       </a>
                     </td>';
                   echo '</tr>';
-
-                  $rownum++;
                 }
 
                 ?>
@@ -199,7 +188,6 @@
       </div>
     </div>
   </div>
- 
   </tbody>
   </table>
   </div>
@@ -207,8 +195,6 @@
   </div>
   </div>
   </div>
-
- 
 </body>
 
 </html>

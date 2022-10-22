@@ -12,6 +12,21 @@
 </head>
 
 <body>
+
+    <?php
+
+    $url = $_SERVER['REQUEST_URI'];
+
+    // echo $url;
+
+    $partscrap = parse_url($url);
+
+    parse_str($partscrap['query'], $parts);
+
+    $postID = $parts['postid'];
+
+    ?>
+    
     <!-- create Post -->
     <div style="margin-top: 10%;">
         <div>
@@ -21,8 +36,7 @@
                 </h1>
             </div>
 
-            <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10"
-                style="width:80%; margin-left:10%; margin-right:20%; height:100%">
+            <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10" style="width:80%; margin-left:10%; margin-right:20%; height:100%">
                 <form method="POST" action="../adminbackend/addtools.php">
                     <!-- Text Input -->
                     <div style="float: left ;  margin-bottom: 1%;">
