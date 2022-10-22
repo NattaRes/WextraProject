@@ -46,7 +46,7 @@ $updatetoolsql = "UPDATE tool_all_table SET
     tool_model = '$defmodel', 
     tool_type = '$ttype', 
     tool_desc = '$desc'
-    WHERE ID_all = '$idall'";
+    WHERE tool_all_ID = '$idall'";
 
 $res = $conn->query($updatetoolsql);
 
@@ -56,7 +56,7 @@ if ($res) {
 
     // $sccupdcon = "<script type='text/javascript'> alert('Tool Update Successfully') </script>";
 
-    echo "<script type='text/javascript'>location.href='../adminsite/ListTools.php?cateinput=All&sfi=All&sinput=';</script>";
+    echo "<script type='text/javascript'>location.href='../adminsite/ListTools.php?cateinput=all&sfi=all&sinput=';</script>";
     exit();
 } else {
 

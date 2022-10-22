@@ -44,7 +44,7 @@
 
     ?>
     <h2 style="margin-right: 0%; margin-top: 1%; font-size:18px; margin-left:-5%; width: 10%;">ค้นหาโพสต์ :</h2>
-    <form method="GET" name="searchform" action="ListTools.php" style="width:100%">
+    <form method="GET" name="searchform" action="Post.php" style="width:100%">
       <select style="height: 100%; border-radius:5px; width: 15%; font-size:20px;" name="sfi" id="sfi">
         <option <?php if ($Aschfilter == "all") {
                   echo "selected='selected'";
