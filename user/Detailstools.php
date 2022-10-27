@@ -85,54 +85,42 @@
                             </label>
                             <label style="font-size: 18px; color: #7E7C7C; text-align: left; "><?php echo $tname; ?></label>
                         </div>
-                        <div>
-                            <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C; font-weight: bold;">รายละเอียด
-                                : </label>
-                            </label>
-                        </div>
-                        <div>
-                            <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C; text-align: left;">
-                                ระบบการบัทึกภาพ (ภาพเคลื่อนไหว)IMAGE SIZE (MP4) 1440 x 1080 (30fps/12Mbps)
-                            </label>
-                        </div>
+                      
                         <div style="margin-top: 1%;">
-                            <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C; font-weight: bold;">การบีบอัดไฟล์
+                            <label
+                                style="margin-left: 5%; font-size: 18px; color: #7E7C7C; font-weight: bold;">รุ่น
                                 : </label>
-                            </label>
+                                <label style="font-size: 18px; color: #7E7C7C; text-align: left; "> AVCHD
+                                </label>
                         </div>
-                        <div>
-                            <label style="margin-left: 5%;font-size: 18px; color: #7E7C7C; text-align: left;"> AVCHD
-                                Ver. 2.0 compliant / MPEG-4 AVC (H.264)
-                            </label>
-                        </div>
+    
                         <div style="margin-top: 1%;">
-                            <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C; font-weight: bold;">รูปแบบในการบันทึก
+                            <label
+                                style="margin-left: 5%; font-size: 18px; color: #7E7C7C; font-weight: bold;">ยี่ห้อ
                                 : </label>
-
-                            </label>
+                                <label style="font-size: 18px; color: #7E7C7C; text-align: left;"> AVCHD
+                                </label>
                         </div>
+                       
                         <div>
-                            <label style="margin-left: 5%;font-size: 18px; color: #7E7C7C; text-align: left;"> AVCHD,
-                                MP4
-                            </label>
+                            <label
+                                style="margin-left: 5%; font-size: 18px; color: #7E7C7C; font-weight: bold;">รายละเอียด
+                                </label>
+                                <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C; text-align: left;">
+                                    ระบบการบัทึกภาพ (ภาพเคลื่อนไหว)IMAGE SIZE (MP4) 1440 x 1080 (30fps/12Mbps)
+                                </label>
                         </div>
-                        <div style="margin-top: 1%;">
-                            <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C; font-weight: bold;">White
-                                Balance (ค่าแสงสมดุลสีขาว) : </label>
-                        </div>
-                        <div>
-                            <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C; text-align: left;"> MODES
-                                Auto WB, Daylight, Shade, Cloudy, Incandescent, Fluorescent, Flash, C.Tem (2500 to
-                                9900K), C.Filter (G7 to M7 15-step, A7 to B7 15-step), Custom
-                            </label>
-                        </div>
+                       
+                        <!--
                         <div class="mt-5 text-center">
                             <a href="Alltools.php?toolidall=<?php echo $toolid; ?>">
                                 <button style="background: #D9D9D9; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 9px; width: 100px;
-                                    height: 45px; border: none;color: #7A7A7A; margin-bottom: 10%; margin-left: 71%;" type="button">กลับ
+                                height: 45px; border: none;color: #7A7A7A; margin-bottom: 10%; margin-left: 71%;"
+                                    type="button">กลับ
                                 </button>
                             </a>
                         </div>
+                        -->
                     </div>
 
                 </div>

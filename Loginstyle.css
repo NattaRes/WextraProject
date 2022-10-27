@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
+   
 }
 
 body {
@@ -9,7 +12,8 @@ body {
     overflow: hidden;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(180deg, rgba(27, 101, 114, 0.73) 0%, rgba(163, 216, 232, 0.99) 100%);
+    font-family: 'Kanit', sans-serif;
+	background: linear-gradient(180deg, #015C92 0%, rgba(163, 216, 232, 0.99) 100%);
 }
 
 .LoginForm form {
@@ -33,7 +37,6 @@ form * {
     outline: none;
     color: #000000;
     letter-spacing: 0.5px;
-    font-family: "Poppins", sans-serif;
 }
 
 .title {
@@ -87,7 +90,7 @@ form * {
     cursor: pointer;
     overflow: hidden;
     position: relative;
-    background: linear-gradient(180deg, rgba(27, 101, 114, 0.73) 0%, rgba(163, 216, 232, 0.99) 100%);
+	background: linear-gradient(180deg, #015C92 0%, rgba(163, 216, 232, 0.99) 100%);
     border-radius: 50px;
 }
 
@@ -102,7 +105,7 @@ form * {
     border-radius: 5px;
     position: absolute;
     transition: left 0.5s, color 0.5s;
-    background-color: #1b6572;
+    background-color: #015C92;
 }
 
 

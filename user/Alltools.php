@@ -26,8 +26,12 @@
 					<img src="../image/icon/shopping-cart (2).png" alt="" class="carticon">
 				</a>
 			</div>
+			</div>
+			
+			</div>
+			
 		</div>
-
+		
 		<?php
 
 		include("../connectdb.php");
@@ -78,11 +82,13 @@
 												<h5 style="float: left;">จำนวน :</h5>
 												<h5 style="float: left; margin-left: 2%;">NONE</h5>
 												<h5 style="float: left; margin-left: 2%;">ตัว</h5>
-												<h5 style="float: left; margin-left: 5%;">เหลือ</h5>
-												<h5 style="float: left; margin-left: 5%;">NONE</h5>
-												<h5 style="float: right; ">ตัว</h5>
+												</div>
+												<div style="clear: left;  margin-bottom: 10%;">
+												<h5 style="float: left;">เหลือ :</h5>
+												<h5 style="float: left; margin-left: 2%;">NONE</h5>
+												<h5 style="float: left;">ตัว</h5>
 											</div>
-											<div style="clear: left; margin-bottom: 10%;">
+											<div style="clear: left; margin-bottom: 10%; margin-top: -2%;">
 
 												<h5 style="color: green; margin-right: 65%; margin-bottom: -60%; margin-top: 20%; ">
 													ว่าง</h5>
