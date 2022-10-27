@@ -20,24 +20,33 @@ $checkcart = "SELECT * FROM tool_cart
 
 $rescheck = $conn->query($checkcart);
 
+$counter = mysqli_num_rows($rescheck);
+
 if ($rescheck) {
 
-    echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
-} else {
+    if ($counter < 1) {
 
-    $addcartsql = "INSERT INTO tool_cart
-    (UID, tool_all_ID, quantity)
-    VALUES ('$uid', '$toolidall', 0)";
+        $addcartsql = "INSERT INTO tool_cart
+            (UID, tool_all_ID, quantity, cart_status_ID)
+            VALUES ('$uid', '$toolidall', 0, 1)";
 
-    $rescart = $conn->query($addcartsql);
+        $rescart = $conn->query($addcartsql);
 
-    if ($rescart) {
+        if ($rescart) {
 
-        echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
+            echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
+        } else {
+
+            echo "<script type='text/javascript'> alert('Error (INSERT) : " . $conn->error . "') </script>";
+            echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
+        }
     } else {
 
-        echo $conn->error;
-        // echo "<script type='text/javascript'> alert('Error : " . $conn->error ."') </script>";
+        echo "<script type='text/javascript'> alert('Error (EMPTY) : " . $conn->error . "') </script>";
         echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
     }
+} else {
+
+    echo "<script type='text/javascript'> alert('Error (RESULT) : " . $conn->error . "') </script>";
+    echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
 }

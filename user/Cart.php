@@ -87,7 +87,7 @@
                                                         </td>
 
                                                         <td style="width: 10%;">
-                                                            <a href="#" class="table-link danger">
+                                                            <a href="../universalbackend/delfromcart.php?toolidall=<?php echo $row["tool_all_ID"]; ?>" class="table-link danger">
                                                                 <span>
                                                                     <img src="../image/icon/trash.png" style="width: 40%; height:40%;" />
                                                                 </span>
