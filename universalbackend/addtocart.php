@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include("../connectdb.php");
 
@@ -14,17 +14,30 @@ $toolidall = $parts["toolidall"];
 
 $uid = $_COOKIE["userck"];
 
-$addcartsql = "INSERT INTO tool_cart
-    (UID, tool_all_ID, quantity)
-    VALUES ('$uid', '$toolidall', 0)";
+$checkcart = "SELECT * FROM tool_cart
+    WHERE UID = '$uid'
+    AND tool_all_ID = '$toolidall'";
 
-$rescart = $conn->query($addcartsql);
+$rescheck = $conn->query($checkcart);
 
-if ($rescart) {
+if ($rescheck) {
+
     echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
 } else {
 
-    echo $conn->error;
-    // echo "<script type='text/javascript'> alert('Error : " . $conn->error ."') </script>";
-    echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
+    $addcartsql = "INSERT INTO tool_cart
+    (UID, tool_all_ID, quantity)
+    VALUES ('$uid', '$toolidall', 0)";
+
+    $rescart = $conn->query($addcartsql);
+
+    if ($rescart) {
+
+        echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
+    } else {
+
+        echo $conn->error;
+        // echo "<script type='text/javascript'> alert('Error : " . $conn->error ."') </script>";
+        echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
+    }
 }
