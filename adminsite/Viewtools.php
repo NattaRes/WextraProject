@@ -45,6 +45,7 @@
             $tmodel = $row['tool_model'];
             $typename = $row['type_name'];
             $desc = $row['tool_desc'];
+            $pic_path = $row['tool_pic_path'];
         }
 
         // while ($row = mysqli_fetch_array($res)) {
@@ -54,7 +55,7 @@
 
         <div class="payment-info">
             <div style="float: left;">
-                <img style="border-radius: 20px; background:black; margin-left:10%;" width="300px" src="">
+                <img src="<?php echo $pic_path; ?>" style="border-radius: 20px; background:black; margin-left:10%;" width="300px" src="">
 
             </div>
             <div style="color: black;  font-size: 25px;">

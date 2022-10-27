@@ -5,12 +5,13 @@ include("../connectdb.php");
 $post_title = $_POST['pti'];
 $post_date = $_POST['pdt'];
 $desc = $_POST['description'];
+$pic_default = "../image/post_default.png";
 
 $uid = $_COOKIE["userck"];
 
 $addpostsql = "INSERT INTO post_table
-    (post_title, post_time, post_desc, UID)
-    VALUES ('$post_title', '$post_date', '$desc', '$uid')";
+    (post_title, post_time, post_desc, post_pic_path, UID)
+    VALUES ('$post_title', '$post_date', '$desc', '$pic_default', '$uid')";
 
 $res = $conn->query($addpostsql);
 

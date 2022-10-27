@@ -65,11 +65,11 @@ if ((!empty($lid)) && (!empty($pwd))) {
         } else {
             setcookie("userck", $lid, time() + 86400, '/');
             // echo "\nUSER : " . $lid;
-            echo "<script type='text/javascript'>location.href='user/menubarUser.html';</script>";
+            echo "<script type='text/javascript'>location.href='user/menubarUser.php';</script>";
             exit();
         }
     } else {
-        echo "<script type='text/javascript'>alert('Invalid ID / Password. " . $hashpwd ."')</script>";
+        echo "<script type='text/javascript'>alert('Invalid ID / Password.')</script>";
         exit();
     }
 }

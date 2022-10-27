@@ -12,8 +12,24 @@
 
   <div class="header">
 
+  <?php 
+
+  include("../connectdb.php");
+  
+  $uid = $_COOKIE["userck"];
+
+  $usersql = "SELECT * FROM user WHERE UID = '$uid'";
+
+  $queuser = $conn->query($usersql);
+
+  while ($rowuser = mysqli_fetch_array($queuser)) {
+    $username = $rowuser["username"];
+  }
+
+  ?>
+
     <ul>
-      <label class="nameheader">B63xxxx นายสม ดีใจ</label>
+      <label class="nameheader"><?php echo $uid . " " . $username; ?></label>
     </ul>
     <img src="../image/Logo.png" class="logoimg" style="margin-top: -1%;" />
 
@@ -34,7 +50,7 @@
         </a>
       </li>
       <li>
-        <a href="Alltools.html" target="Changepage1" onclick="changePageTitletools()">
+        <a href="Alltools.php" target="Changepage1" onclick="changePageTitletools()">
           <img src="../image/icon/photo-camera (1).png" class="iconimg" />
           <span>เครื่องมือ</span>
         </a>
@@ -52,7 +68,7 @@
         </a>
       </li>
       <li>
-        <a href="Blog.html" target="Changepage1" onclick="changePageTitlenews()">
+        <a href="Blog.php" target="Changepage1" onclick="changePageTitlenews()">
           <img src="../image/icon/notification.png" class="iconimg" />
           <span>ข่าวสาร</span>
         </a>
@@ -70,14 +86,14 @@
         </a>
       </li>-->
       <li>
-        <a href="Profile.html" target="Changepage1" onclick="changePageTitlepr()">
+        <a href="Profile.php" target="Changepage1" onclick="changePageTitlepr()">
           <img src="../image/icon/profile.png" class="iconimg" />
           <span>โปรไฟล์</span>
         </a>
       </li>
 
       <li class="log_out">
-        <a href="#">
+        <a href="../logmeout.php">
           <img src="../image/icon/logout.png" class="iconimg"/>
           <span style="margin-left: -5%;">ออกจากระบบ</span>
         </a>

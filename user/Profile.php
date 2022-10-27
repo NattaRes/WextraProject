@@ -12,75 +12,93 @@
 </head>
 
 <body>
-    <html>
+
+    <?php
+
+    include("../connectdb.php");
+
+    $uid = $_COOKIE["userck"];
+
+    $usersql = "SELECT * FROM user WHERE UID = '$uid'";
+
+    $queuser = $conn->query($usersql);
+
+    while ($rowuser = mysqli_fetch_array($queuser)) {
+        $username = $rowuser["username"];
+        $email = $rowuser["email"];
+        $phone = $rowuser["phonenum"];
+    }
+
+    ?>
+
     <div style="margin-top: 10%;">
 
         <div class="container bg-white mt-5 mb-5" style="border-radius: 25px;">
             <div class="row">
-                <div style="margin-left: 15%;" >
-                    <div class="d-flex flex-column align-items-center text-center p-3 py-5" >
+                <div style="margin-left: 15%;">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                         <div class="d-flex justify-content-between align-items-center mb-3" style="margin-top: 15%; color:#717171">
-                            <h4 >โปรไฟล์</h4>
+                            <h4>โปรไฟล์</h4>
                         </div>
                         <img style="border-radius: 20px;" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                        </div>
+                    </div>
                 </div>
 
                 <div class="col-md-5" style="margin-left: 20%;">
-                    <div >
+                    <div>
 
                         <div style="margin-top: 15%;">
                             <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">ชื่อ </label>
                             <label style="margin-left: 24%; font-size: 18px; color: #7E7C7C; 
                             background-color: white; border-radius: 9px; width: 280px; height: 32px; text-align: center;
-                            box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);">นายสม  ใจดี</label>
-                           </div>
-                           <div style="margin-top: 1%;">
+                            box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);"><?php echo $username; ?></label>
+                        </div>
+                        <div style="margin-top: 1%;">
                             <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">รหัสนักศึกษา </label>
                             <label style="margin-left: 7%; font-size: 18px; color: #7E7C7C; 
                             background-color: white; border-radius: 9px; width: 280px; height: 32px; text-align: center;
-                            box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);">นายสม  ใจดี</label>
-                           </div>
-                           <div style="margin-top: 1%;">
+                            box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);"><?php echo $uid; ?></label>
+                        </div>
+                        <div style="margin-top: 1%;">
                             <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">สำนักวิชา </label>
                             <label style="margin-left: 13%; font-size: 18px; color: #7E7C7C; 
                             background-color: white; border-radius: 9px; width: 280px; height: 32px; text-align: center;
                             box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);">สำนัก</label>
-                           </div>
-                           <div style="margin-top: 1%;">
+                        </div>
+                        <div style="margin-top: 1%;">
                             <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">สาขา </label>
                             <label style="margin-left: 20%; font-size: 18px; color: #7E7C7C; 
                             background-color: white; border-radius: 9px; width: 280px; height: 32px; text-align: center;
                             box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);">สาขา</label>
-                           </div>
-                           <div style="margin-top: 1%;">
+                        </div>
+                        <div style="margin-top: 1%;">
                             <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">อาจารย์ที่ปรึกษา </label>
                             <label style="margin-left: 2%; font-size: 18px; color: #7E7C7C; 
                             background-color: white; border-radius: 9px; width: 280px; height: 32px; text-align: center;
-                            box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);">นายสม  ใจดี</label>
-                           </div>
-                           <div style="margin-top: 1%;">
+                            box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);">นายสม ใจดี</label>
+                        </div>
+                        <div style="margin-top: 1%;">
                             <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">อีเมล </label>
                             <label style="margin-left: 20%; font-size: 18px; color: #7E7C7C; 
                             background-color: white; border-radius: 9px; width: 280px; height: 32px; text-align: center;
-                            box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);">นายสม  ใจดี</label>
-                           </div>
-                           <div style="margin-top: 1%;">
+                            box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);"><?php echo $email; ?></label>
+                        </div>
+                        <div style="margin-top: 1%;">
                             <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">เบอร์โทรศัพท์ </label>
                             <label style="margin-left: 6.5%; font-size: 18px; color: #7E7C7C; 
                             background-color: white; border-radius: 9px; width: 280px; height: 32px; text-align: center;
-                            box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);">นายสม  ใจดี</label>
-                           </div>
+                            box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);"><?php echo $phone; ?></label>
+                        </div>
 
                         <div class="mt-5 text-center">
                             <a href="editprofile.html">
-                            <button  style="background: #D9D9D9; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 9px; width: 100px;
+                                <button style="background: #D9D9D9; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 9px; width: 100px;
                             height: 45px; border: none;color: #7A7A7A; margin-bottom: 10%; margin-left: 71%;" type="button">แก้ไข
-                            </button>
+                                </button>
                             </a>
-                            </div>
+                        </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -88,5 +106,7 @@
     </div>
     </div>
 
-    </html>
+
 </body>
+
+</html>
