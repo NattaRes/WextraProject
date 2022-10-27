@@ -22,7 +22,7 @@
 				</div>
 			</div>
 			<div>
-				<a href="Cart.html">
+				<a href="Cart.php">
 					<img src="../image/icon/shopping-cart (2).png" alt="" class="carticon">
 				</a>
 			</div>
@@ -66,7 +66,7 @@
 
 									<div class="box-area">
 										<div class="img-area">
-											<!--<img src="img/1.jpg" alt="">-->
+											<img src="<?php echo $toolrow["tool_pic_path"]; ?>" alt="">
 										</div>
 
 										<div style="margin-top: 160px;">
@@ -92,11 +92,11 @@
 												<button onclick="dec('amount')" style="margin-top: 4%; margin-left:25%">-</button>
 												<input name="amount" type="text" value="0" style="width: 25%; text-align:center;">
 												<button onclick="inc('amount')">+</button>
-												<a href="Cart.html">
+												<a href="../universalbackend/addtocart.php?toolidall=<?php echo $toolrow["tool_all_ID"]; ?>">
 													<img src="../image/icon/shopping-cart (2).png" alt="" style=" height: 13%; width: 12%; float: right; margin-top: 3%;">
 												</a>
 											</div>
-											<a href="Detailstools.html">
+											<a href="Detailstools.php?toolidall=<?php echo $toolrow["tool_all_ID"]; ?>">
 												<button class="onbutton" type="button">ดูเพิ่มเติม</button>
 											</a>
 										</div>

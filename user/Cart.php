@@ -14,6 +14,23 @@
 </head>
 
 <body>
+
+    <?php 
+
+    include("../connectdb.php");
+
+    $uid = $_COOKIE["userck"];
+
+    $cartsql = "SELECT * FROM tool_cart 
+        INNER JOIN tool_all_table ON tool_cart.tool_all_ID = tool_all_table.tool_all_ID
+        INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type
+        INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand
+        WHERE UID = '$uid'";
+
+    $quecart = $conn->query($cartsql);
+    
+    ?>
+
     <div style="margin-top: 8%;">
         <lebel style="font-size: 30px; margin-left: 14%; color: white; margin-top: 20%;"> ตะกร้า </lebel>
     </div>
@@ -36,7 +53,14 @@
                                 <th>&nbsp;</th>
                                 </tr>
                             </thead>
-                            <tbody>                        
+                            <tbody>
+                                
+                                <?php 
+
+                                while ($row = mysqli_fetch_array($quecart)) {
+
+                                ?>
+                            
                                 <tr>
                                     <td width="10%">
                                         <label class="container">
@@ -49,9 +73,9 @@
                                        <h5 style="text-align: center; color: #908F8F;">1</h5>
                                     </td>
                                     <td width="40%">
-                                        <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" style="max-width: 100%; border-radius: 22px;">
-                                        <span class="user-link">กล้อง</span>
-                                        <span class="user-subhead">รุ่น</span>
+                                        <img src="<?php echo $row["tool_pic_path"]; ?>" alt="" style="max-width: 100%; border-radius: 22px;">
+                                        <span class="user-link"><?php echo $row["brand_name"] . " " . $row["tool_name"]; ?></span>
+                                        <span class="user-subhead">รุ่น <?php echo $row["tool_model"]; ?></span>
                                     </td>
                                     <td align="center">  
                                         <button onclick="dec('amount')" style=" margin-top: 4%; ">-</button>
@@ -67,6 +91,12 @@
                                         </a>
                                     </td>
                                 </tr>
+
+                                <?php 
+
+                                }
+
+                                ?>
                               
                             </tbody>
                         </table>

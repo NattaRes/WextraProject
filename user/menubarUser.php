@@ -62,7 +62,7 @@
         </a>
       </li>
       <li>
-        <a href="Cart.html" target="Changepage1" onclick="changePageTitlecart()">
+        <a href="Cart.php" target="Changepage1" onclick="changePageTitlecart()">
           <img src="../image/icon/shopping-cart (2).png" class="iconimg" />
           <span>ตะกร้า</span>
         </a>
