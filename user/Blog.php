@@ -92,7 +92,7 @@
                 
                 ?>
 
-                <div class="card blog-horizontal" style="border-radius: 20px; box-shadow:0px 1px 4px 4px rgba(0, 0, 0, 0.25); width: 90%; margin-left: 8%; margin-bottom:5%;">
+                <div class="card blog-horizontal" style="border-radius: 20px; box-shadow:0px 1px 4px 4px rgba(0, 0, 0, 0.25); width: 90%; margin-left: 6%; margin-bottom:8%;">
                     <div class="card-body">
                         <div class="card-img-actions mr-sm-3 mb-3" style="max-width: 100%;">
                             <a href="#course_preview" data-toggle="modal" data-abc="true">
