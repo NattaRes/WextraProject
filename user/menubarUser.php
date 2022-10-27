@@ -44,7 +44,7 @@
   <div id="sidebarMenu">
     <ul class="sidebarMenuInner">
       <li style="border-radius: 20px 20px 0px 0px ;">
-        <a href="home.html" target="Changepage1" onclick="changePageTitlehome()">
+        <a href="home.php" target="Changepage1" onclick="changePageTitlehome()">
           <img src="../image/icon/home.png" class="iconimg" />
           <span>หน้าแรก</span>
         </a>
@@ -101,7 +101,7 @@
     </ul>
   </div>
   <div id='center' class="frame">
-    <iframe src="home.html" name="Changepage1" id="iframeid" frameborder="0" scrolling="auto" height="100%" width="100%"
+    <iframe src="home.php" name="Changepage1" id="iframeid" frameborder="0" scrolling="auto" height="100%" width="100%"
       style="border: none; margin-bottom: -1%; margin-top: 0%;">
     </iframe>
     <!--<footer class="footer" style="height: 10%; background-color: #015C92; ">
