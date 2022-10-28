@@ -22,31 +22,35 @@ $rescheck = $conn->query($checkcart);
 
 $counter = mysqli_num_rows($rescheck);
 
-if ($rescheck) {
-
-    if ($counter < 1) {
-
-        $addcartsql = "INSERT INTO tool_cart
-            (UID, tool_all_ID, quantity, cart_status_ID)
-            VALUES ('$uid', '$toolidall', 0, 1)";
-
-        $rescart = $conn->query($addcartsql);
-
-        if ($rescart) {
-
-            echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
-        } else {
-
-            echo "<script type='text/javascript'> alert('Error (INSERT) : " .  mysqli_error($conn) . "') </script>";
-            echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
-        }
-    } else {
-
-        echo "<script type='text/javascript'> alert('Error (EMPTY) : " . mysqli_error($conn) . "') </script>";
-        echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
-    }
-} else {
-
-    echo "<script type='text/javascript'> alert('Error (RESULT) : " . mysqli_error($conn) . "') </script>";
-    echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
+if (!mysqli_query($conn, $checkcart)) {
+    echo "Error: " . mysqli_error($conn);
 }
+
+// if ($rescheck) {
+
+//     if ($counter < 1) {
+
+//         $addcartsql = "INSERT INTO tool_cart
+//             (UID, tool_all_ID, quantity, cart_status_ID)
+//             VALUES ('$uid', '$toolidall', 0, 1)";
+
+//         $rescart = $conn->query($addcartsql);
+
+//         if ($rescart) {
+
+//             echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
+//         } else {
+
+//             echo "<script type='text/javascript'> alert('Error (INSERT) : " .  mysqli_error($conn) . "') </script>";
+//             echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
+//         }
+//     } else {
+
+//         echo "<script type='text/javascript'> alert('Error (EMPTY) : " . mysqli_error($conn) . "') </script>";
+//         echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
+//     }
+// } else {
+
+//     echo "<script type='text/javascript'> alert('Error (RESULT) : " . mysqli_error($conn) . "') </script>";
+//     echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
+// }
