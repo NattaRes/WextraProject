@@ -21,7 +21,7 @@
 					<a href="#" class="search_icon"><i class="fa fa-search"></i></a>
 				</div>
 			</div>
-			<div>
+			<div style="height: 25%; width: 25%; float:right; margin-top:-8.5%; margin-right:2%;">
 				<a href="Cart.php">
 					<img src="../image/icon/shopping-cart (2).png" alt="" class="carticon">
 				</a>
@@ -47,7 +47,7 @@
 		while ($typerow = mysqli_fetch_array($quetype)) {
 
 		?>
-
+<form action="/action_page.php">
 			<div style="margin-top: -2%;">
 				<h2 style="margin-left: 8%;  color: white;"><?php echo $typerow["type_name"]; ?></h2>
 			</div>
@@ -67,10 +67,11 @@
 								while ($toolrow = mysqli_fetch_array($quetool)) {
 
 								?>
-
+									<form>
 									<div class="box-area">
 										<div class="img-area">
-											<img src="<?php echo $toolrow["tool_pic_path"]; ?>" alt="">
+											<img src="<?php echo $toolrow["tool_pic_path"]; ?>" alt="" style="width: 280px;height: 160px;
+											border-radius: 22px;">
 										</div>
 
 										<div style="margin-top: 160px;">
@@ -90,14 +91,13 @@
 											</div>
 											<div style="clear: left; margin-bottom: 10%; margin-top: -2%;">
 
-												<h5 style="color: green; margin-right: 65%; margin-bottom: -60%; margin-top: 20%; ">
+												<h5 style="color: green; margin-right: 70%; margin-bottom: -60%; margin-top: 20%; border:3px black">
 													ว่าง</h5>
 												<span style="float: left;  margin-top: 6%;" class="dot"></span>
 
 
-												<button onclick="dec('amount')" style="margin-top: 4%; margin-left:25%">-</button>
-												<input name="amount" type="text" value="0" style="width: 25%; text-align:center;">
-												<button onclick="inc('amount')">+</button>
+												<input type="number" min="1" max="999" style="width:35%; margin-left:15%;  margin-top:4%;"/>
+												
 												<a href="../universalbackend/addtocart.php?toolidall=<?php echo $toolrow["tool_all_ID"]; ?>">
 													<img src="../image/icon/shopping-cart (2).png" alt="" style=" height: 13%; width: 12%; float: right; margin-top: 3%;">
 												</a>
@@ -107,7 +107,7 @@
 											</a>
 										</div>
 									</div>
-
+								</form>
 								<?php
 
 								}

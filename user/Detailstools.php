@@ -59,22 +59,27 @@
                         box-shadow: 0px 2px 4px 4px rgba(0, 0, 0, 0.25);
                         margin-top: 9%;" src="<?php echo $pic_path; ?>">
                     </div>
-                    <div style="margin-bottom:15%">
+                    <div style="margin-top: -10%; margin-bottom:5%">
+                    <span class="dot"></span>
+                        <lebel style="color: green; margin-left: 5%; font-size: 20px; font-weight: bold;">ว่าง</lebel>
+                     </div>
+                    <div style="margin-bottom:10% margin-top: 5%;">
                         <h5 style="float: left; margin-left: 5%;color: #7E7C7C;">จำนวน :</h5>
                         <h5 style="float: left; margin-left: 3%;color: #7E7C7C;">NONE ตัว</h5>
-                        <h5 style="float: left; margin-left: 25%;color: #7E7C7C;">เหลือ</h5>
+                        </div>
+                        <div style="margin-bottom:5%">
+                        <h5 style="float: left; margin-left: 5%; color: #7E7C7C;">เหลือ</h5>
                         <h5 style="float: left; margin-left: 3%;color: #7E7C7C;">NONE ตัว</h5>
+                       </div>
 
+                    <div style="margin-top: 20%; margin-bottom:20%;">
+                    <lebel style="color: #7E7C7C; margin-left: 25%; font-size: 20px; ">จำนวน</lebel>
+                        <input type="number" min="1" max="999" style="width:35%;  margin-left: 2%;"/>
+                        <a href="../universalbackend/addtocart.php?toolidall=<?php echo $toolrow["tool_all_ID"]; ?>">
+						<img src="../image/icon/shopping-cart (2).png" alt="" style=" height: 45px; width: 45px; ">
+						</a>
                     </div>
-                    <div style="margin-top: 15%;">
-                        <span class="dot"></span>
-                        <label style="color: green; margin-left: 5%; margin-top: -10%; font-size: 18px; font-weight: bold;">ว่าง</label>
-                        <button onclick="dec('amount')" style="margin-top: 4%; margin-left:11%; width: 10%;border-color: #d0cece;">-</button>
-                        <input name="amount" type="text" value="0" style="width: 35%; text-align:center; ">
-                        <button onclick="inc('amount')" style="width: 10%; border-color: #d0cece;">+</button>
-                    </div>
-                    <button class="onbutton" type="button">เพิ่มลงตะกร้า</button>
-
+              
                 </div>
 
                 <div class="col-md-5" style="margin-left: 10%;">
