@@ -37,16 +37,16 @@ if ($rescheck) {
             echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
         } else {
 
-            echo "<script type='text/javascript'> alert('Error (INSERT) : " . $conn->error . "') </script>";
+            echo "<script type='text/javascript'> alert('Error (INSERT) : " .  mysqli_error($conn) . "') </script>";
             echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
         }
     } else {
 
-        echo "<script type='text/javascript'> alert('Error (EMPTY) : " . $conn->error . "') </script>";
+        echo "<script type='text/javascript'> alert('Error (EMPTY) : " . mysqli_error($conn) . "') </script>";
         echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
     }
 } else {
 
-    echo "<script type='text/javascript'> alert('Error (RESULT) : " . $conn->error . "') </script>";
+    echo "<script type='text/javascript'> alert('Error (RESULT) : " . mysqli_error($conn) . "') </script>";
     echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
 }
