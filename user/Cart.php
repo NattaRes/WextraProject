@@ -81,9 +81,7 @@
                                                             <span class="user-subhead">รุ่น <?php echo $row["tool_model"]; ?></span>
                                                         </td>
                                                         <td align="center">
-                                                            <button onclick="dec('amount')" style=" margin-top: 4%; ">-</button>
-                                                            <input name="amount" type="text" value="0" style="width: 25%; text-align:center;">
-                                                            <button onclick="inc('amount')">+</button>
+                                                        <input type="number" min="1" max="999" style="width:35%;"/>
                                                         </td>
 
                                                         <td style="width: 10%;">

@@ -209,31 +209,9 @@ a:link {
 	text-decoration: none;
 }
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
-
-.custom-number-input input:focus {
-	outline: none !important;
-}
-
-.custom-number-input button:focus {
-	outline: none !important;
-
-
-}
 
 
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	margin: 0;
-}
 
 .dot {
 	height: 15px;
