@@ -48,7 +48,7 @@
 
 		?>
 			<div style="margin-top: -2%;">
-				<h2 style="margin-left: 8%;  color: white;"><?php echo $typerow["type_name"]; ?></h2>
+			<h2 style="margin-left: 8%;  color: white;"><?php echo $typerow["type_name"]; ?></h2>
 			</div>
 			<section id="testimonial_area" class="section_padding" style="margin-top: -10%;">
 				<div class="container">

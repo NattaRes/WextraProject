@@ -137,7 +137,7 @@
                                                             <h5 style="text-align: center; color: #908F8F;">1</h5>
                                                         </td>
                                                         <td width="60%">
-                                                            <img src="<?php echo $row["tool_pic_path"]; ?>" alt="" style="max-width: 100%; border-radius: 22px;">
+                                                            <img src="<?php echo $row["tool_pic_path"]; ?>" alt="" style="max-width: 20%; border-radius: 22px;">
                                                             <span class="user-link"><?php echo $row["brand_name"] . " " . $row["tool_name"]; ?></span>
                                                             <span class="user-subhead">รุ่น <?php echo $row["tool_model"]; ?></span>
                                                         </td>
