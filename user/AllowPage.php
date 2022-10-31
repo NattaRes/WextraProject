@@ -56,9 +56,9 @@
                     <label class="credit-card-label" style="margin-left: 10%; font-size: 18px; color: #7E7C7C;">เบอร์ติดต่อ : <?php echo $phone; ?></label>
                 </div>
                 <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">วันที่ยืม :</label>
-                    <input name="s_date" id="s_date" style=" color: #7E7C7C;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date" />
+                    <input name="s_date" id="s_date" style=" color: #7E7C7C;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date" required />
                     <label class="credit-card-label" style="margin-left: 8.5%; font-size: 18px; color: #7E7C7C;">วันที่คืน : </label>
-                    <input name="e_date" id="s_date" style=" color: #7E7C7C;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date" />
+                    <input name="e_date" id="s_date" style=" color: #7E7C7C;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date" required />
                 </div>
                 <div>
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">ผู้อนุมัติ :</label>
@@ -70,7 +70,7 @@
                     $resapr = $conn->query($aprfetch);
 
                     ?>
-                    <select name="approver_UID" id="approver_UID" style=" color: #7E7C7C;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;">เลือก
+                    <select name="approver_UID" id="approver_UID" style=" color: #7E7C7C;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" required>เลือก
                         <?php
 
                         while ($aprow = mysqli_fetch_array($resapr)) {
@@ -87,7 +87,7 @@
 
 
                 <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">หมายเหตุ :</label>
-                    <input name="que_desc" id="que_desc" type="text" style=" color: #7E7C7C;  border-radius:10px; background:#D9D9D9; border:none; width: 25%; height: 5%;" placeholder="ใช้ทำในงานอะไร" />
+                    <input name="que_desc" id="que_desc" type="text" style=" color: #7E7C7C;  border-radius:10px; background:#D9D9D9; border:none; width: 25%; height: 5%;" placeholder="ใช้ทำในงานอะไร" required />
                 </div>
             </div>
             <div>

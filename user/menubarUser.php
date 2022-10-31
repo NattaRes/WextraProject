@@ -74,7 +74,7 @@
         </a>
       </li>
       <li>
-        <a href="Status.html" target="Changepage1" onclick="changePageTitlest()">
+        <a href="Status.php" target="Changepage1" onclick="changePageTitlest()">
           <img src="../image/icon/hourglass.png" class="iconimg" />
           <span>เช็คสถานะ</span>
         </a>
