@@ -20,7 +20,7 @@
 
     $uid = $_COOKIE["userck"];
 
-    $statussql = "SELECT * FROM queue_table WHERE que_owner_UID = '$uid'";
+    $statussql = "SELECT * FROM queue_table WHERE que_owner_UID = '$uid' ORDER BY s_date ASC";
 
     $restatus = $conn->query($statussql);
 
@@ -74,6 +74,10 @@
 
                                             $ledgercounter = mysqli_num_rows($resled);
 
+                                            $s_date = date_create($row["s_date"]);
+
+                                            $e_date = date_create($row["e_date"]);
+
                                         ?>
 
                                         <tr>
@@ -82,10 +86,10 @@
                                                 <h5 style="text-align: center; color: #908F8F;"><?php echo $counter; ?></h5>
                                             </td>
                                             <td width="10%">
-                                                <h5 style="text-align: center; color: #908F8F;"><?php echo $row["s_date"]; ?></h5>
+                                                <h5 style="text-align: center; color: #908F8F;"><?php echo date_format($s_date, "d/m/Y"); ?></h5>
                                             </td>
                                             <td width="10%">
-                                                <h5 style="text-align: center; color: #908F8F;"><?php echo $row["e_date"]; ?></h5>
+                                                <h5 style="text-align: center; color: #908F8F;"><?php echo date_format($e_date, "d/m/Y"); ?></h5>
                                             </td>
                                             <td width="10%">
                                                 <h5 style="text-align: center; color: #908F8F;"><?php echo $ledgercounter; ?> รายการ </h5>

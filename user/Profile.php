@@ -91,7 +91,7 @@
                         </div>
 
                         <div class="mt-5 text-center">
-                            <a href="editprofile.html">
+                            <a href="editprofile.php">
                                 <button style="background: #D9D9D9; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 9px; width: 100px;
                             height: 45px; border: none;color: #7A7A7A; margin-bottom: 10%; margin-left: 71%;" type="button">แก้ไข
                                 </button>
