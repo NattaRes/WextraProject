@@ -128,31 +128,77 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td width="20%">
 
-                                                        <h5 style="text-align: center; color: #908F8F;">1</h5>
-                                                    </td>
-                                                    <td width="60%">
-                                                        <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" style="max-width: 100%; border-radius: 22px;">
-                                                        <span class="user-link">กล้อง</span>
-                                                        <span class="user-subhead">รุ่น</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="user-link1">3</span>
-                                                    </td>
-                                                </tr>
+                                                <?php
+
+                                                $ledgersql = "SELECT * FROM ledger_table
+                                                    INNER JOIN tool_all_table ON ledger_table.tool_all_ID = tool_all_table.tool_all_ID
+                                                    INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type
+                                                    INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand
+                                                    WHERE que_ID = '$queid'";
+
+                                                $resledger = $conn->query($ledgersql);
+
+                                                $inarr = array();
+
+                                                $rowlednum = 1;
+
+                                                $rowcount = 0;
+                                                $itemcount = 0;
+
+                                                while ($row = mysqli_fetch_array($resledger)) {
+
+                                                    $toolID = $row["tool_all_ID"];
+                                                    $countquid = $row["que_ID"];
+
+                                                    $ledgercountsql = "SELECT * FROM ledger_table
+                                                        WHERE tool_all_ID = '$toolID'
+                                                        AND que_ID = '$countquid'";
+
+                                                    $resledcount = $conn->query($ledgercountsql);
+
+                                                    $counterledger = mysqli_num_rows($resledcount);
+
+                                                    if (!in_array($toolID, $inarr)) {
+
+                                                ?>
+
+                                                        <tr>
+                                                            <td width="20%">
+                                                                <h5 style="text-align: center; color: #908F8F;"><?php echo $rowlednum; ?></h5>
+                                                            </td>
+                                                            <td width="60%">
+                                                                <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" style="max-width: 100%; border-radius: 22px;">
+                                                                <span class="user-link"><?php echo $row["brand_name"] . " " . $row["tool_name"]; ?></span>
+                                                                <span class="user-subhead">รุ่น <?php echo $row["tool_model"]; ?></span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="user-link1"><?php echo $counterledger; ?></span>
+                                                            </td>
+                                                        </tr>
+
+                                                <?php
+                                                        
+                                                        $rowcount++;
+                                                        $itemcount += $counterledger;
+                                                        array_push($inarr, $toolID);
+                                                    }
+
+                                                    $rowlednum++;
+                                                }
+
+                                                ?>
+
                                                 <tr>
                                                     <th><span></span></th>
                                                     <th style="text-align: right; color: #908F8F; font-weight: bold; font-size: 18px;"><span>รวมทั้งหมด</span></th>
-                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>1 รายการ</span></th>
+                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span><?php echo $rowcount; ?> รายการ</span><span> <?php echo $itemcount; ?> ชิ้น</span></th>
                                                     <th>&nbsp;</th>
                                                 </tr>
+
                                             </tbody>
                                         </table>
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>
