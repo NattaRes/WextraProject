@@ -28,7 +28,7 @@ if ($rescheck) {
 
         $addcartsql = "INSERT INTO tool_cart
             (UID, tool_all_ID, quantity, cart_status_ID)
-            VALUES ('$uid', '$toolidall', 0, 1)";
+            VALUES ('$uid', '$toolidall', 1, 1)";
 
         $rescart = $conn->query($addcartsql);
 

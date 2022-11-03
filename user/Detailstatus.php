@@ -14,100 +14,151 @@
 </head>
 
 <body>
+
+    <?php
+
+    include("../connectdb.php");
+
+    $uid = $_COOKIE["userck"];
+
+    $url = $_SERVER['REQUEST_URI'];
+
+    // echo $url;
+
+    $partscrap = parse_url($url);
+
+    parse_str($partscrap['query'], $parts);
+
+    $queid = $parts["queid"];
+
+    $queselectsql = "SELECT * FROM queue_table 
+        INNER JOIN user ON user.UID = queue_table.approver_UID
+        WHERE que_ID = '$queid'";
+
+    $resque = $conn->query($queselectsql);
+
+    while ($rowresq = mysqli_fetch_array($resque)) {
+        $queowner = $rowresq["que_owner_UID"];
+        $aprname = $rowresq["username"];
+        $qsdate = $rowresq["s_date"];
+        $qedate  = $rowresq["e_date"];
+        $qdesc = $rowresq["que_desc"];
+        $qstatus = $rowresq["queue_status"];
+    }
+
+    $s_date = date_create($qsdate);
+
+    $e_date = date_create($qedate);
+
+    ?>
+
     <div class="container mt-10 p-3 cart" style="margin-top: 9%; background-color: #F6F6F6; border-radius: 30px; margin-bottom: 4%;">
         <div class="row-md-4">
             <div class="d-flex justify-content-between align-items-center" style="color: #7E7C7C;  margin-top: 2%;">
 
-            <h2 style="margin-left: 7.5%; font-weight: bold;">ลำดับคิวที่ 1</h2>
-            <span class="credit-card-label" style="font-size: 18px; color: #7E7C7C; font-weight: bold; margin-left: 55%;">วันที่รับอุปกรณ์ :</span>
-            <span class="credit-card-label" style="font-size: 18px; color: #7E7C7C; font-weight: bold; margin-right: 5%;">1/11/65</span>
-    
-        </div>
+                <h2 style="margin-left: 7.5%; font-weight: bold;">ลำดับคิวที่ 1</h2>
+                <span class="credit-card-label" style="font-size: 18px; color: #7E7C7C; font-weight: bold; margin-left: 55%;">วันที่รับอุปกรณ์ :</span>
+                <span class="credit-card-label" style="font-size: 18px; color: #7E7C7C; font-weight: bold; margin-right: 5%;">1/11/65</span>
+
+            </div>
 
             <div class="payment-info">
+                <?php
+
+                $usersql = "SELECT * FROM user WHERE UID = '$queowner'";
+
+                $resuser = $conn->query($usersql);
+
+                while ($rowuser = mysqli_fetch_array($resuser)) {
+                    $username = $rowuser["username"];
+                    $email = $rowuser["email"];
+                    $phone = $rowuser["phonenum"];
+                }
+
+                ?>
                 <div class="d-flex justify-content-between align-items-center" style="color: #7E7C7C; font-size: 20px;">
                     <span style="margin-left: 5%;">รายละเอียดผู้ขอยืม</span>
                     <a href="">
-                    <span><img src="../image/icon/shredder.png" alt="" style="width: 10%; height:10%; margin-left: 80%;"/></span>
-                </a>
+                        <span><img src="../image/icon/shredder.png" alt="" style="width: 10%; height:10%; margin-left: 80%;" /></span>
+                    </a>
                 </div><span class="type d-block mt-3 mb-1"></span>
                 <div>
-                    <label class="credit-card-label"style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">ชื่อ :</label>
-                    <label class="credit-card-label" style="font-size: 18px; color: #7E7C7C;">นายสม ดีใจ</label>
+                    <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">ชื่อ :</label>
+                    <label class="credit-card-label" style="font-size: 18px; color: #7E7C7C;"><?php echo $username; ?></label>
                 </div>
                 <div>
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">คณะ : กระทรวงเวทย์มนต์</label>
                     <label class="credit-card-label" style="margin-left: 12.5%; font-size: 18px; color: #7E7C7C;">สาขา : เทคโนโลยีดิจิทัล</label>
                 </div>
-                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">Email : Somjai@gmail.com</label>
-                    <label class="credit-card-label" style="margin-left: 10%; font-size: 18px; color: #7E7C7C;">เบอร์ติดต่อ : 0999999999</label>
+                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">Email : <?php echo $email; ?></label>
+                    <label class="credit-card-label" style="margin-left: 10%; font-size: 18px; color: #7E7C7C;">เบอร์ติดต่อ : <?php echo $phone; ?></label>
                 </div>
                 <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">วันที่ยืม :</label>
-                    <label class="credit-card-label" style="font-size: 18px; color: #7E7C7C;">1/11/65</label>
+                    <label class="credit-card-label" style="font-size: 18px; color: #7E7C7C;"><?php echo date_format($s_date, "d/m/Y"); ?></label>
                     <label class="credit-card-label" style="margin-left: 18.6%; font-size: 18px; color: #7E7C7C;">วันที่คืน : </label>
-                    <label class="credit-card-label" style="font-size: 18px; color: #7E7C7C;">3/11/65</label>
-                   </div>
-                <div >
-                    <label class="credit-card-label"style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">ผู้อนุมัติ :</label>
-                    <label class="credit-card-label"style="font-size: 18px; color: #7E7C7C;">อาจารย์ (อาจารย์ที่ปรึกษาประจำวิชา) </label>
+                    <label class="credit-card-label" style="font-size: 18px; color: #7E7C7C;"><?php echo date_format($e_date, "d/m/Y"); ?></label>
                 </div>
-                
-              
+                <div>
+                    <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">ผู้อนุมัติ :</label>
+                    <label class="credit-card-label" style="font-size: 18px; color: #7E7C7C;"><?php echo $aprname; ?></label>
+                </div>
+
+
                 <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">หมายเหตุ : </label>
-                    <label class="credit-card-label" style="font-size: 18px; color: #7E7C7C;">(เช่น ใช้ทำในงานอะไร)</label>
-               </div>
+                    <label class="credit-card-label" style="font-size: 18px; color: #7E7C7C;"><?php echo $qdesc; ?></label>
+                </div>
             </div>
             <div>
-               <hr noshade="noshade" style="color: black;">
-<div class="container bootstrap snippets bootdey">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="main-box no-header clearfix" style="border-radius: 22px; box-shadow: 0px 0px 4px 4px rgba(109, 109, 109, 0.25);">
-                <div class="main-box-body clearfix">
-                    <div class="table-responsive">
-                        <table class="table user-list">
-                            <thead>
-                                <tr>
-                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>ลำดับ</span></th>
-                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>ชื่ออุปกรณ์</span></th>
-                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>จำนวน</span></th>
-                                    <th>&nbsp;</th>
-    
-                                    <th>&nbsp;</th>
-                                </tr>
-                            </thead>
-                            <tbody>                        
-                                <tr>
-                                    <td width="20%">
-                                        
-                                       <h5 style="text-align: center; color: #908F8F;">1</h5>
-                                    </td>
-                                    <td width="60%">
-                                        <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" style="max-width: 100%; border-radius: 22px;">
-                                        <span class="user-link">กล้อง</span>
-                                        <span class="user-subhead">รุ่น</span>
-                                    </td>
-                                    <td>  
-                                        <span class="user-link1">3</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th><span></span></th>
-                                    <th style="text-align: right; color: #908F8F; font-weight: bold; font-size: 18px;"><span>รวมทั้งหมด</span></th>
-                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>1 รายการ</span></th>
-                                    <th>&nbsp;</th>
-                                    </tr>
-                            </tbody>
-                        </table>
-                       
+                <hr noshade="noshade" style="color: black;">
+                <div class="container bootstrap snippets bootdey">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-box no-header clearfix" style="border-radius: 22px; box-shadow: 0px 0px 4px 4px rgba(109, 109, 109, 0.25);">
+                                <div class="main-box-body clearfix">
+                                    <div class="table-responsive">
+                                        <table class="table user-list">
+                                            <thead>
+                                                <tr>
+                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>ลำดับ</span></th>
+                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>ชื่ออุปกรณ์</span></th>
+                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>จำนวน</span></th>
+                                                    <th>&nbsp;</th>
+
+                                                    <th>&nbsp;</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td width="20%">
+
+                                                        <h5 style="text-align: center; color: #908F8F;">1</h5>
+                                                    </td>
+                                                    <td width="60%">
+                                                        <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" style="max-width: 100%; border-radius: 22px;">
+                                                        <span class="user-link">กล้อง</span>
+                                                        <span class="user-subhead">รุ่น</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="user-link1">3</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th><span></span></th>
+                                                    <th style="text-align: right; color: #908F8F; font-weight: bold; font-size: 18px;"><span>รวมทั้งหมด</span></th>
+                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>1 รายการ</span></th>
+                                                    <th>&nbsp;</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-</div>
 </body>
 
 </html>

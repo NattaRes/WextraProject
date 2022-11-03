@@ -142,7 +142,7 @@
                                                             <span class="user-subhead">รุ่น <?php echo $row["tool_model"]; ?></span>
                                                         </td>
                                                         <td>
-                                                            <span class="user-link1">NONE</span>
+                                                            <span class="user-link1"><?php echo $row["quantity"]; ?></span>
                                                         </td>
 
 

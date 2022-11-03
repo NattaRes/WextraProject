@@ -67,7 +67,7 @@
                                                     <tr>
                                                         <td width="10%">
                                                             <label class="container">
-                                                                <input class="input1" type="checkbox" name="carter[]" value="<?php echo $row["tool_all_ID"]; ?>">
+                                                                <input class="input1" type="checkbox" name="carter[]" value="<?php echo $row["cart_ID"]; ?>">
                                                                 <span class="checkmark"></span>
                                                             </label>
                                                         </td>
@@ -81,7 +81,7 @@
                                                             <span class="user-subhead">รุ่น <?php echo $row["tool_model"]; ?></span>
                                                         </td>
                                                         <td align="center">
-                                                        <input type="number" min="1" max="999" style="width:35%;"/>
+                                                        <input name="quantis[]" type="number" min="1" max="999" style="width:35%;" value="<?php echo $row["quantity"]; ?>"/>
                                                         </td>
 
                                                         <td style="width: 10%;">

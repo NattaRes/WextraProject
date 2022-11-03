@@ -14,7 +14,7 @@
 
 <body>
 
-    <?php 
+    <?php
 
     include("../connectdb.php");
 
@@ -60,7 +60,7 @@
                                     </thead>
                                     <tbody>
 
-                                        <?php 
+                                        <?php
 
                                         $counter = 1;
 
@@ -80,77 +80,78 @@
 
                                         ?>
 
-                                        <tr>
-                                            <td width="10%">
-                                                <!-- ลำดับ -->
-                                                <h5 style="text-align: center; color: #908F8F;"><?php echo $counter; ?></h5>
-                                            </td>
-                                            <td width="10%">
-                                                <h5 style="text-align: center; color: #908F8F;"><?php echo date_format($s_date, "d/m/Y"); ?></h5>
-                                            </td>
-                                            <td width="10%">
-                                                <h5 style="text-align: center; color: #908F8F;"><?php echo date_format($e_date, "d/m/Y"); ?></h5>
-                                            </td>
-                                            <td width="10%">
-                                                <h5 style="text-align: center; color: #908F8F;"><?php echo $ledgercounter; ?> รายการ </h5>
-                                            </td>
-                                            <td width="10%" align="center">
-                                                <div>
-                                                    <?php 
+                                            <tr>
+                                                <td width="10%">
+                                                    <!-- ลำดับ -->
+                                                    <h5 style="text-align: center; color: #908F8F;"><?php echo $counter; ?></h5>
+                                                </td>
+                                                <td width="10%">
+                                                    <h5 style="text-align: center; color: #908F8F;"><?php echo date_format($s_date, "d/m/Y"); ?></h5>
+                                                </td>
+                                                <td width="10%">
+                                                    <h5 style="text-align: center; color: #908F8F;"><?php echo date_format($e_date, "d/m/Y"); ?></h5>
+                                                </td>
+                                                <td width="10%">
+                                                    <h5 style="text-align: center; color: #908F8F;"><?php echo $ledgercounter; ?> รายการ </h5>
+                                                </td>
+                                                <td width="10%" align="center">
+                                                    <div>
+                                                        <?php
 
-                                                    if ($row["queue_status"] = 1) {
-                                                        // Pending
+                                                        if ($row["queue_status"] = 1) {
+                                                            // Pending
 
-                                                        echo '<span style="float: left; margin-left: 15%; margin-top: 5%; background-color: rgb(225, 225, 0);" class="dot"></span>
+                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 5%; background-color: rgb(225, 225, 0);" class="dot"></span>
                                                             <h5 style="text-align: center; color:rgb(225, 225, 0); font-size: 20px;  margin-right: 15%;">รอการอนุมัติ</h5>';
-                                                    } elseif ($row["queue_status"] = 2) { 
-                                                        // Approved
+                                                        } elseif ($row["queue_status"] = 2) {
+                                                            // Approved
 
-                                                        echo '<span style="float: left; margin-left: 15%; margin-top: 5%;" class="dot"></span>
+                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 5%;" class="dot"></span>
                                                             <h5 style="text-align: center; color:green; font-size: 20px; margin-right: 15%;">อนุมัติ</h5>';
-                                                    } elseif ($row["queue_status"] = 3) { 
-                                                        // Disapproved
+                                                        } elseif ($row["queue_status"] = 3) {
+                                                            // Disapproved
 
-                                                        echo '<span style="float: left; margin-left: 15%; margin-top: 5%; background-color: red" class="dot"></span>
+                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 5%; background-color: red" class="dot"></span>
                                                             <h5 style="text-align: center; color:red; font-size: 20px;  margin-right: 15%;">ไม่อนุมัติ</h5>';
-                                                    } elseif ($row["queue_status"] = 4) { 
-                                                        // Timeout
+                                                        } elseif ($row["queue_status"] = 4) {
+                                                            // Timeout
 
-                                                        echo '<span style="float: left; margin-left: 15%; margin-top: 5%; background-color: red" class="dot"></span>
+                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 5%; background-color: red" class="dot"></span>
                                                             <h5 style="text-align: center; color:red; font-size: 20px;  margin-right: 15%;">หมดเวลาอนุมัติ</h5>';
-                                                    } elseif ($row["queue_status"] = 5) { 
-                                                        // Cancel
+                                                        } elseif ($row["queue_status"] = 5) {
+                                                            // Cancel
 
-                                                        echo '<span style="float: left; margin-left: 15%; margin-top: 5%; background-color: red" class="dot"></span>
+                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 5%; background-color: red" class="dot"></span>
                                                             <h5 style="text-align: center; color:red; font-size: 20px;  margin-right: 15%;">ถูกยกเลิก</h5>';
-                                                    } else {}
+                                                        } else {
+                                                        }
 
-                                                    ?>
-                                                </div>
-                                            </td>
-                                            <td width="15%" align="center" colspan="3">
+                                                        ?>
+                                                    </div>
+                                                </td>
+                                                <td width="15%" align="center" colspan="3">
 
-                                                <a href="Detailstatus.php?queid=<?php echo $row["que_ID"]; ?>">
-                                                    <button style="background-color:rgba(1, 93, 146, 0.777); 
-                                                        border-radius: 22px; width: 40%; margin-right: 4%;
-                                                        color: #ffffff; font-size: 18px;
-                                                        border: none;">
-                                                        เรียกดู
-                                                    </button>
+                                                    <a href="Detailstatus.php?queid=<?php echo $row["que_ID"]; ?>">
+                                                        <button style="background-color:rgba(1, 93, 146, 0.777); 
+                                                            border-radius: 22px; width: 40%; margin-right: 4%;
+                                                            color: #ffffff; font-size: 18px;
+                                                            border: none;">
+                                                            เรียกดู
+                                                        </button>
+                                                    </a>
                                                     <button style="background-color:rgba(192, 0, 0, 0.777); 
                                                         border-radius: 22px; width: 40%; 
                                                         color: #ffffff; font-size: 18px;
                                                         border: none;">
                                                         ยกเลิก
                                                     </button>
-                                                </a>
-                                            </td>
-                                        </tr>
+
+                                                </td>
+                                            </tr>
 
                                         <?php
 
-                                        $counter++;
-
+                                            $counter++;
                                         }
 
                                         ?>

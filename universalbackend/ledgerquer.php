@@ -30,8 +30,8 @@ $resfs = $conn->query($fromselect);
 // }
 
 $insertque = "INSERT INTO queue_table
-    (que_owner_UID, s_date, e_date, queue_status)
-    VALUES ('$uid', '$s_date', '$e_date', 1)";
+    (que_owner_UID, approver_UID, s_date, e_date, que_desc, queue_status)
+    VALUES ('$uid', '$approver_UID', '$s_date', '$e_date', '$que_desc', 1)";
 
 $resinsertque = $conn->query($insertque);
 
@@ -65,14 +65,17 @@ if ($resinsertque) {
                 echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
             } else {
 
+                echo "Layer 3 : " . mysqli_error($conn);
                 echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
             }
         }
     } else {
-        echo "<script type='text/javascript'> alert('Error : " .  mysqli_error($conn) . "') </script>";
+        
+        echo "Layer 2 : " . mysqli_error($conn);
         echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
     }
 } else {
-    echo "<script type='text/javascript'> alert('Error : " .  mysqli_error($conn) . "') </script>";
+    
+    echo "Layer 1 : " . mysqli_error($conn);
     echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
 }
