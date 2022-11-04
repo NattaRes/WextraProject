@@ -54,7 +54,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="testmonial_slider_area text-center owl-carousel">
+							<div class="testmonial_slider_area text-center owl-carousel" >
 								<?php
 
 								$typedef = $typerow["tool_type"];
@@ -66,12 +66,14 @@
 								while ($toolrow = mysqli_fetch_array($quetool)) {
 
 								?>
+								
+								
 									<div class="box-area">
 										<div class="img-area">
 											<img src="<?php echo $toolrow["tool_pic_path"]; ?>" alt="" style="width: 280px;height: 160px;
 											border-radius: 22px;">
 										</div>
-
+									
 										<div style="margin-top: 160px;">
 											<div>
 												<h5 style="float: left;">ชื่อ :</h5>
@@ -104,18 +106,19 @@
 												<button class="onbutton" type="button">ดูเพิ่มเติม</button>
 											</a>
 										</div>
-									</div>
+				
+										</div>
 								<?php
 
 								}
 
 								?>
-
+									
 							</div>
 						</div>
 					</div>
 				</div>
-
+           
 			</section>
 
 		<?php
@@ -133,10 +136,10 @@
 		$(".testmonial_slider_area").owlCarousel({
 			autoplay: true,
 			slideSpeed: 1000,
-			items: 4,
+			items: 3,
 			loop: true,
 			nav: true,
-			navText: ['<i class="fa fa-arrow-left" style="font-size:30px; margin-top:15px;  margin-right:5px;"</i>', '<i class="fa fa-arrow-right" style="font-size:30px; margin-top:15px;  margin-left:5px;"></i>'],
+			navText: ['<i class="fa fa-arrow-left" style="font-size:30px; margin-top:15px;  margin-right:5px;"></i>', '<i class="fa fa-arrow-right" style="font-size:30px; margin-top:15px;  margin-left:5px;"></i>'],
 			margin: 30,
 			dots: true,
 			responsive: {

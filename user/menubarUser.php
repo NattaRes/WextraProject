@@ -29,9 +29,9 @@
   ?>
 
     <ul>
-      <label class="nameheader"><?php echo $uid . " " . $username; ?></label>
+      <h3 class="nameheader"><?php echo $uid . " " . $username; ?></h3>
     </ul>
-    <img src="../image/Logo.png" class="logoimg" style="margin-top: -1%;" />
+    <img src="../image/tools/logoDigi.png" class="logoimg" style="margin-top: -1%; margin-left:5%;" />
 
   </div>
 

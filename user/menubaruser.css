@@ -74,6 +74,7 @@ input[type="checkbox"]:checked ~ #sidebarMenu {
      margin-right: 3%; 
      margin-top: 0.5%; 
      color: white;
+    
 }
 .sidebarMenuInner{
     margin:0;
