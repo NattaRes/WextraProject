@@ -70,7 +70,7 @@
         </div>
         <!--image slider end-->
 
-    <script type="text/javascript">
+       <!-- <script type="text/javascript">
         var counter = 1;
         setInterval(function() {
             document.getElementById('radio' + counter).checked = true;
@@ -79,7 +79,7 @@
                 counter = 1;
             }
         }, 5000);
-    </script>
+    </script> -->
 
     <div class="container d-flex justify-content-center mt-50 mb-50">
 
