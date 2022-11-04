@@ -136,7 +136,7 @@
                                                     <tr>
                                                         <td width="20%">
 
-                                                            <h5 style="text-align: center; color: #908F8F;">1</h5>
+                                                            <h5 style="text-align: center; color: #908F8F;"><?php echo $rownum; ?></h5>
                                                         </td>
                                                         <td width="60%">
                                                             <img src="<?php echo $row["tool_pic_path"]; ?>" alt="" style="max-width: 20%; border-radius: 22px;">
