@@ -139,12 +139,14 @@
                                                             เรียกดู
                                                         </button>
                                                     </a>
+                                                    <a href="../universalbackend/deluserque.php?queid=<?php echo $row["que_ID"]; ?>">
                                                     <button style="background-color:rgba(192, 0, 0, 0.777); 
                                                         border-radius: 22px; width: 40%; 
                                                         color: #ffffff; font-size: 18px;
                                                         border: none;">
                                                         ยกเลิก
                                                     </button>
+                                                    </a>
 
                                                 </td>
                                             </tr>
