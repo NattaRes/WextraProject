@@ -15,14 +15,16 @@
 
 <body>
 
-    <div class="LoginForm">
-        <form action="index.php" method="post">
+<img src="image/tools/logoDigi.png" class="logoimg" style="margin-top: -35%; margin-left:10%;" />
+
+    <div class="LoginForm" >
+        <form action="index.php" method="post" style="margin-top: 3%;">
             <!--Return ค่า-->
             <div class="title">
-                <h3>Login</h3>
+                <h3>User</h3>
             </div>
             <div class="inputGroup">
-                <input type="text" autocomplete="off" placeholder="User ID" id="lid" name="lid">
+                <input type="text" autocomplete="off" placeholder="Username" id="lid" name="lid">
 
             </div>
             <div class="inputGroup">
@@ -32,7 +34,7 @@
             <button class="submitForm" type="submit">Login</button>
         </form>
     </div>
-
+    
     <?php
     ini_set('display_errors', 0);
     $lid = $_POST['lid'];

@@ -51,7 +51,7 @@
                                             <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;">
                                                 <span>จำนวน</span>
                                             </th>
-                                            <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;">
+                                            <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;" width="15%">
                                                 <span>สถานะ</span>
                                             </th>
                                             <th>&nbsp;</th>
@@ -101,27 +101,27 @@
                                                         if ($row["queue_status"] = 1) {
                                                             // Pending
 
-                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 5%; background-color: rgb(225, 225, 0);" class="dot"></span>
+                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 4%; background-color: rgb(225, 225, 0);" class="dot"></span>
                                                             <h5 style="text-align: center; color:rgb(225, 225, 0); font-size: 20px;  margin-right: 15%;">รอการอนุมัติ</h5>';
                                                         } elseif ($row["queue_status"] = 2) {
                                                             // Approved
 
-                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 5%;" class="dot"></span>
+                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 4%;" class="dot"></span>
                                                             <h5 style="text-align: center; color:green; font-size: 20px; margin-right: 15%;">อนุมัติ</h5>';
                                                         } elseif ($row["queue_status"] = 3) {
                                                             // Disapproved
 
-                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 5%; background-color: red" class="dot"></span>
+                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 4%; background-color: red" class="dot"></span>
                                                             <h5 style="text-align: center; color:red; font-size: 20px;  margin-right: 15%;">ไม่อนุมัติ</h5>';
                                                         } elseif ($row["queue_status"] = 4) {
                                                             // Timeout
 
-                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 5%; background-color: red" class="dot"></span>
+                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 4%; background-color: red" class="dot"></span>
                                                             <h5 style="text-align: center; color:red; font-size: 20px;  margin-right: 15%;">หมดเวลาอนุมัติ</h5>';
                                                         } elseif ($row["queue_status"] = 5) {
                                                             // Cancel
 
-                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 5%; background-color: red" class="dot"></span>
+                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 4%; background-color: red" class="dot"></span>
                                                             <h5 style="text-align: center; color:red; font-size: 20px;  margin-right: 15%;">ถูกยกเลิก</h5>';
                                                         } else {
                                                         }
