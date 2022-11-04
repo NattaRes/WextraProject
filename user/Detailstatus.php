@@ -181,10 +181,10 @@
                                                         
                                                         $rowcount++;
                                                         $itemcount += $counterledger;
+                                                        $rowlednum++;
                                                         array_push($inarr, $toolID);
                                                     }
-
-                                                    $rowlednum++;
+                                                    
                                                 }
 
                                                 ?>
