@@ -15,7 +15,7 @@ $que_desc = $_POST["que_desc"];
 // echo $e_date;
 // echo $que_desc;
 
-$fromselect = "SELECT tool_all_ID FROM tool_cart
+$fromselect = "SELECT tool_all_ID, quantity FROM tool_cart
     WHERE UID = '$uid'
     AND cart_status_ID = 2";
 
@@ -38,9 +38,9 @@ $resinsertque = $conn->query($insertque);
 if ($resinsertque) {
 
     $selque = "SELECT * FROM queue_table 
-        WHERE (que_owner_UID = '$uid') 
-        AND (s_date = '$s_date') 
-        AND (e_date = '$e_date')";
+        WHERE que_owner_UID = '$uid'
+        AND s_date = '$s_date'
+        AND e_date = '$e_date'";
 
     $resselque = $conn->query($selque);
 
@@ -53,12 +53,19 @@ if ($resinsertque) {
         while ($row = mysqli_fetch_array($resfs)) {
 
             $toolidall = $row["tool_all_ID"];
+            $quantity = $row["quantity"];
 
-            $inserteer = "INSERT INTO ledger_table 
-            (que_ID, user_UID, tool_all_ID, tool_spec_ID, approver_UID, s_date, e_date, que_desc, queue_status) 
-            VALUES ('$qid', '$uid', '$toolidall', NULL, '$approver_UID', '$s_date', '$e_date', '$que_desc', 1)";
+            for ($x = 1; $x <= $quantity; $x++) {
+                $inserteer = "INSERT INTO ledger_table 
+                    (que_ID, user_UID, tool_all_ID, tool_spec_ID, approver_UID, 
+                    ledger_s_date, ledger_e_date, ledger_desc, queue_status) 
+                    VALUES ('$qid', '$uid', '$toolidall', NULL, '$approver_UID', 
+                    '$s_date', '$e_date', '$que_desc', 1)";
 
-            $resinsertledger = $conn->query($inserteer);
+                $resinsertledger = $conn->query($inserteer);
+            }
+
+
 
             if ($resinsertledger) {
 
@@ -66,16 +73,16 @@ if ($resinsertque) {
             } else {
 
                 echo "Layer 3 : " . mysqli_error($conn);
-                echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
+                // echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
             }
         }
     } else {
-        
+
         echo "Layer 2 : " . mysqli_error($conn);
-        echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
+        // echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
     }
 } else {
-    
+
     echo "Layer 1 : " . mysqli_error($conn);
-    echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
+    // echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
 }

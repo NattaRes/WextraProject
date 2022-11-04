@@ -127,6 +127,8 @@
 
                                                 $rowcount = mysqli_num_rows($reseltool);
 
+                                                $itemcount = 0;
+
                                                 while ($row = mysqli_fetch_array($reseltool)) {
 
                                                 ?>
@@ -150,6 +152,8 @@
 
                                                 <?php
 
+                                                    $itemcount += $row["quantity"];
+
                                                     $rownum++;
                                                 }
 
@@ -158,7 +162,7 @@
                                                 <tr>
                                                     <th><span></span></th>
                                                     <th style="text-align: right; color: #908F8F; font-weight: bold; font-size: 18px;"><span>รวมทั้งหมด</span></th>
-                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span><?php echo $rowcount; ?> รายการ</span></th>
+                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span><?php echo $rowcount; ?> รายการ</span><span> <?php echo $itemcount; ?> ชิ้น</span></th>
                                                     <th>&nbsp;</th>
                                                     <th>&nbsp;</th>
 
