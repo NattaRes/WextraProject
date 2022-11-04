@@ -28,6 +28,15 @@ if ($resledger) {
     $resdelque = $conn->query($delque);
 
     if ($resdelque) {
-        
+
+        echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
+    } else {
+
+        echo "Layer 2 : " . mysqli_error($conn);
+        // echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
     }
+} else {
+    
+    echo "Layer 1 : " . mysqli_error($conn);
+    // echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
 }
