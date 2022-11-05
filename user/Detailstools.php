@@ -64,17 +64,17 @@
                         <lebel style="color: green; margin-left: 5%; font-size: 20px; font-weight: bold;">ว่าง</lebel>
                      </div>
                     <div style="margin-bottom:10% margin-top: 5%;">
-                        <h5 style="float: left; margin-left: 5%;color: #7E7C7C;">จำนวน :</h5>
-                        <h5 style="float: left; margin-left: 3%;color: #7E7C7C;">NONE ตัว</h5>
+                        <h5 style="float: left; margin-left: 5%;color: #6e6e6e;">จำนวน :</h5>
+                        <h5 style="float: left; margin-left: 3%;color: #6e6e6e;">NONE ตัว</h5>
                         </div>
                         <div style="margin-bottom:5%">
-                        <h5 style="float: left; margin-left: 5%; color: #7E7C7C;">เหลือ</h5>
-                        <h5 style="float: left; margin-left: 3%;color: #7E7C7C;">NONE ตัว</h5>
+                        <h5 style="float: left; margin-left: 5%; color: #6e6e6e;">เหลือ :</h5>
+                        <h5 style="float: left; margin-left: 3%;color: #6e6e6e;">NONE ตัว</h5>
                        </div>
 
                     <div style="margin-top: 20%; margin-bottom:20%;">
-                    <lebel style="color: #7E7C7C; margin-left: 25%; font-size: 20px; ">จำนวน</lebel>
-                        <input type="number" min="1" max="999" style="width:35%;  margin-left: 2%;"/>
+                    <lebel style="color: #6e6e6e; margin-left: 5%; margin-right:10%; font-size: 20px; ">จำนวน</lebel>
+                        <input type="number" min="1" max="999" style="width:35%;  margin-left: 2%; margin-right:10%;"/>
                         <a href="../universalbackend/addtocart.php?toolidall=<?php echo $toolrow["tool_all_ID"]; ?>">
 						<img src="../image/icon/shopping-cart (2).png" alt="" style=" height: 45px; width: 45px; ">
 						</a>
@@ -86,32 +86,32 @@
                     <div>
 
                         <div style="margin-top: 15%;">
-                            <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C; font-weight: bold;">ชื่อ :
+                            <label style="margin-left: 5%; font-size: 18px; color: #6e6e6e; font-weight: bold;">ชื่อ :
                             </label>
-                            <label style="font-size: 18px; color: #7E7C7C; text-align: left; "><?php echo $tname; ?></label>
+                            <label style="font-size: 18px; color: #6e6e6e; text-align: left; "><?php echo $tname; ?></label>
                         </div>
                       
                         <div style="margin-top: 1%;">
                             <label
-                                style="margin-left: 5%; font-size: 18px; color: #7E7C7C; font-weight: bold;">รุ่น
+                                style="margin-left: 5%; font-size: 18px; color: #6e6e6e; font-weight: bold;">รุ่น
                                 : </label>
-                                <label style="font-size: 18px; color: #7E7C7C; text-align: left; "> AVCHD
+                                <label style="font-size: 18px; color: #6e6e6e; text-align: left; "> AVCHD
                                 </label>
                         </div>
     
                         <div style="margin-top: 1%;">
                             <label
-                                style="margin-left: 5%; font-size: 18px; color: #7E7C7C; font-weight: bold;">ยี่ห้อ
+                                style="margin-left: 5%; font-size: 18px; color: #6e6e6e; font-weight: bold;">ยี่ห้อ
                                 : </label>
-                                <label style="font-size: 18px; color: #7E7C7C; text-align: left;"> AVCHD
+                                <label style="font-size: 18px; color: #6e6e6e; text-align: left;"> AVCHD
                                 </label>
                         </div>
                        
                         <div>
                             <label
-                                style="margin-left: 5%; font-size: 18px; color: #7E7C7C; font-weight: bold;">รายละเอียด
+                                style="margin-left: 5%; font-size: 18px; color: #6e6e6e; font-weight: bold;">รายละเอียด
                                 </label>
-                                <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C; text-align: left;">
+                                <label style="margin-left: 5%; font-size: 18px; color: #6e6e6e; text-align: left;">
                                     ระบบการบัทึกภาพ (ภาพเคลื่อนไหว)IMAGE SIZE (MP4) 1440 x 1080 (30fps/12Mbps)
                                 </label>
                         </div>
@@ -135,19 +135,6 @@
     </div>
     </div>
 
-    <script>
-        function inc(element) {
-            let el = document.querySelector(`[name="${element}"]`);
-            el.value = parseInt(el.value) + 1;
-        }
-
-        function dec(element) {
-            let el = document.querySelector(`[name="${element}"]`);
-            if (parseInt(el.value) > 0) {
-                el.value = parseInt(el.value) - 1;
-            }
-        }
-    </script>
 
     </html>
 </body>

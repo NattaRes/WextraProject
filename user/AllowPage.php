@@ -41,27 +41,27 @@
     <form action="../universalbackend/ledgerquer.php" method="POST">
         <div class="container mt-10 p-3 cart" style="margin-top: 1%; background-color: #F6F6F6; border-radius: 30px; margin-bottom: 4%; margin-left: 13%;">
             <div class="payment-info">
-                <div class="d-flex justify-content-between align-items-center" style="color: #7E7C7C; font-size: 20px;">
+                <div class="d-flex justify-content-between align-items-center" style="color: #6e6e6e; font-size: 20px;">
                     <span style="margin-left: 5%;">รายละเอียดผู้ขอยืม</span>
                 </div><span class="type d-block mt-3 mb-1"></span>
                 <div>
-                    <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">ชื่อ :</label>
-                    <label class="credit-card-label" style="font-size: 18px; color: #7E7C7C;"><?php echo $name; ?></label>
+                    <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">ชื่อ :</label>
+                    <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;"><?php echo $name; ?></label>
                 </div>
                 <div>
-                    <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">คณะ : กระทรวงเวทย์มนต์</label>
-                    <label class="credit-card-label" style="margin-left: 12.5%; font-size: 18px; color: #7E7C7C;">สาขา : เทคโนโลยีดิจิทัล</label>
+                    <label class="credit-card-label" style="margin-left: 5%; margin-right: 22.4%; font-size: 18px; color: #6e6e6e;">คณะ : กระทรวงเวทย์มนต์</label>
+                    <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">สาขา : เทคโนโลยีดิจิทัล</label>
                 </div>
-                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">Email : <?php echo $email; ?></label>
-                    <label class="credit-card-label" style="margin-left: 10%; font-size: 18px; color: #7E7C7C;">เบอร์ติดต่อ : <?php echo $phone; ?></label>
+                <div><label class="credit-card-label" style="margin-left: 5%; margin-right: 11%;font-size: 18px; color: #6e6e6e;">Email : <?php echo $email; ?></label>
+                    <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">เบอร์ติดต่อ : <?php echo $phone; ?></label>
                 </div>
-                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">วันที่ยืม :</label>
-                    <input name="s_date" id="s_date" style=" color: #7E7C7C;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date" required />
-                    <label class="credit-card-label" style="margin-left: 8.5%; font-size: 18px; color: #7E7C7C;">วันที่คืน : </label>
-                    <input name="e_date" id="s_date" style=" color: #7E7C7C;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date" required />
+                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">วันที่ยืม :</label>
+                    <input name="s_date" id="s_date" style=" color: #6e6e6e; margin-right: 10%;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date" required />
+                    <label class="credit-card-label" style="margin-left: 8.5%; font-size: 18px; color: #6e6e6e;">วันที่คืน : </label>
+                    <input name="e_date" id="s_date" style=" color: #6e6e6e;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date" required />
                 </div>
                 <div>
-                    <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">ผู้อนุมัติ :</label>
+                    <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">ผู้อนุมัติ :</label>
                     <?php
 
                     $aprfetch = "SELECT * FROM user
@@ -70,7 +70,7 @@
                     $resapr = $conn->query($aprfetch);
 
                     ?>
-                    <select name="approver_UID" id="approver_UID" style=" color: #7E7C7C;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" required>เลือก
+                    <select name="approver_UID" id="approver_UID" style=" color: #6e6e6e;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" required>เลือก
                         <?php
 
                         while ($aprow = mysqli_fetch_array($resapr)) {
@@ -86,8 +86,8 @@
                 </div>
 
 
-                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">หมายเหตุ :</label>
-                    <input name="que_desc" id="que_desc" type="text" style=" color: #7E7C7C;  border-radius:10px; background:#D9D9D9; border:none; width: 25%; height: 5%;" placeholder="ใช้ทำในงานอะไร" required />
+                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">หมายเหตุ :</label>
+                    <input name="que_desc" id="que_desc" type="text" style=" color: #6e6e6e;  border-radius:10px; background:#D9D9D9; border:none; width: 25%; height: 5%;" placeholder="ใช้ทำในงานอะไร" required />
                 </div>
             </div>
             <div>
@@ -102,11 +102,10 @@
                                             <thead>
                                                 <tr>
 
-                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>ลำดับ</span></th>
-                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>ชื่ออุปกรณ์</span></th>
-                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>จำนวน</span></th>
+                                                    <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;"><span>ลำดับ</span></th>
+                                                    <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;"><span>ชื่ออุปกรณ์</span></th>
+                                                    <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;"><span>จำนวน</span></th>
                                                     <th>&nbsp;</th>
-
                                                     <th>&nbsp;</th>
                                                 </tr>
                                             </thead>
@@ -136,7 +135,7 @@
                                                     <tr>
                                                         <td width="20%">
 
-                                                            <h5 style="text-align: center; color: #908F8F;"><?php echo $rownum; ?></h5>
+                                                            <h5 style="text-align: center; color: #6e6e6e;"><?php echo $rownum; ?></h5>
                                                         </td>
                                                         <td width="60%">
                                                             <img src="<?php echo $row["tool_pic_path"]; ?>" alt="" style="max-width: 20%; border-radius: 22px;">
@@ -144,9 +143,10 @@
                                                             <span class="user-subhead">รุ่น <?php echo $row["tool_model"]; ?></span>
                                                         </td>
                                                         <td>
-                                                            <span class="user-link1"><?php echo $row["quantity"]; ?></span>
+                                                            <h5 class="user-link1"><?php echo $row["quantity"]; ?></h5>
                                                         </td>
-
+                                                        <th>&nbsp;</th>
+                                                        <th>&nbsp;</th>
 
                                                     </tr>
 
@@ -160,9 +160,9 @@
                                                 ?>
 
                                                 <tr>
-                                                    <th><span></span></th>
-                                                    <th style="text-align: right; color: #908F8F; font-weight: bold; font-size: 18px;"><span>รวมทั้งหมด</span></th>
-                                                    <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span><?php echo $rowcount; ?> รายการ</span><span> <?php echo $itemcount; ?> ชิ้น</span></th>
+                                                    <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;"><span>รวมทั้งหมด</span></th>
+                                                    <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;"><span><?php echo $rowcount; ?> รายการ</span><span> </span></th>
+                                                    <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;"><span><?php echo $itemcount; ?> ชิ้น</span></th>
                                                     <th>&nbsp;</th>
                                                     <th>&nbsp;</th>
 

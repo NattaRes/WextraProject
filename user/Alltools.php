@@ -9,7 +9,12 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">
+
+	   <!-- Swiper CSS -->
+	   <link rel="stylesheet" href="sw.css" />
+
 	<link rel="stylesheet" href="alltools.css">
+	
 </head>
 
 <body>
@@ -54,7 +59,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<div class="testmonial_slider_area text-center owl-carousel" >
+							<div class="testmonial_slider_area text-center owl-carousel"  style="">
 								<?php
 
 								$typedef = $typerow["tool_type"];
@@ -67,7 +72,7 @@
 
 								?>
 								
-								
+								   
 									<div class="box-area">
 										<div class="img-area">
 											<img src="<?php echo $toolrow["tool_pic_path"]; ?>" alt="" style="width: 280px;height: 160px;
@@ -108,12 +113,15 @@
 										</div>
 				
 										</div>
+										
 								<?php
 
 								}
 
 								?>
-									
+								<!-- icon nav next -->
+									<i></i>
+									<i></i>
 							</div>
 						</div>
 					</div>
@@ -132,15 +140,14 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
-	<script>
+	/*<script>
 		$(".testmonial_slider_area").owlCarousel({
 			autoplay: true,
 			slideSpeed: 1000,
 			items: 3,
-			loop: true,
 			nav: true,
 			navText: ['<i class="fa fa-arrow-left" style="font-size:30px; margin-top:15px;  margin-right:5px;"></i>', '<i class="fa fa-arrow-right" style="font-size:30px; margin-top:15px;  margin-left:5px;"></i>'],
-			margin: 30,
+			margin: 10,
 			dots: true,
 			responsive: {
 				320: {
@@ -161,7 +168,7 @@
 
 		});
 	</script>
-
+	
 </body>
 
 </html>

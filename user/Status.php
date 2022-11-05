@@ -29,7 +29,7 @@
     <div style="margin-top: 8%;">
         <lebel style="font-size: 30px; margin-left: 15%; color: white; margin-top: 20%;"> สถานะการยืม </lebel>
     </div>
-    <div class="container mt-10 p-3 cart" style="margin-top: 1%; background-color: #F6F6F6; border-radius: 30px; margin-bottom: 4%; ">
+    <div class="container mt-10 p-3 cart" style="margin-top: 1%; background-color: #F6F6F6; border-radius: 30px; ">
         <div class="container bootstrap snippets bootdey" style="margin-top: 1%;">
             <div class="row">
                 <div class="col-lg-12">
@@ -39,19 +39,19 @@
                                 <table class="table user-list">
                                     <thead>
                                         <tr>
-                                            <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;">
+                                            <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;">
                                                 <span>ลำดับ</span>
                                             </th>
-                                            <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;">
+                                            <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;">
                                                 <span>วันที่ยืม</span>
                                             </th>
-                                            <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;">
+                                            <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;">
                                                 <span>วันที่คืน</span>
                                             </th>
-                                            <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;">
+                                            <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;">
                                                 <span>จำนวน</span>
                                             </th>
-                                            <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;" width="15%">
+                                            <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;" width="15%">
                                                 <span>สถานะ</span>
                                             </th>
                                             <th>&nbsp;</th>
@@ -83,16 +83,16 @@
                                             <tr>
                                                 <td width="10%">
                                                     <!-- ลำดับ -->
-                                                    <h5 style="text-align: center; color: #908F8F;"><?php echo $counter; ?></h5>
+                                                    <h5 style="text-align: center; color: #6e6e6e;"><?php echo $counter; ?></h5>
                                                 </td>
                                                 <td width="10%">
-                                                    <h5 style="text-align: center; color: #908F8F;"><?php echo date_format($s_date, "d/m/Y"); ?></h5>
+                                                    <h5 style="text-align: center; color: #6e6e6e;"><?php echo date_format($s_date, "d/m/Y"); ?></h5>
                                                 </td>
                                                 <td width="10%">
-                                                    <h5 style="text-align: center; color: #908F8F;"><?php echo date_format($e_date, "d/m/Y"); ?></h5>
+                                                    <h5 style="text-align: center; color: #6e6e6e;"><?php echo date_format($e_date, "d/m/Y"); ?></h5>
                                                 </td>
                                                 <td width="10%">
-                                                    <h5 style="text-align: center; color: #908F8F;"><?php echo $ledgercounter; ?> รายการ </h5>
+                                                    <h5 style="text-align: center; color: #6e6e6e;"><?php echo $ledgercounter; ?> รายการ </h5>
                                                 </td>
                                                 <td width="10%" align="center">
                                                     <div>
@@ -101,8 +101,8 @@
                                                         if ($row["queue_status"] = 1) {
                                                             // Pending
 
-                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 4%; background-color: rgb(225, 225, 0);" class="dot"></span>
-                                                            <h5 style="text-align: center; color:rgb(225, 225, 0); font-size: 20px;  margin-right: 15%;">รอการอนุมัติ</h5>';
+                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 4%; background-color: #D7BA00;" class="dot"></span>
+                                                            <h5 style="text-align: center; color:#D7BA00; font-size: 20px;  margin-right: 15%;">รอการอนุมัติ</h5>';
                                                         } elseif ($row["queue_status"] = 2) {
                                                             // Approved
 
@@ -147,8 +147,9 @@
                                                         ยกเลิก
                                                     </button>
                                                     </a>
-
+                                                            
                                                 </td>
+                                                
                                             </tr>
 
                                         <?php
@@ -160,6 +161,7 @@
 
                                         <tr>
                                             <!-- เส้น -->
+                                            <th>&nbsp;</th>
                                             <th><span></span></th>
                                             <th><span></span></th>
                                             <th><span></span></th>

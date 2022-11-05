@@ -46,9 +46,9 @@
                                         <thead>
                                             <tr>
                                                 <th><span></span></th>
-                                                <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>ลำดับ</span></th>
-                                                <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>ชื่ออุปกรณ์</span></th>
-                                                <th style="text-align: center; color: #908F8F; font-weight: bold; font-size: 18px;"><span>จำนวน</span></th>
+                                                <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;"><span>ลำดับ</span></th>
+                                                <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;"><span>ชื่ออุปกรณ์</span></th>
+                                                <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;"><span>จำนวน</span></th>
 
                                                 <th>&nbsp;</th>
                                             </tr>
@@ -73,7 +73,7 @@
                                                         </td>
                                                         <td>
 
-                                                            <h5 style="text-align: center; color: #908F8F;"><?php echo $rownum; ?></h5>
+                                                            <h5 style="text-align: center; color: #6e6e6e;"><?php echo $rownum; ?></h5>
                                                         </td>
                                                         <td width="40%">
                                                             <img src="<?php echo $row["tool_pic_path"]; ?>" alt="" style="max-width: 40%; border-radius: 22px;">
@@ -81,7 +81,7 @@
                                                             <span class="user-subhead">รุ่น <?php echo $row["tool_model"]; ?></span>
                                                         </td>
                                                         <td align="center">
-                                                        <input name="quantis[]" type="number" min="1" max="999" style="width:35%;" value="<?php echo $row["quantity"]; ?>"/>
+                                                        <input name="quantis[]" type="number" min="1" max="999" style="width:35%; font-size:16px;" value="<?php echo $row["quantity"]; ?>"/>
                                                         </td>
 
                                                         <td style="width: 10%;">
@@ -115,19 +115,7 @@
                 </div>
             </div>
         </div>
-        <script>
-            function inc(element) {
-                let el = document.querySelector(`[name="${element}"]`);
-                el.value = parseInt(el.value) + 1;
-            }
-
-            function dec(element) {
-                let el = document.querySelector(`[name="${element}"]`);
-                if (parseInt(el.value) > 0) {
-                    el.value = parseInt(el.value) - 1;
-                }
-            }
-        </script>
+      
 </body>
 
 </html>

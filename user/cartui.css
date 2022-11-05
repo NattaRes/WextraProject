@@ -8,7 +8,7 @@
 
 body {
   background-color: #d9ecf2;
-  color: #666
+  color: #6e6e6e
 }
 
 /* Customize the label (the container) */
@@ -105,19 +105,19 @@ body {
 .user-list tbody td .user-subhead {
     font-size: 16px;
     font-style: italic;
-    color: #908F8F;
+    color: #6e6e6e;
 
 }
 .user-list tbody td .user-link {
     display: block;
-    color: #908F8F;
+    color: #6e6e6e;
     font-size: 20px;
     padding-top: 3px;
     margin-left: 60px;
 }
 .user-list tbody td .user-link1 {
   display: block;
-  color: #908F8F;
+  color: #6e6e6e;
   font-size: 18px;
   text-align: center;
 }
