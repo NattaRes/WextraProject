@@ -29,6 +29,14 @@ $resfs = $conn->query($fromselect);
 //     echo $row["tool_all_ID"] . "</br>";
 // }
 
+$datecondisql = "SELECT * FROM tool_specific_table
+    WHERE tool_all_ID = ''";
+
+$datequantitysql = "SELECT * FROM ledger_table
+    WHERE tool_all_ID = ''";
+$resdq = $conn->query($datequantitysql);
+
+
 $insertque = "INSERT INTO queue_table
     (que_owner_UID, approver_UID, s_date, e_date, que_desc, queue_status)
     VALUES ('$uid', '$approver_UID', '$s_date', '$e_date', '$que_desc', 1)";

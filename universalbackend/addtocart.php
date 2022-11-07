@@ -2,15 +2,19 @@
 
 include("../connectdb.php");
 
-$url = $_SERVER['REQUEST_URI'];
+// $url = $_SERVER['REQUEST_URI'];
 
-// echo $url;
+// // echo $url;
 
-$partscrap = parse_url($url);
+// $partscrap = parse_url($url);
 
-parse_str($partscrap['query'], $parts);
+// parse_str($partscrap['query'], $parts);
 
-$toolidall = $parts["toolidall"];
+// $toolidall = $parts["toolidall"];
+
+$toolidall = $_POST["toolidall"];
+
+$quantinum = $_POST["quantinum"];
 
 $uid = $_COOKIE["userck"];
 
@@ -28,7 +32,7 @@ if ($rescheck) {
 
         $addcartsql = "INSERT INTO tool_cart
             (UID, tool_all_ID, quantity, cart_status_ID)
-            VALUES ('$uid', '$toolidall', 1, 1)";
+            VALUES ('$uid', '$toolidall', '$quantinum', 1)";
 
         $rescart = $conn->query($addcartsql);
 
@@ -42,8 +46,8 @@ if ($rescheck) {
         }
     } else {
 
-        echo "<script type='text/javascript'> alert('Error (EMPTY) : " . mysqli_error($conn) . "') </script>";
-        echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
+        // echo "<script type='text/javascript'> alert('Error (EMPTY) : " . mysqli_error($conn) . "') </script>";
+        echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
     }
 } else {
 
