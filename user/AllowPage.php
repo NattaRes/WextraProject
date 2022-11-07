@@ -53,7 +53,8 @@
                     <label class="credit-card-label" style="margin-left: 5%; margin-right: 22.4%; font-size: 18px; color: #6e6e6e;">คณะ : กระทรวงเวทย์มนต์</label>
                     <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">สาขา : เทคโนโลยีดิจิทัล</label>
                 </div>
-                <div><label class="credit-card-label" style="margin-left: 5%; margin-right: 11%;font-size: 18px; color: #6e6e6e;">Email : <?php echo $email; ?></label>
+                <div>
+                    <label class="credit-card-label" style="margin-left: 5%; margin-right: 11%;font-size: 18px; color: #6e6e6e;">Email : <?php echo $email; ?></label>
                     <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">เบอร์ติดต่อ : <?php echo $phone; ?></label>
                 </div>
                 <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">วันที่ยืม :</label>
@@ -185,41 +186,41 @@
         </div>
     </form>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script>
         var datepicked = function() {
-        var from = $('#s_date');
-        var to = $('#e_date');
-        var fromDate = from.datepicker('getDate');
-        var toDate = to.datepicker('getDate');
+            var from = $('#s_date');
+            var to = $('#e_date');
+            var fromDate = from.datepicker('getDate');
+            var toDate = to.datepicker('getDate');
 
-        if(toDate && fromDate){
-        if (toDate.getTime() < fromDate.getTime()){
-        alert('ไม่สามารถคืนในวันนีได้');
-        $('#e_date').val(''); 
+            if (toDate && fromDate) {
+                if (toDate.getTime() < fromDate.getTime()) {
+                    alert('ไม่สามารถคืนในวันนีได้');
+                    $('#e_date').val('');
+                }
+            }
         }
-        }
-        }
-        
+
         // ฟังก์ชั่นที่จะกำหนดให้เลือกวันหยุดไม่ได้
         function noWeekends(date) {
-	    var day = date.getDay();
-	    // ถ้าวันเป็นวันอาทิตย์ (0) หรือวันเสาร์ (6)
-	    if (day === 0 || day === 6) {
-		// เลือกไม่ได้
-		return [false, "", "วันนี้เป็นวันหยุด"];
-	    }
-	    // เลือกได้ตามปกติ
-	    return [true, "", ""];
+            var day = date.getDay();
+            // ถ้าวันเป็นวันอาทิตย์ (0) หรือวันเสาร์ (6)
+            if (day === 0 || day === 6) {
+                // เลือกไม่ได้
+                return [false, "", "วันนี้เป็นวันหยุด"];
+            }
+            // เลือกได้ตามปกติ
+            return [true, "", ""];
         }
         $("#s_date,#e_date").datepicker({
             onSelect: datepicked,
-	        dateFormat: 'dd-mm-yy',
-	        minDate: 0, //ไม่สามารถจองวันที่ย้อนหลังได้ 
-	        //maxDate: "+4D", //จองล่วงหน้าได้ไม่เกิน 2 วัน 
-	        beforeShowDay: noWeekends
+            dateFormat: 'dd-mm-yy',
+            minDate: 0, //ไม่สามารถจองวันที่ย้อนหลังได้ 
+            //maxDate: "+4D", //จองล่วงหน้าได้ไม่เกิน 2 วัน 
+            beforeShowDay: noWeekends
         });
-</script>
+    </script>
 </body>
 
 </html>
