@@ -28,16 +28,19 @@
     ?>
 
         <!--image slider start-->
-        <div class="slider">
+        <div class="slider" style="height:60%;">
             <div class="slides">
                 <!--radio buttons start-->
-                <input type="radio" name="radio-btn" id="radio1">
+                <!--<input type="radio" name="radio-btn" id="radio1">
                 <input type="radio" name="radio-btn" id="radio2">
                 <input type="radio" name="radio-btn" id="radio3">
-                <input type="radio" name="radio-btn" id="radio4">
+                <input type="radio" name="radio-btn" id="radio4">-->
                 <!--radio buttons end-->
                 <!--slide images start-->
                 <div class="slide first">
+                    <img src="../image/post.png" alt="" style="  border: 5px solid rgba(0,0,0,.125); box-shadow:0px 1px 4px 4px rgba(0, 0, 0, 0.25); height:60%;">
+                </div>
+                <!--<div class="slide">
                     <img src="https://www.learningstudio.info/wp-content/uploads/2013/08/Untitled8.png" alt="">
                 </div>
                 <div class="slide">
@@ -45,27 +48,24 @@
                 </div>
                 <div class="slide">
                     <img src="https://www.learningstudio.info/wp-content/uploads/2013/08/Untitled8.png" alt="">
-                </div>
-                <div class="slide">
-                    <img src="https://www.learningstudio.info/wp-content/uploads/2013/08/Untitled8.png" alt="">
-                </div>
+                </div> -->
                 <!--slide images end-->
                 <!--automatic navigation start-->
-                <div class="navigation-auto">
+              <!--  <div class="navigation-auto">
                     <div class="auto-btn1"></div>
                     <div class="auto-btn2"></div>
                     <div class="auto-btn3"></div>
                     <div class="auto-btn4"></div>
-                </div>
+                </div> -->
                 <!--automatic navigation end-->
             </div>
             <!--manual navigation start-->
-            <div class="navigation-manual">
+           <!-- <div class="navigation-manual">
                 <label for="radio1" class="manual-btn"></label>
                 <label for="radio2" class="manual-btn"></label>
                 <label for="radio3" class="manual-btn"></label>
                 <label for="radio4" class="manual-btn"></label>
-            </div>
+            </div>-->
             <!--manual navigation end-->
         </div>
         <!--image slider end-->
@@ -81,7 +81,7 @@
         }, 5000);
     </script> -->
 
-    <div class="container d-flex justify-content-center mt-50 mb-50">
+    <div class="container d-flex justify-content-center mt-50 mb-50" style="margin-top:-4%; ">
 
         <div class="row">
             <div class="col-md-12">
@@ -92,23 +92,23 @@
                 
                 ?>
 
-                <div class="card blog-horizontal" style="border-radius: 20px; box-shadow:0px 1px 4px 4px rgba(0, 0, 0, 0.25); width: 90%; margin-left: 6%; margin-bottom:8%;">
+                <div class="card blog-horizontal" style="border-radius: 20px; box-shadow:0px 1px 4px 4px rgba(0, 0, 0, 0.25); width: 126.3%; margin-left: -13.5%; margin-bottom:8%; height:40%;">
                     <div class="card-body">
-                        <div class="card-img-actions mr-sm-3 mb-3" style="max-width: 100%;">
+                        <div class="card-img-actions mr-sm-3 mb-3" style="max-width: 50%;">
                             <a href="#course_preview" data-toggle="modal" data-abc="true">
-                                <img src="<?php echo $row["post_pic_path"]; ?>" class="img-fluid card-img" alt="">
+                                <img src="<?php echo $row["post_pic_path"]; ?>" style="max-width: 85%; margin-left: 5%;" class="img-fluid card-img" alt="">
                             </a>
                         </div>
 
-                        <div class="mb-3">
-                            <h4 class="d-flex font-weight-bold flex-nowrap my-1" style="color: #918F8F;"><?php echo $row["post_title"]; ?></h4>
+                        <div class="mb-3" >
+                            <h2 class="d-flex font-weight-bold flex-nowrap my-1" style="color: #918F8F; "><?php echo $row["post_title"]; ?></h2>
                             <ul class="list-inline list-inline-dotted text-muted mb-0">
                                 <li class="list-inline-item" style="font-size: 16px;"><?php echo $row["post_time"]; ?></li>
                             </ul>
                         </div>
 
                         <div style="width: 80%;">
-                            <p style="color: #918F8F; font-size: 16px;"><?php echo $row["post_desc"]; ?></p>
+                            <p style="color: #918F8F; font-size: 20px;"><?php echo $row["post_desc"]; ?></p>
                         </div>
                     </div>
                 </div>

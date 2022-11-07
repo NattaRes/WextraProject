@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 
 </head>
 
@@ -251,6 +252,42 @@
             </div>
         </div>
     </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        var datepicked = function() {
+        var from = $('#s_date');
+        var to = $('#e_date');
+        var fromDate = from.datepicker('getDate');
+        var toDate = to.datepicker('getDate');
+
+        if(toDate && fromDate){
+        if (toDate.getTime() < fromDate.getTime()){
+        alert('ไม่สามารถคืนในวันนีได้');
+        $('#e_date').val(''); 
+        }
+        }
+        }
+        
+        // ฟังก์ชั่นที่จะกำหนดให้เลือกวันหยุดไม่ได้
+        function noWeekends(date) {
+	    var day = date.getDay();
+	    // ถ้าวันเป็นวันอาทิตย์ (0) หรือวันเสาร์ (6)
+	    if (day === 0 || day === 6) {
+		// เลือกไม่ได้
+		return [false, "", "วันนี้เป็นวันหยุด"];
+	    }
+	    // เลือกได้ตามปกติ
+	    return [true, "", ""];
+        }
+        $("#s_date,#e_date").datepicker({
+            onSelect: datepicked,
+	        dateFormat: 'dd-mm-yy',
+	        minDate: 0, //ไม่สามารถจองวันที่ย้อนหลังได้ 
+	        //maxDate: "+4D", //จองล่วงหน้าได้ไม่เกิน 2 วัน 
+	        beforeShowDay: noWeekends
+        });
+</script>
 </body>
 
 </html>

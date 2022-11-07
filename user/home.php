@@ -80,7 +80,7 @@
           <!-----<img src="img1.jpeg">------->
         </div>
         <div class="name">กล้อง</div>
-        <div style="color: #6e6e6e;">รายละเอียด</div>
+        <div style="color: #6e6e6e;">ชื่อ</div>
         <button class="onbutton" type="button">ดูเพิ่มเติม</button>
       </div>
       <div class="box">
@@ -88,7 +88,7 @@
           <!------  <img src="img2.jpeg" alt="">--->
         </div>
         <div class="name">ไมค์</div>
-        <div style="color: #6e6e6e;">รายละเอียด</div>
+        <div style="color: #6e6e6e;">ชื่อ</div>
         <button class="onbutton" type="button">ดูเพิ่มเติม</button>
       </div>
       <div class="box">
@@ -96,7 +96,7 @@
           <!---- <img src="img3.jpeg" alt="">---->
         </div>
         <div class="name">ไฟ</div>
-        <div style="color: #6e6e6e;">รายละเอียด</div>
+        <div style="color: #6e6e6e;">ชื่อ</div>
         <button class="onbutton" type="button">ดูเพิ่มเติม</button>
       </div>
       <div class="box">
@@ -104,7 +104,7 @@
           <!---- <img src="img3.jpeg" alt="">---->
         </div>
         <div class="name">ขากล้อง</div>
-        <div style="color: #6e6e6e;">รายละเอียด</div>
+        <div style="color: #6e6e6e;">ชื่อ</div>
         <button class="onbutton" type="button">ดูเพิ่มเติม</button>
       </div>
     </div>
