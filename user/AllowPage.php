@@ -42,9 +42,32 @@
     <form action="../universalbackend/ledgerquer.php" method="POST">
         <div class="container mt-10 p-3 cart" style="margin-top: 1%; background-color: #F6F6F6; border-radius: 30px; margin-bottom: 4%; margin-left: 13%;">
             <div class="payment-info">
+            <div style="float:right; margin-right:5%; margin-top:0.5%;">
+    
+              <table class="table user-list" style="margin-bottom:0px; background-color:white; width: 100%; ">
+                <thead>
+                  <tr>
+                    <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px; border:0.5px solid #6e6e6e; ">
+                      <span>วันที่สามารถขอยืมได้</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                 <tr>
+                    <td style="border:0.5px solid #6e6e6e;">
+                    <h5 style="text-align: center; color: #6e6e6e;"></h5>
+                    </td>
+                   
+                    </tr>
+
+                </tbody>
+              </table>
+               </div>
+
                 <div class="d-flex justify-content-between align-items-center" style="color: #6e6e6e; font-size: 20px;">
                     <span style="margin-left: 5%;">รายละเอียดผู้ขอยืม</span>
                 </div><span class="type d-block mt-3 mb-1"></span>
+                
                 <div>
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">ชื่อ :</label>
                     <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;"><?php echo $name; ?></label>
@@ -64,6 +87,7 @@
                     <label class="credit-card-label" style="margin-left: 8.5%; font-size: 18px; color: #6e6e6e;">วันที่คืน : </label>
                     <input name="e_date" id="e_date" min="<?php echo $nxtformat; ?>" style=" color: #6e6e6e;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" placeholder="เลือกวันที่คืน" required />
                 </div>
+                
                 <div>
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">ผู้อนุมัติ :</label>
                     <?php
@@ -89,10 +113,11 @@
                     </select>
                 </div>
 
-
+                
                 <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">หมายเหตุ :</label>
                     <input name="que_desc" id="que_desc" type="text" style=" color: #6e6e6e;  border-radius:10px; background:#D9D9D9; border:none; width: 25%; height: 5%;" placeholder="ใช้ทำในงานอะไร" required />
                 </div>
+              
             </div>
             <div>
                 <hr noshade="noshade" style="color: black;">
