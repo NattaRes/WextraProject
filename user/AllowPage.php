@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 
 </head>
 
@@ -56,9 +57,9 @@
                     <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">เบอร์ติดต่อ : <?php echo $phone; ?></label>
                 </div>
                 <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">วันที่ยืม :</label>
-                    <input name="s_date" id="s_date" style=" color: #6e6e6e; margin-right: 10%;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date" required />
+                    <input name="s_date" id="s_date" style=" color: #6e6e6e; margin-right: 10%;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" placeholder="เลือกวันยืม" required />
                     <label class="credit-card-label" style="margin-left: 8.5%; font-size: 18px; color: #6e6e6e;">วันที่คืน : </label>
-                    <input name="e_date" id="s_date" style=" color: #6e6e6e;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date" required />
+                    <input name="e_date" id="e_date" style=" color: #6e6e6e;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" placeholder="เลือกวันคืน" required />
                 </div>
                 <div>
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">ผู้อนุมัติ :</label>
@@ -183,6 +184,42 @@
             </div>
         </div>
     </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        var datepicked = function() {
+        var from = $('#s_date');
+        var to = $('#e_date');
+        var fromDate = from.datepicker('getDate');
+        var toDate = to.datepicker('getDate');
+
+        if(toDate && fromDate){
+        if (toDate.getTime() < fromDate.getTime()){
+        alert('ไม่สามารถคืนในวันนีได้');
+        $('#e_date').val(''); 
+        }
+        }
+        }
+        
+        // ฟังก์ชั่นที่จะกำหนดให้เลือกวันหยุดไม่ได้
+        function noWeekends(date) {
+	    var day = date.getDay();
+	    // ถ้าวันเป็นวันอาทิตย์ (0) หรือวันเสาร์ (6)
+	    if (day === 0 || day === 6) {
+		// เลือกไม่ได้
+		return [false, "", "วันนี้เป็นวันหยุด"];
+	    }
+	    // เลือกได้ตามปกติ
+	    return [true, "", ""];
+        }
+        $("#s_date,#e_date").datepicker({
+            onSelect: datepicked,
+	        dateFormat: 'dd-mm-yy',
+	        minDate: 0, //ไม่สามารถจองวันที่ย้อนหลังได้ 
+	        //maxDate: "+4D", //จองล่วงหน้าได้ไม่เกิน 2 วัน 
+	        beforeShowDay: noWeekends
+        });
+</script>
 </body>
 
 </html>
