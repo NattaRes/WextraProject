@@ -52,13 +52,81 @@
                     <label class="credit-card-label" style="margin-left: 5%; margin-right: 22.4%; font-size: 18px; color: #6e6e6e;">คณะ : กระทรวงเวทย์มนต์</label>
                     <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">สาขา : เทคโนโลยีดิจิทัล</label>
                 </div>
-                <div><label class="credit-card-label" style="margin-left: 5%; margin-right: 11%;font-size: 18px; color: #6e6e6e;">Email : <?php echo $email; ?></label>
+                <div>
+                    <label class="credit-card-label" style="margin-left: 5%; margin-right: 11%;font-size: 18px; color: #6e6e6e;">Email : <?php echo $email; ?></label>
                     <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">เบอร์ติดต่อ : <?php echo $phone; ?></label>
                 </div>
-                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">วันที่ยืม :</label>
-                    <input name="s_date" id="s_date" style=" color: #6e6e6e; margin-right: 10%;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date" required />
+
+                <?php
+
+                $cartsorter = "SELECT * FROM tool_cart
+                    WHERE UID = '$uid'
+                    AND cart_status_ID = 2";
+                $resctst = $conn->query($cartsorter);
+
+                $stdate = date_create('today');
+                $nxtdate = date_create('today');
+
+                while ($ctstrow = mysqli_fetch_array($resctst)) {
+
+                    $ctstidall = $ctstrow["tool_all_ID"];
+
+                    $queitemledger = "SELECT * FROM ledger_table
+                        WHERE (queue_status = 1 OR queue_status = 2 OR queue_status = 6)
+                        AND tool_all_ID = '$ctstidall'";
+                    $resqil = $conn->query($queitemledger);
+                    $countqil = mysqli_num_rows($resqil);
+
+                    $toolspecsql = "SELECT * FROM tool_specific_table
+                        WHERE tool_all_ID = '$ctstidall'";
+                    $rests = $conn->query($toolspecsql);
+                    $countts = mysqli_num_rows($rests);
+
+                    if ($countqil >= $countts) {
+                        // queue >= specific item quantity
+
+                        while ($qilrow = mysqli_fetch_array($resqil)) {
+
+                            $sdate = $qilrow["ledger_s_date"];
+                            $xsdate = date_create($sdate);
+
+                            $edate = $qilrow["ledger_e_date"];
+                            $xedate = date_create($edate);
+
+                            if ($xsdate < $stdate) {
+                                // query start date > default start date
+                                $stdate = date_create($xsdate);
+                            }
+                            if ($xedate > $nxtdate) {
+                                // query end date < default end date
+                                $nxtdate = date_create($xedate);
+                            }
+                        }
+
+                        if ($stdate > $nxtdate) {}
+
+                    } else {
+
+                        $stdate = date_create('tomorrow', timezone_open("Asia/Bangkok"));
+                        $nxtdate = date_create('tomorrow', timezone_open("Asia/Bangkok"));
+                        $nxtdate->modify('+1 day');
+                    }
+
+                    // $stdate = date_create('tomorrow', timezone_open("Asia/Bangkok"));
+                    // $nxtdate = date_create('tomorrow', timezone_open("Asia/Bangkok"));
+                    // $nxtdate->modify('+1 day');
+
+                    $stformat = $stdate->format('Y-m-d');
+                    $nxtformat = $nxtdate->format('Y-m-d');
+                }
+
+                ?>
+
+                <div>
+                    <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">วันที่ยืม :</label>
+                    <input name="s_date" id="s_date" min="<?php echo $stformat; ?>" style=" color: #6e6e6e; margin-right: 10%;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date" required />
                     <label class="credit-card-label" style="margin-left: 8.5%; font-size: 18px; color: #6e6e6e;">วันที่คืน : </label>
-                    <input name="e_date" id="s_date" style=" color: #6e6e6e;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date" required />
+                    <input name="e_date" id="s_date" min="<?php echo $nxtformat; ?>" style=" color: #6e6e6e;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" type="date" required />
                 </div>
                 <div>
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">ผู้อนุมัติ :</label>

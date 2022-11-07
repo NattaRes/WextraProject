@@ -10,11 +10,11 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">
 
-	   <!-- Swiper CSS -->
-	   <link rel="stylesheet" href="sw.css" />
+	<!-- Swiper CSS -->
+	<link rel="stylesheet" href="sw.css" />
 
 	<link rel="stylesheet" href="alltools.css">
-	
+
 </head>
 
 <body>
@@ -31,54 +31,67 @@
 					<img src="../image/icon/shopping-cart (2).png" alt="" class="carticon">
 				</a>
 			</div>
-			</div>
-			
-			</div>
-			
 		</div>
-		
-		<?php
 
-		include("../connectdb.php");
+	</div>
 
-		$typesql = "SELECT * FROM tool_type_table";
+	</div>
 
-		$quetype = $conn->query($typesql);
+	<?php
 
-		?>
+	include("../connectdb.php");
 
-		<?php
+	$typesql = "SELECT * FROM tool_type_table";
 
-		while ($typerow = mysqli_fetch_array($quetype)) {
+	$quetype = $conn->query($typesql);
 
-		?>
-			<div style="margin-top: -2%;">
+	?>
+
+	<?php
+
+	while ($typerow = mysqli_fetch_array($quetype)) {
+
+	?>
+		<div style="margin-top: -2%;">
 			<h2 style="margin-left: 8%;  color: white;"><?php echo $typerow["type_name"]; ?></h2>
-			</div>
-			<section id="testimonial_area" class="section_padding" style="margin-top: -10%;">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="testmonial_slider_area text-center owl-carousel"  style="">
-								<?php
+		</div>
+		<section id="testimonial_area" class="section_padding" style="margin-top: -10%;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="testmonial_slider_area text-center owl-carousel">
+							<?php
 
-								$typedef = $typerow["tool_type"];
+							$typedef = $typerow["tool_type"];
 
-								$toolsql = "SELECT * FROM tool_all_table WHERE tool_type = '$typedef'";
+							$toolsql = "SELECT * FROM tool_all_table WHERE tool_type = '$typedef'";
 
-								$quetool = $conn->query($toolsql);
+							$quetool = $conn->query($toolsql);
 
-								while ($toolrow = mysqli_fetch_array($quetool)) {
+							while ($toolrow = mysqli_fetch_array($quetool)) {
 
-								?>
-								
-								   
+								$toolAID = $toolrow["tool_all_ID"];
+
+								$toolspecsql = "SELECT * FROM tool_specific_table
+									WHERE tool_all_ID = '$toolAID'";
+								$resta = $conn->query($toolspecsql);
+								$countresta = mysqli_num_rows($resta);
+
+								$novacsql = "SELECT * FROM tool_specific_table
+									WHERE tool_all_ID = '$toolAID'
+									AND tool_status = 1";
+								$resconovac = $conn->query($novacsql);
+								$countresnovac = mysqli_num_rows($resconovac);
+
+							?>
+
+								<form action="../universalbackend/addtocart.php" method="POST" onsubmit='redirect();return false;'>
 									<div class="box-area">
 										<div class="img-area">
 											<img src="<?php echo $toolrow["tool_pic_path"]; ?>" alt="" style="width: 280px;height: 160px;
 											border-radius: 22px;">
 										</div>
-									
+
 										<div style="margin-top: 160px;">
 											<div>
 												<h5 style="float: left;">ชื่อ :</h5>
@@ -86,54 +99,55 @@
 											</div>
 											<div style="clear: left;  margin-bottom: 10%;">
 												<h5 style="float: left;">จำนวน :</h5>
-												<h5 style="float: left; margin-left: 2%;">NONE</h5>
+												<h5 style="float: left; margin-left: 2%;"><?php echo $countresta; ?></h5>
 												<h5 style="float: left; margin-left: 2%;">ตัว</h5>
-												</div>
-												<div style="clear: left;  margin-bottom: 10%;">
+											</div>
+											<div style="clear: left;  margin-bottom: 10%;">
 												<h5 style="float: left;">เหลือ :</h5>
-												<h5 style="float: left; margin-left: 2%;">NONE</h5>
-												<h5 style="float: left;">ตัว</h5>
+												<h5 style="float: left; margin-left: 2%;"><?php echo $countresnovac; ?></h5>
+												<h5 style="float: left; margin-left: 2%;">ตัว</h5>
 											</div>
 											<div style="clear: left; margin-bottom: 10%; margin-top: -2%;">
 
 												<h5 style="color: green; margin-right: 70%; margin-bottom: -60%; margin-top: 20%; border:3px black">
 													ว่าง</h5>
 												<span style="float: left;  margin-top: 6%;" class="dot"></span>
+												<input name="toolidall" type="hidden" value="<?php echo $toolrow["tool_all_ID"]; ?>" />
+												<input name="quantinum" type="number" min="1" max="999" style="width:35%; margin-left:15%;  margin-top:4%;" value="1" />
 
-
-												<input type="number" min="1" max="999" style="width:35%; margin-left:15%;  margin-top:4%;"/>
-												
-												<a href="../universalbackend/addtocart.php?toolidall=<?php echo $toolrow["tool_all_ID"]; ?>">
+												<input name="submit" type="image" src="../image/icon/shopping-cart (2).png" alt="Submit" style=" height: 13%; width: 12%; float: right; margin-top: 3%;" />
+												<!-- <a href="../universalbackend/addtocart.php?toolidall=<?php echo $toolrow["tool_all_ID"]; ?>">
 													<img src="../image/icon/shopping-cart (2).png" alt="" style=" height: 13%; width: 12%; float: right; margin-top: 3%;">
-												</a>
+												</a> -->
+												
 											</div>
 											<a href="Detailstools.php?toolidall=<?php echo $toolrow["tool_all_ID"]; ?>">
 												<button class="onbutton" type="button">ดูเพิ่มเติม</button>
 											</a>
 										</div>
-				
-										</div>
-										
-								<?php
+									</div>
+								</form>
 
-								}
+							<?php
 
-								?>
-								<!-- icon nav next -->
-									<i></i>
-									<i></i>
-							</div>
+							}
+
+							?>
+							<!-- icon nav next -->
+							<i></i>
+							<i></i>
 						</div>
 					</div>
 				</div>
-           
-			</section>
+			</div>
 
-		<?php
+		</section>
 
-		}
+	<?php
 
-		?>
+	}
+
+	?>
 	</div>
 
 
@@ -168,7 +182,7 @@
 
 		});
 	</script>
-	
+
 </body>
 
 </html>
