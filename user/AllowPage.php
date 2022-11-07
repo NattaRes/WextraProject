@@ -57,10 +57,12 @@
                     <label class="credit-card-label" style="margin-left: 5%; margin-right: 11%;font-size: 18px; color: #6e6e6e;">Email : <?php echo $email; ?></label>
                     <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">เบอร์ติดต่อ : <?php echo $phone; ?></label>
                 </div>
-                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">วันที่ยืม :</label>
-                    <input name="s_date" id="s_date" style=" color: #6e6e6e; margin-right: 10%;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" placeholder="เลือกวันที่ยืม" required />
+
+                <div>
+                    <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">วันที่ยืม :</label>
+                    <input name="s_date" id="s_date" min="<?php echo $stformat; ?>" style=" color: #6e6e6e; margin-right: 10%;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" required />
                     <label class="credit-card-label" style="margin-left: 8.5%; font-size: 18px; color: #6e6e6e;">วันที่คืน : </label>
-                    <input name="e_date" id="e_date" style=" color: #6e6e6e;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" placeholder="เลือกวันที่คืน" required />
+                    <input name="e_date" id="s_date" min="<?php echo $nxtformat; ?>" style=" color: #6e6e6e;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" required />
                 </div>
                 <div>
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">ผู้อนุมัติ :</label>
