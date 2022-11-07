@@ -60,9 +60,9 @@
 
                 <div>
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">วันที่ยืม :</label>
-                    <input name="s_date" id="s_date" min="<?php echo $stformat; ?>" style=" color: #6e6e6e; margin-right: 10%;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" placeholder="เลือกวันที่ยืม"  required />
+                    <input name="s_date" id="s_date" min="<?php echo $stformat; ?>" style=" color: #6e6e6e; margin-right: 10%;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" placeholder="เลือกวันที่ยืม" value="" required />
                     <label class="credit-card-label" style="margin-left: 8.5%; font-size: 18px; color: #6e6e6e;">วันที่คืน : </label>
-                    <input name="e_date" id="e_date" min="<?php echo $nxtformat; ?>" style=" color: #6e6e6e;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" placeholder="เลือกวันที่คืน"  required />
+                    <input name="e_date" id="e_date" min="<?php echo $nxtformat; ?>" style=" color: #6e6e6e;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" placeholder="เลือกวันที่คืน" required />
                 </div>
                 <div>
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">ผู้อนุมัติ :</label>
@@ -190,6 +190,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script>
+        <?php
+        ?>
         var datepicked = function() {
             var from = $('#s_date');
             var to = $('#e_date');
@@ -215,11 +217,19 @@
             // เลือกได้ตามปกติ
             return [true, "", ""];
         }
-        $("#s_date,#e_date").datepicker({
+
+        $("#s_date").datepicker({
             onSelect: datepicked,
-            dateFormat: 'dd-mm-yy',
-            minDate: 0, //ไม่สามารถจองวันที่ย้อนหลังได้ 
-            //maxDate: "+4D", //จองล่วงหน้าได้ไม่เกิน 2 วัน 
+            dateFormat: 'yy-mm-dd',
+            minDate: "+2D", //ไม่สามารถจองวันที่ย้อนหลังได้ 
+            // maxDate: "+4D", //จองล่วงหน้าได้ไม่เกิน 2 วัน 
+            beforeShowDay: noWeekends
+        });
+        $("#e_date").datepicker({
+            onSelect: datepicked,
+            dateFormat: 'yy-mm-dd',
+            minDate: "+3D", //ไม่สามารถจองวันที่ย้อนหลังได้ 
+            // maxDate: "+4D", //จองล่วงหน้าได้ไม่เกิน 2 วัน 
             beforeShowDay: noWeekends
         });
     </script>
