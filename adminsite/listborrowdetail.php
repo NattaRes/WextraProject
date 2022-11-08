@@ -115,48 +115,91 @@
                                                 <tr>
                                                     <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194); "><span>ลำดับ</span></th>
                                                     <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>ชื่ออุปกรณ์</span></th>
-                                                    <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>ครุภัณฑ์</span></th>
+                                                    <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>รหัสครุภัณฑ์</span></th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td style="border: 2px solid rgb(194, 194, 194); ">
+                                            <form action="../adminbackend/recivtool.php" method="POST">
+                                                <input type="hidden" name="queid" value="<?php echo $queid; ?>" />
+                                                <tbody>
+                                                    <?php
 
-                                                        <h5 style="text-align: center; color: black; ">1</h5>
-                                                    </td>
-                                                    <td width="40%" style="border: 2px solid rgb(194, 194, 194); ">
-                                                        <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" style="max-width: 100%; border-radius: 22px;">
-                                                        <span class="user-link" style="color: black;">กล้อง</span>
-                                                        <span class="user-subhead" style="color: black;">รุ่น</span>
-                                                    </td>
-                                                    <td style="border: 2px solid rgb(194, 194, 194); ">
-                                                        <select id="mySelect" style="margin-left:25%; height:100%; width: 50%; font-size:20px; border-radius:5px;">
-                                                            <option value="ann">Ann Frank</option>
-                                                            <option value="paul" selected>Paul Allen</option>
-                                                            <option value="steve">Steve Jobs</option>
-                                                        </select>
-                                                    </td>
+                                                    $brwlistsql = "SELECT * FROM ledger_table
+                                                        INNER JOIN tool_all_table ON ledger_table.tool_all_ID = tool_all_table.tool_all_ID
+                                                        INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type
+                                                        INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand
+                                                        WHERE que_ID = '$queid'";
+                                                    $resbrwlist = $conn->query($brwlistsql);
 
-                                                </tr>
+                                                    $itemcount = 0;
 
-                                            </tbody>
-                                            <thead>
-                                                <tr>
-                                                    <th style="text-align: center; color: black;  font-size: 18px; border-left: 0px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194); border-left: 2px solid rgb(194, 194, 194);"><span></span></th>
-                                                    <th style="text-align: right; color: black; font-weight: bold; font-size: 18px; border-bottom: 2px solid rgb(194, 194, 194);"><span>รวมทั้งหมด</span></th>
-                                                    <th style="text-align: center; color: black;  font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>3</span></th>
+                                                    $rownum = 1;
 
-                                                </tr>
-                                            </thead>
+                                                    while ($ledgerlist = mysqli_fetch_array($resbrwlist)) {
+
+                                                        $toolidall = $ledgerlist["tool_all_ID"];;
+                                                        $ledgerID = $ledgerlist["Ledger_num"];
+
+                                                    ?>
+                                                        <tr>
+                                                            <td style="border: 2px solid rgb(194, 194, 194); ">
+
+                                                                <h5 style="text-align: center; color: black; "><?php echo $rownum; ?></h5>
+                                                            </td>
+                                                            <td width="40%" style="border: 2px solid rgb(194, 194, 194); ">
+                                                                <img src="<?php echo $ledgerlist["tool_pic_path"]; ?>" alt="" style="max-width: 100%; border-radius: 22px;">
+                                                                <span class="user-link" style="color: black;"><?php echo $ledgerlist["brand_name"] . " " . $ledgerlist["tool_name"]; ?></span>
+                                                                <span class="user-subhead" style="color: black;">รุ่น <?php echo $ledgerlist["tool_model"]; ?></span>
+                                                            </td>
+                                                            <input type="hidden" name="ledgerID[]" value="<?php echo $ledgerID; ?>" />
+                                                            <td style="border: 2px solid rgb(194, 194, 194); ">
+                                                                <select name="toolspec[]" id="mySelect" style="margin-left:25%; height:100%; width: 50%; font-size:20px; border-radius:5px;" required>
+                                                                    <?php
+
+                                                                    $specificsql = "SELECT * FROM tool_specific_table
+                                                                        WHERE tool_all_ID = '$toolidall'
+                                                                        AND tool_status = 1
+                                                                        ORDER BY tool_spec_ID ASC";
+                                                                    $respec = $conn->query($specificsql);
+
+                                                                    $specount = 1;
+
+                                                                    while ($specrow = mysqli_fetch_array($respec)) {
+
+                                                                        $specID = $specrow["tool_spec_ID"];
+                                                                    ?>
+                                                                        <option value="<?php echo $specID; ?>"><?php echo $specount . ". " . $specID; ?></option>
+                                                                    <?php
+
+                                                                        $specount++;
+                                                                    }
+
+                                                                    ?>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                    <?php
+                                                        $itemcount++;
+                                                        $rownum++;
+                                                    }
+
+                                                    ?>
+                                                </tbody>
+                                                <thead>
+                                                    <tr>
+                                                        <th style="text-align: center; color: black;  font-size: 18px; border-left: 0px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194); border-left: 2px solid rgb(194, 194, 194);"><span></span></th>
+                                                        <th style="text-align: right; color: black; font-weight: bold; font-size: 18px; border-bottom: 2px solid rgb(194, 194, 194);"><span>รวมทั้งหมด</span></th>
+                                                        <th style="text-align: center; color: black;  font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span><?php echo $itemcount; ?></span></th>
+
+                                                    </tr>
+                                                </thead>
                                         </table>
-
                                     </div>
-
                                 </div>
                             </div>
                             <div>
-                                <button class="onbutton" type="button">ยืนยันรับอุปกรณ์</button>
+                                <button class="onbutton" type="submit">ยืนยันรับอุปกรณ์</button>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -160,7 +160,7 @@
 
 									while ($rowreturn = mysqli_fetch_array($resreturn)) {
 
-										$e_date = date_create($rowreturn["s_date"]);
+										$e_date = date_create($rowreturn["e_date"]);
 
 									?>
 										<tr>
@@ -175,7 +175,7 @@
 												</div>
 											</td>
 											<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200" style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
-												<div class="content"><?php echo date_format($s_date, "d/m/Y"); ?>
+												<div class="content"><?php echo date_format($e_date, "d/m/Y"); ?>
 												</div>
 											</td>
 											<td style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
