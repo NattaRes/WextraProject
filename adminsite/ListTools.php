@@ -13,9 +13,9 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body style="margin-left: 5%; margin-right: 5%;">
+<body style="margin-left: 5%; margin-right: 5%; ">
   <!-- Index Post -->
-  <div class="container max-w-7xl mx-auto mt-8">
+  <div class="container max-w-7xl mx-auto mt-8 ">
     <div class="mb-4">
       <h1 style="margin-left: -2%; margin-top: 10%; font-size: 30px;">
         รายการเครื่องมือ</h1>
@@ -240,7 +240,7 @@
                   echo '<td width="10%" style="border:2px solid #686868;">' . '<h5 style="text-align: center; color: black;">' . $row["tool_name"] . ' ' . $row["brand_name"] . ' ' . $row["tool_model"] . '</h5>' . '</td>';
                   echo '<td width="10%" style="border:2px solid #686868;">' . '<h5 style="text-align: center; color: black;">' . $row["type_name"] . '</h5>' . '</td>';
                   echo '<td width="10%" style="border:2px solid #686868;">' . '<h5 style="text-align: center; color: black;">' . "NUMBER" . '</h5>' . '</td>';
-                  echo '<td width="15%" align="center" colspan="3">
+                  echo '<td width="15%" align="center" colspan="3" style="border:2px solid #686868;">
                       <a href="Viewtools.php?toolidall=' . $row["tool_all_ID"] . '">
                         <button style="background-color:rgba(1, 93, 146, 0.777); 
                         border-radius: 22px; width: 25%; margin-right: 4%;
@@ -253,7 +253,7 @@
                         <button style="background-color:rgba(255, 122, 0, 0.69);
                         border-radius: 22px; width: 25%; margin-right: 4%;
                         color: #ffffff; font-size: 18px;
-                        border: none;">
+                        border: none; ">
                         แก้ไข
                         </button>
                       </a>
