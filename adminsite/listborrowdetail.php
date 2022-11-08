@@ -34,7 +34,17 @@
     $resquebrw = $conn->query($quebrwsql);
 
     while ($quedet = mysqli_fetch_array($resquebrw)) {
+        $queowner = $quedet["que_owner_UID"];
+        $aprname = $quedet["username"];
+        $qsdate = $quedet["s_date"];
+        $qedate  = $quedet["e_date"];
+        $qdesc = $quedet["que_desc"];
+        $qstatus = $quedet["queue_status"];
     }
+
+    $s_date = date_create($qsdate);
+
+    $e_date = date_create($qedate);
 
     ?>
     <div style="margin-top: 6%; margin-left: 0%;">
@@ -45,12 +55,25 @@
                     <span style="margin-left: 5%;">รายละเอียดผู้ขอยืม</span>
                 </div><span class="type d-block mt-3 mb-1"></span>
                 <div>
-                    <label class="credit-card-label" style="margin-left: 5%; font-size: 20px; color: black; ">คิวที่ :</label>
-                    <label class="credit-card-label" style="font-size: 20px; margin-left: 1%; color: black; ">1</label>
+                    <?php
+
+                    $usersql = "SELECT * FROM user WHERE UID = '$queowner'";
+
+                    $resuser = $conn->query($usersql);
+
+                    while ($rowuser = mysqli_fetch_array($resuser)) {
+                        $username = $rowuser["username"];
+                        $email = $rowuser["email"];
+                        $phone = $rowuser["phonenum"];
+                    }
+
+                    ?>
+                    <label class="credit-card-label" style="margin-left: 5%; font-size: 20px; color: black; ">หมายเลคคิว :</label>
+                    <label class="credit-card-label" style="font-size: 20px; margin-left: 1%; color: black; "><?php echo $queid; ?></label>
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 20px; color: black; ">ชื่อ :</label>
-                    <label class="credit-card-label" style="font-size: 20px; margin-left: 1%; color: black; ">นายสม ดีใจ</label>
+                    <label class="credit-card-label" style="font-size: 20px; margin-left: 1%; color: black; "><?php echo $username; ?></label>
                     <label class="credit-card-label" style="margin-left: 8%; font-size: 20px; color: black; ">รหัสนักศึกษา:</label>
-                    <label class="credit-card-label" style="margin-left: 1%; font-size: 20px; color: black; ">B630000</label>
+                    <label class="credit-card-label" style="margin-left: 1%; font-size: 20px; color: black; "><?php echo $queowner; ?></label>
 
                 </div>
                 <div>
@@ -61,13 +84,13 @@
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 20px; color: black; ">คณะ : กระทรวงเวทย์มนต์</label>
                     <label class="credit-card-label" style="margin-left: 13%; font-size: 20px; color: black; ">สาขา : เทคโนโลยีดิจิทัล</label>
                 </div>
-                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 20px;color: black; ">Email : Somjai@gmail.com</label>
-                    <label class="credit-card-label" style="margin-left: 10.5%;font-size: 20px; color: black; ">เบอร์ติดต่อ : 0999999999</label>
+                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 20px;color: black; ">Email : <?php echo $email; ?></label>
+                    <label class="credit-card-label" style="margin-left: 10.5%;font-size: 20px; color: black; ">เบอร์ติดต่อ : <?php echo $phone; ?></label>
                 </div>
                 <div><label class="credit-card-label" style="margin-left: 5%; font-size: 20px; color: black; ">วันที่ยืม :</label>
-                    <label class="credit-card-label" style="font-size: 20px; color: black;">1/11/65</label>
+                    <label class="credit-card-label" style="font-size: 20px; color: black;"><?php echo date_format($s_date, "d/m/Y"); ?></label>
                     <label class="credit-card-label" style="margin-left: 20.5%; font-size: 20px; color: black;">หมายเหตุ :</label>
-                    <label class="credit-card-label" style="font-size: 20px; color: black;">(เช่น ใช้ทำในงานอะไร)</label>
+                    <label class="credit-card-label" style="font-size: 20px; color: black;"><?php echo $qdesc; ?></label>
                 </div>
                 <div>
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 20px; color: black;">ใบเสร็จ :</label>
