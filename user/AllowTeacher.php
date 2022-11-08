@@ -194,27 +194,31 @@
                             </div>
                         </div>
                         <div class="flex items-center justify-start mt-4 gap-x-2">
-                            <button type="submit" style="width:150px;
-                                    height:40px;
-                                    border:none;
-                                    font-size: 20px;
-                                    border-radius:5px;
-                                    margin-left:70%;
-                                    background-color:rgba(25, 169, 0, 0.827);
-                                    color:#fff;
-                                    cursor:pointer;">
-                                อนุมัติ
-                            </button>
-                            <button type="reset" style="width:150px;
-                                    height:40px;
-                                    border:none;
-                                    font-size: 20px;
-                                    border-radius:5px;
-                                    background:rgba(192, 0, 0, 0.777);	
-                                    color:#fff;
-                                    cursor:pointer;">
-                                ยกเลิก
-                            </button>
+                            <a href="../universalbackend/approverdecision.php?queid=<?php echo $queid; ?>&decis=ap">
+                                <button style="width:150px;
+                                        height:40px;
+                                        border:none;
+                                        font-size: 20px;
+                                        border-radius:5px;
+                                        margin-left:70%;
+                                        background-color:rgba(25, 169, 0, 0.827);
+                                        color:#fff;
+                                        cursor:pointer;">
+                                    อนุมัติ
+                                </button>
+                            </a>
+                            <a href="../universalbackend/approverdecision.php?queid=<?php echo $queid; ?>&decis=cc">
+                                <button type="reset" style="width:150px;
+                                        height:40px;
+                                        border:none;
+                                        font-size: 20px;
+                                        border-radius:5px;
+                                        background:rgba(192, 0, 0, 0.777);	
+                                        color:#fff;
+                                        cursor:pointer;">
+                                    ยกเลิก
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
