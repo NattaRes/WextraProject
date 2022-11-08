@@ -7,7 +7,7 @@
   box-sizing: border-box;
   font-family: 'Kanit', sans-serif;
 }
-html, body {margin: 0; height: 100%; overflow: hidden}
+
 
 .sidebar {
   position: fixed;
