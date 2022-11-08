@@ -13,18 +13,17 @@
 <body>
 	<div style="margin-top:8%;">
 	</div>
-	<div class="mytabs" >
+	<div class="mytabs">
 		<input type="radio" id="tabborrow" name="mytabs" checked="checked">
 		<label for="tabborrow" style="font-size: 18px;">รายการยืมเครื่องมือ</label>
 		<div class="tab">
 			<div class="test" style=" margin-left: 5%; margin-right: 5%;">
 				<div class="flex flex-col">
 					<div>
-						<div
-							class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+						<div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
 							<table class="min-w-full" style="min-width: 100%;  border: 2px solid rgb(194, 194, 194); ">
-								<thead  >
-									<tr >
+								<thead>
+									<tr>
 										<th style="font-weight: medium;
 										text-align: center;
 										text-transform: uppercase;
@@ -41,11 +40,12 @@
 										</th>
 										<th style="font-weight: medium;
 										text-align: center;
-										text-transform: uppercase;										border-right: 2px solid rgb(194, 194, 194);
+										text-transform: uppercase;
+										border-right: 2px solid rgb(194, 194, 194);
 										width: 35%; font-size: 18px; background-color:white; ">
 											เวลารับ
 										</th>
-										
+
 										<th style="width: 20%; background-color: white;" colspan="1">
 										</th>
 
@@ -53,35 +53,53 @@
 								</thead>
 
 								<tbody class="bg-white">
-									<tr>
-										<td  style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
-											<div class="content">
-												1
-											</div>
+									<?php
 
-										</td>
+									include("../connectdb.php");
 
-										<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200"  style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
-											<div class="content"> B63XXXXX ชื่อ
-											</div>
-										</td>
-										<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200"  style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
-											<div class="content"> 11/10/65
-											</div>
-										</td>
+									$slcquesql = "SELECT * FROM queue_table
+										INNER JOIN user ON user.UID = queue_table.que_owner_UID
+										WHERE queue_status = 2
+										ORDER BY s_date ASC";
+									$resslcque = $conn->query($slcquesql);
 
-										<td style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
-											<div align="center">
-												<a href="listborrowdetail.html">
-													<button
-														class="px-4 py-2 rounded-lg " style="background-color: #015C92; color: white;">เรียกดู</button>
-												</a>
-											</div>
+									$rowcount = 1;
 
+									while ($rowque = mysqli_fetch_array($resslcque)) {
 
-										</td>
+										$s_date = date_create($rowque["s_date"]);
 
-									</tr>
+									?>
+										<tr>
+											<td style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
+												<div class="content">
+													<?php echo $rowcount; ?>
+												</div>
+
+											</td>
+
+											<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200" style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
+												<div class="content"><?php echo $rowque["UID"] . " " . $rowque["username"]; ?>
+												</div>
+											</td>
+											<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200" style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
+												<div class="content"><?php echo date_format($s_date, "d/m/Y"); ?>
+												</div>
+											</td>
+
+											<td style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
+												<div align="center">
+													<a href="listborrowdetail.html">
+														<button class="px-4 py-2 rounded-lg " style="background-color: #015C92; color: white;">เรียกดู</button>
+													</a>
+												</div>
+											</td>
+										</tr>
+									<?php
+
+									}
+
+									?>
 								</tbody>
 							</table>
 						</div>
@@ -96,11 +114,10 @@
 			<div class="test" style=" margin-left: 5%; margin-right: 5%;">
 				<div class="flex flex-col">
 					<div>
-						<div
-							class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+						<div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
 							<table class="min-w-full" style="min-width: 100%;  border: 2px solid rgb(194, 194, 194); ">
-								<thead  >
-									<tr >
+								<thead>
+									<tr>
 										<th style="font-weight: medium;
 										text-align: center;
 										text-transform: uppercase;
@@ -150,8 +167,7 @@
 										<td style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
 											<div align="center">
 												<a href="listgivedetails.html">
-													<button
-														class="px-4 py-2 rounded-lg " style="background-color: #015C92; color: white;">เรียกดู</button>
+													<button class="px-4 py-2 rounded-lg " style="background-color: #015C92; color: white;">เรียกดู</button>
 												</a>
 											</div>
 
