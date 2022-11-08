@@ -63,7 +63,7 @@
 										ORDER BY s_date ASC";
 									$resslcque = $conn->query($slcquesql);
 
-									$rowcount = 1;
+									$rowcountq = 1;
 
 									while ($rowque = mysqli_fetch_array($resslcque)) {
 
@@ -73,7 +73,7 @@
 										<tr>
 											<td style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
 												<div class="content">
-													<?php echo $rowcount; ?>
+													<?php echo $rowcountq; ?>
 												</div>
 
 											</td>
@@ -89,7 +89,7 @@
 
 											<td style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
 												<div align="center">
-													<a href="listborrowdetail.html">
+													<a href="listborrowdetail.php?queid=<?php echo $rowque["que_ID"]; ?>">
 														<button class="px-4 py-2 rounded-lg " style="background-color: #015C92; color: white;">เรียกดู</button>
 													</a>
 												</div>
@@ -97,6 +97,7 @@
 										</tr>
 									<?php
 
+										$rowcountq++;
 									}
 
 									?>
@@ -147,34 +148,50 @@
 								</thead>
 
 								<tbody class="bg-white">
-									<tr>
-										<td style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
-											<div class="content">
-												1
-											</div>
+									<?php
 
-										</td>
+									$returnsql = "SELECT * FROM queue_table
+										INNER JOIN user ON user.UID = queue_table.que_owner_UID
+										WHERE queue_status = 6
+										ORDER BY e_date ASC";
+									$resreturn = $conn->query($returnsql);
 
-										<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200" style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
-											<div class="content"> B63XXXXX ชื่อ
-											</div>
-										</td>
-										<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200" style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
-											<div class="content"> 13/10/65
-											</div>
-										</td>
+									$rowcountr = 1;
 
-										<td style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
-											<div align="center">
-												<a href="listgivedetails.html">
-													<button class="px-4 py-2 rounded-lg " style="background-color: #015C92; color: white;">เรียกดู</button>
-												</a>
-											</div>
+									while ($rowreturn = mysqli_fetch_array($resreturn)) {
 
+										$e_date = date_create($rowreturn["s_date"]);
 
-										</td>
+									?>
+										<tr>
+											<td style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
+												<div class="content">
+													<?php echo $rowcountr; ?>
+												</div>
 
-									</tr>
+											</td>
+											<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200" style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
+												<div class="content"><?php echo $rowreturn["UID"] . " " . $rowreturn["username"]; ?>
+												</div>
+											</td>
+											<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200" style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
+												<div class="content"><?php echo date_format($s_date, "d/m/Y"); ?>
+												</div>
+											</td>
+											<td style="border-right: 2px solid rgb(194, 194, 194); border-top: 2px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194);">
+												<div align="center">
+													<a href="listgivedetails.php?queid=<?php echo $rowreturn["que_ID"]; ?>">
+														<button class="px-4 py-2 rounded-lg " style="background-color: #015C92; color: white;">เรียกดู</button>
+													</a>
+												</div>
+											</td>
+										</tr>
+									<?php
+
+										$rowcountr++;
+									}
+
+									?>
 								</tbody>
 							</table>
 						</div>

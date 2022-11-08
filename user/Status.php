@@ -98,27 +98,29 @@
                                                     <div>
                                                         <?php
 
-                                                        if ($row["queue_status"] = 1) {
+                                                        $questat = $row["queue_status"];
+
+                                                        if ($questat == 1) {
                                                             // Pending
 
                                                             echo '<span style="float: left; margin-left: 15%; margin-top: 4%; background-color: #D7BA00;" class="dot"></span>
                                                             <h5 style="text-align: center; color:#D7BA00; font-size: 20px;  margin-right: 15%;">รอการอนุมัติ</h5>';
-                                                        } elseif ($row["queue_status"] = 2) {
+                                                        } elseif ($questat == 2) {
                                                             // Approved
 
                                                             echo '<span style="float: left; margin-left: 15%; margin-top: 4%;" class="dot"></span>
                                                             <h5 style="text-align: center; color:green; font-size: 20px; margin-right: 15%;">อนุมัติ</h5>';
-                                                        } elseif ($row["queue_status"] = 3) {
+                                                        } elseif ($questat == 3) {
                                                             // Disapproved
 
                                                             echo '<span style="float: left; margin-left: 15%; margin-top: 4%; background-color: red" class="dot"></span>
                                                             <h5 style="text-align: center; color:red; font-size: 20px;  margin-right: 15%;">ไม่อนุมัติ</h5>';
-                                                        } elseif ($row["queue_status"] = 4) {
+                                                        } elseif ($questat == 4) {
                                                             // Timeout
 
                                                             echo '<span style="float: left; margin-left: 15%; margin-top: 4%; background-color: red" class="dot"></span>
                                                             <h5 style="text-align: center; color:red; font-size: 20px;  margin-right: 15%;">หมดเวลาอนุมัติ</h5>';
-                                                        } elseif ($row["queue_status"] = 5) {
+                                                        } elseif ($questat == 5) {
                                                             // Cancel
 
                                                             echo '<span style="float: left; margin-left: 15%; margin-top: 4%; background-color: red" class="dot"></span>
