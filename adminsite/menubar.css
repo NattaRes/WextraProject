@@ -490,3 +490,7 @@ nav .profile-details i {
   height: 850px;
 
 }
+
+body {
+  overflow: hidden; /* Hide scrollbars */
+}
