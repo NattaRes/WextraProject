@@ -1,5 +1,10 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../vendor/autoload.php';
+
 include("../connectdb.php");
 
 $uid = $_COOKIE["userck"];
@@ -28,13 +33,6 @@ $resfs = $conn->query($fromselect);
 //     echo "ALL : " . print_r($row) . "</br>";
 //     echo $row["tool_all_ID"] . "</br>";
 // }
-
-$datecondisql = "SELECT * FROM tool_specific_table
-    WHERE tool_all_ID = ''";
-
-$datequantitysql = "SELECT * FROM ledger_table
-    WHERE tool_all_ID = ''";
-$resdq = $conn->query($datequantitysql);
 
 $insertque = "INSERT INTO queue_table
     (que_owner_UID, approver_UID, s_date, e_date, que_desc, queue_status)
@@ -70,17 +68,59 @@ if ($resinsertque) {
                     '$s_date', '$e_date', '$que_desc', 1)";
 
                 $resinsertledger = $conn->query($inserteer);
-            }
 
+                if ($resinsertledger) {
 
+                    $quefetch = "SELECT * FROM queue_table
+                        INNER JOIN user ON queue_table.approver_UID = user.UID
+                        WHERE que_ID = '$qid'";
+                    $resquefet = $conn->query($quefetch);
 
-            if ($resinsertledger) {
+                    while ($querow = mysqli_fetch_array($resquefet)) {
+                        $qid = $querow["que_ID"];
+                        $aprmail = $querow["email"];
+                        $queowner = $querow["que_owner_UID"];
+                        $maildesc = $querow["que_desc"];
+                    }
 
-                echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
-            } else {
+                    $mail = new PHPMailer(true);
 
-                echo "Layer 3 : " . mysqli_error($conn);
-                // echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
+                    try {
+                        $mail->SMTPDebug = 2;                                       
+                        $mail->isSMTP();                                            
+                        $mail->Host       = 'smtp.gmail.com';                    
+                        $mail->SMTPAuth   = true;                             
+                        $mail->Username   = 'nattawutwextramailtest@gmail.com';                 
+                        $mail->Password   = 'cnsvhhjdeoaonfjy';                        
+                        $mail->SMTPSecure = 'tls';                              
+                        $mail->Port       = 587;  
+                      
+                        $mail->setFrom('nattawutwextramailtest@gmail.com', 'Nattawut');           
+                        $mail->addAddress($aprmail);
+                           
+                        $mail->isHTML(true);                                  
+                        $mail->Subject = 'Request approval';
+                        $mail->Body    = '<html>
+                                <body>
+                                    <a href="http://localhost/wextraproject/user/AllowTeacher.php?queid=' . $qid . '">
+                                        CLICK
+                                    </a>
+                                </body>
+                            </html>';
+                        $mail->AltBody = 'http://localhost/wextraproject/user/AllowTeacher.php?queid=' . $qid . '';
+                        $mail->send();
+                        echo "Mail has been sent successfully!";
+                        echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
+                    } catch (Exception $e) {
+                        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                    }
+
+                    // echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
+                } else {
+
+                    echo "Layer 3 : " . mysqli_error($conn);
+                    // echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
+                }
             }
         }
     } else {

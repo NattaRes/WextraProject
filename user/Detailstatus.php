@@ -58,7 +58,7 @@
 
                 <h2 style="margin-left: 7.5%; font-weight: bold;">ลำดับคิวที่ 1</h2>
                 <span class="credit-card-label" style="font-size: 18px; color: #7E7C7C; font-weight: bold; margin-left: 55%;">วันที่รับอุปกรณ์ :</span>
-                <span class="credit-card-label" style="font-size: 18px; color: #7E7C7C; font-weight: bold; margin-right: 5%;">1/11/65</span>
+                <span class="credit-card-label" style="font-size: 18px; color: #7E7C7C; font-weight: bold; margin-right: 5%;"><?php echo date_format($s_date, "d/m/Y"); ?></span>
 
             </div>
 
@@ -123,7 +123,7 @@
                                                     <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;"><span>ชื่ออุปกรณ์</span></th>
                                                     <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;"><span>จำนวน</span></th>
                                                     <th>&nbsp;</th>
-                                                
+
 
                                                 </tr>
                                             </thead>
@@ -180,19 +180,18 @@
                                                         </tr>
 
                                                 <?php
-                                                        
+
                                                         $rowcount++;
                                                         $itemcount += $counterledger;
                                                         $rowlednum++;
                                                         array_push($inarr, $toolID);
                                                     }
-                                                    
                                                 }
 
                                                 ?>
-                                                     
+
                                                 <tr>
-                                                    
+
                                                     <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;"><span>รวมทั้งหมด</span></th>
                                                     <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;"><span><?php echo $rowcount; ?> รายการ</span></th>
                                                     <th style="text-align: center; color: #6e6e6e; font-weight: bold; font-size: 18px;"><span><?php echo $itemcount; ?> ชิ้น</span></th>
