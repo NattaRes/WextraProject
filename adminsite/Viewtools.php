@@ -151,11 +151,11 @@
                                                     echo '</td>';
 
                                                     echo '<td width="40%" style="border: 2px solid rgb(194, 194, 194); ">';
-                                                    echo '<span class="user-link1">' . $specrow["tool_spec_ID"] . '</span>';
+                                                    echo '<span class="user-link1" style="color: black;">' . $specrow["tool_spec_ID"] . '</span>';
                                                     echo '</td>';
 
                                                     echo '<td style="border: 2px solid rgb(194, 194, 194); ">';
-                                                    echo '<span class="user-link1">' . $specrow["t_status"] . '</span>';
+                                                    echo '<span class="user-link1" style="color: black;">' . $specrow["t_status"] . '</span>';
                                                     echo '</td>';
 
                                                     echo '</tr>';

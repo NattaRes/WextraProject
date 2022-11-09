@@ -50,17 +50,19 @@
         </a>
       </li>
       <li>
-        <a href="Alltools.php" target="Changepage1" onclick="changePageTitletools()">
-          <img src="../image/icon/photo-camera (1).png" class="iconimg" />
-          <span>เครื่องมือ</span>
-        </a>
-      </li>
-      <li>
         <a href="#" onclick="changePageTitlevalue()" id="myBtn">
           <img src="../image/icon/warning.png" class="iconimg" />
           <span>กฎการยืม</span>
         </a>
       </li>
+      
+      <li>
+        <a href="Alltools.php" target="Changepage1" onclick="changePageTitletools()">
+          <img src="../image/icon/photo-camera (1).png" class="iconimg" />
+          <span>เครื่องมือ</span>
+        </a>
+      </li>
+     
       <li>
         <a href="Cart.php" target="Changepage1" onclick="changePageTitlecart()">
           <img src="../image/icon/shopping-cart (2).png" class="iconimg" />
