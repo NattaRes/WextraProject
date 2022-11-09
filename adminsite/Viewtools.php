@@ -58,7 +58,7 @@
                 <img src="<?php echo $pic_path; ?>"   
                 style="
                 height: 30%;
-                width: 100%;
+                max-width: 80%;
 	            margin: 0 auto;
 	            z-index: 1;
                 margin-left:45px;
@@ -90,8 +90,8 @@
                 <label class="credit-card-label" style="margin-left: 13%; font-size: 20px; color: black; ">รุ่น : <?php echo $tmodel; ?></label>
             </div>
             <div><label class="credit-card-label" style="margin-left: 10%; font-size: 20px; color: black; ">สถานะ :</label>
-                <label class="credit-card-label" style="font-size: 20px; color: black;">ว่าง</label>
-                <label class="credit-card-label" style="margin-left: 14.5%; font-size: 20px; color: black;">สภาพ :</label>
+                <label class="credit-card-label" style="font-size: 20px; color: black; margin-right: 14%; ">ว่าง</label>
+                <label class="credit-card-label" style="font-size: 20px; color: black;">สภาพ :</label>
                 <label class="credit-card-label" style="font-size: 20px; color: black;">ใช้งานได้</label>
             </div>
 
@@ -102,7 +102,7 @@
 
             <div>
                 <a herf="Historytools.html">
-                    <button class="onbutton" type="button" style="margin-left:10%; margin-top:2%;">ประวัติการใช้งาน</button>
+                    <button class="onbutton" type="button" style="margin-left:2%; margin-top:2%;">ประวัติการใช้งาน</button>
                 </a>
             </div>
             <hr noshade="noshade" style="color: black; margin-top: 2%;">

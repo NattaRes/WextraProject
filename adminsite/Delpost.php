@@ -55,7 +55,11 @@
             </div>
 
             <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10" style="width:80%; margin-left:10%; margin-right:20%; height:100%">
-                <form method="POST" action="../adminbackend/delpost.php?poid=<?php echo $postID; ?>">
+            <a href="Post.php?sfi=all&sinput=" >
+            <i class='fa fa-times' style="float:right; font-size:30px; margin-top:0%;">
+            </i>
+            </a>    
+            <form method="POST" action="../adminbackend/delpost.php?poid=<?php echo $postID; ?>">
                     <!-- Text Input -->
                     <div style="float: left ;  margin-bottom: 1%;">
                         <label style="font-size: 18px;">
@@ -96,7 +100,7 @@
                                 border:none;
                                 font-size: 20px;
                                 border-radius:5px;
-                                margin-left:80%;
+                                margin-left:85%;
                                 background: #015C92;              
                                 color:#fff;
                                 cursor:pointer;">
@@ -104,18 +108,7 @@
                         </button>
                     </div>
                 </form>
-                <a href="Post.php?sfi=all&sinput=">
-                    <button style="width:150px;
-                            height:40px;
-                            border:none;
-                            font-size: 20px;
-                            border-radius:5px;
-                            background:rgba(192, 0, 0, 0.777);	
-                            color:#fff;
-                            cursor:pointer;">
-                        ยกเลิก
-                    </button>
-                </a>
+              
             </div>
         </div>
     </div>
