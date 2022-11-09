@@ -71,7 +71,7 @@
           <!-- Image -->
           <div class='file-input'>
             <label style="margin-top:2%; font-size:18px;">เลือกรูปภาพ: </label>
-            <input type='file' style="margin-top:2%;">
+            <input type='file' name="picupload" style="margin-top:2%;">
           </div>
 
           <!-- Description -->

@@ -22,7 +22,7 @@
       </div>
 
       <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10" style="width:80%; margin-left:10%; margin-right:20%; height:100%">
-        <form method="POST" action="../adminbackend/addpost.php">
+        <form method="POST" action="../adminbackend/addpost.php" enctype="multipart/form-data">
           <!-- Text Input -->
           <div style="float: left ; width:50%;">
             <label style="font-size:18px;">
@@ -39,7 +39,7 @@
           <!-- Image -->
           <div class='file-input'>
             <label style="margin-top:2%; font-size:18px;">เลือกรูปภาพ: </label>
-            <input type='file' style="margin-top:2%;">
+            <input type='file' name="picupload" style="margin-top:2%;">
           </div>
 
           <!-- Description -->
@@ -51,7 +51,7 @@
           </div>
 
           <div class="flex items-center justify-start mt-4 gap-x-2">
-            <button type="submit" style="width:150px;
+            <button type="submit" name="submit" style="width:150px;
               height:40px;
               border:none;
               font-size: 20px;
