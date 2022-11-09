@@ -49,9 +49,9 @@
 
     ?>
     <div style="margin-top: 8%;">
-        <lebel style="font-size: 30px; margin-left: 14%; color: white; margin-top: 20%;"> รายการอนุมัติ </lebel>
+        <lebel style="font-size: 30px; margin-left: 14.5%; color: white; margin-top: 20%;"> รายการอนุมัติ </lebel>
     </div>
-    <div class="container mt-10 p-3 cart" style="margin-top: 1%; background-color: #F6F6F6; border-radius: 30px; margin-bottom: 4%; margin-left: 13%;">
+    <div class="container mt-10 p-3 cart" style="margin-top: 1%; background-color: #F6F6F6; border-radius: 30px; margin-bottom: 4%; margin-left: 13.5%;">
         <div class="payment-info">
             <?php
 

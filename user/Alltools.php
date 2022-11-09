@@ -88,7 +88,7 @@
 								<form action="../universalbackend/addtocart.php" method="POST" onsubmit='redirect();return false;'>
 									<div class="box-area">
 										<div class="img-area">
-											<img src="<?php echo $toolrow["tool_pic_path"]; ?>" alt="" style="width: 280px;height: 160px;
+											<img src="<?php echo $toolrow["tool_pic_path"]; ?>" alt="" style="width: 100%;height: 100%;
 											border-radius: 22px;">
 										</div>
 

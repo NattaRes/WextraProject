@@ -109,6 +109,7 @@
             </button>
           </div>
         </form>
+        
         <a href="ListTools.php?cateinput=all&sfi=all&sinput=">
           <button type="reset" style="width:150px;
               height:40px;
@@ -124,7 +125,8 @@
       </div>
     </div>
   </div>
-
+  <div style="margin-top:30%;">
+  </div>
 </body>
 
 </html>

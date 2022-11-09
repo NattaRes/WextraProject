@@ -146,7 +146,7 @@
                                                                 <h5 style="text-align: center; color: black; "><?php echo $rownum; ?></h5>
                                                             </td>
                                                             <td width="40%" style="border: 2px solid rgb(194, 194, 194); ">
-                                                                <img src="<?php echo $ledgerlist["tool_pic_path"]; ?>" alt="" style="max-width: 100%; border-radius: 22px;">
+                                                                <img src="<?php echo $ledgerlist["tool_pic_path"]; ?>" alt="" style="max-width: 30%; border-radius: 22px;">
                                                                 <span class="user-link" style="color: black;"><?php echo $ledgerlist["brand_name"] . " " . $ledgerlist["tool_name"]; ?></span>
                                                                 <span class="user-subhead" style="color: black;">รุ่น <?php echo $ledgerlist["tool_model"]; ?></span>
                                                             </td>
@@ -207,6 +207,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div style="margin-top:30%;">
         </div>
 </body>
 

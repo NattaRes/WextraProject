@@ -37,10 +37,10 @@
     ?>
 
     <div style="margin-top: 8%;">
-        <lebel style="font-size: 30px; margin-left: 14%; color: white; margin-top: 20%;"> ทำการส่งอนุมัติ </lebel>
+        <lebel style="font-size: 30px; margin-left: 14.5%; color: white; margin-top: 20%;"> ทำการส่งอนุมัติ </lebel>
     </div>
     <form action="../universalbackend/ledgerquer.php" method="POST">
-        <div class="container mt-10 p-3 cart" style="margin-top: 1%; background-color: #F6F6F6; border-radius: 30px; margin-bottom: 4%; margin-left: 13%;">
+        <div class="container mt-10 p-3 cart" style="margin-top: 1%; background-color: #F6F6F6; border-radius: 30px; margin-bottom: 4%; margin-left: 13.5%;">
             <div class="payment-info">
             <div style="float:right; margin-right:5%; margin-top:0.5%;">
     
@@ -72,7 +72,7 @@
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">ชื่อ :</label>
                     <label class="credit-card-label" style="margin-right:26%; font-size: 18px; color: #6e6e6e;"><?php echo $name; ?></label>
                     <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">รหัสนักศึกษา:</label>
-                    <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e; "><?php echo $uid; ?></label>
+                    <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e; ">B630000</label>
                 </div>
                 <div>
                     <label class="credit-card-label" style="margin-left: 5%; margin-right: 22.4%; font-size: 18px; color: #6e6e6e;">คณะ : กระทรวงเวทย์มนต์</label>

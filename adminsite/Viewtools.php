@@ -55,7 +55,15 @@
 
         <div class="payment-info">
             <div style="float: left;">
-                <img src="<?php echo $pic_path; ?>" style="border-radius: 20px; background:black; margin-left:10%;" width="300px" src="">
+                <img src="<?php echo $pic_path; ?>"   
+                style="
+                height: 30%;
+                width: 100%;
+	            margin: 0 auto;
+	            z-index: 1;
+                margin-left:45px;
+                margin-top:22px;
+	            border-radius: 22px; " width="300px" src="">
 
             </div>
             <div style="color: black;  font-size: 25px;">
