@@ -92,22 +92,20 @@
                 
                 ?>
 
-                <div class="card blog-horizontal" style="border-radius: 20px; box-shadow:0px 1px 4px 4px rgba(0, 0, 0, 0.25); width: 126.3%; margin-left: -13.5%; margin-bottom:8%; height:40%;">
+                <div class="card blog-horizontal" style="border-radius: 20px; box-shadow:0px 1px 4px 4px rgba(0, 0, 0, 0.25); width: 264%; margin-left: -83%; margin-bottom:8%; ">
                     <div class="card-body">
-                        <div class="card-img-actions mr-sm-3 mb-3" style="max-width: 50%;">
-                            <a href="#course_preview" data-toggle="modal" data-abc="true">
-                                <img src="<?php echo $row["post_pic_path"]; ?>" style="max-width: 85%; margin-left: 5%;" class="img-fluid card-img" alt="">
-                            </a>
+                        <div class="card-img-actions mr-sm-3 mb-3" >
+                                <img src="<?php echo $row["post_pic_path"]; ?>" style="margin-left: 15%; height: 15%; width: 65%; " class="img-fluid card-img" alt="">
                         </div>
 
-                        <div class="mb-3" >
+                        <div class="mb-3" style="margin-left: 0%; " >
                             <h2 class="d-flex font-weight-bold flex-nowrap my-1" style="color: #918F8F; "><?php echo $row["post_title"]; ?></h2>
                             <ul class="list-inline list-inline-dotted text-muted mb-0">
-                                <li class="list-inline-item" style="font-size: 16px;"><?php echo $row["post_time"]; ?></li>
+                                <li class="list-inline-item" style="font-size: 20px;"><?php echo $row["post_time"]; ?></li>
                             </ul>
                         </div>
 
-                        <div style="width: 80%;">
+                        <div style="width: 80%; margin-left: 0%;" >
                             <p style="color: #918F8F; font-size: 20px;"><?php echo $row["post_desc"]; ?></p>
                         </div>
                     </div>

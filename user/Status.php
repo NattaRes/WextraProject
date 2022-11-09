@@ -109,7 +109,7 @@
                                                             // Approved
 
                                                             echo '<span style="float: left; margin-left: 15%; margin-top: 4%;" class="dot"></span>
-                                                            <h5 style="text-align: center; color:green; font-size: 20px; margin-right: 15%;">อนุมัติ</h5>';
+                                                            <h5 style="text-align: center; color:green; font-size: 20px; margin-right: 20%;">อนุมัติ</h5>';
                                                         } elseif ($questat == 3) {
                                                             // Disapproved
 
