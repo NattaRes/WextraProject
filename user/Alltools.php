@@ -109,9 +109,9 @@
 											</div>
 											<div style="clear: left; margin-bottom: 10%; margin-top: -2%;">
 
-												<h5 style="color: green; margin-right: 70%; margin-bottom: -60%; margin-top: 20%; border:3px black">
-													ว่าง</h5>
-												<span style="float: left;  margin-top: 6%;" class="dot"></span>
+												<!-- <h5 style="color: green; margin-right: 70%; margin-bottom: -60%; margin-top: 20%; border:3px black">
+													ว่าง</h5> -->
+												<!-- <span style="float: left;  margin-top: 6%;" class="dot"></span> -->
 												<input name="toolidall" type="hidden" value="<?php echo $toolrow["tool_all_ID"]; ?>" />
 												<input name="quantinum" type="number" min="1" max="999" style="width:35%; margin-left:15%;  margin-top:4%;" value="1" />
 
