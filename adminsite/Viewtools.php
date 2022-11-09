@@ -89,11 +89,6 @@
                 <label class="credit-card-label" style="margin-left: 10%; font-size: 20px; color: black; ">ยี่ห้อ : <?php echo $brandname; ?></label>
                 <label class="credit-card-label" style="margin-left: 13%; font-size: 20px; color: black; ">รุ่น : <?php echo $tmodel; ?></label>
             </div>
-            <div><label class="credit-card-label" style="margin-left: 10%; font-size: 20px; color: black; ">สถานะ :</label>
-                <label class="credit-card-label" style="font-size: 20px; color: black;">ว่าง</label>
-                <label class="credit-card-label" style="margin-left: 14.5%; font-size: 20px; color: black;">สภาพ :</label>
-                <label class="credit-card-label" style="font-size: 20px; color: black;">ใช้งานได้</label>
-            </div>
 
             <div style="width: 100%;">
                 <label class="credit-card-label" style="margin-left: 10%; font-size: 20px; color: black;">รายละเอียด :</label>
@@ -160,7 +155,7 @@
                                                     echo '</td>';
 
                                                     echo '<td style="border: 2px solid rgb(194, 194, 194); ">';
-                                                    echo '<span class="user-link1">' . $specrow["tool_status"] . '</span>';
+                                                    echo '<span class="user-link1">' . $specrow["t_status"] . '</span>';
                                                     echo '</td>';
 
                                                     echo '</tr>';
