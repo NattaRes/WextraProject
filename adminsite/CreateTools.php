@@ -101,7 +101,7 @@
               border:none;
               font-size: 20px;
               border-radius:5px;
-              margin-left:80%;
+              margin-left:85%;
               background: #015C92;              
               color:#fff;
               cursor:pointer;">
@@ -118,6 +118,8 @@
               border-radius:5px;
               background:rgba(192, 0, 0, 0.777);	
               color:#fff;
+              margin-left:85%;
+              margin-top:2%;
               cursor:pointer;">
             ยกเลิก
           </button>

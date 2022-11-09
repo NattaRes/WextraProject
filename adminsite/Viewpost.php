@@ -48,10 +48,15 @@
             <div class="col-md-12">
                 <div class="card blog-horizontal mt-5" style="border-radius: 20px; box-shadow:0px 1px 4px 4px rgba(0, 0, 0, 0.25); width: 90%; margin-left: 6%;">
                     <div class="card-body">
-                        <div class="card-img-actions mr-sm-3 mb-3" style="max-width: 50%; float: left;">
-                            <a href="#course_preview" data-toggle="modal" data-abc="true">
-                                <img src="<?php echo $pic_path; ?>" class="img-fluid card-img" alt="">
-                            </a>
+                        <div style="max-width: 30%;max-height: 50%; float: left;">
+                        <img src="<?php echo $pic_path; ?>"  
+                                style="
+                                 height: 100%;
+                                 width: 80%;
+                                 margin-left:10px;
+                                 margin-top:5px;
+	                             border-radius: 22px; " 
+                                 alt="">
                         </div>
                         <div class="mb-3">
                             <h4 class="d-flex font-weight-bold flex-nowrap my-1" style="color: black;"><?php echo $title; ?></h4>

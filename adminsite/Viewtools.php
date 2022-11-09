@@ -58,7 +58,7 @@
                 <img src="<?php echo $pic_path; ?>"   
                 style="
                 height: 30%;
-                width: 100%;
+                max-width: 80%;
 	            margin: 0 auto;
 	            z-index: 1;
                 margin-left:45px;
@@ -97,7 +97,7 @@
 
             <div>
                 <a herf="Historytools.html">
-                    <button class="onbutton" type="button" style="margin-left:10%; margin-top:2%;">ประวัติการใช้งาน</button>
+                    <button class="onbutton" type="button" style="margin-left:2%; margin-top:2%;">ประวัติการใช้งาน</button>
                 </a>
             </div>
             <hr noshade="noshade" style="color: black; margin-top: 2%;">

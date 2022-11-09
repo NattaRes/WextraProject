@@ -55,7 +55,7 @@
             ?>
 
             <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10" style="width:80%; margin-left:10%; margin-right:20%; height:100%">
-            <a href="ManageUser.php?sfi=all&sinput=" >
+            <a href="ListTools.php?cateinput=all&sfi=all&sinput=" >
             <i class='fa fa-times' style="float:right; font-size:30px; margin-top:0%;">
             </i>
             </a>

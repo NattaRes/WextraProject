@@ -51,7 +51,11 @@
             ?>
 
             <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10" style="width:70%; margin-left:15%; margin-right:20%; height:100%">
-                <form method="GET" action="../adminbackend/edituser.php">
+            <a href="ManageUser.php?sfi=all&sinput=" >
+            <i class='fa fa-times' style="float:right; font-size:30px; margin-top:0%;">
+            </i>
+            </a>       
+            <form method="GET" action="../adminbackend/edituser.php">
                     <!-- Text Input -->
                     <div style="float: left ;  margin-bottom: 1%;">
                         <label style="font-size: 18px;">
@@ -91,7 +95,7 @@
                                 border:none;
                                 font-size: 20px;
                                 border-radius:5px;
-                                margin-left:65%;
+                                margin-left:85%;
                                 background: #015C92;              
                                 color:#fff;
                                 cursor:pointer;">
@@ -101,18 +105,6 @@
                     </div>
 
                 </form>
-                <a href="ManageUser.php?sfi=all&sinput=">
-                    <button type="reset" style="width:150px;
-                            height:40px;
-                            border:none;
-                            font-size: 20px;
-                            border-radius:5px;
-                            background:rgba(192, 0, 0, 0.777);	
-                            color:#fff;
-                            cursor:pointer;">
-                        ยกเลิก
-                    </button>
-                </a>
             </div>
         </div>
     </div>
