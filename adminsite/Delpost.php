@@ -82,7 +82,8 @@
                             ภาพ :
                         </label>
                         <label style="font-size: 18px;">
-                            <img src="" alt="">
+                            <?php echo $pic_path; ?>
+                            <!-- <img src="" alt=""> -->
                         </label>
                     </div>
                     <div style="clear: left;  margin-bottom: 1%;">
