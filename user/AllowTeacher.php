@@ -71,7 +71,7 @@
             </div><span class="type d-block mt-3 mb-1"></span>
             <div>
                 <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">ชื่อ :</label>
-                <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;"><?php echo $username; ?></label>
+                <label class="credit-card-label" style="margin-right:26%; font-size: 18px; color: #6e6e6e;"><?php echo $username; ?></label>
                 <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">รหัสนักศึกษา:</label>
                 <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e; "><?php echo $uid; ?></label>
             </div>
