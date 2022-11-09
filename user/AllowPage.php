@@ -74,15 +74,20 @@
                                     WHERE tool_all_ID = '$cartoolidall'
                                     AND (queue_status = 1 OR queue_status = 2 OR queue_status = 6)";
                                 $resledea = $conn->query($ledgereachID);
-                            }
+
+                                $toolspeceach = "SELECT * FROM tool_specific_table
+                                    WHERE tool_all_ID = '$cartoolidall'";
+                                $restlspea = $conn->query($toolspeceach);
 
                             ?>
-                            <tr>
-                                <td style="border:0.5px solid #6e6e6e;">
-                                    <h5 style="text-align: center; color: #6e6e6e;"></h5>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td style="border:0.5px solid #6e6e6e;">
+                                        <h5 style="text-align: center; color: #6e6e6e;"></h5>
+                                    </td>
+                                </tr>
                             <?php
+
+                            }
 
                             ?>
                         </tbody>

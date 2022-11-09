@@ -72,8 +72,8 @@
                                 margin-top: 9%;" src="<?php echo $pic_path; ?>">
                         </div>
                         <div style="margin-top: -10%; margin-bottom:5%">
-                            <span class="dot"></span>
-                            <lebel style="color: green; margin-left: 5%; font-size: 20px; font-weight: bold;">ว่าง</lebel>
+                            <!-- <span class="dot"></span>
+                            <lebel style="color: green; margin-left: 5%; font-size: 20px; font-weight: bold;">ว่าง</lebel> -->
                         </div>
                         <div style="margin-bottom:10%; margin-top: 5%;">
                             <h5 style="float: left; margin-left: 5%;color: #6e6e6e;">จำนวน :</h5>

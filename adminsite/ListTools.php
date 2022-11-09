@@ -234,12 +234,20 @@
                 $rownum = 1;
 
                 while ($row = mysqli_fetch_array($res)) {
+
+                  $tlidall = $row["tool_all_ID"];
+
+                  $countitem = "SELECT * FROM tool_specific_table
+                    WHERE tool_all_ID = '$tlidall'";
+                  $rescou = $conn->query($countitem);
+                  $itemnum = mysqli_num_rows($rescou);
+
                   echo '<tr id="' . $row["tool_all_ID"] . '">';
                   echo '<td width="10%" style="border:2px solid #686868;">' . '<h5 style="text-align: center; color: black;">' . $rownum . '</h5>' . '</td>';
                   echo '<td width="10%" style="border:2px solid #686868;">' . '<h5 style="text-align: center; color: black;">' . $row["tool_all_ID"] . '</h5>' . '</td>';
                   echo '<td width="10%" style="border:2px solid #686868;">' . '<h5 style="text-align: center; color: black;">' . $row["tool_name"] . ' ' . $row["brand_name"] . ' ' . $row["tool_model"] . '</h5>' . '</td>';
                   echo '<td width="10%" style="border:2px solid #686868;">' . '<h5 style="text-align: center; color: black;">' . $row["type_name"] . '</h5>' . '</td>';
-                  echo '<td width="10%" style="border:2px solid #686868;">' . '<h5 style="text-align: center; color: black;">' . "NUMBER" . '</h5>' . '</td>';
+                  echo '<td width="10%" style="border:2px solid #686868;">' . '<h5 style="text-align: center; color: black;">' . $itemnum . '</h5>' . '</td>';
                   echo '<td width="15%" align="center" colspan="3" style="border:2px solid #686868;">
                       <a href="Viewtools.php?toolidall=' . $row["tool_all_ID"] . '">
                         <button style="background-color:rgba(1, 93, 146, 0.777); 
