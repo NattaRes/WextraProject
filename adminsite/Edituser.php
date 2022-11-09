@@ -97,22 +97,22 @@
                                 cursor:pointer;">
                             ยืนยัน
                         </button>
-                        <a href="ManageUser.php?sfi=all&sinput=">
-                        <button type="reset" style="width:150px;
-                                height:40px;
-                                border:none;
-                                font-size: 20px;
-                                border-radius:5px;
-                                background:rgba(192, 0, 0, 0.777);	
-                                color:#fff;
-                                cursor:pointer;">
+
+                    </div>
+
+                </form>
+                <a href="ManageUser.php?sfi=all&sinput=">
+                    <button type="reset" style="width:150px;
+                            height:40px;
+                            border:none;
+                            font-size: 20px;
+                            border-radius:5px;
+                            background:rgba(192, 0, 0, 0.777);	
+                            color:#fff;
+                            cursor:pointer;">
                         ยกเลิก
                     </button>
                 </a>
-                    </div>
-                  
-                </form>
-             
             </div>
         </div>
     </div>
