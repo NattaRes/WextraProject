@@ -61,7 +61,19 @@
                             $resctrg = $conn->query($cartrange);
 
                             while ($cartrange = mysqli_fetch_array($resctrg)) {
-                                
+                                $cartoolidall = $cartrange["tool_all_ID"];
+
+                                $carteachID = "SELECT * FROM tool_cart
+                                    WHERE tool_all_ID = '$cartoolidall'
+                                    AND UID = '$uid'
+                                    AND cart_status_ID = 2";
+                                $resctea = $conn->query($carteachID);
+                                $countea = mysqli_num_rows($resctea);
+
+                                $ledgereachID = "SELECT * FROM ledger_table
+                                    WHERE tool_all_ID = '$cartoolidall'
+                                    AND (queue_status = 1 OR queue_status = 2 OR queue_status = 6)";
+                                $resledea = $conn->query($ledgereachID);
                             }
 
                             ?>

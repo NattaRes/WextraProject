@@ -33,6 +33,7 @@
         $username = $rowuser["username"];
         $email = $rowuser["email"];
         $phone = $rowuser["phonenum"];
+        $profilepic = $rowuser["profile_pic_path"];
     }
 
     ?>
@@ -48,7 +49,7 @@
                             <div class="d-flex justify-content-between align-items-center mb-3" style="margin-top: 15%; color:#717171">
                                 <h4>โปรไฟล์</h4>
                             </div>
-                            <img id="proimg" style="border-radius: 20px;" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                            <img id="proimg" style="border-radius: 20px;" width="150px" src="<?php echo $profilepic; ?>">
                             <span class="font-weight-bold">
                                 <button onclick="setpic()" id="filebtn" style="background: #D9D9D9; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 9px; width: 150px;
                                 height: 45px; border: none;color: #7A7A7A;" type="button">เปลี่ยนรูปภาพ</button>
