@@ -97,7 +97,7 @@
 
             <div>
                 <a herf="Historytools.html">
-                    <button class="onbutton" type="button" style="margin-left:2%; margin-top:2%;">ประวัติการใช้งาน</button>
+                    <button class="onbutton" type="button" style="margin-left:10%; margin-top:2%;">ประวัติการใช้งาน</button>
                 </a>
             </div>
             <hr noshade="noshade" style="color: black; margin-top: 2%;">
@@ -151,11 +151,11 @@
                                                     echo '</td>';
 
                                                     echo '<td width="40%" style="border: 2px solid rgb(194, 194, 194); ">';
-                                                    echo '<span class="user-link1">' . $specrow["tool_spec_ID"] . '</span>';
+                                                    echo '<span class="user-link1" style="color: black;">' . $specrow["tool_spec_ID"] . '</span>';
                                                     echo '</td>';
 
                                                     echo '<td style="border: 2px solid rgb(194, 194, 194); ">';
-                                                    echo '<span class="user-link1">' . $specrow["t_status"] . '</span>';
+                                                    echo '<span class="user-link1" style="color: black;">' . $specrow["t_status"] . '</span>';
                                                     echo '</td>';
 
                                                     echo '</tr>';
