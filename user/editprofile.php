@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" />
 
+    <script>
+        function setpic() {
+            document.getElementById("filer").click();
+        }
+    </script>
+
 </head>
 
 <body>
@@ -33,25 +39,27 @@
 
     <div style="margin-top: 10%;">
 
-        <div class="container bg-white mt-5 mb-5" style="border-radius: 25px;">
-            <div class="row">
-                <div style="margin-left: 15%;">
-                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                        <div class="d-flex justify-content-between align-items-center mb-3" style="margin-top: 15%; color:#717171">
-                            <h4>โปรไฟล์</h4>
-                        </div>
-                        <img style="border-radius: 20px;" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                        <span class="font-weight-bold">
-                            <button style="background: #D9D9D9; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 9px; width: 150px;
+        <form id="theform" action="../universalbackend/accedit.php" method="POST" enctype="multipart/form-data">
+
+            <div class="container bg-white mt-5 mb-5" style="border-radius: 25px;">
+                <div class="row">
+                    <div style="margin-left: 15%;">
+                        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                            <div class="d-flex justify-content-between align-items-center mb-3" style="margin-top: 15%; color:#717171">
+                                <h4>โปรไฟล์</h4>
+                            </div>
+                            <img id="proimg" style="border-radius: 20px;" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                            <span class="font-weight-bold">
+                                <button onclick="setpic()" id="filebtn" style="background: #D9D9D9; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 9px; width: 150px;
                                 height: 45px; border: none;color: #7A7A7A;" type="button">เปลี่ยนรูปภาพ</button>
-                        </span>
+                                <input type="file" name="picupload" id="filer" hidden /></span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-md-5" style="margin-left: 20%;">
-                    <div>
+                    <div class="col-md-5" style="margin-left: 20%;">
+                        <div>
 
-                        <form action="../universalbackend/accedit.php" method="POST">
+
 
                             <div style="margin-top: 15%;">
                                 <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">ชื่อ </label>
@@ -91,17 +99,17 @@
 
                             <div class="mt-5 text-center">
                                 <button style="background: #019214; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 9px; width: 100px;
-                                height: 45px; border: none;color: #ffffff; margin-bottom: 10%; margin-left: 50%;" type="submit">ยืนยัน</button>
-                        </form>
-                        <a href="Profile.php">
-                            <button style="background: #b71010; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 9px; width: 100px;
+                                height: 45px; border: none;color: #ffffff; margin-bottom: 10%; margin-left: 50%;" type="submit" name="submit">ยืนยัน</button>
+        </form>
+        <a href="Profile.php">
+            <button style="background: #b71010; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 9px; width: 100px;
                                     height: 45px; border: none;color: #ffffff; margin-bottom: 10%; margin-left: 0%;" type="button">ยกเลิก
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </button>
+        </a>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
 
 </body>
