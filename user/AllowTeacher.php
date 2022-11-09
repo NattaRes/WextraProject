@@ -72,6 +72,8 @@
             <div>
                 <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">ชื่อ :</label>
                 <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;"><?php echo $username; ?></label>
+                <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">รหัสนักศึกษา:</label>
+                <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e; "><?php echo $uid; ?></label>
             </div>
             <div>
                 <label class="credit-card-label" style="margin-left: 5%; margin-right: 22.4%; font-size: 18px; color: #6e6e6e;">คณะ : กระทรวงเวทย์มนต์</label>
