@@ -68,7 +68,7 @@
                     }
 
                     ?>
-                    <label class="credit-card-label" style="margin-left: 5%; font-size: 20px; color: black; ">หมายเลคคิว :</label>
+                    <label class="credit-card-label" style="margin-left: 5%; font-size: 20px; color: black; ">หมายเลขคิว :</label>
                     <label class="credit-card-label" style="font-size: 20px; margin-left: 1%; color: black; "><?php echo $queid; ?></label>
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 20px; color: black; ">ชื่อ :</label>
                     <label class="credit-card-label" style="font-size: 20px; margin-left: 1%; color: black; "><?php echo $username; ?></label>
@@ -81,15 +81,15 @@
 
                 </div>
                 <div>
-                    <label class="credit-card-label" style="margin-left: 5%; font-size: 20px; color: black; ">คณะ : กระทรวงเวทย์มนต์</label>
-                    <label class="credit-card-label" style="margin-left: 13%; font-size: 20px; color: black; ">สาขา : เทคโนโลยีดิจิทัล</label>
+                    <label class="credit-card-label" style="margin-left: 5%; margin-right: 22.4%; font-size: 20px; color: black; ">คณะ : กระทรวงเวทย์มนต์</label>
+                    <label class="credit-card-label" style="font-size: 20px; color: black; ">สาขา : เทคโนโลยีดิจิทัล</label>
                 </div>
-                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 20px;color: black; ">Email : <?php echo $email; ?></label>
-                    <label class="credit-card-label" style="margin-left: 10.5%;font-size: 20px; color: black; ">เบอร์ติดต่อ : <?php echo $phone; ?></label>
+                <div><label class="credit-card-label" style="margin-left: 5%; margin-right: 11%; font-size: 20px;color: black; ">Email : <?php echo $email; ?></label>
+                    <label class="credit-card-label" style="font-size: 20px; color: black; ">เบอร์ติดต่อ : <?php echo $phone; ?></label>
                 </div>
-                <div><label class="credit-card-label" style="margin-left: 5%; font-size: 20px; color: black; ">วันที่ยืม :</label>
+                <div><label class="credit-card-label" style="margin-left: 5%; margin-right: 20.5%;  font-size: 20px; color: black; ">วันที่ยืม :</label>
                     <label class="credit-card-label" style="font-size: 20px; color: black;"><?php echo date_format($s_date, "d/m/Y"); ?></label>
-                    <label class="credit-card-label" style="margin-left: 20.5%; font-size: 20px; color: black;">หมายเหตุ :</label>
+                    <label class="credit-card-label" style="font-size: 20px; color: black;">หมายเหตุ :</label>
                     <label class="credit-card-label" style="font-size: 20px; color: black;"><?php echo $qdesc; ?></label>
                 </div>
                 <div>
