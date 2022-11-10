@@ -18,6 +18,8 @@
 
     <?php
 
+    date_default_timezone_set("Asia/Bangkok");
+
     include("../connectdb.php");
 
     $uid = $_COOKIE["userck"];
@@ -57,6 +59,7 @@
                                 <td>
                                     <?php
 
+                                    // date restricter
                                     $cartrange = "SELECT * FROM tool_cart
                                         WHERE UID = '$uid'
                                         AND cart_status_ID = 2";
@@ -98,12 +101,12 @@
                                                     }
                                                 } else {
 
-                                                    $todaydate = date_create("today");
+                                                    $todaydate = date_create("tomorrow");
                                                     $theledone = date_create($ledea["ledger_s_date"]);
 
                                                     if ($todaydate < $theledone) {
 
-                                                        $xsdate = date_create("today");
+                                                        $xsdate = date_create("tomorrow");
                                                     } else {
                                                         $xsdate = date_create($ledea["ledger_s_date"]);
                                                     }
@@ -139,26 +142,34 @@
 
                                                 foreach ($period as $dati) {
 
-                                                    echo date_format($dati, "d/m/Y");
+                                                    //echo date_format($dati, "d/m/Y");
 
                                                     $date = date_format($dati, "Y-m-d");
 
                                                     // date_format($dati, "Y-m-d");
 
                                                     $ledgerdate = "SELECT * FROM ledger_table
-                                                        WHERE ledger_s_date <= $date
-                                                        AND ledger_e_date >= $date";
+                                                        WHERE tool_all_ID = '$cartoolidall'
+                                                        AND ((ledger_s_date < '$date') OR (ledger_s_date = '$date'))
+                                                        AND ((ledger_e_date > '$date') OR (ledger_e_date = '$date'))
+                                                        AND (queue_status = 1 OR queue_status = 2 OR queue_status = 6)";
                                                     $resledate = $conn->query($ledgerdate);
                                                     $countledate = mysqli_num_rows($resledate);
 
-                                                    if (($countledate = $tlspcount) && (($tlspcount - $countledate) < $countea)) {
+                                                    // echo "countledate : " . $countledate . "</br>";
+                                                    // echo "tlspcount : " . $tlspcount . "</br>";
+                                                    // echo "countea : " . $countea . "</br>";
 
+                                                    if (($countledate = $tlspcount) && (($tlspcount - $countledate) < $countea)) {
+                                                        // ถ้า จำนวนเครื่องมือ i จาก ledger table ในวันที่ x เท่ากับ จำนวนเครื่องมือ i ที่ใช้ได้
+                                                        // และ
+                                                        // ถ้า จำนวนเครื่องมือ i ที่ใช้ได้ - จำนวนเครื่องมือ i จาก ledger table ในวันที่ x น้อยกว่า จำนวนเครื่องมือ i จาก cart
                                                         $ledgersted[] = $date;
                                                     } else {
                                                     }
                                                 }
 
-                                                print_r($ledgersted);
+                                                //print_r($ledgersted);
 
                                                 for ($xi = 0; $xi < sizeof($ledgersted); $xi++) {
 
@@ -166,11 +177,9 @@
 
                                                     if (isset($ledgersted[$xi + 1])) {
 
-                                                        // echo date_format($ledgersted[$xi]["date"], "d/m/Y");
-
                                                         $datex2 = date_create($ledgersted[$xi + 1]);
 
-                                                        echo "</br>" . date_format($datex1, "d/m/Y") . " TO " . date_format($datex2, "d/m/Y");
+                                                        // echo "</br>" . date_format($datex1, "d/m/Y") . " TO " . date_format($datex2, "d/m/Y");
 
                                                         $datein = date_diff($datex1, $datex2);
 
@@ -185,17 +194,17 @@
 
                                                             $ydate[$gc][] = $datex1;
                                                             $zdate[$gc][] = $datex2;
-                                                            echo "hello";
+                                                            // echo "hello";
                                                         } else {
 
                                                             echo "hi";
                                                         }
-                                                        print_r($ydate);
-                                                        print_r($zdate);
+                                                        // print_r($ydate);
+                                                        // print_r($zdate);
                                                     } else {
 
                                                         $endate[] = $datex1;
-                                                        echo "</br>" . "End at : " . date_format($datex1, "d/m/Y");
+                                                        // echo "</br>" . "End at : " . date_format($datex1, "d/m/Y");
                                                     }
                                                 }
                                             } else {
@@ -410,14 +419,14 @@
         $("#s_date").datepicker({
             onSelect: datepicked,
             dateFormat: 'yy-mm-dd',
-            minDate: "+2D", //ไม่สามารถจองวันที่ย้อนหลังได้ 
+            minDate: "+1D", //ไม่สามารถจองวันที่ย้อนหลังได้ 
             // maxDate: "+4D", //จองล่วงหน้าได้ไม่เกิน 2 วัน 
             beforeShowDay: noWeekends
         });
         $("#e_date").datepicker({
             onSelect: datepicked,
             dateFormat: 'yy-mm-dd',
-            minDate: "+3D", //ไม่สามารถจองวันที่ย้อนหลังได้ 
+            minDate: "+2D", //ไม่สามารถจองวันที่ย้อนหลังได้ 
             // maxDate: "+4D", //จองล่วงหน้าได้ไม่เกิน 2 วัน 
             beforeShowDay: noWeekends
         });
