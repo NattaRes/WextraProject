@@ -38,7 +38,7 @@
                 <!--radio buttons end-->
                 <!--slide images start-->
                 <div class="slide first">
-                    <img src="../image/post.png" alt="" style="  border: 5px solid rgba(0,0,0,.125); box-shadow:0px 1px 4px 4px rgba(0, 0, 0, 0.25); height:60%;">
+                    <img src="../image/Banner.png" alt="" style="  border: 5px solid rgba(0,0,0,.125); box-shadow:0px 1px 4px 4px rgba(0, 0, 0, 0.25); height:60%;">
                 </div>
                 <!--<div class="slide">
                     <img src="https://www.learningstudio.info/wp-content/uploads/2013/08/Untitled8.png" alt="">
@@ -95,7 +95,7 @@
                 <div class="card blog-horizontal" style="border-radius: 20px; box-shadow:0px 1px 4px 4px rgba(0, 0, 0, 0.25); width: 264%; margin-left: -83%; margin-bottom:8%; ">
                     <div class="card-body">
                         <div class="card-img-actions mr-sm-3 mb-3" >
-                                <img src="<?php echo $row["post_pic_path"]; ?>" style="margin-left: 15%; height: 15%; width: 65%; " class="img-fluid card-img" alt="">
+                                <img src="<?php echo $row["post_pic_path"]; ?>" style="margin-left: 15%; height: 15%; width: 65%; margin-top: 3%;" class="img-fluid card-img" alt="">
                         </div>
 
                         <div class="mb-3" style="margin-left: 0%; " >
