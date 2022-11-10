@@ -155,17 +155,17 @@
 
                                                 echo "</br>" . date_format($datex1, "d/m/Y") . " TO " . date_format($datex2, "d/m/Y");
 
-                                                // $datein = date_diff($ledgersted[$xi]["date"], $ledgersted[$xi+1]["date"]);
+                                                $datein = date_diff($ledgersted[$xi]["date"], $ledgersted[$xi+1]["date"]);
 
-                                                // echo $datein->d;
+                                                echo $datein->d;
 
-                                                // if ($datein->d >= 3) {
+                                                if ($datein->d >= 3) {
 
-                                                //     echo "hello";
-                                                // } else {
+                                                    echo "hello";
+                                                } else {
 
-                                                //     echo "hi";
-                                                // }
+                                                    echo "hi";
+                                                }
                                             } else {
 
                                                 echo "</br>" . "End at : " . date_format($datex1, "d/m/Y");
