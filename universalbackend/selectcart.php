@@ -2,62 +2,69 @@
 
 include("../connectdb.php");
 
-$fromcart = $_POST["carter"];
-$quantinum = $_POST["quantis"];
+if (isset($_POST["carter"])) {
 
-$uid = $_COOKIE["userck"];
+    $fromcart = $_POST["carter"];
+    $quantinum = $_POST["quantis"];
 
-$resetsql = "UPDATE tool_cart SET
-    cart_status_ID = 1
-    WHERE UID = '$uid'";
+    $uid = $_COOKIE["userck"];
 
-$res = $conn->query($resetsql);
-
-if ($res) {
-
-    $allcartsql = "SELECT * FROM tool_cart
+    $resetsql = "UPDATE tool_cart SET
+        cart_status_ID = 1
         WHERE UID = '$uid'";
 
-    $resallcart = $conn->query($allcartsql);
+    $res = $conn->query($resetsql);
 
-    $x = 0;
+    if ($res) {
 
-    while ($rowall = mysqli_fetch_array($resallcart)) {
-        $cartID = $rowall["cart_ID"];
-        $toolID = $rowall["tool_all_ID"];
-        $updatequantitysql = "UPDATE tool_cart SET
+        $allcartsql = "SELECT * FROM tool_cart
+        WHERE UID = '$uid'";
+
+        $resallcart = $conn->query($allcartsql);
+
+        $x = 0;
+
+        while ($rowall = mysqli_fetch_array($resallcart)) {
+            $cartID = $rowall["cart_ID"];
+            $toolID = $rowall["tool_all_ID"];
+            $updatequantitysql = "UPDATE tool_cart SET
             quantity = '$quantinum[$x]'
             WHERE cart_ID = '$cartID'";
 
-        $resquantity = $conn->query($updatequantitysql);
+            $resquantity = $conn->query($updatequantitysql);
 
-        $x++;
-    }
+            $x++;
+        }
 
-    if ($resquantity) {
-        for ($i = 0; $i < sizeof($fromcart); $i++) {
-            $selectersql = "UPDATE tool_cart SET
+        if ($resquantity) {
+            for ($i = 0; $i < sizeof($fromcart); $i++) {
+                $selectersql = "UPDATE tool_cart SET
                 cart_status_ID = 2
                 WHERE cart_ID = '$fromcart[$i]'";
 
-            $resselect = $conn->query($selectersql);
-        }
+                $resselect = $conn->query($selectersql);
+            }
 
-        if ($resselect) {
-            
-            echo "<script type='text/javascript'>location.href='../user/AllowPage.php';</script>";
+            if ($resselect) {
+
+                echo "<script type='text/javascript'>location.href='../user/AllowPage.php';</script>";
+            } else {
+
+                echo "Layer 3 : " . mysqli_error($conn);
+                // echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
+            }
         } else {
 
-            echo "Layer 3 : " . mysqli_error($conn);
+            echo "Layer 2 : " . mysqli_error($conn);
             // echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
         }
     } else {
 
-        echo "Layer 2 : " . mysqli_error($conn);
+        echo "Layer 1 : " . mysqli_error($conn);
         // echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
     }
 } else {
 
-    echo "Layer 1 : " . mysqli_error($conn);
-    // echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
+    echo "<script type='text/javascript'> alert('Select item from cart before submit.') </script>";
+    echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
 }

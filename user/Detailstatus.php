@@ -38,6 +38,7 @@
     $resque = $conn->query($queselectsql);
 
     while ($rowresq = mysqli_fetch_array($resque)) {
+        $quenum = $rowresq["que_ID"];
         $queowner = $rowresq["que_owner_UID"];
         $aprname = $rowresq["username"];
         $qsdate = $rowresq["s_date"];
@@ -56,7 +57,7 @@
         <div class="row-md-4">
             <div class="d-flex justify-content-between align-items-center" style="color: #7E7C7C;  margin-top: 2%;">
 
-                <h2 style="margin-left: 7.5%; font-weight: bold;">ลำดับคิวที่ 1</h2>
+                <h2 style="margin-left: 7.5%; font-weight: bold;">หมายเลขคิว <?php echo $quenum; ?></h2>
                 <span class="credit-card-label" style="font-size: 18px; color: #7E7C7C; font-weight: bold; margin-left: 55%;">วันที่รับอุปกรณ์ :</span>
                 <span class="credit-card-label" style="font-size: 18px; color: #7E7C7C; font-weight: bold; margin-right: 5%;"><?php echo date_format($s_date, "d/m/Y"); ?></span>
 

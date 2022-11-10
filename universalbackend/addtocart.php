@@ -38,6 +38,7 @@ if ($rescheck) {
 
         if ($rescart) {
 
+            echo "<script type='text/javascript'> alert('Added to cart.') </script>";
             echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
         } else {
 
@@ -47,6 +48,7 @@ if ($rescheck) {
     } else {
 
         // echo "<script type='text/javascript'> alert('Error (EMPTY) : " . mysqli_error($conn) . "') </script>";
+        echo "<script type='text/javascript'> alert('Item existed in cart.') </script>";
         echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
     }
 } else {
