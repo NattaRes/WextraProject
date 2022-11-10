@@ -52,8 +52,8 @@
           </a>
         </div>
       </div>
+      <!--
       <div class="column">
-
         <div class="two">
           <a href="Alltools.php" class="bt">
             <img src="../image/icon/video-camera.png" alt="" class="iconimg" style="margin-left: 30%;">
@@ -61,6 +61,7 @@
           </a>
         </div>
       </div>
+     -->
       <div class="column">
         <div class="three">
           <a href="Alltools.php" class="bt">

@@ -95,11 +95,11 @@
                 <label class="credit-card-label" style="font-size: 20px; color: black; "><?php echo $desc; ?></lebel>
             </div>
 
-            <div>
+            <!--<div>
                 <a herf="Historytools.html">
                     <button class="onbutton" type="button" style="margin-left:10%; margin-top:2%;">ประวัติการใช้งาน</button>
                 </a>
-            </div>
+            </div>-->
             <hr noshade="noshade" style="color: black; margin-top: 2%;">
 
             <div>
