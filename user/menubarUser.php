@@ -57,7 +57,7 @@
       </li>
       
       <li>
-        <a href="Alltools.php?sinput=&tpin=" target="Changepage1" onclick="changePageTitletools()">
+        <a href="Alltools.php?sinput=&tpin=all" target="Changepage1" onclick="changePageTitletools()">
           <img src="../image/icon/photo-camera (1).png" class="iconimg" />
           <span>เครื่องมือ</span>
         </a>
