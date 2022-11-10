@@ -138,7 +138,7 @@
 										<input type="hidden" name="toolcount" value="<?php echo $countresta; ?>" />
 										<div class="box-area">
 											<div class="img-area">
-												<img src="<?php echo $toolrow["tool_pic_path"]; ?>" alt="" style="width: 100%;height: 100%;
+												<img src="<?php echo $toolrow["tool_pic_path"]; ?>" alt="" style="width: 160px;height: 160px; margin-left:20%;
 											border-radius: 22px;">
 											</div>
 
