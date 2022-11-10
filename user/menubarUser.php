@@ -70,17 +70,18 @@
         </a>
       </li>
       <li>
-        <a href="Blog.php" target="Changepage1" onclick="changePageTitlenews()">
-          <img src="../image/icon/notification.png" class="iconimg" />
-          <span>ข่าวสาร</span>
-        </a>
-      </li>
-      <li>
         <a href="Status.php" target="Changepage1" onclick="changePageTitlest()">
           <img src="../image/icon/hourglass.png" class="iconimg" />
           <span>เช็คสถานะ</span>
         </a>
       </li>
+      <li>
+        <a href="Blog.php" target="Changepage1" onclick="changePageTitlenews()">
+          <img src="../image/icon/notification.png" class="iconimg" />
+          <span>ข่าวสาร</span>
+        </a>
+      </li>
+  
       <!--<li>
         <a href="Historyuser.html" target="Changepage1" onclick="changePageTitlest()">
           <img src="../image/icon/hourglass.png" class="iconimg" />

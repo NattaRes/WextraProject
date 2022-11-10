@@ -79,9 +79,9 @@
                 ?>
                 <div class="d-flex justify-content-between align-items-center" style="color: #6e6e6e; font-size: 20px;">
                     <span style="margin-left: 5%;">รายละเอียดผู้ขอยืม</span>
-                    <a href="">
+                    <!--<a href="">
                         <span><img src="../image/icon/shredder.png" alt="" style="width: 10%; height:10%; margin-left: 80%;" /></span>
-                    </a>
+                    </a>-->
                 </div><span class="type d-block mt-3 mb-1"></span>
                 <div>
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">ชื่อ :</label>
@@ -95,7 +95,7 @@
                     <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">เบอร์ติดต่อ : <?php echo $phone; ?></label>
                 </div>
                 <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">วันที่ยืม :</label>
-                    <label class="credit-card-label" style="margin-right: 25.6%; font-size: 18px; color: #6e6e6e;"><?php echo date_format($s_date, "d/m/Y"); ?></label>
+                    <label class="credit-card-label" style="margin-right: 25.8%; font-size: 18px; color: #6e6e6e;"><?php echo date_format($s_date, "d/m/Y"); ?></label>
                     <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">วันที่คืน : </label>
                     <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;"><?php echo date_format($e_date, "d/m/Y"); ?></label>
                 </div>
