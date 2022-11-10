@@ -47,7 +47,7 @@
       <select style="height: 45px; border-radius:5px; width: 15%; font-size:20px; margin-left: -2%;" name="sfi" id="sfi">
         <option <?php if ($Aschfilter == "all") {
                   echo "selected='selected'";
-                } ?> value="all">All</option>
+                } ?> value="all">ทั้งหมด</option>
         <option <?php if ($Aschfilter == "UID") {
                   echo "selected='selected'";
                 } ?> value="UID">User ID</option>
