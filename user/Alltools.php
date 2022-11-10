@@ -30,6 +30,7 @@
 				<form action="Alltools.php" method="GET">
 					<div class="search">
 						<input class="search_input" type="text" name="sinput" placeholder="ค้นหาเครื่องมือ...">
+						<input type="hidden" name="tpin" value="">
 						<input type="submit" id="submit" hidden />
 						<a onclick="searcher()" class="search_icon"><i class="fa fa-search"></i></a>
 					</div>
@@ -67,7 +68,7 @@
 			INNER JOIN tool_all_table ON tool_all_table.tool_type = tool_type_table.tool_type
 			WHERE (tool_name LIKE '%$Ashinput%')";
 	} else {
-		if ($Btpinput !== "all") {
+		if (($Btpinput !== "all") && (!empty($Btpinput))) {
 			if ($Btpinput == "other") {
 				$typesql = "SELECT * FROM tool_type_table
 					WHERE (tool_type != 1)
@@ -201,7 +202,7 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
-	/*<script>
+	<script>
 		$(".testmonial_slider_area").owlCarousel({
 			autoplay: true,
 			slideSpeed: 1000,

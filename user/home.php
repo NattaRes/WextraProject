@@ -29,6 +29,7 @@
         <form action="Alltools.php" method="GET">
           <div class="search">
             <input class="search_input" type="text" name="sinput" placeholder="ค้นหาเครื่องมือ...">
+            <input type="hidden" name="tpin" value="">
             <input type="submit" id="submit" hidden />
             <a onclick="searcher()" class="search_icon"><i class="fa fa-search"></i></a>
           </div>
