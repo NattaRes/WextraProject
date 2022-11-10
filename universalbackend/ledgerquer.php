@@ -86,19 +86,19 @@ if ($resinsertque) {
                     $mail = new PHPMailer(true);
 
                     try {
-                        $mail->SMTPDebug = 2;                                       
-                        $mail->isSMTP();                                            
-                        $mail->Host       = 'smtp.gmail.com';                    
-                        $mail->SMTPAuth   = true;                             
-                        $mail->Username   = 'nattawutwextramailtest@gmail.com';                 
-                        $mail->Password   = 'cnsvhhjdeoaonfjy';                        
-                        $mail->SMTPSecure = 'tls';                              
-                        $mail->Port       = 587;  
-                      
-                        $mail->setFrom('nattawutwextramailtest@gmail.com', 'Nattawut');           
+                        $mail->SMTPDebug = 2;
+                        $mail->isSMTP();
+                        $mail->Host       = 'smtp.gmail.com';
+                        $mail->SMTPAuth   = true;
+                        $mail->Username   = 'nattawutwextramailtest@gmail.com';
+                        $mail->Password   = 'cnsvhhjdeoaonfjy';
+                        $mail->SMTPSecure = 'tls';
+                        $mail->Port       = 587;
+
+                        $mail->setFrom('nattawutwextramailtest@gmail.com', 'Nattawut');
                         $mail->addAddress($aprmail);
-                           
-                        $mail->isHTML(true);                                  
+
+                        $mail->isHTML(true);
                         $mail->Subject = 'Request approval';
                         $mail->Body    = '<html>
                                 <body>
@@ -110,7 +110,17 @@ if ($resinsertque) {
                         $mail->AltBody = 'http://localhost/wextraproject/user/AllowTeacher.php?queid=' . $qid . '';
                         $mail->send();
                         echo "Mail has been sent successfully!";
-                        echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
+
+                        $emptycart = "DELETE FROM tool_cart WHERE UID = '$uid'";
+                        $resemptyct = $conn->query($emptycart);
+
+                        if ($resemptyct) {
+
+                            echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
+                        } else {
+
+                            echo "Layer 4 : " . mysqli_error($conn);
+                        }
                     } catch (Exception $e) {
                         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                     }
