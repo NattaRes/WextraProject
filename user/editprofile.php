@@ -51,7 +51,7 @@
                             </div>
                             <img id="proimg" style="border-radius: 20px;" width="150px" src="<?php echo $profilepic; ?>">
                             <span class="font-weight-bold">
-                                <button onclick="setpic()" id="filebtn" style="background: #D9D9D9; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 9px; width: 150px;
+                                <button onclick="setpic()" id="filebtn" style="background: #D9D9D9; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 9px; width: 150px; margin-top:5%;
                                 height: 45px; border: none;color: #7A7A7A;" type="button">เปลี่ยนรูปภาพ</button>
                                 <input type="file" name="picupload" id="filer" hidden /></span>
                         </div>
@@ -73,21 +73,6 @@
                                 background-color: #D9D9D9; border-radius: 9px; width: 280px; height: 32px; text-align: center;border: none;" value="<?php echo $uid; ?>" readonly />
                             </div>
                             <div style="margin-top: 1%;">
-                                <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">สำนักวิชา </label>
-                                <input type="text" placeholder="สำนัก" style="margin-left: 13%; font-size: 18px; color: #7E7C7C; 
-                                background-color: #D9D9D9; border-radius: 9px; width: 280px; height: 32px; text-align: center;border: none;">
-                            </div>
-                            <div style="margin-top: 1%;">
-                                <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">สาขา </label>
-                                <input type="text" placeholder="สาขา" style="margin-left: 20%; font-size: 18px; color: #7E7C7C; 
-                                background-color: #D9D9D9; border-radius: 9px; width: 280px; height: 32px; text-align: center;border: none;">
-                            </div>
-                            <div style="margin-top: 1%;">
-                                <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">อาจารย์ที่ปรึกษา </label>
-                                <input type="text" placeholder="Username" style="margin-left: 2%; font-size: 18px; color: #7E7C7C; 
-                                background-color: #D9D9D9; border-radius: 9px; width: 280px; height: 32px; text-align: center;border: none;">
-                            </div>
-                            <div style="margin-top: 1%;">
                                 <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">อีเมล </label>
                                 <input name="inemail" type="text" placeholder="E-mail" style="margin-left: 20%; font-size: 18px; color: #7E7C7C; 
                                 background-color: #D9D9D9; border-radius: 9px; width: 280px; height: 32px; text-align: center;border: none;" value="<?php echo $email; ?>" required />
@@ -104,7 +89,7 @@
         </form>
         <a href="Profile.php">
             <button style="background: #b71010; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 9px; width: 100px;
-                                    height: 45px; border: none;color: #ffffff; margin-bottom: 10%; margin-left: 0%;" type="button">ยกเลิก
+            height: 45px; border: none;color: #ffffff; margin-bottom: 10%; margin-left: 0%;" type="button">ยกเลิก
             </button>
         </a>
     </div>
