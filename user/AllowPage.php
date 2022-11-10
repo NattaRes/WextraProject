@@ -55,8 +55,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
+                            <!-- <tr>
+                                <td> -->
                                     <?php
 
                                     // date restricter
@@ -222,8 +222,8 @@
                                     }
 
                 ?>
-                </td>
-                </tr>
+                <!-- </td>
+                </tr> -->
                 <!-- <tr>
                     <td style="border:0.5px solid #6e6e6e;">
                         <h5 style="text-align: center; color: #6e6e6e;">
