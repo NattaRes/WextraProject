@@ -48,7 +48,7 @@
       <select style="height: 100%; border-radius:5px; width: 15%; font-size:20px;" name="sfi" id="sfi">
         <option <?php if ($Aschfilter == "all") {
                   echo "selected='selected'";
-                } ?> value="all">All</option>
+                } ?> value="all">ทั้งหมด</option>
         <option <?php if ($Aschfilter == "post_title") {
                   echo "selected='selected'";
                 } ?> value="post_title">หัวข้อ</option>
