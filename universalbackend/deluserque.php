@@ -29,6 +29,7 @@ if ($resledger) {
 
     if ($resdelque) {
 
+        echo "<script type='text/javascript'> alert('Selected queue canceled.') </script>";
         echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
     } else {
 

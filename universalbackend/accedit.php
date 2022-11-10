@@ -62,6 +62,7 @@ if ($uploadint == 0) {
 
     if ($resuserudt) {
 
+        echo "<script type='text/javascript'> alert('Profile updated.') </script>";
         echo "<script type='text/javascript'>location.href='../user/Profile.php';</script>";
         exit();
     } else {
@@ -86,6 +87,7 @@ if ($uploadint == 0) {
 
         if ($resuserudt) {
 
+            echo "<script type='text/javascript'> alert('Profile updated.') </script>";
             echo "<script type='text/javascript'>location.href='../user/Profile.php';</script>";
             exit();
         } else {
