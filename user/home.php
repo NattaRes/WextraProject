@@ -107,7 +107,9 @@
             <img src="<?php echo $rowpop["tool_pic_path"]; ?>" style="width: 100%;height: 100%;">
           </div>
           <div class="name"><?php echo $rowpop["type_name"]; ?></div>
-          <div style="color: #6e6e6e;"><?php echo $rowpop["brand_name"] . " " . $rowpop["tool_name"] . " " . $rowpop["tool_model"]; ?></div>
+          <div style="color: #6e6e6e;"><?php echo $rowpop["brand_name"] . " " . $rowpop["tool_name"]; ?></div>
+          <div style="color: #6e6e6e;"><?php echo $rowpop["tool_model"]; ?></div>
+
           <a href="Detailstools.php?toolidall=<?php echo $rowpop["tool_all_ID"]; ?>">
             <button class="onbutton" type="button">ดูเพิ่มเติม</button>
           </a>

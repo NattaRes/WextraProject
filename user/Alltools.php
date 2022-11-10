@@ -133,17 +133,16 @@
 												<div style="clear: left;  margin-bottom: 10%;">
 													<h5 style="float: left;">จำนวน :</h5>
 													<h5 style="float: left; margin-left: 2%;"><?php echo $countresta; ?></h5>
-													<h5 style="float: left; margin-left: 2%;">ตัว</h5>
-												</div>
-												<div style="clear: left;  margin-bottom: 10%;">
+													<h5 style="float: left; margin-left: 2%; margin-right: 25%;">ตัว</h5>
 													<h5 style="float: left;">เหลือ :</h5>
 													<h5 style="float: left; margin-left: 2%;"><?php echo $countresnovac; ?></h5>
 													<h5 style="float: left; margin-left: 2%;">ตัว</h5>
 												</div>
+										
 												<div style="clear: left; margin-bottom: 10%; margin-top: -2%;">
 
-													<!-- <h5 style="color: green; margin-right: 70%; margin-bottom: -60%; margin-top: 20%; border:3px black">
-													ว่าง</h5> -->
+													<h5 style=" margin-right: 85%; margin-bottom: -60%; margin-top: 20%; border:3px black">
+													เลือก</h5> 
 													<!-- <span style="float: left;  margin-top: 6%;" class="dot"></span> -->
 													<input name="toolidall" type="hidden" value="<?php echo $toolrow["tool_all_ID"]; ?>" />
 													<input name="quantinum" type="number" min="1" max="<?php echo $countresta; ?>" style="width:35%; margin-left:15%;  margin-top:4%;" value="1" />
