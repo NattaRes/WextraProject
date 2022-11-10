@@ -46,7 +46,7 @@
     <div class="container d-flex justify-content-center mt-50 mb-50" style="margin-top:10%;">
         <div class="row">
             <div class="col-md-12">
-                <div class="card blog-horizontal mt-5" style="border-radius: 20px; box-shadow:0px 1px 4px 4px rgba(0, 0, 0, 0.25); width: 100%; margin-left: 4%;">
+                <div class="card blog-horizontal mt-5" style="border-radius: 20px; box-shadow:0px 1px 4px 4px rgba(0, 0, 0, 0.25); width: 100%; margin-left: 0%;">
                     <div class="card-body">
                         <div style="max-width: 30%;max-height: 50%; float: left;">
                         <img src="<?php echo $pic_path; ?>"  
@@ -71,7 +71,7 @@
                     </div>
                     <a href="EditPost.php?postid=<?php echo $postID; ?>">
                         <button style="background-color:rgba(255, 122, 0, 0.69);
-                        border-radius: 22px; width: 15%; margin-left: 80%; margin-top:-8%;
+                        border-radius: 22px; width: 15%; margin-left: 80%; margin-top:-5%;
                         color: #ffffff; font-size: 18px;
                         border: none;">
                             แก้ไข
