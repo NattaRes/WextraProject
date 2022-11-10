@@ -105,7 +105,7 @@
       ?>
         <div class="box">
           <div class="image" >
-            <img src="<?php echo $rowpop["tool_pic_path"]; ?>" style="width: 100px; height: 100px;  border-radius: 22px; margin-left:20%;">
+            <img src="<?php echo $rowpop["tool_pic_path"]; ?>" style="width: 100px; height: 110px;  border-radius: 22px; margin-left:20%; margin-top:2%;">
           </div>
           <div class="name"><?php echo $rowpop["type_name"]; ?></div>
           <div style="color: #6e6e6e; text-align:center;"><?php echo $rowpop["brand_name"] . " " . $rowpop["tool_name"]; ?></div>
