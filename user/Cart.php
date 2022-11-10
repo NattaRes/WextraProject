@@ -62,6 +62,13 @@
 
                                                 while ($row = mysqli_fetch_array($quecart)) {
 
+                                                    $toolid = $row["tool_all_ID"];
+
+                                                    $toolspecsql = "SELECT * FROM tool_specific_table
+                                                        WHERE tool_all_ID = '$toolid'";
+                                                    $resta = $conn->query($toolspecsql);
+                                                    $countresta = mysqli_num_rows($resta);
+
                                                 ?>
 
                                                     <tr>
@@ -81,7 +88,7 @@
                                                             <span class="user-subhead">รุ่น <?php echo $row["tool_model"]; ?></span>
                                                         </td>
                                                         <td align="center">
-                                                        <input name="quantis[]" type="number" min="1" max="999" style="width:35%; font-size:16px;" value="<?php echo $row["quantity"]; ?>"/>
+                                                        <input name="quantis[]" type="number" min="1" max="<?php echo $countresta; ?>" style="width:35%; font-size:16px;" value="<?php echo $row["quantity"]; ?>"/>
                                                         </td>
 
                                                         <td style="width: 10%;">
