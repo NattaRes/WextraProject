@@ -145,7 +145,7 @@
 													ว่าง</h5> -->
 													<!-- <span style="float: left;  margin-top: 6%;" class="dot"></span> -->
 													<input name="toolidall" type="hidden" value="<?php echo $toolrow["tool_all_ID"]; ?>" />
-													<input name="quantinum" type="number" min="1" max="999" style="width:35%; margin-left:15%;  margin-top:4%;" value="1" />
+													<input name="quantinum" type="number" min="1" max="<?php echo $countresta; ?>" style="width:35%; margin-left:15%;  margin-top:4%;" value="1" />
 
 													<input name="submit" type="image" src="../image/icon/shopping-cart (2).png" alt="Submit" style=" height: 13%; width: 12%; float: right; margin-top: 3%;" />
 													<!-- <a href="../universalbackend/addtocart.php?toolidall=<?php echo $toolrow["tool_all_ID"]; ?>">
