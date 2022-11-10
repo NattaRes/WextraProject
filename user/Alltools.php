@@ -82,8 +82,6 @@
 		}
 	}
 
-	$typesql = "SELECT * FROM tool_type_table";
-
 	$quetype = $conn->query($typesql);
 
 	while ($typerow = mysqli_fetch_array($quetype)) {
