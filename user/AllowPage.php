@@ -58,24 +58,24 @@
                                     <?php
 
                                     $cartrange = "SELECT * FROM tool_cart
-                                WHERE UID = '$uid'
-                                AND cart_status_ID = 2";
+                                        WHERE UID = '$uid'
+                                        AND cart_status_ID = 2";
                                     $resctrg = $conn->query($cartrange);
 
                                     while ($cartrange = mysqli_fetch_array($resctrg)) {
                                         $cartoolidall = $cartrange["tool_all_ID"];
 
                                         $carteachID = "SELECT * FROM tool_cart
-                                    WHERE tool_all_ID = '$cartoolidall'
-                                    AND UID = '$uid'
-                                    AND cart_status_ID = 2";
+                                            WHERE tool_all_ID = '$cartoolidall'
+                                            AND UID = '$uid'
+                                            AND cart_status_ID = 2";
                                         $resctea = $conn->query($carteachID);
                                         $countea = mysqli_num_rows($resctea);
 
                                         $ledgereachID = "SELECT * FROM ledger_table
-                                    WHERE tool_all_ID = '$cartoolidall'
-                                    AND (queue_status = 1 OR queue_status = 2 OR queue_status = 6)
-                                    ORDER BY ledger_s_date ASC";
+                                            WHERE tool_all_ID = '$cartoolidall'
+                                            AND (queue_status = 1 OR queue_status = 2 OR queue_status = 6)
+                                            ORDER BY ledger_s_date ASC";
                                         $resledea = $conn->query($ledgereachID);
 
                                         while ($ledea = mysqli_fetch_array($resledea)) {
@@ -110,8 +110,8 @@
                                         $modxedate = $xedate->modify("+1 day");
 
                                         $toolspeceach = "SELECT * FROM tool_specific_table
-                                    WHERE tool_all_ID = '$cartoolidall'
-                                    AND (tool_status = 1 OR tool_status = 2)";
+                                            WHERE tool_all_ID = '$cartoolidall'
+                                            AND (tool_status = 1 OR tool_status = 2)";
                                         $restlspea = $conn->query($toolspeceach);
                                         $tlspcount = mysqli_num_rows($restlspea);
 
@@ -154,8 +154,6 @@
                                                 $datex2 = date_create($ledgersted[$xi+1]);
 
                                                 echo "</br>" . date_format($datex1, "d/m/Y") . " TO " . date_format($datex2, "d/m/Y");
-
-                                                // echo date_format($datex1, "d/m/Y") . " TO " . date_format($datex2, "d/m/Y");
 
                                                 // $datein = date_diff($ledgersted[$xi]["date"], $ledgersted[$xi+1]["date"]);
 
