@@ -47,7 +47,7 @@ if ($toolcount >= 1) {
             } else {
 
                 echo "<script type='text/javascript'> alert('Error (INSERT) : " .  mysqli_error($conn) . "') </script>";
-                echo "<script type='text/javascript'>location.href='../user/Alltools.php?sinput=';</script>";
+                echo "<script type='text/javascript'>location.href='../user/Alltools.php?sinput=&tpin=all';</script>";
             }
         } else {
 
@@ -58,11 +58,11 @@ if ($toolcount >= 1) {
     } else {
 
         echo "<script type='text/javascript'> alert('Error (RESULT) : " . mysqli_error($conn) . "') </script>";
-        echo "<script type='text/javascript'>location.href='../user/Alltools.php?sinput=';</script>";
+        echo "<script type='text/javascript'>location.href='../user/Alltools.php?sinput=&tpin=all';</script>";
     }
 } else {
 
     echo "<script type='text/javascript'> alert('Item not available.') </script>";
-    echo "<script type='text/javascript'>location.href='../user/Alltools.php?sinput=';</script>";
+    echo "<script type='text/javascript'>location.href='../user/Alltools.php?sinput=&tpin=all';</script>";
     
 }

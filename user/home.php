@@ -46,7 +46,7 @@
     <div class="row">
       <div class="column">
         <div class="one">
-          <a href="Alltools.php" class="bt">
+          <a href="Alltools.php?sinput=&tpin=1" class="bt">
             <img src="../image/icon/photo-camera.png" alt="" class="iconimg">
             <h4 class="titlect">กล้องภาพนิ่ง</h4>
           </a>
@@ -64,7 +64,7 @@
      -->
       <div class="column">
         <div class="three">
-          <a href="Alltools.php" class="bt" style="margin-left: 0%;">
+          <a href="Alltools.php?sinput=&tpin=2" class="bt" style="margin-left: 0%;">
             <img src="../image/icon/eclipse.png" alt="" class="iconimg">
             <h4 class="titlect" style="margin-left: 45%;">ไฟ</h4>
           </a>
@@ -72,7 +72,7 @@
       </div>
       <div class="column">
         <div class="four">
-          <a href="Alltools.php" class="bt" style="margin-left: 2%;">
+          <a href="Alltools.php?sinput=&tpin=4" class="bt" style="margin-left: 2%;">
             <img src="../image/icon/microphone.png" alt="" class="iconimg">
             <h4 class="titlect" style="margin-left: 42%;">ไมค์</h4>
           </a>
@@ -80,9 +80,9 @@
       </div>
       <div class="column">
         <div class="five">
-          <a href="Alltools.php" class="bt" style="margin-left: 3%;">
+          <a href="Alltools.php?sinput=&tpin=other" class="bt" style="margin-left: 3%;">
             <img src="../image/icon/support.png" alt="" class="iconimg">
-            <h4 class="titlect">อุปกรณ์เสริม</h4>
+            <h4 class="titlect">อื่น ๆ</h4>
           </a>
         </div>
       </div>

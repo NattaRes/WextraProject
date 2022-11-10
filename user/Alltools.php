@@ -60,12 +60,26 @@
 
 	$Ashinput = $parts['sinput'];
 
+	$Btpinput = $parts['tpin'];
+
 	if (($Ashinput !== "") && ($Ashinput !== " ") && (!empty($Ashinput))) {
 		$typesql = "SELECT * FROM tool_type_table
 			INNER JOIN tool_all_table ON tool_all_table.tool_type = tool_type_table.tool_type
 			WHERE (tool_name LIKE '%$Ashinput%')";
 	} else {
-		$typesql = "SELECT * FROM tool_type_table";
+		if ($Btpinput !== "all") {
+			if ($Btpinput == "other") {
+				$typesql = "SELECT * FROM tool_type_table
+					WHERE (tool_type != 1)
+					OR (tool_type != 2)
+					OR (tool_type != 4)";
+			} else {
+				$typesql = "SELECT * FROM tool_type_table
+					WHERE tool_type = '$Btpinput'";
+			}
+		} else {
+			$typesql = "SELECT * FROM tool_type_table";
+		}
 	}
 
 	$typesql = "SELECT * FROM tool_type_table";
@@ -82,6 +96,7 @@
 				WHERE (tool_type = '$typedef')
 				AND (tool_name LIKE '%$Ashinput%')";
 		} else {
+
 			$toolsql = "SELECT * FROM tool_all_table WHERE tool_type = '$typedef'";
 		}
 
@@ -140,11 +155,11 @@
 													<h5 style="float: left; margin-left: 2%;"><?php echo $countresnovac; ?></h5>
 													<h5 style="float: left; margin-left: 2%;">ตัว</h5>
 												</div>
-										
+
 												<div style="clear: left; margin-bottom: 10%; margin-top: -2%;">
 
 													<h5 style=" margin-right: 85%; margin-bottom: -60%; margin-top: 20%; border:3px black">
-													เลือก</h5> 
+														เลือก</h5>
 													<!-- <span style="float: left;  margin-top: 6%;" class="dot"></span> -->
 													<input name="toolidall" type="hidden" value="<?php echo $toolrow["tool_all_ID"]; ?>" />
 													<input name="quantinum" type="number" <?php if ($countresta >= 1) { ?> min="1" max="<?php echo $countresta; ?>" <?php } ?> style="width:35%; margin-left:15%;  margin-top:4%;" value="1" />
