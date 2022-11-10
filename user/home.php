@@ -48,7 +48,7 @@
         <div class="one">
           <a href="Alltools.php?sinput=&tpin=1" class="bt">
             <img src="../image/icon/photo-camera.png" alt="" class="iconimg">
-            <h4 class="titlect">กล้องภาพนิ่ง</h4>
+            <h4 class="titlect" style="margin-left: 37%;">กล้อง</h4>
           </a>
         </div>
       </div>
@@ -82,7 +82,7 @@
         <div class="five">
           <a href="Alltools.php?sinput=&tpin=other" class="bt" style="margin-left: 3%;">
             <img src="../image/icon/support.png" alt="" class="iconimg">
-            <h4 class="titlect">อื่น ๆ</h4>
+            <h4 class="titlect" style="margin-left: 25%;">อุปกรณ์อื่นๆ</h4>
           </a>
         </div>
       </div>
