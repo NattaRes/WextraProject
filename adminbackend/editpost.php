@@ -16,19 +16,15 @@ $post_title = $_POST['pti'];
 $post_date = $_POST['pdt'];
 $desc = $_POST['description'];
 
-if (isset($_FILES["picupload"]["name"])) {
-} else {
-}
-
-$picpath = "../image/tools/";
-$fileone = $picpath . basename($_FILES["picupload"]["name"]);
-$uploadint = 1;
-$imgfiletype = strtolower(pathinfo($fileone, PATHINFO_EXTENSION));
-$filexplode = explode(".", $_FILES["picupload"]["name"]);
-$newname = $idall . '.' . end($filexplode);
-
 // Check if image file is a actual image or fake image
-if (isset($_POST["submit"])) {
+if (isset($_FILES["picupload"]["name"])) {
+    $picpath = "../image/posts/";
+    $fileone = $picpath . basename($_FILES["picupload"]["name"]);
+    $uploadint = 1;
+    $imgfiletype = strtolower(pathinfo($fileone, PATHINFO_EXTENSION));
+    $filexplode = explode(".", $_FILES["picupload"]["name"]);
+    $newname = $poid . '.' . end($filexplode);
+
     $check = getimagesize($_FILES["picupload"]["tmp_name"]);
     if ($check !== false) {
         echo "File is an image - " . $check["mime"] . ".";

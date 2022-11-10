@@ -59,7 +59,7 @@
             <i class='fa fa-times' style="float:right; font-size:30px; margin-top:0%;">
             </i>
             </a>  
-      <form method="POST" action="../adminbackend/editpost.php?poid=<?php echo $postID; ?>">
+      <form method="POST" action="../adminbackend/editpost.php?poid=<?php echo $postID; ?>" enctype="multipart/form-data">
           <!-- Text Input -->
           <div style="float: left ; width:50%; margin-bottom:2%;">
             <label style="font-size:18px;">
