@@ -53,6 +53,7 @@ color: #17c0eb
 .box .image img{
   height: 100%;
   width: 100%;
+  border-radius: 22px;
   object-fit: cover;
   border: 2px solid #fff;
 }
@@ -279,7 +280,7 @@ a:link{
   .box .image img{
     height: 100%;
     width: 100%;
-    border-radius: 50%;
+    border-radius: 22px;
     object-fit: cover;
     border: 2px solid #fff;
   }
