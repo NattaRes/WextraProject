@@ -12,47 +12,57 @@ include("../connectdb.php");
 
 // $toolidall = $parts["toolidall"];
 
-$toolidall = $_POST["toolidall"];
+$toolcount = $_POST["toolcount"];
 
-$quantinum = $_POST["quantinum"];
+if ($toolcount >= 1) {
 
-$uid = $_COOKIE["userck"];
+    $toolidall = $_POST["toolidall"];
 
-$checkcart = "SELECT * FROM tool_cart
-    WHERE UID = '$uid'
-    AND tool_all_ID = '$toolidall'";
+    $quantinum = $_POST["quantinum"];
 
-$rescheck = $conn->query($checkcart);
+    $uid = $_COOKIE["userck"];
 
-$counter = mysqli_num_rows($rescheck);
+    $checkcart = "SELECT * FROM tool_cart
+        WHERE UID = '$uid'
+        AND tool_all_ID = '$toolidall'";
 
-if ($rescheck) {
+    $rescheck = $conn->query($checkcart);
 
-    if ($counter < 1) {
+    $counter = mysqli_num_rows($rescheck);
 
-        $addcartsql = "INSERT INTO tool_cart
+    if ($rescheck) {
+
+        if ($counter < 1) {
+
+            $addcartsql = "INSERT INTO tool_cart
             (UID, tool_all_ID, quantity, cart_status_ID)
             VALUES ('$uid', '$toolidall', '$quantinum', 1)";
 
-        $rescart = $conn->query($addcartsql);
+            $rescart = $conn->query($addcartsql);
 
-        if ($rescart) {
+            if ($rescart) {
 
-            echo "<script type='text/javascript'> alert('Added to cart.') </script>";
-            echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
+                echo "<script type='text/javascript'> alert('Added to cart.') </script>";
+                echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
+            } else {
+
+                echo "<script type='text/javascript'> alert('Error (INSERT) : " .  mysqli_error($conn) . "') </script>";
+                echo "<script type='text/javascript'>location.href='../user/Alltools.php?sinput=';</script>";
+            }
         } else {
 
-            echo "<script type='text/javascript'> alert('Error (INSERT) : " .  mysqli_error($conn) . "') </script>";
-            echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
+            // echo "<script type='text/javascript'> alert('Error (EMPTY) : " . mysqli_error($conn) . "') </script>";
+            echo "<script type='text/javascript'> alert('Item existed in cart.') </script>";
+            echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
         }
     } else {
 
-        // echo "<script type='text/javascript'> alert('Error (EMPTY) : " . mysqli_error($conn) . "') </script>";
-        echo "<script type='text/javascript'> alert('Item existed in cart.') </script>";
-        echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
+        echo "<script type='text/javascript'> alert('Error (RESULT) : " . mysqli_error($conn) . "') </script>";
+        echo "<script type='text/javascript'>location.href='../user/Alltools.php?sinput=';</script>";
     }
 } else {
 
-    echo "<script type='text/javascript'> alert('Error (RESULT) : " . mysqli_error($conn) . "') </script>";
-    echo "<script type='text/javascript'>location.href='../user/Alltools.php';</script>";
+    echo "<script type='text/javascript'> alert('Item not available.') </script>";
+    echo "<script type='text/javascript'>location.href='../user/Alltools.php?sinput=';</script>";
+    
 }
