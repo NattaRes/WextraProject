@@ -22,6 +22,7 @@ $resdel = $conn->query($delsql);
 
 if ($resdel) {
     
+    echo "<script type='text/javascript'> alert('Deleted from cart.') </script>";
     echo "<script type='text/javascript'>location.href='../user/Cart.php';</script>";
 } else {
 

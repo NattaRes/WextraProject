@@ -18,6 +18,8 @@
 
     <?php
 
+    date_default_timezone_set("Asia/Bangkok");
+
     include("../connectdb.php");
 
     $uid = $_COOKIE["userck"];
@@ -57,138 +59,178 @@
                                 <td>
                                     <?php
 
+                                    // date restricter
                                     $cartrange = "SELECT * FROM tool_cart
-                                WHERE UID = '$uid'
-                                AND cart_status_ID = 2";
+                                        WHERE UID = '$uid'
+                                        AND cart_status_ID = 2";
                                     $resctrg = $conn->query($cartrange);
+                                    $countctrg = mysqli_num_rows($resctrg);
 
-                                    while ($cartrange = mysqli_fetch_array($resctrg)) {
-                                        $cartoolidall = $cartrange["tool_all_ID"];
+                                    $ydate = array();
+                                    $zdate = array();
 
-                                        $carteachID = "SELECT * FROM tool_cart
-                                    WHERE tool_all_ID = '$cartoolidall'
-                                    AND UID = '$uid'
-                                    AND cart_status_ID = 2";
-                                        $resctea = $conn->query($carteachID);
-                                        $countea = mysqli_num_rows($resctea);
+                                    $endate = array();
 
-                                        $ledgereachID = "SELECT * FROM ledger_table
-                                    WHERE tool_all_ID = '$cartoolidall'
-                                    AND (queue_status = 1 OR queue_status = 2 OR queue_status = 6)
-                                    ORDER BY ledger_s_date ASC";
-                                        $resledea = $conn->query($ledgereachID);
+                                    for ($gc = 0; $gc < $countctrg; $gc++) {
 
-                                        while ($ledea = mysqli_fetch_array($resledea)) {
-                                            if (isset($xsdate)) {
+                                        while ($cartrange = mysqli_fetch_array($resctrg)) {
+                                            $cartoolidall = $cartrange["tool_all_ID"];
 
-                                                $nexsdate = date_create($ledea["ledger_s_date"]);
+                                            $carteachID = "SELECT * FROM tool_cart
+                                                WHERE tool_all_ID = '$cartoolidall'
+                                                AND UID = '$uid'
+                                                AND cart_status_ID = 2";
+                                            $resctea = $conn->query($carteachID);
+                                            $countea = mysqli_num_rows($resctea);
 
-                                                if ($nexsdate < $xsdate) {
+                                            $ledgereachID = "SELECT * FROM ledger_table
+                                                WHERE tool_all_ID = '$cartoolidall'
+                                                AND (queue_status = 1 OR queue_status = 2 OR queue_status = 6)
+                                                ORDER BY ledger_s_date ASC";
+                                            $resledea = $conn->query($ledgereachID);
 
-                                                    $xsdate = $nexsdate;
+                                            while ($ledea = mysqli_fetch_array($resledea)) {
+                                                if (isset($xsdate)) {
+
+                                                    $nexsdate = date_create($ledea["ledger_s_date"]);
+
+                                                    if ($nexsdate < $xsdate) {
+
+                                                        $xsdate = $nexsdate;
+                                                    } else {
+                                                    }
                                                 } else {
+
+                                                    $todaydate = date_create("tomorrow");
+                                                    $theledone = date_create($ledea["ledger_s_date"]);
+
+                                                    if ($todaydate < $theledone) {
+
+                                                        $xsdate = date_create("tomorrow");
+                                                    } else {
+                                                        $xsdate = date_create($ledea["ledger_s_date"]);
+                                                    }
+                                                }
+                                                if (isset($xedate)) {
+
+                                                    $nexedate = date_create($ledea["ledger_e_date"]);
+
+                                                    if ($nexedate > $xedate) {
+
+                                                        $xedate = $nexedate;
+                                                    } else {
+                                                    }
+                                                } else {
+
+                                                    $xedate = date_create($ledea["ledger_e_date"]);
+                                                }
+                                            }
+
+                                            if ((isset($xedate)) && (isset($xsdate))) {
+                                                $modxedate = $xedate->modify("+1 day");
+
+                                                $toolspeceach = "SELECT * FROM tool_specific_table
+                                                WHERE tool_all_ID = '$cartoolidall'
+                                                AND (tool_status = 1 OR tool_status = 2)";
+                                                $restlspea = $conn->query($toolspeceach);
+                                                $tlspcount = mysqli_num_rows($restlspea);
+
+                                                $interv = new DateInterval("P1D");
+                                                $period = new DatePeriod($xsdate, $interv, $modxedate);
+
+                                                $ledgersted = array();
+
+                                                foreach ($period as $dati) {
+
+                                                    //echo date_format($dati, "d/m/Y");
+
+                                                    $date = date_format($dati, "Y-m-d");
+
+                                                    // date_format($dati, "Y-m-d");
+
+                                                    $ledgerdate = "SELECT * FROM ledger_table
+                                                        WHERE tool_all_ID = '$cartoolidall'
+                                                        AND ((ledger_s_date < '$date') OR (ledger_s_date = '$date'))
+                                                        AND ((ledger_e_date > '$date') OR (ledger_e_date = '$date'))
+                                                        AND (queue_status = 1 OR queue_status = 2 OR queue_status = 6)";
+                                                    $resledate = $conn->query($ledgerdate);
+                                                    $countledate = mysqli_num_rows($resledate);
+
+                                                    // echo "countledate : " . $countledate . "</br>";
+                                                    // echo "tlspcount : " . $tlspcount . "</br>";
+                                                    // echo "countea : " . $countea . "</br>";
+
+                                                    if (($countledate = $tlspcount) && (($tlspcount - $countledate) < $countea)) {
+                                                        // ถ้า จำนวนเครื่องมือ i จาก ledger table ในวันที่ x เท่ากับ จำนวนเครื่องมือ i ที่ใช้ได้
+                                                        // และ
+                                                        // ถ้า จำนวนเครื่องมือ i ที่ใช้ได้ - จำนวนเครื่องมือ i จาก ledger table ในวันที่ x น้อยกว่า จำนวนเครื่องมือ i จาก cart
+                                                        $ledgersted[] = $date;
+                                                    } else {
+                                                    }
+                                                }
+
+                                                //print_r($ledgersted);
+
+                                                for ($xi = 0; $xi < sizeof($ledgersted); $xi++) {
+
+                                                    $datex1 = date_create($ledgersted[$xi]);
+
+                                                    if (isset($ledgersted[$xi + 1])) {
+
+                                                        $datex2 = date_create($ledgersted[$xi + 1]);
+
+                                                        // echo "</br>" . date_format($datex1, "d/m/Y") . " TO " . date_format($datex2, "d/m/Y");
+
+                                                        $datein = date_diff($datex1, $datex2);
+
+                                                        // print_r($datein);
+
+                                                        $dtinint = $datein->format("%d");
+
+                                                        if ($dtinint >= 3) {
+
+                                                            $datex1->modify("+1 day");
+                                                            $datex2->modify("-1 day");
+
+                                                            $ydate[$gc][] = $datex1;
+                                                            $zdate[$gc][] = $datex2;
+                                                            // echo "hello";
+                                                        } else {
+
+                                                            // echo "hi";
+                                                        }
+                                                        // print_r($ydate);
+                                                        // print_r($zdate);
+                                                    } else {
+
+                                                        $endate[] = $datex1;
+                                                        // echo "</br>" . "End at : " . date_format($datex1, "d/m/Y");
+                                                    }
                                                 }
                                             } else {
-
-                                                $xsdate = date_create($ledea["ledger_s_date"]);
-                                            }
-                                            if (isset($xedate)) {
-
-                                                $nexedate = date_create($ledea["ledger_e_date"]);
-
-                                                if ($nexedate > $xedate) {
-
-                                                    $xedate = $nexedate;
-                                                } else {
-                                                }
-                                            } else {
-
-                                                $xedate = date_create($ledea["ledger_e_date"]);
-                                            }
-                                        }
-
-                                        $modxedate = $xedate->modify("+1 day");
-
-                                        $toolspeceach = "SELECT * FROM tool_specific_table
-                                    WHERE tool_all_ID = '$cartoolidall'
-                                    AND (tool_status = 1 OR tool_status = 2)";
-                                        $restlspea = $conn->query($toolspeceach);
-                                        $tlspcount = mysqli_num_rows($restlspea);
-
-                                        $interv = new DateInterval("P1D");
-                                        $period = new DatePeriod($xsdate, $interv, $modxedate);
-
-                                        $ledgersted = array();
-
-                                        foreach ($period as $dati) {
-
-                                            echo date_format($dati, "d/m/Y");
-
-                                            $date = date_format($dati, "Y-m-d");
-
-                                            // date_format($dati, "Y-m-d");
-
-                                            $ledgerdate = "SELECT * FROM ledger_table
-                                        WHERE ledger_s_date <= $date
-                                        AND ledger_e_date >= $date";
-                                            $resledate = $conn->query($ledgerdate);
-                                            $countledate = mysqli_num_rows($resledate);
-
-                                            if (($countledate = $tlspcount) && (($tlspcount - $countledate) < $countea)) {
-
-                                                $ledgersted[] = $date;
-                                            } else {
-                                            }
-                                        }
-
-                                        print_r($ledgersted);
-
-                                        for ($xi = 0; $xi < sizeof($ledgersted); $xi++) {
-
-                                            $datex1 = date_create($ledgersted[$xi]);
-
-                                            if (isset($ledgersted[$xi + 1])) {
-
-                                                // echo date_format($ledgersted[$xi]["date"], "d/m/Y");
-
-                                                $datex2 = date_create($ledgersted[$xi+1]);
-
-                                                echo "</br>" . date_format($datex1, "d/m/Y") . " TO " . date_format($datex2, "d/m/Y");
-
-                                                // echo date_format($datex1, "d/m/Y") . " TO " . date_format($datex2, "d/m/Y");
-
-                                                // $datein = date_diff($ledgersted[$xi]["date"], $ledgersted[$xi+1]["date"]);
-
-                                                // echo $datein->d;
-
-                                                // if ($datein->d >= 3) {
-
-                                                //     echo "hello";
-                                                // } else {
-
-                                                //     echo "hi";
-                                                // }
-                                            } else {
-
-                                                echo "</br>" . "End at : " . date_format($datex1, "d/m/Y");
+                                    ?>
+                            <tr>
+                                <td style="border:0.5px solid #6e6e6e;">
+                                    <h5 style="text-align: center; color: #6e6e6e;">
+                                        สามารถจองได้ตั้งแต่วันพรุ่งนี้
+                                    </h5>
+                                </td>
+                            </tr>
+                <?php
                                             }
                                         }
                                     }
 
-                                    ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="border:0.5px solid #6e6e6e;">
-                                    <h5 style="text-align: center; color: #6e6e6e;">
-                                        <?php echo date_format($xsdate, "d/m/Y") . " / " . date_format($xedate, "d/m/Y") . "</br>" ?>
-                                    </h5>
-                                </td>
-                            </tr>
-                            <?php
+                ?>
+                </td>
+                </tr>
+                <!-- <tr>
+                    <td style="border:0.5px solid #6e6e6e;">
+                        <h5 style="text-align: center; color: #6e6e6e;">
 
-
-                            ?>
+                        </h5>
+                    </td>
+                </tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -377,14 +419,14 @@
         $("#s_date").datepicker({
             onSelect: datepicked,
             dateFormat: 'yy-mm-dd',
-            minDate: "+2D", //ไม่สามารถจองวันที่ย้อนหลังได้ 
+            minDate: "+1D", //ไม่สามารถจองวันที่ย้อนหลังได้ 
             // maxDate: "+4D", //จองล่วงหน้าได้ไม่เกิน 2 วัน 
             beforeShowDay: noWeekends
         });
         $("#e_date").datepicker({
             onSelect: datepicked,
             dateFormat: 'yy-mm-dd',
-            minDate: "+3D", //ไม่สามารถจองวันที่ย้อนหลังได้ 
+            minDate: "+2D", //ไม่สามารถจองวันที่ย้อนหลังได้ 
             // maxDate: "+4D", //จองล่วงหน้าได้ไม่เกิน 2 วัน 
             beforeShowDay: noWeekends
         });
