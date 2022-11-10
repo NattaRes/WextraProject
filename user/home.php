@@ -48,7 +48,7 @@
         <div class="one">
           <a href="Alltools.php" class="bt">
             <img src="../image/icon/photo-camera.png" alt="" class="iconimg">
-            <h4 class="titlect">กล้องภาพนิ่ง</h4>
+            <h4 class="titlect">กล้อง</h4>
           </a>
         </div>
       </div>
