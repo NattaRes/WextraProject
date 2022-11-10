@@ -47,7 +47,8 @@
         }
 
         $toolspecsql = "SELECT * FROM tool_specific_table
-			WHERE tool_all_ID = '$toolid'";
+			WHERE tool_all_ID = '$toolid'
+            AND (tool_status = 1 OR tool_status = 2)";
         $resta = $conn->query($toolspecsql);
         $countresta = mysqli_num_rows($resta);
 
