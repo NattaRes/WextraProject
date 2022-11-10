@@ -76,19 +76,18 @@
                             <lebel style="color: green; margin-left: 5%; font-size: 20px; font-weight: bold;">ว่าง</lebel> -->
                         </div>
                         <div style="margin-bottom:10%; margin-top: 5%;">
-                            <h5 style="float: left; margin-left: 5%;color: #6e6e6e;">จำนวน :</h5>
-                            <h5 style="float: left; margin-left: 3%;color: #6e6e6e;"><?php echo $countresta; ?> ตัว</h5>
-                        </div>
-                        <div style="margin-bottom:5%">
+                            <h5 style="float: left; margin-left: 8%;color: #6e6e6e;">จำนวน :</h5>
+                            <h5 style="float: left; margin-left: 3%;color: #6e6e6e; margin-right:15%;"><?php echo $countresta; ?> ตัว</h5>
                             <h5 style="float: left; margin-left: 5%; color: #6e6e6e;">เหลือ :</h5>
                             <h5 style="float: left; margin-left: 3%;color: #6e6e6e;"><?php echo $countresnovac; ?> ตัว</h5>
                         </div>
+                       
 
                         <div style="margin-top: 20%; margin-bottom:20%;">
                             <lebel style="color: #6e6e6e; margin-left: 5%; margin-right:10%; font-size: 20px; ">จำนวน</lebel>
                             <input name="toolidall" type="hidden" value="<?php echo $toolid; ?>" />
                             <input name="quantinum" type="number" min="1" max="999" style="width:35%;  margin-left: 2%; margin-right:10%;" value="1" />
-                            <input name="submit" type="image" src="../image/icon/shopping-cart (2).png" alt="Submit" style=" height: 45px; width: 45px; " />
+                            <input name="submit" type="image" src="../image/icon/shopping-cart (2).png" alt="Submit" style=" height: 45px; width: 45px; margin-bottom:-5%;" />
                             <!-- <a href="../universalbackend/addtocart.php?toolidall=<?php echo $toolid; ?>">
                             <img src="../image/icon/shopping-cart (2).png" alt="" style=" height: 45px; width: 45px; ">
                         </a> -->
@@ -120,10 +119,10 @@
                             </div>
 
                             <div>
-                                <label style="margin-left: 5%; font-size: 18px; color: #6e6e6e; font-weight: bold;">รายละเอียด
+                                <label style="margin-left: 5%; margin-right:0%;font-size: 18px; color: #6e6e6e; font-weight: bold;">รายละเอียด :
                                 </label>
-                                <label style="margin-left: 5%; font-size: 18px; color: #6e6e6e; text-align: left;">
-                                    <?php echo $desc; ?>
+                                <label style="font-size: 18px; color: #6e6e6e; text-align: left;">
+                                <?php echo $desc; ?>
                                 </label>
                             </div>
 
