@@ -18,6 +18,11 @@
 </head>
 
 <body style=" margin-bottom: 10%;">
+  <?php
+
+  include("../connectdb.php");
+
+  ?>
   <div style="margin-top: 15%;">
     <div class="container h-100">
       <div class="d-flex justify-content-center h-100">
@@ -85,17 +90,36 @@
       <h3 class="titlec">เครื่องมือแนะนำ</h3>
     </div>
     <div class="container">
-      <div class="box">
-        <div class="image">
-          <!-----<img src="img1.jpeg">------->
+      <?php
+
+      $poprecord = "SELECT * FROM tool_all_table
+        INNER JOIN tool_type_table ON tool_type_table.tool_type = tool_all_table.tool_type
+        INNER JOIN tool_brand_table ON tool_brand_table.tool_brand = tool_all_table.tool_brand
+        ORDER BY RAND()
+        LIMIT 4";
+      $respoprc = $conn->query($poprecord);
+
+      while ($rowpop = mysqli_fetch_array($respoprc)) {
+
+      ?>
+        <div class="box">
+          <div class="image">
+            ---<img src="<?php echo $rowpop["tool_pic_path"]; ?>">-----
+          </div>
+          <div class="name"><?php echo $rowpop["type_name"]; ?></div>
+          <div style="color: #6e6e6e;"><?php echo $rowpop["brand_name"] . " " . $rowpop["tool_name"] . " " . $rowpop["tool_model"]; ?></div>
+          <a href="Detailstools.php?toolidall=<?php echo $rowpop["tool_all_ID"]; ?>">
+            <button class="onbutton" type="button">ดูเพิ่มเติม</button>
+          </a>
         </div>
-        <div class="name">กล้อง</div>
-        <div style="color: #6e6e6e;">ชื่อ</div>
-        <button class="onbutton" type="button">ดูเพิ่มเติม</button>
-      </div>
-      <div class="box">
+      <?php
+
+      }
+
+      ?>
+      <!-- <div class="box">
         <div class="image">
-          <!------  <img src="img2.jpeg" alt="">--->
+          <img src="img2.jpeg" alt="">
         </div>
         <div class="name">ไมค์</div>
         <div style="color: #6e6e6e;">ชื่อ</div>
@@ -103,7 +127,7 @@
       </div>
       <div class="box">
         <div class="image">
-          <!---- <img src="img3.jpeg" alt="">---->
+          <img src="img3.jpeg" alt="">
         </div>
         <div class="name">ไฟ</div>
         <div style="color: #6e6e6e;">ชื่อ</div>
@@ -111,12 +135,12 @@
       </div>
       <div class="box">
         <div class="image">
-          <!---- <img src="img3.jpeg" alt="">---->
+          <img src="img3.jpeg" alt="">
         </div>
         <div class="name">ขากล้อง</div>
         <div style="color: #6e6e6e;">ชื่อ</div>
         <button class="onbutton" type="button">ดูเพิ่มเติม</button>
-      </div>
+      </div> -->
     </div>
 
   </div>
