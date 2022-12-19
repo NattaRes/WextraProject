@@ -57,7 +57,7 @@
                         <tbody>
                             <!-- <tr>
                                 <td> -->
-                                    <?php
+                            <!-- <?php
 
                                     // date restricter
                                     $cartrange = "SELECT * FROM tool_cart
@@ -221,10 +221,10 @@
                                         }
                                     }
 
-                ?>
-                <!-- </td>
+                ?> -->
+                            <!-- </td>
                 </tr> -->
-                <!-- <tr>
+                            <!-- <tr>
                     <td style="border:0.5px solid #6e6e6e;">
                         <h5 style="text-align: center; color: #6e6e6e;">
 
@@ -257,8 +257,10 @@
                 <div>
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">วันที่ยืม :</label>
                     <input name="s_date" id="s_date" min="<?php echo $stformat; ?>" style=" color: #6e6e6e; margin-right: 10%;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" placeholder="เลือกวันที่ยืม" value="" required />
-                    <label class="credit-card-label" style="margin-left: 8.5%; font-size: 18px; color: #6e6e6e;">วันที่คืน : </label>
-                    <input name="e_date" id="e_date" min="<?php echo $nxtformat; ?>" style=" color: #6e6e6e;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" placeholder="เลือกวันที่คืน" required />
+                    <label class="credit-card-label" style="margin-left: 8.5%; font-size: 18px; color: #6e6e6e;">ระยะเวลา</label>
+                    <input name="e_date" id="e_date" type="number" style="width: 4%;" min="1" max="3" value="1" />
+                    <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">วัน</label>
+                    <!-- <input name="e_date" id="e_date" min="<?php echo $nxtformat; ?>" style=" color: #6e6e6e;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" placeholder="เลือกวันที่คืน" required /> -->
                 </div>
 
                 <div>
@@ -388,8 +390,24 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script>
-        <?php
-        ?>
+        // // Array of restricted dates
+        // var restrictedDates = ["2022-12-25", "2022-12-26", "2022-12-27"];
+
+        // // Add an event listener for the date input field
+        // document.getElementById("dateInput").addEventListener("input", function() {
+        //     // Get the selected date
+        //     var selectedDate = new Date(this.value);
+
+        //     // Check if the selected date is in the array of restricted dates
+        //     if (restrictedDates.indexOf(selectedDate.toISOString().substring(0, 10)) !== -1) {
+        //         // If the selected date is restricted, show an error message
+        //         document.getElementById("errorMessage").innerHTML = "Sorry, that date is not available.";
+        //     } else {
+        //         // If the selected date is not restricted, clear the error message
+        //         document.getElementById("errorMessage").innerHTML = "";
+        //     }
+        // });
+
         var datepicked = function() {
             var from = $('#s_date');
             var to = $('#e_date');
@@ -423,13 +441,13 @@
             // maxDate: "+4D", //จองล่วงหน้าได้ไม่เกิน 2 วัน 
             beforeShowDay: noWeekends
         });
-        $("#e_date").datepicker({
-            onSelect: datepicked,
-            dateFormat: 'yy-mm-dd',
-            minDate: "+2D", //ไม่สามารถจองวันที่ย้อนหลังได้ 
-            // maxDate: "+4D", //จองล่วงหน้าได้ไม่เกิน 2 วัน 
-            beforeShowDay: noWeekends
-        });
+        // $("#e_date").datepicker({
+        //     onSelect: datepicked,
+        //     dateFormat: 'yy-mm-dd',
+        //     minDate: "+2D", //ไม่สามารถจองวันที่ย้อนหลังได้ 
+        //     // maxDate: "+4D", //จองล่วงหน้าได้ไม่เกิน 2 วัน 
+        //     beforeShowDay: noWeekends
+        // });
     </script>
 </body>
 

@@ -55,8 +55,7 @@
 
         <div class="payment-info">
             <div style="float: left;">
-                <img src="<?php echo $pic_path; ?>"   
-                style="
+                <img src="<?php echo $pic_path; ?>" style="
                 height: 30%;
                 max-width: 80%;
 	            margin: 0 auto;
@@ -184,10 +183,12 @@
                 <form action="../adminbackend/addspectools.php" method="POST">
 
                     <!-- Modal content -->
-                    <div class="modal-content" style=" margin-top: 20%; width: 40%; margin-left:30%; border-radius: 33px; box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);">
+                    <div class="modal-content" style=" width: 40%; margin-left:30%; border-radius: 33px; box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);">
                         <div>
                             <h2 style="text-align: center; margin-top: 5%; margin-left: 4%; font-size: 30px; color:black; ">เพิ่มครุภัณฑ์</h2>
                         </div>
+                        <video id="vidbox" style="align-self: center;" width="80%" height="80%" autoplay></video>
+
                         <div style="float: left ; width:50%; margin-bottom: 2%; margin-top: 5%; margin-left: 20%;">
                             <label style="font-size: 20px; color:black; float: left ; margin-top:1%;">
                                 ID :
@@ -217,7 +218,7 @@
                                     ?>
 
                                         <option value="<?php echo $tstarow["tool_status"]; ?>"><?php echo $tstarow["t_status"]; ?></option>
-                                    
+
                                     <?php
 
                                     }
@@ -228,7 +229,7 @@
                         </div>
 
                         <div class="flex items-center justify-start mt-4 gap-x-2 ">
-                            <button type="submit" style="width:100px;
+                            <button id="suborcan" type="submit" style="width:100px;
                                     height:40px;
                                     border:none;
                                     font-size: 20px;
@@ -240,7 +241,7 @@
                                     margin-bottom:5%;">
                                 ยืนยัน
                             </button>
-                            <button type="reset" class="close1" style="width:100px;
+                            <button id="suborcan" type="reset" class="close1" style="width:100px;
                                     height:40px;
                                     border:none;
                                     font-size: 20px;
@@ -257,8 +258,15 @@
             </div>
         </div>
 
+        <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+
         <!-- Popup -->
-        <script>
+        <script type="text/javascript">
+            var videoElement = document.getElementById("vidbox");
+            var constraints = {
+                video: true
+            };
+
             // Get the modal
             var modal = document.getElementById("myModal");
 
@@ -268,14 +276,67 @@
             // Get the <span> element that closes the modal
             var span = document.getElementsByClassName("close1")[0];
 
+            var scnr = new Instascan.Scanner({
+                video: document.getElementById("vidbox"),
+                scanPeriod: 5,
+                mirror: false
+            });
+
             // When the user clicks on the button, open the modal
             btn.onclick = function() {
                 modal.style.display = "block";
+                // if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                //     // Call the getUserMedia method with the constraints
+                //     navigator.mediaDevices.getUserMedia(constraints)
+                //         .then(function(stream) {
+                //             // Set the srcObject property of the video element to the MediaStream object
+                //             videoElement.srcObject = stream;
+                //         })
+                //         .catch(function(error) {
+                //             // Log the error to the console
+                //             console.error('Error opening camera:', error);
+                //         });
+                // }
+                scnr.addListener('scan', function(content) {
+                    //alert(content);
+                    document.getElementById("specificID").setAttribute("value", content);
+                    scnr.stop();
+                    //window.location.href=content;
+                });
+                Instascan.Camera.getCameras().then(function(cameras) {
+                    if (cameras.length > 0) {
+                        scnr.start(cameras[0]);
+                        $('[name="options"]').on('change', function() {
+                            if ($(this).val() == 1) {
+                                if (cameras[0] != "") {
+                                    scnr.start(cameras[0]);
+                                } else {
+                                    alert('No Front camera found!');
+                                }
+                            } else if ($(this).val() == 2) {
+                                if (cameras[1] != "") {
+                                    scnr.start(cameras[1]);
+                                } else {
+                                    alert('No Back camera found!');
+                                }
+                            }
+                        });
+                    } else {
+                        console.error('No cameras found.');
+                        alert('No cameras found.');
+                    }
+                }).catch(function(e) {
+                    console.error(e);
+                    alert(e);
+                });
             }
 
             // When the user clicks on <span> (x), close the modal
             span.onclick = function() {
                 modal.style.display = "none";
+                // if (videoElement.srcObject) {
+                //     videoElement.srcObject.getTracks().forEach(track => track.stop());
+                // }
             }
 
             // When the user clicks anywhere outside of the modal, close it
@@ -285,7 +346,6 @@
                 }
             }
         </script>
-
 </body>
 
 </html>
