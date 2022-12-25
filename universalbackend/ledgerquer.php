@@ -90,6 +90,7 @@ if ($resinsertque) {
                         $mail->isSMTP();
                         $mail->Host       = 'smtp.gmail.com';
                         $mail->SMTPAuth   = true;
+                        // email here
                         $mail->Username   = 'nattawutwextramailtest@gmail.com';
                         $mail->Password   = 'cnsvhhjdeoaonfjy';
                         $mail->SMTPSecure = 'tls';
