@@ -95,7 +95,7 @@
             </div>
 
             <div>
-                <a herf="Historytools.html">
+                <a href="Historytools.php?toolid=<?php echo $toolid; ?>&sfi=all&sinput=">
                     <button class="onbutton" type="button" style="margin-left:10%; margin-top:2%;">ประวัติการใช้งาน</button>
                 </a>
             </div>
@@ -285,6 +285,7 @@
             // When the user clicks on the button, open the modal
             btn.onclick = function() {
                 modal.style.display = "block";
+                videoElement.style.display = 'block';
                 // if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                 //     // Call the getUserMedia method with the constraints
                 //     navigator.mediaDevices.getUserMedia(constraints)
@@ -301,6 +302,7 @@
                     //alert(content);
                     document.getElementById("specificID").setAttribute("value", content);
                     scnr.stop();
+                    videoElement.style.display = 'none';
                     //window.location.href=content;
                 });
                 Instascan.Camera.getCameras().then(function(cameras) {
@@ -327,13 +329,14 @@
                     }
                 }).catch(function(e) {
                     console.error(e);
-                    alert(e);
+                    // alert(e);
                 });
             }
 
             // When the user clicks on <span> (x), close the modal
             span.onclick = function() {
                 modal.style.display = "none";
+                scnr.stop();
                 // if (videoElement.srcObject) {
                 //     videoElement.srcObject.getTracks().forEach(track => track.stop());
                 // }
@@ -343,6 +346,7 @@
             window.onclick = function(event) {
                 if (event.target == modal) {
                     modal.style.display = "none";
+                    scnr.stop();
                 }
             }
         </script>
