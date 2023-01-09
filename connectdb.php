@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set("Asia/Bangkok");
+
 // define("HOST", "localhost:3307");
 // define("USER", "root@");
 // define("PASS", "");

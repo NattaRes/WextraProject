@@ -133,10 +133,13 @@
                     <span>รหัสครุภัณฑ์</span>
                   </th>
                   <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
+                    <span>เวลายืม - คืน</span>
+                  </th>
+                  <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
                     <span>รหัสนักศึกษา</span>
                   </th>
                   <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
-                    <span>ชื่อ</span>
+                    <span>ชื่อ - นามสกุล</span>
                   </th>
                   <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border:2px solid #686868;">
                     <span>เบอร์โทรศัพท์</span>
@@ -158,6 +161,9 @@
                     </td>
                     <td width="15%" style="border:2px solid #686868;">
                       <h5 style="text-align: center; color: black;font-size: 18px;"><?php echo $row["tool_spec_ID"]; ?></h5>
+                    </td>
+                    <td width="15%" style="border:2px solid #686868;">
+                      <h5 style="text-align: center; color: black;font-size: 18px;"><?php echo $row["ledger_s_date"] . " - " . $row["ledger_e_date"]; ?></h5>
                     </td>
                     <td width="10%" style="border:2px solid #686868;">
                       <h5 style="text-align: center; color: black; font-size: 18px;"><?php echo $row["user_UID"]; ?></h5>

@@ -14,11 +14,17 @@ $s_date = $_POST["s_date"];
 $e_date = $_POST["e_date"];
 $que_desc = $_POST["que_desc"];
 
+$newe_date = date_create($s_date);
+$e_date--;
+$newe_date->modify("+$e_date day");
+$insedate = $newe_date->format('Y-m-d');
+
 // echo $uid;
 // echo $approver_UID;
 // echo $s_date;
 // echo $e_date;
 // echo $que_desc;
+// echo $newe_date->format('Y-m-d');
 
 $fromselect = "SELECT tool_all_ID, quantity FROM tool_cart
     WHERE UID = '$uid'
@@ -36,7 +42,7 @@ $resfs = $conn->query($fromselect);
 
 $insertque = "INSERT INTO queue_table
     (que_owner_UID, approver_UID, s_date, e_date, que_desc, queue_status)
-    VALUES ('$uid', '$approver_UID', '$s_date', '$e_date', '$que_desc', 1)";
+    VALUES ('$uid', '$approver_UID', '$s_date', '$insedate', '$que_desc', 1)";
 
 $resinsertque = $conn->query($insertque);
 
@@ -45,7 +51,7 @@ if ($resinsertque) {
     $selque = "SELECT * FROM queue_table 
         WHERE que_owner_UID = '$uid'
         AND s_date = '$s_date'
-        AND e_date = '$e_date'";
+        AND e_date = '$insedate'";
 
     $resselque = $conn->query($selque);
 
@@ -65,7 +71,7 @@ if ($resinsertque) {
                     (que_ID, user_UID, tool_all_ID, tool_spec_ID, approver_UID, 
                     ledger_s_date, ledger_e_date, ledger_desc, queue_status) 
                     VALUES ('$qid', '$uid', '$toolidall', NULL, '$approver_UID', 
-                    '$s_date', '$e_date', '$que_desc', 1)";
+                    '$s_date', '$insedate', '$que_desc', 1)";
 
                 $resinsertledger = $conn->query($inserteer);
 

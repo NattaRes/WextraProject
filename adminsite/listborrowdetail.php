@@ -81,8 +81,8 @@
 
                 </div>
                 <div>
-                    <label class="credit-card-label" style="margin-left: 5%; margin-right: 23.8%; font-size: 20px; color: black; ">คณะ : กระทรวงเวทย์มนต์</label>
-                    <label class="credit-card-label" style="font-size: 20px; color: black; ">สาขา : เทคโนโลยีดิจิทัล</label>
+                    <label class="credit-card-label" style="margin-left: 5%; margin-right: 23.8%; font-size: 20px; color: black; ">สำนักวิชา : NONE</label>
+                    <label class="credit-card-label" style="font-size: 20px; color: black; ">สาขา : NONE</label>
                 </div>
                 <div><label class="credit-card-label" style="margin-left: 5%; margin-right: 11.2%; font-size: 20px;color: black; ">Email : <?php echo $email; ?></label>
                     <label class="credit-card-label" style="font-size: 20px; color: black; ">เบอร์ติดต่อ : <?php echo $phone; ?></label>
@@ -92,10 +92,10 @@
                     <label class="credit-card-label" style="font-size: 20px; color: black;">หมายเหตุ :</label>
                     <label class="credit-card-label" style="font-size: 20px; color: black;"><?php echo $qdesc; ?></label>
                 </div>
-                <div>
+                <!-- <div>
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 20px; color: black;">ใบเสร็จ :</label>
                     <button class="onbuttonprint" type="button">ดาวน์โหลด</button>
-                </div>
+                </div> -->
             </div>
             <hr noshade="noshade" style="color: black; margin-top: 5%;">
 
@@ -153,6 +153,7 @@
                                                             <input type="hidden" name="ledgerID[]" value="<?php echo $ledgerID; ?>" />
                                                             <td style="border: 2px solid rgb(194, 194, 194); ">
                                                                 <select name="toolspec[]" id="mySelect" style="margin-left:25%; height:100%; width: 50%; font-size:20px; border-radius:5px;" required>
+                                                                    <option disabled selected value> -- select an option -- </option>
                                                                     <?php
 
                                                                     $specificsql = "SELECT * FROM tool_specific_table
@@ -207,6 +208,14 @@
         </div>
         <div style="margin-top:30%;">
         </div>
+        <div id="demodal">
+            <div class="modal-content" style=" width: 40%; margin-left:30%; border-radius: 33px; box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);">
+                <video id="vidbox" style="align-self: center;" width="80%" height="80%" autoplay></video>
+            </div>
+        </div>
+        <script>
+            var modal = document.getElementById("demodal");
+        </script>
 </body>
 
 </html>
