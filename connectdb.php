@@ -34,10 +34,10 @@ date_default_timezone_set("Asia/Bangkok");
 //     }
 // }
 
-$host = "localhost:3306";
-$user = "root";
-$pass = "";
-$dbnm = "wextraprototype";
+$host = "203.158.3.36";
+$user = "dgtprj65_05";
+$pass = "842994";
+$dbnm = "dgtprj65_05";
 $conn = mysqli_connect($host, $user, $pass, $dbnm);
 if (mysqli_connect_error()) {
     echo "SQL condition 1 connect error : " . mysqli_connect_error();
