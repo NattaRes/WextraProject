@@ -83,9 +83,9 @@
                 <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">เบอร์ติดต่อ : <?php echo $phone; ?></label>
             </div>
             <div><label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">วันที่ยืม :</label>
-                <label class="credit-card-label" style="font-size: 18px; color:  color: #6e6e6e;"><?php echo date_format($e_date, "d/m/Y"); ?></label>
+                <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;"><?php echo date_format($s_date, "d/m/Y"); ?></label>
                 <label class="credit-card-label" style="margin-left: 8.5%; font-size: 18px; color: #6e6e6e;">วันที่คืน : </label>
-                <label class="credit-card-label" style="font-size: 18px; color:  color: #6e6e6e;"><?php echo date_format($e_date, "d/m/Y"); ?></label>
+                <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;"><?php echo date_format($e_date, "d/m/Y"); ?></label>
             </div>
             <div>
                 <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">ผู้อนุมัติ :</label>

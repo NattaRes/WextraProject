@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-
+    <script src="https://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
 </head>
 
 <body>
@@ -118,7 +118,7 @@
                                                     <th style="text-align: center; color: black; font-weight: bold; font-size: 18px; border: 2px solid rgb(194, 194, 194);"><span>รหัสครุภัณฑ์</span></th>
                                                 </tr>
                                             </thead>
-                                            <form action="../adminbackend/recivtool.php" method="POST">
+                                            <form id="theForm" action="../adminbackend/recivtool.php" method="POST">
                                                 <input type="hidden" name="queid" value="<?php echo $queid; ?>" />
                                                 <tbody>
                                                     <?php
@@ -152,8 +152,11 @@
                                                             </td>
                                                             <input type="hidden" name="ledgerID[]" value="<?php echo $ledgerID; ?>" />
                                                             <td style="border: 2px solid rgb(194, 194, 194); ">
-                                                                <select name="toolspec[]" id="mySelect" style="margin-left:25%; height:100%; width: 50%; font-size:20px; border-radius:5px;" required>
+
+                                                                <!-- <select name="toolspec[]" id="slc_<?php echo $ledgerID; ?>" style="margin-left:25%; height:100%; width: 50%; font-size:20px; border-radius:5px; <?php if ($rownum > 1) { ?>display: none;<?php } ?>" onchange="rmvOpt(this.id, this.value)" required> -->
+                                                                <select name="toolspec[]" id="slc_<?php echo $toolidall; ?>_<?php echo $rownum; ?>" style="margin-left:25%; height:100%; width: 50%; font-size:20px; border-radius:5px; <?php if ($rownum > 1) { ?>display: none;<?php } ?>" required>
                                                                     <option disabled selected value> -- select an option -- </option>
+
                                                                     <?php
 
                                                                     $specificsql = "SELECT * FROM tool_specific_table
@@ -168,7 +171,8 @@
 
                                                                         $specID = $specrow["tool_spec_ID"];
                                                                     ?>
-                                                                        <option value="<?php echo $specID; ?>"><?php echo $specount . ". " . $specID; ?></option>
+                                                                        <option value="<?php echo $specID; ?>"><?php echo $specID; ?></option>
+
                                                                     <?php
 
                                                                         $specount++;
@@ -176,6 +180,9 @@
 
                                                                     ?>
                                                                 </select>
+                                                                <button class="onbutton" id="istbtn_<?php echo $rownum; ?>" style="margin-top:-7%; <?php if ($rownum > 1) { ?>display: none;<?php } ?>" onclick="modaldis(<?php echo $rownum; ?>, <?php echo $toolidall; ?>)">QR code</button>
+                                                                <button class="onbutton" id="lockbtn_<?php echo $rownum; ?>" style="margin-top: 1%;<?php if ($rownum > 1) { ?>display: none;<?php } ?>" onclick="lockechc(<?php echo $rownum; ?>, <?php echo $toolidall; ?>)">ยืนยัน</button>
+
                                                             </td>
                                                         </tr>
                                                     <?php
@@ -184,7 +191,9 @@
                                                     }
 
                                                     ?>
+
                                                 </tbody>
+
                                                 <thead>
                                                     <tr>
                                                         <th style="text-align: center; color: black;  font-size: 18px; border-left: 0px solid rgb(194, 194, 194); border-bottom: 2px solid rgb(194, 194, 194); border-left: 2px solid rgb(194, 194, 194);"><span></span></th>
@@ -197,24 +206,267 @@
                                     </div>
                                 </div>
                             </div>
+
+
                             <div>
-                                <button class="onbutton" type="submit">ยืนยันรับอุปกรณ์</button>
+                                <button class="onbutton" id="submiter" disabled>ยืนยันรับอุปกรณ์</button>
+
                             </div>
                             </form>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
         <div style="margin-top:30%;">
+
         </div>
-        <div id="demodal">
+        <!-- The Modal -->
+        <div id="insertmodal" class="modal">
+
+            <!-- Modal content -->
             <div class="modal-content" style=" width: 40%; margin-left:30%; border-radius: 33px; box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);">
+                <span class="close" style="margin-left:95%; font-size: 35px;">&times;</span>
+                <div>
+                    <p id="ledid"></p>
+                </div>
                 <video id="vidbox" style="align-self: center;" width="80%" height="80%" autoplay></video>
+                <div>
+                </div>
             </div>
         </div>
+
+        <div id="authenmodal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content" style=" width: 40%; margin-left:30%; border-radius: 33px; box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);">
+                <span class="close" style="margin-left:95%; font-size: 35px;">&times;</span>
+                <div>
+                </div>
+                <div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+
+        <!-- Popup -->
         <script>
-            var modal = document.getElementById("demodal");
+            var videoElement = document.getElementById("vidbox");
+            var constraints = {
+                video: true
+            };
+
+            // Get the modal
+            var istmodal = document.getElementById("insertmodal");
+
+            // Get the button that opens the modal
+            // var btn = document.getElementById("istbtn");
+
+            // var lobtn = document.getElementById("lockbtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on the button, open the modal
+            // btn.onclick = function() {
+            //     istmodal.style.display = "block";
+            // }
+
+            const ptest = document.getElementById("ledid");
+
+            var submitbtn = document.getElementById("submiter");
+
+            var stedlist = [];
+            var idenlist = [];
+
+            var hiddeneer = document.createElement("input");
+            hiddeneer.setAttribute("type", "hidden");
+            hiddeneer.setAttribute("name", "toolspec")
+
+            var scnr = new Instascan.Scanner({
+                video: document.getElementById("vidbox"),
+                scanPeriod: 5,
+                mirror: false
+            });
+
+            function modaldis(id, tlidall) {
+                istmodal.style.display = "block";
+                videoElement.style.display = 'block';
+                var slcidscn = "#slc_" + tlidall + "_" + id;
+                var slcorscn = document.querySelector(slcidscn);
+                scnr.addListener('scan', function(content) {
+                    //alert(content);
+                    var valcheck = Array.prototype.some.call(slcorscn.options, function(option) {
+
+                        return option.value === content && !stedlist.includes(content);
+                    });
+
+                    if (!valcheck) {
+
+                        ptest.innerHTML = "This tool specific ID isn't an option or has been selected."
+                    } else {
+
+                        slcorscn.value = content;
+                        scnr.stop();
+                        videoElement.style.display = 'none';
+                        istmodal.style.display = "none";
+                    }
+                    // scnr.stop();
+                    // videoElement.style.display = 'none';
+                    //window.location.href=content;
+                });
+                Instascan.Camera.getCameras().then(function(cameras) {
+                    if (cameras.length > 0) {
+                        scnr.start(cameras[0]);
+                        $('[name="options"]').on('change', function() {
+                            if ($(this).val() == 1) {
+                                if (cameras[0] != "") {
+                                    scnr.start(cameras[0]);
+                                } else {
+                                    alert('No Front camera found!');
+                                }
+                            } else if ($(this).val() == 2) {
+                                if (cameras[1] != "") {
+                                    scnr.start(cameras[1]);
+                                } else {
+                                    alert('No Back camera found!');
+                                }
+                            }
+                        });
+                    } else {
+                        console.error('No cameras found.');
+                        alert('No cameras found.');
+                    }
+                }).catch(function(e) {
+                    console.error(e);
+                    // alert(e);
+                });
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                istmodal.style.display = "none";
+                scnr.stop();
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == istmodal) {
+                    istmodal.style.display = "none";
+                    scnr.stop();
+                }
+            }
+
+            function lockechc(id, tlidall) {
+                var slcid = "slc_" + tlidall + "_" + id;
+                var istid = "istbtn_" + id;
+                var locid = "lockbtn_" + id;
+
+                var slcor = document.getElementById(slcid);
+                var istbtn = document.getElementById(istid);
+                var lockbtn = document.getElementById(locid);
+
+                slcor.disabled = true;
+                istbtn.style.display = "none";
+                lockbtn.style.display = "none";
+
+                stedlist.push(slcor.value);
+                idenlist.push(tlidall);
+
+                var slcelmtl = document.querySelectorAll("select[id*='" + tlidall + "']");
+                Array.prototype.filter.call(slcelmtl, function(select) {
+
+                    return select.id !== slcor.id;
+                });
+                for (var i = 0; i < slcelmtl.length; i++) {
+
+                    var slcelmtlindiv = slcelmtl[i];
+                    for (var x = 0; x < slcelmtlindiv.options.length; x++) {
+
+                        if (slcelmtlindiv.options[x].value === slcor.value) {
+
+                            // slcelmtlindiv.options[x].remove();
+                            slcelmtlindiv.options[x].disabled = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (document.querySelector("select[id$='" + (id + 1) + "']")) {
+
+                    var slcnext = document.querySelector("select[id$='" + (id + 1) + "']");
+                    var istnxid = "istbtn_" + (id + 1);
+                    var locnxid = "lockbtn_" + (id + 1);
+
+                    var istnext = document.getElementById(istnxid);
+                    var locnext = document.getElementById(locnxid);
+
+                    slcnext.style.display = "block";
+                    istnext.style.display = "block";
+                    locnext.style.display = "block";
+                } else {
+
+                    hiddeneer.setAttribute("value", JSON.stringify(stedlist));
+                    document.getElementById("theForm").appendChild(hiddeneer);
+
+                    submitbtn.disabled = false;
+
+                    // submitbtn.addEventListener("click", function(event) {
+
+                    //     event.preventDefault();
+                    //     document.getElementById("theForm").appendChild(hiddeneer);
+                    //     document.getElementById("theForm").submit();
+                    // });
+                }
+
+            }
+
+
+
+            // var prevslcopt = [];
+
+            // function rmvOpt(id, slcopt) {
+
+            //     var slcelm = document.querySelectorAll("select[name='toolspec[]']");
+            //     if (prevslcopt.indexOf(slcopt) > -1) {
+
+            //         for (var i = 0; i < slcelm.length; i++) {
+
+            //             var slc = slcelm[i];
+            //             if (slc.id !== id) {
+
+            //                 var opt = document.createElement("option");
+            //                 opt.value = slcopt;
+            //                 opt.text = slcopt;
+            //                 slc.add(opt);
+            //             }
+            //         }
+
+            //         prevslcopt.splice(prevslcopt.indexOf(slcopt), 1);
+            //     } else {
+
+            //         for (var x = 0; x < slcelm.length; x++) {
+
+            //             var slc = slcelm[x];
+            //             if (slc.id !== id) {
+
+            //                 var opt = slc.options;
+            //                 for (var y = 0; y < opt.length; y++) {
+
+            //                     if (opt[y].value === slcopt) {
+
+            //                         slc.remove(y);
+            //                         break;
+            //                     }
+            //                 }
+            //             }
+            //         }
+
+            //         prevslcopt.push(slcopt);
+            //     }
+            // }
         </script>
 </body>
 

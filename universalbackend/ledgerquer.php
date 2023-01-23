@@ -74,71 +74,70 @@ if ($resinsertque) {
                     '$s_date', '$insedate', '$que_desc', 1)";
 
                 $resinsertledger = $conn->query($inserteer);
+            }
+        }
+        if ($resinsertledger) {
 
-                if ($resinsertledger) {
+            $quefetch = "SELECT * FROM queue_table
+                INNER JOIN user ON queue_table.approver_UID = user.UID
+                WHERE que_ID = '$qid'";
+            $resquefet = $conn->query($quefetch);
 
-                    $quefetch = "SELECT * FROM queue_table
-                        INNER JOIN user ON queue_table.approver_UID = user.UID
-                        WHERE que_ID = '$qid'";
-                    $resquefet = $conn->query($quefetch);
+            while ($querow = mysqli_fetch_array($resquefet)) {
+                $qid = $querow["que_ID"];
+                $aprmail = $querow["email"];
+                $queowner = $querow["que_owner_UID"];
+                $maildesc = $querow["que_desc"];
+            }
 
-                    while ($querow = mysqli_fetch_array($resquefet)) {
-                        $qid = $querow["que_ID"];
-                        $aprmail = $querow["email"];
-                        $queowner = $querow["que_owner_UID"];
-                        $maildesc = $querow["que_desc"];
-                    }
+            $mail = new PHPMailer(true);
 
-                    $mail = new PHPMailer(true);
+            try {
+                $mail->SMTPDebug = 2;
+                $mail->isSMTP();
+                $mail->Host       = 'smtp.gmail.com';
+                $mail->SMTPAuth   = true;
+                // email here
+                $mail->Username   = 'nattawutwextramailtest@gmail.com';
+                $mail->Password   = 'cnsvhhjdeoaonfjy';
+                $mail->SMTPSecure = 'tls';
+                $mail->Port       = 587;
 
-                    try {
-                        $mail->SMTPDebug = 2;
-                        $mail->isSMTP();
-                        $mail->Host       = 'smtp.gmail.com';
-                        $mail->SMTPAuth   = true;
-                        // email here
-                        $mail->Username   = 'nattawutwextramailtest@gmail.com';
-                        $mail->Password   = 'cnsvhhjdeoaonfjy';
-                        $mail->SMTPSecure = 'tls';
-                        $mail->Port       = 587;
+                $mail->setFrom('nattawutwextramailtest@gmail.com', 'Nattawut');
+                $mail->addAddress($aprmail);
 
-                        $mail->setFrom('nattawutwextramailtest@gmail.com', 'Nattawut');
-                        $mail->addAddress($aprmail);
+                $mail->isHTML(true);
+                $mail->Subject = 'Request approval';
+                $mail->Body    = '<html>
+                        <body>
+                            <a href="http://localhost/wextraproject/user/AllowTeacher.php?queid=' . $qid . '">
+                                CLICK
+                            </a>
+                        </body>
+                    </html>';
+                $mail->AltBody = 'http://localhost/wextraproject/user/AllowTeacher.php?queid=' . $qid . '';
+                $mail->send();
+                echo "Mail has been sent successfully!";
 
-                        $mail->isHTML(true);
-                        $mail->Subject = 'Request approval';
-                        $mail->Body    = '<html>
-                                <body>
-                                    <a href="http://localhost/wextraproject/user/AllowTeacher.php?queid=' . $qid . '">
-                                        CLICK
-                                    </a>
-                                </body>
-                            </html>';
-                        $mail->AltBody = 'http://localhost/wextraproject/user/AllowTeacher.php?queid=' . $qid . '';
-                        $mail->send();
-                        echo "Mail has been sent successfully!";
+                $emptycart = "DELETE FROM tool_cart WHERE UID = '$uid'";
+                $resemptyct = $conn->query($emptycart);
 
-                        $emptycart = "DELETE FROM tool_cart WHERE UID = '$uid'";
-                        $resemptyct = $conn->query($emptycart);
+                if ($resemptyct) {
 
-                        if ($resemptyct) {
-
-                            echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
-                        } else {
-
-                            echo "Layer 4 : " . mysqli_error($conn);
-                        }
-                    } catch (Exception $e) {
-                        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-                    }
-
-                    // echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
+                    echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
                 } else {
 
-                    echo "Layer 3 : " . mysqli_error($conn);
-                    // echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
+                    echo "Layer 4 : " . mysqli_error($conn);
                 }
+            } catch (Exception $e) {
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
             }
+
+            // echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
+        } else {
+
+            echo "Layer 3 : " . mysqli_error($conn);
+            // echo "<script type='text/javascript'>location.href='../user/Status.php';</script>";
         }
     } else {
 

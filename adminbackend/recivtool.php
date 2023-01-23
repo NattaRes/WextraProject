@@ -2,9 +2,16 @@
 
 include("../connectdb.php");
 
-$specarr = $_POST["toolspec"];
+// $specarr = $_POST["toolspec"];
+$specarr = json_decode($_POST["toolspec"]);
 $queid = $_POST["queid"];
 $ledgernum = $_POST["ledgerID"];
+
+// echo "hello";
+
+// print_r($specarr);
+// print_r($queid);
+// print_r($ledgernum);
 
 $updateque = "UPDATE queue_table SET
     queue_status = 6

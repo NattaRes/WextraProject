@@ -58,13 +58,61 @@ if ((!empty($lid)) && (!empty($pwd))) {
 
     if ($cnt == 1) {
         if ($roller == "admin") {
+            // session_start();
+            // session_name("loginses");
+            // setcookie(session_name(), session_id(), time() + 86400, '/');
+            // $_SESSION["userck"] = $lid;
+
             setcookie("userck", $lid, time() + 86400, '/');
             // echo "\nADMIN : " . $lid;
+
+            // if (isset($_COOKIE["userck"])) {
+
+            //     echo "<script type='text/javascript'>location.href='adminsite/menubar.html';</script>";
+            //     exit();
+            // } else {
+
+            //     echo "<script type='text/javascript'>alert('Login Error')</script>";
+            //     // echo $_COOKIE["PHPSESSID"];
+            // }
+
+            // $shm_key = ftok(__FILE__, 't');
+            // $shm_id = shm_attach($shm_key, 1024, 0666);
+            // shm_put_var($shm_id, 1, $lid);
+
+            // session_start();
+            // $_SESSION["userck"] = $lid;
+            // print_r($_SESSION);
+
             echo "<script type='text/javascript'>location.href='adminsite/menubar.html';</script>";
             exit();
         } else {
+            // session_start();
+            // session_name("loginses");
+            // setcookie(session_name(), session_id(), time() + 86400, '/');
+            // $_SESSION["userck"] = $lid;
+
             setcookie("userck", $lid, time() + 86400, '/');
             // echo "\nUSER : " . $lid;
+
+            // if (isset($_COOKIE["userck"])) {
+
+            //     echo "<script type='text/javascript'>location.href='adminsite/menubar.html';</script>";
+            //     exit();
+            // } else {
+
+            //     echo "<script type='text/javascript'>alert('Login Error')</script>";
+            //     // echo $_COOKIE["PHPSESSID"];
+            // }
+
+            // $shm_key = ftok(__FILE__, 't');
+            // $shm_id = shm_attach($shm_key, 1024, 0666);
+            // shm_put_var($shm_id, 1, $lid);
+
+            // session_start();
+            // $_SESSION["userck"] = $lid;
+            // print_r($_SESSION);
+
             echo "<script type='text/javascript'>location.href='user/menubarUser.php';</script>";
             exit();
         }

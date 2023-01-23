@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+// print_r($_SESSION);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,21 +18,26 @@
 
   <div class="header">
 
-  <?php 
+    <?php
+    include("../connectdb.php");
 
-  include("../connectdb.php");
-  
-  $uid = $_COOKIE["userck"];
+    // $shm_key = ftok(__FILE__, 't');
+    // $shm_id = shm_attach($shm_key, 1024, 0666);
+    // $uid = shm_get_var($shm_id, 1);
 
-  $usersql = "SELECT * FROM user WHERE UID = '$uid'";
+    $uid = $_COOKIE["userck"];
 
-  $queuser = $conn->query($usersql);
+    // $uid = $_SESSION["userck"];
 
-  while ($rowuser = mysqli_fetch_array($queuser)) {
-    $username = $rowuser["username"];
-  }
+    $usersql = "SELECT * FROM user WHERE UID = '$uid'";
 
-  ?>
+    $queuser = $conn->query($usersql);
+
+    while ($rowuser = mysqli_fetch_array($queuser)) {
+      $username = $rowuser["username"];
+    }
+
+    ?>
 
     <ul>
       <h3 class="nameheader"><?php echo $uid . " " . $username; ?></h3>
@@ -55,14 +66,14 @@
           <span>กฎการยืม</span>
         </a>
       </li>
-      
+
       <li>
         <a href="Alltools.php?sinput=&tpin=all" target="Changepage1" onclick="changePageTitletools()">
           <img src="../image/icon/photo-camera (1).png" class="iconimg" />
           <span>เครื่องมือ</span>
         </a>
       </li>
-     
+
       <li>
         <a href="Cart.php" target="Changepage1" onclick="changePageTitlecart()">
           <img src="../image/icon/shopping-cart (2).png" class="iconimg" />
@@ -81,7 +92,7 @@
           <span>ข่าวสาร</span>
         </a>
       </li>
-  
+
       <!--<li>
         <a href="Historyuser.html" target="Changepage1" onclick="changePageTitlest()">
           <img src="../image/icon/hourglass.png" class="iconimg" />
@@ -97,43 +108,42 @@
 
       <li class="log_out">
         <a href="../logmeout.php">
-          <img src="../image/icon/logout.png" class="iconimg"/>
+          <img src="../image/icon/logout.png" class="iconimg" />
           <span style="margin-left: -5%;">ออกจากระบบ</span>
         </a>
       </li>
     </ul>
   </div>
   <div id='center' class="frame">
-    <iframe src="home.php" name="Changepage1" id="iframeid" frameborder="0" scrolling="auto" height="100%" width="100%"
-      style="border: none; margin-bottom: -1%; margin-top: 0%;">
+    <iframe src="home.php" name="Changepage1" id="iframeid" frameborder="0" scrolling="auto" height="100%" width="100%" style="border: none; margin-bottom: -1%; margin-top: 0%;">
     </iframe>
     <!--<footer class="footer" style="height: 10%; background-color: #015C92; ">
       <img src="../image/icon/footer.png" style="height:80%; margin-left: 40%; margin-bottom: -3%; "/>
      </footer>-->
     <!-- Trigger/Open The Modal -->
- 
+
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
-     
+
       <!-- Modal content -->
       <div class="modal-content" style="margin-top: 1%;">
-        <span class="close" >&times;</span>
+        <span class="close">&times;</span>
         <div>
-          <h2 style="text-align: center; margin-top: 2%; margin-left: 10%;">เงื่อนไขการยืม</h2> 
+          <h2 style="text-align: center; margin-top: 2%; margin-left: 10%;">เงื่อนไขการยืม</h2>
         </div>
         <div id="scroll_demo">
-        <div style="margin-bottom: 2%;">1.ผู้ที่จะยืมวัสดุ อุปกรณ์ กรุณาติดต่อสอบถามเจ้าหน้าที่ห้องปฏิบัติการที่ดูแลและกรอกแบบยืมวัสดุ อุปกรณ์ล่วงหน้าอย่างน้อย 2 วันทำการ</div>
-        <div style="margin-bottom: 2%;">2.การขอยืมวัสดุ อุปกรณ์ ผู้ใช้ต้องทำการยืม และส่งวันต่อวันเท่านั้น (ภายใน1วันของเวลาทำการ 08:30 ถึง 16:30)</div>
-        <div style="margin-bottom: 2%;">3.ในกรณีเป็นการยืมกล้อง DVCAM ผู้ขอใช้จะต้องทำหนังสือขอ<br>เจ้าหน้าที่ จากห้องปฏิบัติการเพื่อร่วมปฏิบัติงานด้วยอย่างน้อย 1 คน</div>
-        <div style="margin-bottom: 2%;">4.ในกรณีที่เกิดความเสียหายกับเครื่องมือหรืออุปกรณ์ อันเนื่องจากขอผู้รับบริการ(ผู้ยืม) จะต้องชดใช้และรับผิดชอบค่าใช้จ่ายที่เกิดขึ้นอันเนื่องจากความเสียหาย/ชำรุด ของเครื่องมือและอุปกรณ์ทุกกรณี</div>
-        <div style="margin-bottom: 2%;">5.ทางห้องปฏิบัติการเทคโนโลยีสารสนเทศขอสงวนสิทธิ์ ที่จะพิจารณาไม่ให้ยืมอุปกรณ์บางอย่าง ที่เจ้าหน้าที่ห้องปฏิบัติการ พิจารณาเห็นแล้วว่าไม่ควรให้ยืม</div>
-        <div style="margin-bottom: 2%;">6.การส่ง-คืนวัสดุอุปกรณ์จะต้องปฏิบัติตามวันเวลาที่กำหนดไว้ในแบบฟอร์มเท่านั้น หากไม่ปฏิบัติตามทางห้องปฏิบัติการจะพิจารณาในการให้ยืมอุปกรณ์ในครั้งถัดไป</div>
-        <div style="margin-bottom: 2%;">7.ควรใช้เครื่องมือและอุปกรณ์ด้วยความระมัดระวัง</div>
-        <div style="margin-bottom: 2%;">8.ควรตรวจเช็คสภาพของอุปกรณ์การยืมทุกครั้งก่อนนำไปใช้ในงาน</div>
-        <div style="margin-bottom: 2%;">9.การส่งคืนอุปกรณ์ทุกครั้ง จะต้องมีการตรวจสภาพของอุปกรณ์ที่นำไปใช้ทุกครั้งกับเจ้าหน้าที่ห้องปฏิบัติการก่อนทำส่ง</div>
+          <div style="margin-bottom: 2%;">1.ผู้ที่จะยืมวัสดุ อุปกรณ์ กรุณาติดต่อสอบถามเจ้าหน้าที่ห้องปฏิบัติการที่ดูแลและกรอกแบบยืมวัสดุ อุปกรณ์ล่วงหน้าอย่างน้อย 2 วันทำการ</div>
+          <div style="margin-bottom: 2%;">2.การขอยืมวัสดุ อุปกรณ์ ผู้ใช้ต้องทำการยืม และส่งวันต่อวันเท่านั้น (ภายใน1วันของเวลาทำการ 08:30 ถึง 16:30)</div>
+          <div style="margin-bottom: 2%;">3.ในกรณีเป็นการยืมกล้อง DVCAM ผู้ขอใช้จะต้องทำหนังสือขอ<br>เจ้าหน้าที่ จากห้องปฏิบัติการเพื่อร่วมปฏิบัติงานด้วยอย่างน้อย 1 คน</div>
+          <div style="margin-bottom: 2%;">4.ในกรณีที่เกิดความเสียหายกับเครื่องมือหรืออุปกรณ์ อันเนื่องจากขอผู้รับบริการ(ผู้ยืม) จะต้องชดใช้และรับผิดชอบค่าใช้จ่ายที่เกิดขึ้นอันเนื่องจากความเสียหาย/ชำรุด ของเครื่องมือและอุปกรณ์ทุกกรณี</div>
+          <div style="margin-bottom: 2%;">5.ทางห้องปฏิบัติการเทคโนโลยีสารสนเทศขอสงวนสิทธิ์ ที่จะพิจารณาไม่ให้ยืมอุปกรณ์บางอย่าง ที่เจ้าหน้าที่ห้องปฏิบัติการ พิจารณาเห็นแล้วว่าไม่ควรให้ยืม</div>
+          <div style="margin-bottom: 2%;">6.การส่ง-คืนวัสดุอุปกรณ์จะต้องปฏิบัติตามวันเวลาที่กำหนดไว้ในแบบฟอร์มเท่านั้น หากไม่ปฏิบัติตามทางห้องปฏิบัติการจะพิจารณาในการให้ยืมอุปกรณ์ในครั้งถัดไป</div>
+          <div style="margin-bottom: 2%;">7.ควรใช้เครื่องมือและอุปกรณ์ด้วยความระมัดระวัง</div>
+          <div style="margin-bottom: 2%;">8.ควรตรวจเช็คสภาพของอุปกรณ์การยืมทุกครั้งก่อนนำไปใช้ในงาน</div>
+          <div style="margin-bottom: 2%;">9.การส่งคืนอุปกรณ์ทุกครั้ง จะต้องมีการตรวจสภาพของอุปกรณ์ที่นำไปใช้ทุกครั้งกับเจ้าหน้าที่ห้องปฏิบัติการก่อนทำส่ง</div>
+        </div>
       </div>
-    </div>
     </div>
   </div>
 
@@ -168,26 +178,32 @@
       newPageTitle = 'Home';
       document.querySelector('title').textContent = newPageTitle;
     }
+
     function changePageTitletools() {
       newPageTitle = 'Tools';
       document.querySelector('title').textContent = newPageTitle;
     }
+
     function changePageTitlevalue() {
       newPageTitle = 'Values';
       document.querySelector('title').textContent = newPageTitle;
     }
+
     function changePageTitlecart() {
       newPageTitle = 'Cart';
       document.querySelector('title').textContent = newPageTitle;
     }
+
     function changePageTitlenews() {
       newPageTitle = 'News';
       document.querySelector('title').textContent = newPageTitle;
     }
+
     function changePageTitlest() {
       newPageTitle = 'Status';
       document.querySelector('title').textContent = newPageTitle;
     }
+
     function changePageTitlepr() {
       newPageTitle = 'Profile';
       document.querySelector('title').textContent = newPageTitle;
@@ -206,17 +222,17 @@
     var span = document.getElementsByClassName("close")[0];
 
     // When the user clicks on the button, open the modal
-    btn.onclick = function () {
+    btn.onclick = function() {
       modal.style.display = "block";
     }
 
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
+    span.onclick = function() {
       modal.style.display = "none";
     }
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
+    window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
       }

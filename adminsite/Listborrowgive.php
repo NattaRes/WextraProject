@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="Listborrgive.css">
 </head>
 
-<body >
+<body>
 	<div style="margin-top:8%;">
 	</div>
 	<div class="mytabs">
@@ -199,9 +199,13 @@
 				</div>
 			</div>
 		</div>
-
-
 	</div>
+
+	<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+
+	<script>
+		
+	</script>
 </body>
 
 </html>
