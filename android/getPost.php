@@ -1,5 +1,5 @@
 <?php
-include('connectdb.php');
+include('../connectdb.php');
 $news = $conn->query("SELECT post_title , post_time , post_desc ,post_pic_path FROM post_table");
 
 $post_table = array();

@@ -1,5 +1,5 @@
 <?php
-include('connectdb.php');
+include('../connectdb.php');
 include('validate.php');
 
 $uid = validate($_POST['UID']);

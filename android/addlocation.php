@@ -1,5 +1,5 @@
 <?php
-    include('connectdb.php');
+    include('../connectdb.php');
 	 
 	// json response array
 	$response = array();
