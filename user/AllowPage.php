@@ -304,7 +304,9 @@
                     $resldgxbsed = $conn->query($ledgerxbsed);
                     $xbsedcount = mysqli_num_rows($resldgxbsed);
 
-                    if (($xbsedcount == $cuctquant) || (($tspcount - $xbsedcount) < $cuctquant)) {
+                    // echo $xdate . " " . $cuctoolid . " ledger " . $xbsedcount . " : want " . $cuctquant . " : tool " . $tspcount . "</br>";
+
+                    if (($xbsedcount == $tspcount) || (($tspcount - $xbsedcount) < $cuctquant)) {
 
                         if (!in_array($xdate, $rstrcdate)) {
 

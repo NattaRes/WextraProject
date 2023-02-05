@@ -11,8 +11,8 @@ $finarr = array();
 
 while ($qrow = mysqli_fetch_array($resqu)) {
 
-    // $uidcon = $qrow["que_owner_UID"];
-    $uidcon = "testuser";
+    $uidcon = $qrow["que_owner_UID"];
+    // $uidcon = "testuser";
 
     if (!in_array($uidcon, $uar)) {
 
