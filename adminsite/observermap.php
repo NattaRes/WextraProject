@@ -31,13 +31,57 @@ while ($slcrow = mysqli_fetch_array($reslcon)) {
 
     if (!in_array($uidone, $uidcontainer)) {
 
-        $usercrd = "SELECT act_lo, act_la FROM user WHERE UID = '$uidone'";
+        $usercrd = "SELECT * FROM user WHERE UID = '$uidone'";
         $resurcr = $conn->query($usercrd);
         while ($urcrow = mysqli_fetch_array($resurcr)) {
+            $username = $urcrow["username"];
+            $email = $urcrow["email"];
+            $phone = $urcrow["phonenum"];
             $uactlo = $urcrow["act_lo"];
             $uactla = $urcrow["act_la"];
         }
-        array_push($uidcontainer, array("user" => $uidone, "lo" => $uactlo, "la" => $uactla));
+
+        $ledgerdata = "SELECT * FROM ledger_table 
+            INNER JOIN tool_all_table ON ledger_table.tool_all_ID = tool_all_table.tool_all_ID
+            INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type
+            INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand
+            WHERE user_UID = '$uidone' AND queue_status = 6";
+        $reslgrdata = $conn->query($ledgerdata);
+
+        $tlist = array();
+        $tlcheck = array();
+
+        while ($lgrow = mysqli_fetch_array($reslgrdata)) {
+
+            $curtoid = $lgrow["tool_all_ID"];
+
+            $countlgrtool = "SELECT * FROM ledger_table WHERE user_UID = '$uidone' AND queue_status = 6 AND tool_all_ID = '$curtoid'";
+            $resctlgrt = $conn->query($countlgrtool);
+            $numrctgrt = mysqli_num_rows($resctlgrt);
+
+            if (!in_array($curtoid, $tlcheck)) {
+
+                $tlcheck[] = $curtoid;
+
+                $nameformat = $lgrow["tool_name"] . " " . $lgrow["brand_name"] . " " . $lgrow["tool_model"];
+
+                $tlist[] = array(
+                    "toolid" => $curtoid,
+                    "name" => $nameformat,
+                    "quantity" => $numrctgrt
+                );
+            }
+        }
+
+        array_push($uidcontainer, array(
+            "user" => $uidone,
+            "username" => $username,
+            "email" => $email,
+            "phone" => $phone,
+            "lo" => $uactlo,
+            "la" => $uactla,
+            "list" => $tlist
+        ));
     }
 }
 
@@ -58,7 +102,21 @@ echo "<script>var usercontain = " . $jarr . ";</script>";
             <span class="close" style="margin-left:95%; font-size: 35px;">&times;</span>
             <div>
                 <p id="ledid"></p>
-            </div>
+                <p id="ledna"></p>
+                <p id="ledem"></p>
+                <p id="ledph"></p>
+                <div id="toolist">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tool</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody id="modaltbody">
+                        </tbody>
+                    </table>
+                </div>
             <div>
             </div>
         </div>
@@ -67,17 +125,52 @@ echo "<script>var usercontain = " . $jarr . ";</script>";
     <script>
         var modal = document.getElementById("modal");
         var span = document.getElementsByClassName("close")[0];
+        
+        var modaltbody = document.getElementById("modaltbody");
 
-        const ptest = document.getElementById("ledid");
+        const pledid = document.getElementById("ledid");
+        const pledna = document.getElementById("ledna");
+        const pledem = document.getElementById("ledem");
+        const pledph = document.getElementById("ledph");
 
         function showmodal(inuid) {
             modal.style.display = "block";
-            ptest.innerHTML = inuid;
+            pledid.innerHTML = inuid;
+
+            for (let i = 0; i < usercontain.length; i++) {
+                if (usercontain[i].user === inuid) {
+                    pledna.innerHTML = usercontain[i].username;
+                    pledem.innerHTML = usercontain[i].email;
+                    pledph.innerHTML = usercontain[i].phone;
+
+                    var toolist = usercontain[i].list;
+
+                    usercontain[i].list.forEach(function(data) {
+                        const row = document.createElement("tr");
+
+                        var toolname = data["name"];
+                        const namecell = document.createElement("td");
+                        namecell.innerHTML = toolname;
+                        row.appendChild(namecell);
+
+                        var quantity = data["quantity"];
+                        const quancell = document.createElement("td");
+                        quancell.innerHTML = quantity;
+                        row.appendChild(quancell);
+
+                        modaltbody.appendChild(row);
+                    });
+                }
+            }
         }
 
         function closemodal() {
             modal.style.display = "none";
-            ptest.innerHTML = "";
+            pledid.innerHTML = "";
+            pledna.innerHTML = "";
+            pledem.innerHTML = "";
+            pledph.innerHTML = "";
+            modaltbody.innerHTML = "";
         }
 
         span.onclick = function() {
@@ -99,6 +192,7 @@ echo "<script>var usercontain = " . $jarr . ";</script>";
 
         usercontain.forEach(function(marker) {
             var cuid = marker["user"];
+            var cname = marker["username"];
             var clog = marker["lo"];
             var clat = marker["la"];
             var icfeature = new ol.Feature({
@@ -117,7 +211,7 @@ echo "<script>var usercontain = " . $jarr . ";</script>";
                     src: '//raw.githubusercontent.com/jonataswalker/map-utils/master/images/marker.png'
                 }),
                 text: new ol.style.Text({
-                    text: cuid,
+                    text: cname,
                     font: 'bold 30px TH Sarabun New'
                 })
             });
