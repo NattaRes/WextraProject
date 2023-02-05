@@ -2,7 +2,7 @@
 // Check if email and password are set
 if(isset($_POST['UID']) && isset($_POST['password'])){
     // Include the necessary files
-    include("connectdb.php");
+    include("../connectdb.php");
     include("validate.php");
     // Call validate, pass form data as parameter and store the returned value
     $uid = validate($_POST['UID']);
