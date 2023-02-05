@@ -180,8 +180,8 @@
 
                                                                     ?>
                                                                 </select>
-                                                                <button class="onbutton" id="istbtn_<?php echo $rownum; ?>" style="margin-top:-7%; <?php if ($rownum > 1) { ?>display: none;<?php } ?>" onclick="modaldis(<?php echo $rownum; ?>, <?php echo $toolidall; ?>)">QR code</button>
-                                                                <button class="onbutton" id="lockbtn_<?php echo $rownum; ?>" style="margin-top: 1%;<?php if ($rownum > 1) { ?>display: none;<?php } ?>" onclick="lockechc(<?php echo $rownum; ?>, <?php echo $toolidall; ?>)">ยืนยัน</button>
+                                                                <button type="button" class="onbutton" id="istbtn_<?php echo $rownum; ?>" style="margin-top:-7%; <?php if ($rownum > 1) { ?>display: none;<?php } ?>" onclick="modaldis(<?php echo $rownum; ?>, <?php echo $toolidall; ?>)">QR code</button>
+                                                                <button type="button" class="onbutton" id="lockbtn_<?php echo $rownum; ?>" style="margin-top: 1%;<?php if ($rownum > 1) { ?>display: none;<?php } ?>" onclick="lockechc(<?php echo $rownum; ?>, <?php echo $toolidall; ?>)">ยืนยัน</button>
 
                                                             </td>
                                                         </tr>
@@ -209,7 +209,7 @@
 
 
                             <div>
-                                <button class="onbutton" id="submiter" disabled>ยืนยันรับอุปกรณ์</button>
+                                <button class="onbutton" id="submiter" type="submit" style="display: none;" disabled>ยืนยันรับอุปกรณ์</button>
 
                             </div>
                             </form>
@@ -276,7 +276,7 @@
 
             const ptest = document.getElementById("ledid");
 
-            var submitbtn = document.getElementById("submiter");
+            var subtn = document.getElementById("submiter");
 
             var stedlist = [];
             var idenlist = [];
@@ -305,7 +305,7 @@
 
                     if (!valcheck) {
 
-                        ptest.innerHTML = "This tool specific ID isn't an option or has been selected."
+                        ptest.innerHTML = "This tool specific ID isn't an option or has been selected.";
                     } else {
 
                         slcorscn.value = content;
@@ -348,6 +348,7 @@
             // When the user clicks on <span> (x), close the modal
             span.onclick = function() {
                 istmodal.style.display = "none";
+                ptest.innerHTML = "";
                 scnr.stop();
             }
 
@@ -411,14 +412,8 @@
                     hiddeneer.setAttribute("value", JSON.stringify(stedlist));
                     document.getElementById("theForm").appendChild(hiddeneer);
 
-                    submitbtn.disabled = false;
-
-                    // submitbtn.addEventListener("click", function(event) {
-
-                    //     event.preventDefault();
-                    //     document.getElementById("theForm").appendChild(hiddeneer);
-                    //     document.getElementById("theForm").submit();
-                    // });
+                    subtn.disabled = false;
+                    subtn.style.display = "block";
                 }
 
             }

@@ -487,7 +487,8 @@ nav .profile-details i {
 
 .frame {
   position: relative;
-  height: 850px;
+  height: 100%;
+  width: 100%;
 
 }
 

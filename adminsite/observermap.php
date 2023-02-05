@@ -30,13 +30,15 @@ while ($slcrow = mysqli_fetch_array($reslcon)) {
             $uactlo = $urcrow["act_lo"];
             $uactla = $urcrow["act_la"];
         }
-        $uidcontainer[0][] = $uidone;
-        $uidcontainer[1][] = $uactlo;
-        $uidcontainer[2][] = $uactla;
+        array_push($uidcontainer, array("user" => $uidone, "lo" => $uactlo, "la" => $uactla));
     }
 }
 
 $jarr = json_encode($uidcontainer);
+
+// print_r($jarr);
+// print_r($uidcontainer);
+
 echo "<script>var usercontain = " . $jarr . ";</script>";
 
 ?>
@@ -45,7 +47,6 @@ echo "<script>var usercontain = " . $jarr . ";</script>";
     <div id="dismap" style="width:100%;height:100%;"></div>
 
     <script>
-
         var map = new ol.Map({
             target: 'dismap',
             layers: [
@@ -54,9 +55,42 @@ echo "<script>var usercontain = " . $jarr . ";</script>";
                 })
             ],
             view: new ol.View({
-                center: ol.proj.fromLonLat([100.9925, 15.8700]),
-                zoom: 5
+                center: ol.proj.fromLonLat([102.0206741, 14.8823084]),
+                zoom: 14
             })
+        });
+
+        usercontain.forEach(function(marker) {
+            var cuid = marker["user"];
+            var clog = marker["lo"];
+            var clat = marker["la"];
+            var icfeature = new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.fromLonLat([clog, clat])),
+                name: cuid
+            });
+            var iconStyle = new ol.style.Style({
+                image: new ol.style.Icon({
+                    anchor: [0.5, 55],
+                    anchorXUnits: 'fraction',
+                    anchorYUnits: 'pixels',
+                    src: 'https://openlayers.org/en/latest/examples/data/icon.png'
+                }),
+                text: new ol.style.Text({
+                    text: cuid,
+                    font: 'bold 30px TH Sarabun New'
+                })
+            });
+            icfeature.setStyle(iconStyle);
+            var vectorSource = new ol.source.Vector({
+                features: [icfeature]
+            });
+            var markerVectorLayer = new ol.layer.Vector({
+                source: vectorSource
+            });
+            // icfeature.on("click", function(marker) {
+            //     console.log(marker["user"]);
+            // });
+            map.addLayer(markerVectorLayer);
         });
     </script>
 </body>

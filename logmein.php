@@ -58,13 +58,15 @@ if ((!empty($lid)) && (!empty($pwd))) {
 
     if ($cnt == 1) {
         if ($roller == "admin") {
-            // session_start();
+            session_start();
             // session_name("loginses");
             // setcookie(session_name(), session_id(), time() + 86400, '/');
             // $_SESSION["userck"] = $lid;
 
-            setcookie("userck", $lid, time() + 86400, '/');
+            setcookie("userck", $lid, time()+86400, '/');
             // echo "\nADMIN : " . $lid;
+
+            // setcookie("userck", $lid, time() + 86400, '/', 'digiproj.sut.ac.th');
 
             // if (isset($_COOKIE["userck"])) {
 
@@ -87,12 +89,12 @@ if ((!empty($lid)) && (!empty($pwd))) {
             echo "<script type='text/javascript'>location.href='adminsite/menubar.html';</script>";
             exit();
         } else {
-            // session_start();
+            session_start();
             // session_name("loginses");
             // setcookie(session_name(), session_id(), time() + 86400, '/');
             // $_SESSION["userck"] = $lid;
 
-            setcookie("userck", $lid, time() + 86400, '/');
+            setcookie("userck", $lid, time()+86400, '/');
             // echo "\nUSER : " . $lid;
 
             // if (isset($_COOKIE["userck"])) {
