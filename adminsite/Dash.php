@@ -5,18 +5,26 @@
 </head>
 
 <body>
+    <?php
 
-    <div style="height: 50%;">
+    include('../connectdb.php');
+
+    ?>
+
+    <div style="width: 100%;">
         <canvas id="charttestone"></canvas>
     </div>
-    <div style="height: 50%;">
-        <canvas id="charttestonetwo"></canvas>
+    <div>
+        <div>
+            <p></p>
+        </div>
+        <div>
+            <canvas id="toolchart"></canvas>
+        </div>
     </div>
 </body>
 
 <?php
-
-include('../connectdb.php');
 
 $ledgercall = "SELECT * FROM ledger_table WHERE queue_status = 7 OR queue_status = 6 ORDER BY ledger_s_date ASC";
 $reslgc = $conn->query($ledgercall);
@@ -41,47 +49,48 @@ while ($row = mysqli_fetch_assoc($reslgc)) {
     }
 }
 
-$data2 = array();
-$ardate2 = array();
-while ($row = mysqli_fetch_assoc($reslgc)) {
+$jsonData = json_encode($data);
 
-    $curdate = $row["ledger_s_date"];
-    $tifocd = new DateTime($curdate);
-    $mocur = $tifocd->format('m');
+print_r($jsonData);
 
-    if (!in_array($mocur, $ardate2)) {
+echo "<script>var ledgerdata = " . $jsonData . ";</script>";
 
-        $ledgercurdate = "SELECT * FROM ledger_table";
-        $rescd = $conn->query($ledgercurdate);
-        $lcurdcount = mysqli_num_rows($rescd);
+$typecount = "SELECT * FROM tool_type_table";
+$restc = $conn->query($typecount);
 
-        while ($monrow = mysqli_fetch_array($rescd)) {
+$typedata = array();
 
-            $modate = $monrow["ledger_s_date"];
-            $dtfmtmodate = new DateTime($modate);
-            $month = $dtfmtmodate->format('m');
+while ($tcrow = mysqli_fetch_array($restc)) {
+    $ttype = $tcrow["tool_type"];
+    $typename = $tcrow["type_name"];
 
-            if ($month == $mocur) {
+    $counter = 0;
 
-                $data2[] = array(
-                    "month" => $mocur,
-                    "usage" => $lcurdcount
-                );
-            }
-        }
+    $talltb = "SELECT * FROM tool_all_table WHERE tool_type = '$ttype'";
+    $resttb = $conn->query($talltb);
 
-        $ardate2[] = $mocur;
+    while ($toolrow = mysqli_fetch_array($resttb)) {
+        $toolid = $toolrow["tool_all_ID"];
+
+        $tcount = "SELECT * FROM tool_specific_table WHERE tool_all_ID = '$toolid'";
+        $restoc = $conn->query($tcount);
+        $countrtoc = mysqli_num_rows($restoc);
+        $counter += $countrtoc;
+    }
+
+    if ($counter > 0) {
+        $typedata[] = array(
+            "type" => $typename,
+            "quantity" => $counter
+        );
     }
 }
 
-$jsonData = json_encode($data);
-$jsonData2 = json_encode($data2);
+$typejson = json_encode($typedata);
 
-print_r($jsonData);
-print_r($jsonData2);
+print_r($typejson);
 
-echo "<script>var ledgerdata = " . $jsonData . ";</script>";
-echo "<script>var ledgerdatatwo = " . $jsonData2 . ";</script>";
+echo "<script>var typedata = " . $typejson . "</script>";
 
 ?>
 
@@ -89,7 +98,7 @@ echo "<script>var ledgerdatatwo = " . $jsonData2 . ";</script>";
 
 <script>
     var ctone = document.getElementById("charttestone").getContext("2d");
-    var ctonetwo = document.getElementById("charttestonetwo").getContext("2d");
+    var tchrt = document.getElementById("toolchart").getContext("2d");
 
     var labels = [];
     var usagedata = [];
@@ -99,26 +108,14 @@ echo "<script>var ledgerdatatwo = " . $jsonData2 . ";</script>";
         usagedata.push(element.usage);
     });
 
-    var labelstwo = [];
-    var usagedatatwo = [];
-
-    ledgerdatatwo.forEach(function(element) {
-        labelstwo.push(element.date);
-        usagedatatwo.push(element.usage);
-    });
-
     var chctone = new Chart(ctone, {
-        type: "line",
+        type: "bar",
         data: {
             labels: labels,
             datasets: [{
                 label: "Usage Times",
                 data: usagedata,
-                fill: true,
-                borderColor: "rgba(75,192,192,1)",
-                pointRadius: 5,
-                pointBorderColor: "rgba(75,192,192,1)",
-                pointBackgroundColor: "rgba(75,192,192,1)"
+                fill: true
             }]
         },
         options: {
@@ -143,40 +140,24 @@ echo "<script>var ledgerdatatwo = " . $jsonData2 . ";</script>";
             }
         }
     });
-    var chctone2 = new Chart(ctonetwo, {
-        type: "line",
+
+    var types = [];
+    var typequan = [];
+
+    typedata.forEach(function(element) {
+        types.push(element.type);
+        typequan.push(element.quantity);
+    });
+
+    var chtype = new Chart(tchrt, {
+        type: "pie",
         data: {
-            labels: labelstwo,
+            labels: types,
             datasets: [{
-                label: "Usage Times",
-                data: usagedatatwo,
-                fill: true,
-                borderColor: "rgba(75,192,192,1)",
-                pointRadius: 5,
-                pointBorderColor: "rgba(75,192,192,1)",
-                pointBackgroundColor: "rgba(75,192,192,1)"
+                label: "Quantity",
+                data: typequan,
+                fill: true
             }]
-        },
-        options: {
-            scales: {
-                xAxes: [{
-                    type: "time",
-                    time: {
-                        unit: "month",
-                        displayFormats: {
-                            month: "MMMM YYYY"
-                        },
-                        parser: function(date) {
-                            return moment(date, "YYYY-MM-DD");
-                        }
-                    }
-                }],
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
         }
     });
 </script>
