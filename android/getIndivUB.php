@@ -53,7 +53,8 @@ while ($trow = mysqli_fetch_array($resutlsql)) {
 
         $toolist[] = array(
             "toolid" => $curtool,
-            "name" => $tooldet
+            "name" => $tooldet,
+            "quantity" => $tcount
         );
         $chtlist[] = $curtool;
     }
