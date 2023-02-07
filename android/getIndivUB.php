@@ -10,14 +10,15 @@ $uid = validate($_POST['UID']);
 $usersql = "SELECT * FROM user WHERE UID = '$uid'";
 $resusql = $conn->query($usersql);
 
+$logdata = array();
 $finaldata = array();
 
 while ($userdata = mysqli_fetch_array($resusql)) {
 
-    $finaldata['UID'] = $userdata['UID'];
-    $finaldata['username'] = $userdata['username'];
-    $finaldata['email'] = $userdata['email'];
-    $finaldata['phonenum'] = $userdata['phonenum'];
+    $logdata['UID'] = $userdata['UID'];
+    $logdata['username'] = $userdata['username'];
+    $logdata['email'] = $userdata['email'];
+    $logdata['phonenum'] = $userdata['phonenum'];
 }
 
 $usertoolsql = "SELECT * FROM ledger_table
@@ -58,6 +59,8 @@ while ($trow = mysqli_fetch_array($resutlsql)) {
     }
 }
 
-$finaldata["list"] = $toolist;
+$logdata["list"] = $toolist;
+
+$finaldata[] = $logdata;
 
 echo json_encode($finaldata);
