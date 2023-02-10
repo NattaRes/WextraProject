@@ -3,8 +3,8 @@
 include('../connectdb.php');
 include('validate.php');
 
-// $qid = validate($_POST['queID']);
-// $uid = validate($_POST['UID']);
+$qid = validate($_POST['queID']);
+$uid = validate($_POST['UID']);
 
 // $uid = "testuser";
 // $qid = "66";
