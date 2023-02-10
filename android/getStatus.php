@@ -16,6 +16,7 @@ while($newstmt = mysqli_fetch_array($stmt)) {
     $stmt1['e_date'] = $newstmt['e_date'];
     $stmt1['queue_status'] = $newstmt['queue_status'];
     $stmt1['que_ID'] = $newstmt['que_ID'];
+    $stmt1['UID'] = $newstmt['que_owner_UID'];
 
     array_push($queue_table['data'],$stmt1);
 
