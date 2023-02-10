@@ -114,10 +114,11 @@
 		</div>
 
 		<input type="radio" id="tabgive" name="mytabs">
+
 		<label for="tabgive" style="font-size: 18px; ">รายการคืนเครื่องมือ</label>
-		<button class="px-4 py-2 rounded-lg bg-sky-200 text-sky-100 " style="background-color: #015C92;  color:white; margin-top:2%; margin-left:42%; height:50%;font-size: 18px; ">แสกนคิวอาร์โค้ด</button>
 
 		<div class="tab">
+
 			<div class="test" style=" margin-left: 5%; margin-right: 5%;">
 				<div class="flex flex-col">
 					<div>
@@ -205,6 +206,8 @@
 				</div>
 			</div>
 		</div>
+		<button class="px-4 py-2 rounded-lg bg-sky-200 text-sky-100 " style="background-color: #015C92;  color:white; margin-top:2%; margin-left:42%; height:50%;font-size: 18px; ">แสกนคิวอาร์โค้ด</button>
+
 	</div>
 
 	<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
