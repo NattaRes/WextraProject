@@ -22,26 +22,26 @@ while ($userdata = mysqli_fetch_array($resusql)) {
     $finaldata['phonenum'] = $userdata['phonenum'];
 }
 
+$quedet = "SELECT * FROM queue_table WHERE que_ID = '$qid'";
+$resqdt = $conn->query($quedet);
+
+while ($qrow = mysqli_fetch_array($resqdt)) {
+
+    $finaldata["sdate"] = $qrow["s_date"];
+    $finaldata["edate"] = $qrow["e_date"];
+    $finaldata["que_desc"] = $qrow["que_desc"];
+    $finaldata["queue_status"] = $qrow["queue_status"];
+}
+
 $ledgqid = "SELECT * FROM ledger_table WHERE que_ID = '$qid'";
 $resldgq = $conn->query($ledgqid);
 
 $dataset = array();
 $chtlist = array();
-$ubodate = array();
 
 while ($data = mysqli_fetch_array($resldgq)) {
 
     $toolid = $data["tool_all_ID"];
-
-    if (empty($ubodate)) {
-
-        $sdate = $data["ledger_s_date"];
-        $edate = $data["ledger_e_date"];
-        $ubodate[] = array(
-            "sdate" => $sdate,
-            "edate" => $edate
-        );
-    }
 
     if (!in_array($toolid, $chtlist)) {
 
@@ -67,8 +67,6 @@ while ($data = mysqli_fetch_array($resldgq)) {
     }
 }
 
-$finaldata["sdate"] = $sdate;
-$finaldata["edate"] = $edate;
 $finaldata["list"] = $chtlist;
 
 echo json_encode($finaldata);
