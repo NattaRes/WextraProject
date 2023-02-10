@@ -15,6 +15,7 @@
 	</div>
 	<div class="mytabs">
 		<input type="radio" id="tabborrow" name="mytabs" checked="checked">
+
 		<label for="tabborrow" style="font-size: 18px;">รายการยืมเครื่องมือ</label>
 		<div class="tab">
 			<div class="test" style=" margin-left: 5%; margin-right: 5%;">
@@ -110,7 +111,9 @@
 		</div>
 
 		<input type="radio" id="tabgive" name="mytabs">
-		<label for="tabgive" style="font-size: 18px;">รายการคืนเครื่องมือ</label>
+		<label for="tabgive" style="font-size: 18px; ">รายการคืนเครื่องมือ</label>
+        <button class="px-4 py-2 rounded-lg bg-sky-200 text-sky-100 " style="background-color: #015C92;  color:white; margin-left:50%; margin-top:2%; height:50%;font-size: 18px; ">แสกนคิวอาร์โค้ด</button>
+
 		<div class="tab">
 			<div class="test" style=" margin-left: 5%; margin-right: 5%;">
 				<div class="flex flex-col">

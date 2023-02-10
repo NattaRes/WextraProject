@@ -1,4 +1,14 @@
+/* Googlefont Poppins CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Kanit', sans-serif;
+}
 .modal {
+	font-family: 'Kanit', sans-serif;
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
 	z-index: 1; /* Sit on top */
@@ -17,6 +27,8 @@
 	background-color: #fefefe;
 	margin: auto;
 	padding: 20px;
+	font-family: 'Kanit', sans-serif;
+
 	border: 1px solid #888;
 	width: 30%;
 	border-radius: 33px;

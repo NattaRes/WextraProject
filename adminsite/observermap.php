@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="observui.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.2.2/ol.css">
     <script src="https://cdn.jsdelivr.net/npm/ol@v7.2.2/dist/ol.js"></script>
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -15,6 +18,7 @@
     <script src="https://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
     <title>Wextra</title>
 </head>
+
 
 <?php
 
@@ -94,26 +98,62 @@ echo "<script>var usercontain = " . $jarr . ";</script>";
 
 ?>
 
+<html>
 <body>
+
     <div id="dismap" style="width:100%;height:100%;"></div>
 
     <div id="modal" class="modal">
         <div class="modal-content" style=" width: 40%; margin-left:30%; border-radius: 33px; box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);">
             <span class="close" style="margin-left:95%; font-size: 35px;">&times;</span>
+            <label style="font-size: 18px;   font-family: 'Kanit', sans-serif;">รายละเอียด</label>
+
             <div>
-                <p id="ledid"></p>
-                <p id="ledna"></p>
-                <p id="ledem"></p>
-                <p id="ledph"></p>
+                <div>
+            <label style="font-size: 16px;  font-family: 'Kanit', sans-serif;">รหัสนักศึกษา : <lebel style="font-size: 16px;" id="ledid"></lebel></label>
+                </div>
+                <div>
+            <label style="font-size: 16px;  font-family: 'Kanit', sans-serif;">ชื่อ : <lebel style="font-size: 16px;" id="ledna"></lebel></label>
+            </div>
+            <div>
+            <label style="font-size: 16px;  font-family: 'Kanit', sans-serif;">อีเมล : <lebel style="font-size: 16px;" id="ledem"></lebel></label>
+            </div>
+            <div>
+            <label style="font-size: 16px; font-family: 'Kanit', sans-serif;">เบอร์โทรศัพท์ : <lebel style="font-size: 16px;" id="ledph"></lebel></label>
+            </div>
                 <div id="toolist">
                     <table>
                         <thead>
-                            <tr>
-                                <th>Tool</th>
-                                <th>Quantity</th>
+                            <tr style="margin-top:5%">
+					
+
+									
+                                <th style="
+										text-align: center;
+										border-right: 2px solid rgb(194, 194, 194);
+                                        border-top: 2px solid rgb(194, 194, 194);
+                                        border-bottom: 2px solid rgb(194, 194, 194);
+                                        border-left: 2px solid rgb(194, 194, 194);
+                                        font-family: 'Kanit', sans-serif;
+										width: 40%; font-size: 16px; background-color: white;">อุปกรณ์</th>
+                                <th style="
+										text-align: center;
+										border-right: 2px solid rgb(194, 194, 194);
+                                        border-top: 2px solid rgb(194, 194, 194);
+                                        border-bottom: 2px solid rgb(194, 194, 194);
+                                        font-family: 'Kanit', sans-serif;
+                                        border-left: 2px solid rgb(194, 194, 194);
+										width: 40%; font-size: 16px; background-color: white;">จำนวน</th>
                             </tr>
                         </thead>
-                        <tbody id="modaltbody">
+                        <tbody style="
+										text-align: center;
+										border-right: 2px solid rgb(194, 194, 194);
+                                        border-top: 2px solid rgb(194, 194, 194);
+                                        border-bottom: 2px solid rgb(194, 194, 194);
+                                        border-left: 2px solid rgb(194, 194, 194);
+                                        font-family: 'Kanit', sans-serif;
+										width: 40%; font-size: 16px; background-color: white;" id="modaltbody">
                         </tbody>
                     </table>
                 </div>
