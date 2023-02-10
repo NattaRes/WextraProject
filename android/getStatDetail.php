@@ -1,17 +1,17 @@
 <?php
 
-include("../connectdb.php");
-include("validate.php");
+include('../connectdb.php');
+include('validate.php');
 
+$qid = validate($_POST['queID']);
 $uid = validate($_POST['UID']);
 
 // $uid = "testuser";
 
+$finaldata = array();
+
 $usersql = "SELECT * FROM user WHERE UID = '$uid'";
 $resusql = $conn->query($usersql);
-
-// $logdata = array();
-$finaldata = array();
 
 while ($userdata = mysqli_fetch_array($resusql)) {
 
@@ -21,60 +21,53 @@ while ($userdata = mysqli_fetch_array($resusql)) {
     $finaldata['phonenum'] = $userdata['phonenum'];
 }
 
-$usertoolsql = "SELECT * FROM ledger_table
-    WHERE user_UID = '$uid'
-    AND queue_status = 6";
-$resutlsql = $conn->query($usertoolsql);
+$ledgqid = "SELECT * FROM ledger_table WHERE que_ID = '$qid'";
+$resldgq = $conn->query($ledgqid);
 
-$toolist = array();
+$dataset = array();
 $chtlist = array();
 $ubodate = array();
 
-while ($trow = mysqli_fetch_array($resutlsql)) {
+while ($data = mysqli_fetch_array($resldgq)) {
 
-    $curtool = $trow["tool_all_ID"];
+    $toolid = $data["tool_all_ID"];
 
     if (empty($ubodate)) {
 
-        $sdate = $trow["ledger_s_date"];
-        $edate = $trow["ledger_e_date"];
+        $sdate = $data["ledger_s_date"];
+        $edate = $data["ledger_e_date"];
         $ubodate[] = array(
             "sdate" => $sdate,
             "edate" => $edate
         );
     }
 
-    if (!in_array($curtool, $chtlist)) {
+    if (!in_array($toolid, $chtlist)) {
 
-        $countcurt = "SELECT * FROM ledger_table
-            WHERE user_UID = '$uid'
-            AND queue_status = 6
-            AND tool_all_ID = '$curtool'";
-        $rescct = $conn->query($countcurt);
-        $tcount = mysqli_num_rows($rescct);
+        $tcntr = "SELECT * FROM ledger_table WHERE que_ID = '$qid'";
+        $restc = $conn->query($tcntr);
+        $tcoun = mysqli_num_rows($restc);
 
         $gtdata = "SELECT * FROM tool_all_table 
             INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand
-            WHERE tool_all_ID = '$curtool'";
+            WHERE tool_all_ID = '$toolid'";
         $resgtd = $conn->query($gtdata);
 
         while ($rowgtd = mysqli_fetch_array($resgtd)) {
             $tooldet = $rowgtd["tool_name"] . " " . $rowgtd["brand_name"] . " " . $rowgtd["tool_model"];
         }
 
-        $toolist[] = array(
-            "toolid" => $curtool,
+        $dataset[] = array(
+            "toolid" => $toolid,
             "name" => $tooldet,
-            "quantity" => $tcount
+            "quantity" => $tcoun
         );
-        $chtlist[] = $curtool;
+        $chtlist[] = $toolid;
     }
 }
 
 $finaldata["sdate"] = $sdate;
 $finaldata["edate"] = $edate;
 $finaldata["list"] = $toolist;
-
-// $finaldata[] = $logdata;
 
 echo json_encode($finaldata);

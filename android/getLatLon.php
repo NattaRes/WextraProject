@@ -39,6 +39,7 @@ while ($qrow = mysqli_fetch_array($resqu)) {
 
         // push
         $ctluser = array();
+        $chkdate = false;
 
         while ($rowtl = mysqli_fetch_array($resgetlu)) {
 
@@ -55,6 +56,14 @@ while ($qrow = mysqli_fetch_array($resqu)) {
                         break;
                     }
                 }
+            }
+
+            if (!$chkdate) {
+                
+                $sdate = $rowtl["ledger_s_date"];
+                $edate = $rowtl["ledger_e_date"];
+
+                $chkdate = true;
             }
 
             if (!$valf) {
@@ -82,6 +91,8 @@ while ($qrow = mysqli_fetch_array($resqu)) {
             "phone" => $phone,
             "lat" => $uclat,
             "lon" => $uclon,
+            "sdate" => $sdate,
+            "edate" => $edate,
             "list" => $ctluser
         );
     }
