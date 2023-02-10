@@ -3,10 +3,11 @@
 include('../connectdb.php');
 include('validate.php');
 
-$qid = validate($_POST['queID']);
-$uid = validate($_POST['UID']);
+// $qid = validate($_POST['queID']);
+// $uid = validate($_POST['UID']);
 
 // $uid = "testuser";
+// $qid = "66";
 
 $finaldata = array();
 
@@ -62,12 +63,12 @@ while ($data = mysqli_fetch_array($resldgq)) {
             "name" => $tooldet,
             "quantity" => $tcoun
         );
-        $chtlist[] = $toolid;
+        $chtlist[] = $dataset;
     }
 }
 
 $finaldata["sdate"] = $sdate;
 $finaldata["edate"] = $edate;
-$finaldata["list"] = $toolist;
+$finaldata["list"] = $chtlist;
 
 echo json_encode($finaldata);

@@ -96,14 +96,16 @@ body {
 
 .mytabs label {
   padding: 25px;
-  background: #C2C2C2;;
+  background: #C2C2C2;
+  ;
   font-weight: bold;
 }
 
 .mytabs .tab {
   width: 100%;
   padding: 20px;
-  background: #E3E3E3;;
+  background: #E3E3E3;
+  ;
   order: 1;
   display: none;
 }
@@ -117,13 +119,73 @@ body {
 }
 
 .mytabs input[type="radio"]:checked+label {
-  background: #E3E3E3;;
+  background: #E3E3E3;
+  ;
 }
 
 ิ.boxtext {
   background-color: #4f5165;
   border-radius: 10px;
 }
+
 .invisible-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  border-radius: 33px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 35px;
+  margin-right: 5%;
+}
+
+.close1 {
+  width: 150px;
+  height: 40px;
+  border: none;
+  font-size: 20px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }

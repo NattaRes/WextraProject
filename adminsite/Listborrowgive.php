@@ -12,7 +12,7 @@
 
 <body>
 	<div style="margin-top:8%;">
-	
+
 	</div>
 
 	<div class="mytabs">
@@ -206,14 +206,26 @@
 				</div>
 			</div>
 		</div>
-		<button class="px-4 py-2 rounded-lg bg-sky-200 text-sky-100 " style="background-color: #015C92;  color:white; margin-top:2%; margin-left:42%; height:50%;font-size: 18px; ">แสกนคิวอาร์โค้ด</button>
+		<button class="px-4 py-2 rounded-lg bg-sky-200 text-sky-100 " style="background-color: #015C92;  color:white; margin-top:2%; margin-left:42%; height:50%;font-size: 18px;">แสกนคิวอาร์โค้ด</button>
 
+	</div>
+	
+	<div id="authenmodal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content" style=" width: 40%; margin-left:30%; border-radius: 33px; box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);">
+			<span class="close" style="margin-left:95%; font-size: 35px;">&times;</span>
+			<div>
+			</div>
+			<div>
+			</div>
+		</div>
 	</div>
 
 	<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 
 	<script>
-		
+
 	</script>
 </body>
 
