@@ -66,8 +66,8 @@
 
                 <div>
                     <label class="credit-card-label" style="margin-left: 5%; font-size: 18px; color: #6e6e6e;">วันที่ยืม :</label>
-                    <input name="s_date" id="s_date" min="<?php echo $stformat; ?>" style=" color: #6e6e6e; margin-right: 10%;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" placeholder="เลือกวันที่ยืม" value="" required />
-                    <button id="dateslcbtn">ยืนยัน</button>
+                    <input name="s_date" id="s_date" min="<?php echo $stformat; ?>" style=" color: #6e6e6e; margin-right: 10%;  border-radius:5px; background:#D9D9D9; border:none; width: 15%;" placeholder="เลือกวันที่ยืม" value="" onchange="updateslc()" required />
+                    <!-- <button id="dateslcbtn" type="button">ยืนยัน</button> -->
                     <label class="credit-card-label" style="margin-left: 8.5%; font-size: 18px; color: #6e6e6e;">ระยะเวลา</label>
                     <input name="e_date" id="e_date" type="number" style="width: 4%;" min="1" max="3" value="1" />
                     <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">วัน</label>
@@ -422,7 +422,7 @@
         //     beforeShowDay: noWeekends
         // });
 
-        const btnslc = document.getElementById('dateslcbtn');
+        // const btnslc = document.getElementById('dateslcbtn');
         const slcdate = document.getElementById('s_date');
         const numinp = document.getElementById('e_date');
 
@@ -460,7 +460,7 @@
             }
         }
 
-        btnslc.addEventListener('click', updateslc);
+        // btnslc.addEventListener('click', updateslc);
     </script>
 </body>
 

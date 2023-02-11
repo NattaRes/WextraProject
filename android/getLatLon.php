@@ -59,7 +59,7 @@ while ($qrow = mysqli_fetch_array($resqu)) {
             }
 
             if (!$chkdate) {
-                
+
                 $sdate = $rowtl["ledger_s_date"];
                 $edate = $rowtl["ledger_e_date"];
 
@@ -67,6 +67,13 @@ while ($qrow = mysqli_fetch_array($resqu)) {
             }
 
             if (!$valf) {
+
+                $countcurt = "SELECT * FROM ledger_table
+                    WHERE user_UID = '$uidcon'
+                    AND queue_status = 6
+                    AND tool_all_ID = '$toolid'";
+                $rescct = $conn->query($countcurt);
+                $tcount = mysqli_num_rows($rescct);
 
                 $gtdata = "SELECT * FROM tool_all_table 
                 INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand
@@ -79,7 +86,8 @@ while ($qrow = mysqli_fetch_array($resqu)) {
 
                 $ctluser[] = array(
                     "toolid" => $toolid,
-                    "name" => $tooldet
+                    "name" => $tooldet,
+                    "quantity" => $tcount
                 );
             }
         }

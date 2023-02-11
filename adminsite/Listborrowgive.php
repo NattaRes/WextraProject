@@ -209,7 +209,7 @@
 		<button class="px-4 py-2 rounded-lg bg-sky-200 text-sky-100 " style="background-color: #015C92;  color:white; margin-top:2%; margin-left:42%; height:50%;font-size: 18px;">แสกนคิวอาร์โค้ด</button>
 
 	</div>
-	
+
 	<div id="authenmodal" class="modal">
 
 		<!-- Modal content -->
@@ -217,6 +217,7 @@
 			<span class="close" style="margin-left:95%; font-size: 35px;">&times;</span>
 			<div>
 			</div>
+			<video id="vidbox" style="align-self: center;" width="80%" height="80%" autoplay></video>
 			<div>
 			</div>
 		</div>
@@ -225,7 +226,12 @@
 	<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 
 	<script>
+		var videoElement = document.getElementById("vidbox");
+		var constraints = {
+			video: true
+		};
 
+		var span = document.getElementsByClassName("close")[0];
 	</script>
 </body>
 
