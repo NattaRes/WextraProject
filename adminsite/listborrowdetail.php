@@ -13,7 +13,7 @@
     <script src="https://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
 </head>
 
-<body>
+<body  style="height: 100%;">
     <?php
 
     include("../connectdb.php");

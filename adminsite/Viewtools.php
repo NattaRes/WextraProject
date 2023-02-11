@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body  style="height: 130%;">
     <div style="margin-top: 6%; margin-left: 11%;">
     </div>
     <div class="container   mt-10 p-3 cart " style="margin-top: 1%; background-color: #F6F6F6; border-radius: 30px; margin-bottom: 4%; ">
@@ -56,7 +56,7 @@
         <div class="payment-info">
             <div style="float: left;">
                 <img src="<?php echo $pic_path; ?>" style="
-                height: 30%;
+                height: 300px;
                 max-width: 80%;
 	            margin: 0 auto;
 	            z-index: 1;

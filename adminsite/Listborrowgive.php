@@ -5,7 +5,6 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 	<script src="https://cdn.tailwindcss.com/?plugins=forms"></script>
 	<link rel="stylesheet" href="Listborrgive.css">
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -13,19 +12,18 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-    <script src="https://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
 </head>
 
-<body>
-	<div style="margin-top:8%;">
+<body >
+	<div style="margin-top:8%; ">
 
 	</div>
 
 	<div class="mytabs">
 		<input type="radio" id="tabborrow" name="mytabs" checked="checked">
 
-		<label for="tabborrow" style="font-size: 18px;">รายการยืมเครื่องมือ</label>
-		<div class="tab">
+		<label for="tabborrow" style="font-size: 18px; ">รายการยืมเครื่องมือ</label>
+		<div class="tab" style=" margin-top:-1%">
 			<div class="test" style=" margin-left: 5%; margin-right: 5%;">
 				<div class="flex flex-col">
 					<div>
@@ -123,9 +121,9 @@
 
 		<label for="tabgive" style="font-size: 18px; ">รายการคืนเครื่องมือ</label>
 
-		<div class="tab">
+		<div class="tab" style="margin-top:-1%">
 
-			<div class="test" style=" margin-left: 5%; margin-right: 5%;">
+			<div class="test" style=" margin-left: 5%; margin-right: 5%; ">
 				<div class="flex flex-col">
 					<div>
 						<div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
@@ -212,13 +210,12 @@
 				</div>
 			</div>
 		</div>
-		<button class="px-4 py-2 rounded-lg bg-sky-200 text-sky-100 " style="background-color: #015C92;  color:white; margin-top:2%; margin-left:42%; height:50%;font-size: 18px;" onclick="modaldis()">แสกนคิวอาร์โค้ด</button>
+		<button class="px-4 py-2 rounded-lg bg-sky-200 text-sky-100 " style="background-color: #015C92;  color:white; margin-top:2%; margin-left:40%; height:50%;font-size: 18px;" onclick="modaldis()">แสกนคิวอาร์โค้ด</button>
 
 	</div>
 
 	<div id="authenmodal" class="modal">
 
-		<!-- Modal content -->
 		<div class="modal-content" style=" width: 40%; margin-left:30%; border-radius: 33px; box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.25);">
 			<span class="close" style="margin-left:95%; font-size: 35px;">&times;</span>
 			<div>

@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;500&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Kanit', sans-serif;
+}
 .content {
   text-align: center;
 }
@@ -77,10 +83,7 @@
 
 }
 
-body {
-  font-family: 'Kanit', sans-serif;
-  background-color: white;
-}
+
 
 .mytabs {
   display: flex;
