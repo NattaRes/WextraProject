@@ -4,11 +4,14 @@ include('../connectdb.php');
 include('validate.php');
 
 $toolid = validate($_POST['toolid']);
+// $toolid = "Qwerty";
+// echo $toolid;
 
-$slctool = "SELECT * FROM tool_all_table
+$slctool = "SELECT * FROM tool_specific_table
+    INNER JOIN tool_all_table ON tool_specific_table.tool_all_ID = tool_all_table.tool_all_ID
     INNER JOIN tool_brand_table ON tool_all_table.tool_brand = tool_brand_table.tool_brand
     INNER JOIN tool_type_table ON tool_all_table.tool_type = tool_type_table.tool_type
-    WHERE tool_all_ID = '$toolid'";
+    WHERE tool_spec_ID = '$toolid'";
 $resslct = $conn->query($slctool);
 
 $finaldata = array();
