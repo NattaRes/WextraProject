@@ -8,6 +8,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 	<script src="https://cdn.tailwindcss.com/?plugins=forms"></script>
 	<link rel="stylesheet" href="Listborrgive.css">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <script src="https://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
 </head>
 
 <body>
@@ -206,7 +212,7 @@
 				</div>
 			</div>
 		</div>
-		<button class="px-4 py-2 rounded-lg bg-sky-200 text-sky-100 " style="background-color: #015C92;  color:white; margin-top:2%; margin-left:42%; height:50%;font-size: 18px;">แสกนคิวอาร์โค้ด</button>
+		<button class="px-4 py-2 rounded-lg bg-sky-200 text-sky-100 " style="background-color: #015C92;  color:white; margin-top:2%; margin-left:42%; height:50%;font-size: 18px;" onclick="modaldis()">แสกนคิวอาร์โค้ด</button>
 
 	</div>
 
@@ -223,6 +229,30 @@
 		</div>
 	</div>
 
+	<?php
+
+	$quedata = "SELECT * FROM queue_table WHERE queue_status = 2";
+	$resqdt = $conn->query($quedata);
+
+	$dataset = array();
+
+	while ($qdtrow = mysqli_fetch_array($resqdt)) {
+
+		$nqid = $qdtrow["que_ID"];
+		$qown = $qdtrow["que_owner_UID"];
+
+		$dataset[] = array(
+			"queid" => $nqid,
+			"owner" => $qown
+		);
+	}
+
+	$jsondata = json_encode($dataset);
+
+	echo "<script>var quedata = " . $jsondata . "</script>";
+
+	?>
+
 	<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 
 	<script>
@@ -231,7 +261,64 @@
 			video: true
 		};
 
+		var authmodal = document.getElementById("authenmodal");
+
 		var span = document.getElementsByClassName("close")[0];
+
+		var scnr = new Instascan.Scanner({
+			video: document.getElementById("vidbox"),
+			scanPeriod: 5,
+			mirror: false
+		});
+
+		function modaldis() {
+			authmodal.style.display = "block";
+			videoElement.style.display = 'block';
+			scnr.addListener('scan', function(content) {
+				alert(content);
+
+			});
+			Instascan.Camera.getCameras().then(function(cameras) {
+				if (cameras.length > 0) {
+					scnr.start(cameras[0]);
+					$('[name="options"]').on('change', function() {
+						if ($(this).val() == 1) {
+							if (cameras[0] != "") {
+								scnr.start(cameras[0]);
+							} else {
+								alert('No Front camera found!');
+							}
+						} else if ($(this).val() == 2) {
+							if (cameras[1] != "") {
+								scnr.start(cameras[1]);
+							} else {
+								alert('No Back camera found!');
+							}
+						}
+					});
+				} else {
+					console.error('No cameras found.');
+					alert('No cameras found.');
+				}
+			}).catch(function(e) {
+				console.error(e);
+				// alert(e);
+			});
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+			authmodal.style.display = "none";
+			scnr.stop();
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == istmodal) {
+				authmodal.style.display = "none";
+				scnr.stop();
+			}
+		}
 	</script>
 </body>
 
