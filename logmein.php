@@ -63,7 +63,7 @@ if ((!empty($lid)) && (!empty($pwd))) {
             // setcookie(session_name(), session_id(), time() + 86400, '/');
             // $_SESSION["userck"] = $lid;
 
-            setcookie("userck", $lid, time() + 86400, '/');
+            setcookie("userck", $lid, time() + 86400, '/', "", false, true);
             // echo "\nADMIN : " . $lid;
 
             // setcookie("userck", $lid, time() + 86400, '/', 'digiproj.sut.ac.th');
@@ -94,7 +94,7 @@ if ((!empty($lid)) && (!empty($pwd))) {
             // setcookie(session_name(), session_id(), time() + 86400, '/');
             // $_SESSION["userck"] = $lid;
 
-            setcookie("userck", $lid, time() + 86400, '/');
+            setcookie("userck", $lid, time() + 86400, '/', "", false, true);
             // echo "\nUSER : " . $lid;
 
             // if (isset($_COOKIE["userck"])) {
