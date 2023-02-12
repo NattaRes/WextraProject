@@ -128,13 +128,13 @@
       <div class="recent-sales box">
         <div class="title">กราฟแท่ง</div>
         <div class="sales-details">
-          <canvas id="charttestone"></canvas>
+          <canvas id="charttestone" width="100%" height="100%"></canvas>
         </div>
 
       </div>
       <div class="top-sales box">
         <div class="title">แผนภูมิ</div>
-        <canvas id="toolchart"></canvas>
+        <canvas id="toolchart" width="100%" height="100%"></canvas>
       </div>
     </div>
   </div>
