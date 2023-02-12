@@ -270,10 +270,18 @@
 
 		function modaldis() {
 			authmodal.style.display = "block";
-			videoElement.style.display = 'block';
+			videoElement.style.display = "block";
 			scnr.addListener('scan', function(content) {
-				alert(content);
 
+				var stcon = content;
+				
+				const result = quedata.find(obj => obj.owner === content);
+
+				if (result) {
+					location.href='listborrowdetail.php?queid=' + result.queid;
+				} else {
+					alert("ไม่พบผู้ใช้อยู่ภายในรายการที่ได้รับการอนุมัติ : " + content);
+				}
 			});
 			Instascan.Camera.getCameras().then(function(cameras) {
 				if (cameras.length > 0) {
