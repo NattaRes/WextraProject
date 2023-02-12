@@ -103,29 +103,52 @@
                                                         if ($questat == 1) {
                                                             // Pending
 
-                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 4%; background-color: #D7BA00;" class="dot"></span>
-                                                            <h5 style="text-align: center; color:#D7BA00; font-size: 20px;  margin-right: 15%;">รอการอนุมัติ</h5>';
+                                                        ?>
+                                                            <span style="float: left; margin-left: 15%; margin-top: 4%; background-color: #D7BA00;" class="dot"></span>
+                                                            <h5 style="text-align: center; color:#D7BA00; font-size: 20px;  margin-right: 15%;">รอการอนุมัติ</h5>
+                                                        <?php
                                                         } elseif ($questat == 2) {
                                                             // Approved
 
-                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 4%;" class="dot"></span>
-                                                            <h5 style="text-align: center; color:green; font-size: 20px; margin-right: 20%;">อนุมัติ</h5>';
+                                                        ?>
+                                                            <span style="float: left; margin-left: 15%; margin-top: 4%;" class="dot"></span>
+                                                            <h5 style="text-align: center; color:green; font-size: 20px; margin-right: 20%;">อนุมัติ</h5>
+                                                        <?php
                                                         } elseif ($questat == 3) {
                                                             // Disapproved
 
-                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 4%; background-color: red" class="dot"></span>
-                                                            <h5 style="text-align: center; color:red; font-size: 20px;  margin-right: 15%;">ไม่อนุมัติ</h5>';
+                                                        ?>
+                                                            <span style="float: left; margin-left: 15%; margin-top: 4%; background-color: red" class="dot"></span>
+                                                            <h5 style="text-align: center; color:red; font-size: 20px;  margin-right: 15%;">ไม่อนุมัติ</h5>
+                                                        <?php
                                                         } elseif ($questat == 4) {
                                                             // Timeout
 
-                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 4%; background-color: red" class="dot"></span>
-                                                            <h5 style="text-align: center; color:red; font-size: 20px;  margin-right: 15%;">หมดเวลาอนุมัติ</h5>';
+                                                        ?>
+                                                            <span style="float: left; margin-left: 15%; margin-top: 4%; background-color: gray" class="dot"></span>
+                                                            <h5 style="text-align: center; color:gray; font-size: 20px;  margin-right: 15%;">หมดเวลาอนุมัติ</h5>
+                                                        <?php
                                                         } elseif ($questat == 5) {
                                                             // Cancel
 
-                                                            echo '<span style="float: left; margin-left: 15%; margin-top: 4%; background-color: red" class="dot"></span>
-                                                            <h5 style="text-align: center; color:red; font-size: 20px;  margin-right: 15%;">ถูกยกเลิก</h5>';
-                                                        } else {
+                                                        ?>
+                                                            <span style="float: left; margin-left: 15%; margin-top: 4%; background-color: red" class="dot"></span>
+                                                            <h5 style="text-align: center; color:red; font-size: 20px;  margin-right: 15%;">ถูกยกเลิก</h5>
+                                                        <?php
+                                                        } elseif ($questat == 6) {
+                                                            // In use
+
+                                                        ?>
+                                                            <span style="float: left; margin-left: 15%; margin-top: 4%; background-color: green" class="dot"></span>
+                                                            <h5 style="text-align: center; color:green; font-size: 20px;  margin-right: 15%;">กำลังใช้งานอยู่</h5>
+                                                        <?php
+                                                        } elseif ($questat == 7) {
+                                                            // Finished
+
+                                                        ?>
+                                                            <span style="float: left; margin-left: 15%; margin-top: 4%; background-color: gray" class="dot"></span>
+                                                            <h5 style="text-align: center; color:black; font-size: 20px;  margin-right: 15%;">สิ้นสุดการใช้งาน</h5>
+                                                        <?php
                                                         }
 
                                                         ?>
@@ -141,17 +164,39 @@
                                                             เรียกดู
                                                         </button>
                                                     </a>
-                                                    <a href="../universalbackend/deluserque.php?queid=<?php echo $row["que_ID"]; ?>">
-                                                    <button style="background-color:rgba(192, 0, 0, 0.777); 
-                                                        border-radius: 22px; width: 40%; 
-                                                        color: #ffffff; font-size: 18px;
-                                                        border: none;">
-                                                        ยกเลิก
-                                                    </button>
-                                                    </a>
-                                                            
+                                                    <?php
+                                                    if ($questat == 1) {
+                                                        // Pending
+
+                                                    ?>
+                                                        <a href="../universalbackend/deluserque.php?queid=<?php echo $row["que_ID"]; ?>">
+                                                            <button style="background-color:rgba(192, 0, 0, 0.777); 
+                                                                border-radius: 22px; width: 40%; 
+                                                                color: #ffffff; font-size: 18px;
+                                                                border: none;">
+                                                                ยกเลิก
+                                                            </button>
+                                                        </a>
+                                                    <?php
+                                                    } elseif ($questat == 2) {
+                                                        // Approved
+
+                                                    ?>
+                                                        <a href="../universalbackend/deluserque.php?queid=<?php echo $row["que_ID"]; ?>">
+                                                            <button style="background-color:rgba(192, 0, 0, 0.777); 
+                                                                border-radius: 22px; width: 40%; 
+                                                                color: #ffffff; font-size: 18px;
+                                                                border: none;">
+                                                                ยกเลิก
+                                                            </button>
+                                                        </a>
+                                                    <?php
+                                                    }
+
+                                                    ?>
+
                                                 </td>
-                                                
+
                                             </tr>
 
                                         <?php

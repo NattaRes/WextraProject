@@ -15,15 +15,16 @@ parse_str($partscrap['query'], $parts);
 $queid = $parts["queid"];
 
 $updateledger = "UPDATE ledger_table SET
-    queue_status = 5,
-    que_ID = NULL
+    queue_status = 5
     WHERE que_ID = '$queid'";
 
 $resledger = $conn->query($updateledger);
 
 if ($resledger) {
 
-    $delque = "DELETE FROM queue_table WHERE que_ID = '$queid'";
+    $delque = "UPDATE queue_table 
+        SET queue_status = 5
+        WHERE que_ID = '$queid'";
 
     $resdelque = $conn->query($delque);
 
