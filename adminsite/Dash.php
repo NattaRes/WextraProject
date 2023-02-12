@@ -22,7 +22,7 @@
 
   <div class="home-content" style="margin-top: 10%;">
     <div class="overview-boxes">
-      <div class="box">
+      <div class="box" style="background:#92CEA8;">
         <div class="right-side">
           <div class="box-topic">ยอดรวมการจอง</div>
           <?php
@@ -35,7 +35,7 @@
           <div class="number"><?php echo number_format($ttqcount, 0, '.', ','); ?></div>
         </div>
       </div>
-      <div class="box">
+      <div class="box" style="background:#FFBBDA;">
         <div class="right-side">
           <div class="box-topic">ยอดรวมการยืม-คืน</div>
           <?php
@@ -48,7 +48,7 @@
           <div class="number"><?php echo number_format($ttbtcount, 0, '.', ','); ?></div>
         </div>
       </div>
-      <div class="box">
+      <div class="box" style="background:#C0E4F6;">
         <div class="right-side">
           <div class="box-topic">ยอดรวมอุปกรณ์</div>
           <?php
@@ -61,16 +61,17 @@
           <div class="number"><?php echo number_format($counttool, 0, '.', ','); ?></div>
         </div>
       </div>
-      <div class="box">
-        <select id="toolstatslc" onchange="toolstatch(this.value)">
+   
+      <div class="box" style="background:#E6BEAE;">
+        
+      <select id="toolstatslc" onchange="toolstatch(this.value)" style="width:100px ">
           <option value="usablet" selected>ว่าง</option>
           <option value="usingto">อยู่ระหว่างการใช้งาน</option>
           <option value="defectt">ชำรุด</option>
           <option value="lostool">สูญหาย</option>
         </select>
-
         <!-- USABLE -->
-        <div class="right-side" id="usablet">
+        <div class="right-side" id="usablet" style="margin-left:15%;">
           <div class="box-topic">ว่าง</div>
           <?php
 
@@ -83,7 +84,7 @@
         </div>
 
         <!-- IN USE -->
-        <div class="right-side" style="display: none;" id="usingto">
+        <div class="right-side" style="display: none; margin-left:15%;" id="usingto">
           <div class="box-topic">กำลังใช้งาน</div>
           <?php
 
@@ -96,7 +97,7 @@
         </div>
 
         <!-- DEFECTIVE -->
-        <div class="right-side" style="display: none;" id="defectt">
+        <div class="right-side" style="display: none; margin-left:15%;" id="defectt" >
           <div class="box-topic">ชำรุด</div>
           <?php
 
@@ -109,7 +110,7 @@
         </div>
 
         <!-- LOST -->
-        <div class="right-side" style="display: none;" id="lostool">
+        <div class="right-side" style="display: none; margin-left:15%;" id="lostool">
           <div class="box-topic">สูญหาย</div>
           <?php
 
