@@ -66,7 +66,10 @@
             <div class="payment-info">
                 <?php
 
-                $usersql = "SELECT * FROM user WHERE UID = '$queowner'";
+                $usersql = "SELECT * FROM user 
+                    INNER JOIN faculty_table ON user.faculty = faculty_table.faculty
+                    INNER JOIN level_table ON user.level = level_table.level
+                    WHERE UID = '$queowner'";
 
                 $resuser = $conn->query($usersql);
 
@@ -74,6 +77,8 @@
                     $username = $rowuser["username"];
                     $email = $rowuser["email"];
                     $phone = $rowuser["phonenum"];
+                    $faculty = $rowuser["faculty_name"];
+                    $level = $rowuser["level_name"];
                 }
 
                 ?>
@@ -90,8 +95,8 @@
                     <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e; "><?php echo $uid; ?></label>
                 </div>
                 <div>
-                    <label class="credit-card-label" style="margin-left: 5%; margin-right: 22.4%; font-size: 18px; color: #6e6e6e;">คณะ : กระทรวงเวทย์มนต์</label>
-                    <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">สาขา : เทคโนโลยีดิจิทัล</label>
+                    <label class="credit-card-label" style="margin-left: 5%; margin-right: 22.4%; font-size: 18px; color: #6e6e6e;">คณะ : <?php echo $faculty; ?></label>
+                    <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">ระดับ : <?php echo $level; ?></label>
                 </div>
                 <div><label class="credit-card-label" style="margin-left: 5%; margin-right: 11%;font-size: 18px; color: #6e6e6e;">Email : <?php echo $email; ?></label>
                     <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">เบอร์ติดต่อ : <?php echo $phone; ?></label>

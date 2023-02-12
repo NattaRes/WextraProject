@@ -22,6 +22,19 @@ $chexist = "SELECT * FROM queue_table WHERE
 $reschxt = $conn->query($chexist);
 $exiscnt = mysqli_num_rows($reschxt);
 
+$userdata = "SELECT * FROM user 
+    INNER JOIN faculty_table ON user.faculty = faculty_table.faculty
+        INNER JOIN level_table ON user.level = level_table.level
+    WHERE UID = '$uid'";
+$resudata = $conn->query($userdata);
+
+while ($urow = mysqli_fetch_array($resudata)) {
+
+    $uname = $urow["username"];
+    $faculty = $urow["faculty_name"];
+    $level = $urow["level_name"];
+}
+
 if ($exiscnt < 1) {
     $newe_date = date_create($s_date);
     $e_date--;
@@ -117,11 +130,51 @@ if ($exiscnt < 1) {
 
                     $mail->isHTML(true);
                     $mail->Subject = 'Request approval';
-                    $mail->Body    = '<html>
+                    $mail->Body    =
+                        '<html>
+                            <head>
+                                <meta charset="UTF-8" />
+                                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                                <style type="text/css">
+                                    body {
+                                        font-family: Arial, sans-serif;
+                                        font-size: 16px;
+                                        line-height: 1.5;
+                                        color: #333;
+                                    }
+                                    h1 {
+                                        font-size: 24px;
+                                        font-weight: bold;
+                                        text-align: center;
+                                        color: #333;
+                                    }
+                                    p {
+                                        margin-bottom: 20px;
+                                    }
+                                    a {
+                                        text-decoration: none;
+                                    }
+                                    button {
+                                        background-color: blue;
+                                        color: white;
+                                        padding: 10px 20px;
+                                        border-radius: 5px;
+                                        border: none;
+                                        font-size: 18px;
+                                        font-weight: bold;
+                                        cursor: pointer;
+                                        text-align: center;
+                                    }
+                                </style>
+                            </head>
                             <body>
-                                <a href="http://localhost/wextraproject/user/AllowTeacher.php?queid=' . $qid . '">
-                                    CLICK
-                                </a>
+                                <h1>ขออนุมัติการใช้งานเครื่องมือ</h1>
+                                <p>' . $uid . " " . $uname . " " . $faculty . " " . $level . '</p>
+                                <center>
+                                    <a href="http://localhost/wextraproject/user/AllowTeacher.php?queid=' . $qid . '">
+                                        <button>Button</button>
+                                    </a>
+                                </center>
                             </body>
                         </html>';
                     $mail->AltBody = 'http://localhost/wextraproject/user/AllowTeacher.php?queid=' . $qid . '';

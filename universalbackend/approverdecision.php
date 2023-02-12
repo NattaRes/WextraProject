@@ -18,62 +18,59 @@ $qcheck = "SELECT * FROM queue_table WHERE que_ID = '$queid' AND queue_status = 
 $resqch = $conn->query($qcheck);
 $qcount = mysqli_num_rows($resqch);
 
-if ($qcount > 0) {
-    if ($decis == "ap") {
 
-        $aplgrsql = "UPDATE ledger_table SET
-                queue_status = 2
-                WHERE que_ID = '$queid'";
-        $resaplgr = $conn->query($aplgrsql);
+if ($decis == "ap") {
 
-        if ($resaplgr) {
+    $aplgrsql = "UPDATE ledger_table SET
+        queue_status = 2
+        WHERE que_ID = '$queid'";
+    $resaplgr = $conn->query($aplgrsql);
 
-            $apquesql = "UPDATE queue_table SET
-                queue_status = 2
-                WHERE que_ID = '$queid'";
+    if ($resaplgr) {
 
-            $resapque = $conn->query($apquesql);
+        $apquesql = "UPDATE queue_table SET
+            queue_status = 2
+            WHERE que_ID = '$queid'";
 
-            if ($resapque) {
+        $resapque = $conn->query($apquesql);
 
-                // echo "<script type='text/javascript'> alert('Update Successfully') </script>";
-                // echo "<script>window.close();</script>";
-                echo "<script type='text/javascript'> location.href='../user/page.html';</script>";
-            } else {
+        if ($resapque) {
 
-                echo mysqli_error($conn);
-            }
+            // echo "<script type='text/javascript'> alert('Update Successfully') </script>";
+            // echo "<script>window.close();</script>";
+            echo "<script type='text/javascript'> location.href='../user/page.html';</script>";
         } else {
 
             echo mysqli_error($conn);
         }
     } else {
 
-        $cclgrsql = "UPDATE ledger_table SET
-            queue_status = 3
+        echo mysqli_error($conn);
+    }
+} else {
+
+    $cclgrsql = "UPDATE ledger_table SET
+        queue_status = 3
+        WHERE que_ID = '$queid'";
+    $rescclgr = $conn->query($cclgrsql);
+
+    if ($rescclgr) {
+
+        $ccquesql = "DELETE FROM queue_table 
             WHERE que_ID = '$queid'";
-        $rescclgr = $conn->query($cclgrsql);
+        $resccque = $conn->query($ccquesql);
 
-        if ($rescclgr) {
+        if ($resccque) {
 
-            $ccquesql = "DELETE FROM queue_table 
-                WHERE que_ID = '$queid'";
-            $resccque = $conn->query($ccquesql);
-
-            if ($resccque) {
-
-                // echo "<script type='text/javascript'> alert('Update Successfully') </script>";
-                // echo "<script>window.close();</script>";
-                echo "<script type='text/javascript'> location.href='../user/page.html';</script>";
-            } else {
-
-                echo mysqli_error($conn);
-            }
+            // echo "<script type='text/javascript'> alert('Update Successfully') </script>";
+            // echo "<script>window.close();</script>";
+            echo "<script type='text/javascript'> location.href='../user/page.html';</script>";
         } else {
 
             echo mysqli_error($conn);
         }
+    } else {
+
+        echo mysqli_error($conn);
     }
-} else {
-    echo "<script type='text/javascript'> location.href='../user/page.html';</script>";
 }
