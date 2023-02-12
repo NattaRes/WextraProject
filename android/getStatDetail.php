@@ -6,8 +6,8 @@ include('validate.php');
 $qid = validate($_POST['queID']);
 $uid = validate($_POST['UID']);
 
-$uid = "testuser";
-$qid = "66";
+// $uid = "testuser";
+// $qid = "66";
 
 $finaldata = array();
 
