@@ -13,7 +13,7 @@
 
 </head>
 
-<body style="height: 130%;">
+<body style="height: 150%;">
     <?php
 
     include("../connectdb.php");

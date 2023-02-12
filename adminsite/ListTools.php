@@ -13,7 +13,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body style="margin-left: 5%; margin-right: 5%; ">
+<body style="margin-left: 5%; margin-right: 5%; height:130%;">
   <!-- Index Post -->
   <div class="container max-w-7xl mx-auto mt-8 ">
     <div class="mb-4">
