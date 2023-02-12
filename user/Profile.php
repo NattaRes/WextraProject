@@ -19,7 +19,10 @@
 
     $uid = $_COOKIE["userck"];
 
-    $usersql = "SELECT * FROM user WHERE UID = '$uid'";
+    $usersql = "SELECT * FROM user 
+        INNER JOIN faculty_table ON user.faculty = faculty_table.faculty
+        INNER JOIN level_table ON user.level = level_table.level
+        WHERE UID = '$uid'";
 
     $queuser = $conn->query($usersql);
 
@@ -28,6 +31,8 @@
         $email = $rowuser["email"];
         $phone = $rowuser["phonenum"];
         $profilepic = $rowuser["profile_pic_path"];
+        $faculty = $rowuser["faculty_name"];
+        $level = $rowuser["level_name"];
     }
 
     ?>
@@ -64,13 +69,13 @@
                             <label style="margin-left: 5%; margin-right:8%; font-size: 18px; color: #7E7C7C;">คณะ </label>
                             <label style="margin-left: 13%; font-size: 18px; color: #7E7C7C; 
                             background-color: white; border-radius: 9px; width: 280px; height: 32px; text-align: center;
-                            box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);">สำนักวิชาศาสตร์และศิลป์ดิจิทัล</label>
+                            box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);"><?php echo $faculty; ?></label>
                         </div>
                         <div style="margin-top: 1%;">
-                            <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">สาขา </label>
+                            <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">ระดับ </label>
                             <label style="margin-left: 20%; font-size: 18px; color: #7E7C7C; 
                             background-color: white; border-radius: 9px; width: 280px; height: 32px; text-align: center;
-                            box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);">เทคโนโลยีดิจิทัล</label>
+                            box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);"><?php echo $level; ?></label>
                         </div>
                         <div style="margin-top: 1%;">
                             <label style="margin-left: 5%; font-size: 18px; color: #7E7C7C;">อาจารย์ที่ปรึกษา </label>

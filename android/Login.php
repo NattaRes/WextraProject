@@ -8,7 +8,10 @@ if(isset($_POST['UID']) && isset($_POST['password'])){
     $uid = validate($_POST['UID']);
     $password = validate($_POST['password']);
     // Create the SQL query string
-    $sql = "SELECT * FROM `user` WHERE UID ='$uid' and password='" . hash("sha256", $password) . "' ";
+    $sql = "SELECT * FROM `user` 
+        INNER JOIN faculty_table ON user.faculty = faculty_table.faculty
+        INNER JOIN level_table ON user.level = level_table.level
+        WHERE UID ='$uid' and password='" . hash("sha256", $password) . "' ";
     // Execute the query
     $responce = array();
     $responce['data'] = array();
@@ -23,6 +26,8 @@ if(isset($_POST['UID']) && isset($_POST['password'])){
         $ds['username'] =$row['username'];
         $ds['email'] =$row['email'];
         $ds['phonenum'] =$row['phonenum'];
+        $ds["faculty_name"] =$row["faculty_name"];
+        $ds["level_name"] =$row["level_name"];
         array_push($responce['data'] ,$ds);
         $responce['status'] ="success";
         echo json_encode($responce);
