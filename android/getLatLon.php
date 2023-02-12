@@ -1,9 +1,12 @@
 <?php
 include('../connectdb.php');
+include('validate.php');
+
+$cuid = validate($_POST['UID']);
 
 // username, email, tel, lat, lon, tool list
 
-$queuser = "SELECT * FROM queue_table WHERE queue_status = 6";
+$queuser = "SELECT * FROM queue_table WHERE queue_status = 6 AND que_owner_UID != '$cuid'";
 $resqu = $conn->query($queuser);
 
 $uar = array();
