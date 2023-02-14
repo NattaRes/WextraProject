@@ -66,7 +66,7 @@
                             box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);"><?php echo $uid; ?></label>
                         </div>
                         <div style="margin-top: 1%;">
-                            <label style="margin-left: 5%; margin-right:8%; font-size: 18px; color: #7E7C7C;">คณะ </label>
+                            <label style="margin-left: 5%; margin-right:8%; font-size: 18px; color: #7E7C7C;">สำนักวิชา </label>
                             <label style="margin-left: 13%; font-size: 18px; color: #7E7C7C; 
                             background-color: white; border-radius: 9px; width: 280px; height: 32px; text-align: center;
                             box-shadow: 0px 1px 4px 4px rgba(0, 0, 0, 0.25);"><?php echo $faculty; ?></label>

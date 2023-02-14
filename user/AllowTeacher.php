@@ -91,7 +91,7 @@ if ($qcount > 0) {
                     <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e; "><?php echo $queowner; ?></label>
                 </div>
                 <div>
-                    <label class="credit-card-label" style="margin-left: 5%; margin-right: 22.4%; font-size: 18px; color: #6e6e6e;">คณะ : <?php echo $faculty; ?></label>
+                    <label class="credit-card-label" style="margin-left: 5%; margin-right: 22.4%; font-size: 18px; color: #6e6e6e;">สำนักวิชา : <?php echo $faculty; ?></label>
                     <label class="credit-card-label" style="font-size: 18px; color: #6e6e6e;">ระดับ : <?php echo $level; ?></label>
                 </div>
                 <div><label class="credit-card-label" style="margin-left: 5%; margin-right: 11%;font-size: 18px; color: #6e6e6e;">Email : <?php echo $email; ?></label>

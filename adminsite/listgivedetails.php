@@ -57,7 +57,10 @@
                 <div>
                     <?php
 
-                    $usersql = "SELECT * FROM user WHERE UID = '$queowner'";
+                    $usersql = "SELECT * FROM user 
+                        INNER JOIN faculty_table ON user.faculty = faculty_table.faculty
+                        INNER JOIN level_table ON user.level = level_table.level
+                        WHERE UID = '$queowner'";
 
                     $resuser = $conn->query($usersql);
 
@@ -65,6 +68,8 @@
                         $username = $rowuser["username"];
                         $email = $rowuser["email"];
                         $phone = $rowuser["phonenum"];
+                        $faculty = $rowuser["faculty_name"];
+                        $level = $rowuser["level_name"];
                     }
 
                     ?>
@@ -81,8 +86,8 @@
 
                 </div>
                 <div>
-                    <label class="credit-card-label" style="margin-left: 5%; margin-right: 23.8%; font-size: 20px; color: black; ">คณะ : กระทรวงเวทย์มนต์</label>
-                    <label class="credit-card-label" style="font-size: 20px; color: black; ">สาขา : เทคโนโลยีดิจิทัล</label>
+                    <label class="credit-card-label" style="margin-left: 5%; margin-right: 23.8%; font-size: 20px; color: black; ">สำนักวิชา : <?php echo $faculty; ?></label>
+                    <label class="credit-card-label" style="font-size: 20px; color: black; ">ระดับ : <?php echo $level; ?></label>
                 </div>
                 <div><label class="credit-card-label" style="margin-left: 5%; margin-right: 11.2%; font-size: 20px;color: black; ">Email : <?php echo $email; ?></label>
                     <label class="credit-card-label" style="font-size: 20px; color: black; ">เบอร์ติดต่อ : <?php echo $phone; ?></label>
